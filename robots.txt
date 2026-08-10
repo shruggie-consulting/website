@@ -1,0 +1,26 @@
+# Legal pages are excluded via a noindex meta tag on the pages themselves,
+# not here — blocking them in robots.txt would stop crawlers reading that tag.
+
+User-agent: *
+Allow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
