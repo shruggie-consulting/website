@@ -208,7 +208,13 @@ def main():
 
     if dist.exists():
         shutil.rmtree(dist)
-    shutil.copytree(src, dist)
+    shutil.copytree(
+        src,
+        dist,
+        ignore=shutil.ignore_patterns(
+            ".git", ".github", "scripts", ".gitignore", "dist"
+        ),
+    )
 
     httpd = serve_dir(dist, 8943)
 
