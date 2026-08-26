@@ -3,6 +3,7 @@ name: Build and deploy site
 on:
   push:
     branches: [main]
+  pull_request: {}
   workflow_dispatch: {}
 
 permissions:
@@ -34,6 +35,11 @@ jobs:
 
       - uses: actions/upload-pages-artifact@v3
         with:
+          path: dist
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist-preview
           path: dist
 
   deploy:
