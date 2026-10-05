@@ -1,0 +1,29 @@
+---
+import LangSwitch from "./LangSwitch.astro";
+import { content, ui, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const home = content[lang].home;
+---
+
+<header class="site-header">
+  <div class="brand">
+    <span class="brand__shrug shrug-logo" aria-hidden="true">
+      <span class="shrug-arm-l">¯\_(</span><span class="shrug-face">ツ</span><span class="shrug-arm-r">)_/¯</span>
+    </span>
+    <span class="brand__name">Shruggie<span class="brand__dot">.</span></span>
+    <span class="brand__rule" aria-hidden="true"></span>
+    <span class="brand__tag">CONSULTING</span>
+  </div>
+  <nav class="site-nav" aria-label={ui[lang].nav}>
+    {home.nav.map((item) => <a class="header-link" href={item.href}>{item.label}</a>)}
+  </nav>
+  <div class="header-actions">
+    <a class="btn btn--sm" href="#contact">{home.bookCall}</a>
+    <LangSwitch lang={lang} page="home" />
+  </div>
+</header>

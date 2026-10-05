@@ -1,0 +1,348 @@
+{
+  "home": {
+    "nav": [
+      {
+        "href": "#about",
+        "label": "Über mich"
+      },
+      {
+        "href": "#services",
+        "label": "Leistungen"
+      },
+      {
+        "href": "#approach",
+        "label": "Vorgehen"
+      },
+      {
+        "href": "#engagements",
+        "label": "Zusammenarbeit"
+      },
+      {
+        "href": "#contact",
+        "label": "Kontakt"
+      }
+    ],
+    "bookCall": "TERMIN BUCHEN",
+    "hero": {
+      "eyebrow": "CLIENT SERVICE & KUNDENFÜHRUNG",
+      "title": "GUTE ARBEIT REICHT NICHT. DER KUNDE MUSS SICH GEFÜHRT FÜHLEN.",
+      "body": "Ich helfe kleinen und mittelgroßen Agenturen, Client Service sauber aufzustellen — Account-Leads, die die Beziehung wirklich führen, Meetings, auf die Kunden sich freuen, und keine Überraschungen vor der Verlängerung. Die Kommerzseite kommt danach.",
+      "cta": "30-MIN-TERMIN BUCHEN",
+      "secondary": "LEISTUNGEN ANSEHEN"
+    },
+    "stats": [
+      {
+        "value": "15 J.",
+        "caption": "Agenturseite, vom Account Director zum Head of Client Services",
+        "accent": false
+      },
+      {
+        "value": "100+",
+        "caption": "Geführte und entwickelte Client-Service-Fachkräfte",
+        "accent": true
+      },
+      {
+        "value": "2/Q.",
+        "caption": "Neue Mandate pro Quartal, um Raum für Beratung zu lassen",
+        "accent": false
+      },
+      {
+        "value": "10–80",
+        "caption": "Teamgröße, mit der ich am besten arbeite",
+        "accent": false
+      }
+    ],
+    "about": {
+      "eyebrow": "ÜBER MICH",
+      "title": "ICH WAR DIE PERSON, DIE DER KUNDE UM 19 UHR ANRUFT",
+      "paragraphs": [
+        "Fünfzehn Jahre in unabhängigen Agenturen — Account Manager, Account Director, dann Head of Client Services in einer Agentur mit 60 Leuten. Ich habe die QBRs geführt, Eskalationen übernommen und mehr als eine Beziehung wieder aufgebaut, die still eingeschlafen war.",
+        "Was ich immer wieder gesehen habe: Kunden gehen verloren, obwohl die Arbeit stark ist. Nicht weil die Kreation scheitert — sondern weil niemand die Beziehung sichtbar führt. Status-Calls ohne Haltung, Feedback wird eingesammelt statt eingeordnet, und der Ansprechpartner weiß irgendwann nicht mehr, was er eigentlich bekommt.",
+        "Client Service ist ein Handwerk, und es ist lernbar. Ich bringe Ihre Account-Leads darin weiter — und wenn das stabil läuft, schauen wir auf die Kommerzseite darunter."
+      ],
+      "rows": [
+        {
+          "label": "Standort",
+          "value": "München 🥨, tätig in der EMEA-Region 🌍"
+        },
+        {
+          "label": "Passt gut",
+          "value": "Herausforderungen im Client Service, ein Blick unter die Haube unabhängiger Agenturen"
+        },
+        {
+          "label": "Passt nicht",
+          "value": "„100 Leads in zwei Minuten\"-Theater, Pitches, Rebrandings"
+        }
+      ]
+    },
+    "services": {
+      "eyebrow": "LEISTUNGEN",
+      "title": "DREI DINGE, NACH DENEN GEFRAGT WIRD",
+      "body": "Das sind die drei Bereiche, bei denen ich meist um Hilfe gebeten werde. Client Service zuerst, die kommerzielle Seite, wenn die Beziehung stabil ist. Meist beginnt es mit einem Thema und zieht ein zweites nach.",
+      "items": [
+        {
+          "num": "01",
+          "title": "KUNDENFÜHRUNG",
+          "body": "Unterstützung für Ihre Account-Leads: was sie wirklich verantworten und wie sie es führen — ein Rhythmus, den sie halten, eine Haltung im Raum und eine klare Grenze zwischen Kunden betreuen und von Kunden gesteuert werden. Meist der Anfang.",
+          "tags": "ROLLENBILD · MEETING-TAKT · VERANTWORTUNGSKARTE",
+          "accent": true
+        },
+        {
+          "num": "02",
+          "title": "KUNDEN­KOMMUNIKATION",
+          "body": "Übung für die Gespräche, die die meisten Teams aufschieben — Arbeit mit Überzeugung präsentieren, Feedback einordnen statt sammeln, schlechte Nachrichten früh liefern, Nein sagen, ohne die Beziehung zu verlieren. An echten Kunden, nicht im Rollenspiel.",
+          "tags": "GESPRÄCHSLEITFÄDEN · CALL-BEGLEITUNG · FEEDBACK-MODELL",
+          "accent": false
+        },
+        {
+          "num": "03",
+          "title": "FINANZIELLE GESUNDHEIT",
+          "body": "Ein schlichter Blick darauf, was die Arbeit tatsächlich einbringt — welche Kunden sich selbst tragen, wo das Team zu dünn verteilt ist und ob Ihre Preise noch zu dem passen, was Sie liefern. Keine neuen Reporting-Tools, nur Zahlen, die Sie lesen und nutzen können.",
+          "tags": "ERTRAG PRO KUNDE · TEAM-AUSLASTUNG · PREISE",
+          "accent": false
+        }
+      ]
+    },
+    "approach": {
+      "eyebrow": "VORGEHEN",
+      "title": "MITLAUFEN, EINE SACHE LÖSEN, ÜBERGEBEN",
+      "steps": [
+        {
+          "range": "WOCHE 1–2",
+          "title": "BEI DEN KUNDEN MITLAUFEN",
+          "body": "Ich sitze in Ihren Status-Calls und einem QBR, lese die Kundenkorrespondenz der letzten sechs Monate und spreche mit drei Account-Leads und, wenn Sie es zulassen, zwei Kunden."
+        },
+        {
+          "range": "WOCHE 3–6",
+          "title": "DIE EINE SACHE LÖSEN",
+          "body": "Wir wählen die Änderung, die die Kunden zuerst spüren — meist wie Meetings geführt werden oder wer die Beziehung verantwortet — und bauen sie richtig, statt alles gleichzeitig umzustellen."
+        },
+        {
+          "range": "WOCHE 7–8",
+          "title": "ÜBERGEBEN",
+          "body": "Playbook, eine zweistündige Session mit dem Account-Team und ein Check-in nach 90 Tagen. Wenn Sie mich danach brauchen, hat etwas nicht gehalten."
+        }
+      ]
+    },
+    "quote": {
+      "text": "UNSERE KUNDEN HABEN AUFGEHÖRT, UNS HINTERHERLAUFEN ZU MÜSSEN.",
+      "author": "Geschäftsführer, unabhängige Agentur mit 45 Personen",
+      "note": "Beispielhafte Kundenstimme"
+    },
+    "engagements": {
+      "eyebrow": "ZUSAMMENARBEIT",
+      "title": "DREI WEGE, ZUSAMMEN­ZUARBEITEN",
+      "body": "Ein Thema, das ganze Bild oder die lange Strecke. Meist beginnen Agenturen klein und weiten es aus, sobald sie sehen, wie ich arbeite. Umfang und Honorar werden vor dem Start festgelegt — keine Überraschungen nach Stunden.",
+      "plans": [
+        {
+          "title": "EIN THEMA",
+          "items": [
+            "Sie haben eine Sache, die eine Antwort braucht — eine Kundenbeziehung, eine Frage im Team oder eine Zahl, die nicht mehr aufgeht",
+            "Ich lasse mich sauber briefen, dann arbeiten wir es gemeinsam mit den Beteiligten durch",
+            "Eine schriftliche Empfehlung, die Sie direkt umsetzen können",
+            "Danach ist Schluss, wenn Sie nicht mehr wollen"
+          ],
+          "highlight": false
+        },
+        {
+          "title": "DER GANZE BLICK",
+          "items": [
+            "Ein strukturierter Blick auf die ganze Agentur, von der Kundenseite nach innen",
+            "Kundenbeziehungen, die Aufstellung des Teams dahinter und die finanzielle Gesundheit darunter: was pro Kunde übrig bleibt, wie gut das Team ausgelastet ist, was Sie verlangen und welche Kunden sich leise verabschieden",
+            "Die ein bis zwei Systeme, die zählen, mit Ihrem Team aufgebaut — nicht übergeben",
+            "Playbook, eine Session mit dem Team und ein Check-in, wenn es sich gesetzt hat"
+          ],
+          "highlight": true
+        },
+        {
+          "title": "LANGFRISTIGE BEGLEITUNG",
+          "items": [
+            "Eine laufende Zusammenarbeit, fortlaufend überprüft",
+            "Eine regelmäßige Arbeitssession mit Ihnen und Ihren Leads",
+            "Erreichbar, wenn etwas eine zweite Meinung braucht, bevor es ausgesprochen wird",
+            "Ein wiederkehrender Blick darauf, wo jeder Kunde steht, wer abzudriften droht und was die Arbeit tatsächlich einbringt"
+          ],
+          "highlight": false
+        }
+      ]
+    },
+    "contact": {
+      "eyebrow": "KONTAKT",
+      "title": "LASSEN SIE UNS IN KONTAKT TRETEN",
+      "body": "Dreißig Minuten, ohne Deck. Wir sprechen darüber, was Sie nachts wachhält, und schauen gemeinsam, wie wir es lösen können. :)",
+      "rows": [
+        {
+          "label": "E-MAIL",
+          "value": "hello@shruggie.consulting",
+          "href": "mailto:hello@shruggie.consulting"
+        },
+        {
+          "label": "TERMINE",
+          "value": "30-Min-Slot buchen",
+          "href": "mailto:hello@shruggie.consulting?subject=30-Min-Termin"
+        },
+        {
+          "label": "KAPAZITÄT",
+          "value": "Zwei neue Mandate pro Quartal",
+          "href": null
+        }
+      ]
+    },
+    "footer": {
+      "note": "© 2026 Shruggie Consulting · Client Service & Kundenführung · Zahlen auf dieser Seite sind beispielhaft",
+      "imprint": "IMPRESSUM",
+      "privacy": "DATENSCHUTZ",
+      "cookieSettings": "COOKIE-EINSTELLUNGEN"
+    }
+  },
+  "imprint": {
+    "back": "ZUR STARTSEITE",
+    "eyebrow": "ANGABEN GEMÄSS § 5 DDG",
+    "title": "IMPRESSUM",
+    "intro": null,
+    "consent": null,
+    "sections": [
+      {
+        "heading": "DIENSTEANBIETER",
+        "lines": [
+          "Benjamin Birkelbach",
+          "Shruggie Consulting",
+          "Savitsstraße 43",
+          "81929 München",
+          "Deutschland"
+        ]
+      },
+      {
+        "heading": "KONTAKT",
+        "lines": [
+          "Telefon: +49 175 4060 545",
+          "E-Mail: hello@shruggie.consulting"
+        ]
+      },
+      {
+        "heading": "UMSATZSTEUER-ID",
+        "lines": [
+          "Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:",
+          "DE359065817"
+        ]
+      },
+      {
+        "heading": "VERANTWORTLICH FÜR DEN INHALT",
+        "lines": [
+          "Benjamin Birkelbach, Anschrift wie oben."
+        ]
+      },
+      {
+        "heading": "BERUFSBEZEICHNUNG",
+        "lines": [
+          "Unternehmensberatung / Beratung für Client Service und Kundenbeziehungen.",
+          "Verliehen in: Deutschland"
+        ]
+      },
+      {
+        "heading": "EU-STREITSCHLICHTUNG",
+        "lines": [
+          "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: https://ec.europa.eu/consumers/odr",
+          "Ich bin nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
+        ]
+      },
+      {
+        "heading": "HAFTUNG FÜR INHALTE UND LINKS",
+        "lines": [
+          "Als Diensteanbieter bin ich gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG bin ich als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen.",
+          "Dieses Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich. Bei Bekanntwerden von Rechtsverletzungen werden derartige Links umgehend entfernt."
+        ]
+      },
+      {
+        "heading": "URHEBERRECHT",
+        "lines": [
+          "Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet."
+        ]
+      }
+    ],
+    "disclaimer": "Dieser Text folgt einer Vorlage und wurde nicht anwaltlich geprüft.",
+    "copyright": "© 2026 Shruggie Consulting",
+    "otherLegal": "DATENSCHUTZ"
+  },
+  "privacy": {
+    "back": "ZUR STARTSEITE",
+    "eyebrow": "DATENSCHUTZ-INFORMATION NACH ART. 13 DSGVO",
+    "title": "DATENSCHUTZ­ERKLÄRUNG",
+    "intro": "Diese Website ist bewusst schlank gehalten. Es gibt kein Kontaktformular, kein Tracking über Websites hinweg und keine Werbung. Nachfolgend, welche Daten dennoch anfallen und warum.",
+    "consent": {
+      "label": "IHRE EINWILLIGUNG",
+      "text": "Google Analytics wird erst nach Ihrer ausdrücklichen Einwilligung geladen. Sie können diese Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen — der Widerruf ist so einfach wie die Erteilung.",
+      "button": "EINWILLIGUNG WIDERRUFEN"
+    },
+    "sections": [
+      {
+        "heading": "VERANTWORTLICHER",
+        "lines": [
+          "Benjamin Birkelbach, Shruggie Consulting, Savitsstraße 43, 81929 München, Deutschland.",
+          "E-Mail: hello@shruggie.consulting — Telefon: +49 175 4060 545",
+          "Ein Datenschutzbeauftragter ist gesetzlich nicht bestellt."
+        ]
+      },
+      {
+        "heading": "HOSTING UND SERVER-LOGFILES",
+        "lines": [
+          "Diese Website wird über GitHub Pages (GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA) bereitgestellt. Beim Aufruf werden technisch notwendige Verbindungsdaten verarbeitet, insbesondere IP-Adresse, Datum und Uhrzeit, aufgerufene Datei, Browsertyp und Betriebssystem.",
+          "Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO — mein berechtigtes Interesse am sicheren und stabilen Betrieb der Website. Die Übermittlung in die USA erfolgt auf Grundlage der EU-Standardvertragsklauseln und des EU-US Data Privacy Framework."
+        ]
+      },
+      {
+        "heading": "GOOGLE ANALYTICS 4",
+        "lines": [
+          "Mit Ihrer Einwilligung nutze ich Google Analytics 4, einen Dienst der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Google Analytics setzt Cookies und erfasst pseudonymisierte Nutzungsdaten: aufgerufene Seiten, Verweildauer, ungefährer Standort, Gerätetyp, Referrer sowie einzelne Interaktionen (Klick auf E-Mail-Links, Social-Links, Navigationslinks und den Sprachumschalter EN/DE).",
+          "Die IP-Anonymisierung ist aktiviert; Ihre IP-Adresse wird gekürzt, bevor sie gespeichert wird. Es findet keine Zusammenführung mit anderen Daten und keine Werbepersonalisierung statt.",
+          "Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO in Verbindung mit § 25 Abs. 1 TDDDG. Ohne Einwilligung wird kein Analyse-Cookie gesetzt und kein Ereignis übermittelt.",
+          "Eine Übermittlung an die Google LLC in den USA kann nicht ausgeschlossen werden. Google LLC ist unter dem EU-US Data Privacy Framework zertifiziert; ergänzend gelten die EU-Standardvertragsklauseln. Es besteht das Risiko, dass US-Behörden auf die Daten zugreifen, ohne dass hiergegen wirksame Rechtsbehelfe zur Verfügung stehen.",
+          "Speicherdauer: 14 Monate. Weitere Informationen: https://policies.google.com/privacy"
+        ]
+      },
+      {
+        "heading": "COOKIES UND LOCAL STORAGE",
+        "lines": [
+          "Ihre Entscheidung über den Cookie-Banner wird lokal in Ihrem Browser gespeichert (Local Storage, Schlüssel „shruggie-consent\"), damit der Banner Ihnen nicht bei jedem Besuch erneut angezeigt wird. Dieser Eintrag enthält keine personenbezogenen Daten und wird nicht an mich übermittelt.",
+          "Analyse-Cookies von Google werden ausschließlich nach Einwilligung gesetzt."
+        ]
+      },
+      {
+        "heading": "KONTAKTAUFNAHME PER E-MAIL",
+        "lines": [
+          "Wenn Sie mich per E-Mail kontaktieren, verarbeite ich Ihre Angaben zur Bearbeitung der Anfrage. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO bei vertragsbezogenen Anfragen, sonst Art. 6 Abs. 1 lit. f DSGVO.",
+          "Ihre Anfrage wird gelöscht, sobald sie erledigt ist und keine gesetzlichen Aufbewahrungsfristen entgegenstehen."
+        ]
+      },
+      {
+        "heading": "SCHRIFTARTEN",
+        "lines": [
+          "Die verwendeten Schriftarten werden lokal von diesem Server ausgeliefert. Es besteht keine Verbindung zu Google Fonts und es werden dabei keine Daten an Dritte übertragen."
+        ]
+      },
+      {
+        "heading": "IHRE RECHTE",
+        "lines": [
+          "Sie haben das Recht auf Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) sowie Widerspruch gegen die Verarbeitung (Art. 21 DSGVO). Eine erteilte Einwilligung können Sie jederzeit widerrufen.",
+          "Zur Ausübung genügt eine formlose E-Mail an hello@shruggie.consulting.",
+          "Ihnen steht zudem ein Beschwerderecht bei einer Aufsichtsbehörde zu, in Bayern beim Bayerischen Landesamt für Datenschutzaufsicht (BayLDA), Promenade 27, 91522 Ansbach."
+        ]
+      },
+      {
+        "heading": "STAND",
+        "lines": [
+          "Diese Datenschutzerklärung hat den Stand August 2026 und wird bei Änderungen der Website oder der Rechtslage angepasst."
+        ]
+      }
+    ],
+    "disclaimer": "Dieser Text folgt einer Vorlage und wurde nicht anwaltlich geprüft.",
+    "copyright": "© 2026 Shruggie Consulting",
+    "otherLegal": "IMPRESSUM"
+  },
+  "cookie": {
+    "text": "Ich nutze Google Analytics, um zu sehen, welche Teile dieser Seite tatsächlich gelesen werden. Keine Werbung, kein Profiling, kein websiteübergreifendes Tracking. Bei Ablehnung wird nichts gespeichert.",
+    "legal": "Mit „Akzeptieren\" werden Analyse-Cookies gesetzt; dabei können Daten an die Google LLC in den USA übermittelt werden. Widerruf jederzeit über „Cookie-Einstellungen\" im Footer.",
+    "accept": "AKZEPTIEREN",
+    "decline": "ABLEHNEN"
+  }
+}

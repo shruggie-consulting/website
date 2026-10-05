@@ -1,0 +1,61 @@
+---
+import "../styles/global.css";
+import CookieBanner from "../components/CookieBanner.astro";
+import { meta, routes, ui, type Lang, type PageKey } from "../i18n";
+
+interface Props {
+  lang: Lang;
+  page: PageKey;
+}
+
+const { lang, page } = Astro.props;
+const m = meta[page][lang];
+const site = Astro.site!;
+const canonical = new URL(routes[page][lang], site).href;
+const alt = (l: Lang) => new URL(routes[page][l], site).href;
+const ogImage = new URL(m.ogImage, site).href;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{m.title}</title>
+    <meta name="description" content={m.description} />
+    <link rel="canonical" href={canonical} />
+    {m.noindex && <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />}
+    <link rel="alternate" hreflang="de" href={alt("de")} />
+    <link rel="alternate" hreflang="en" href={alt("en")} />
+    <link rel="alternate" hreflang="x-default" href={alt("de")} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preload" href="/fonts/space-grotesk-latin-3.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/archivo-black-latin-1.woff2" as="font" type="font/woff2" crossorigin />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Shruggie Consulting" />
+    <meta property="og:title" content={m.title} />
+    <meta property="og:description" content={m.description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={lang === "de" ? "de_DE" : "en_US"} />
+    <meta property="og:locale:alternate" content={lang === "de" ? "en_US" : "de_DE"} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={m.title} />
+    <meta name="twitter:description" content={m.description} />
+    <meta name="twitter:image" content={ogImage} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{ui[lang].skip}</a>
+    <CookieBanner lang={lang} />
+    <slot />
+    <script>
+      import "../scripts/consent";
+    </script>
+  </body>
+</html>

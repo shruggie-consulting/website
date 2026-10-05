@@ -1,0 +1,348 @@
+{
+  "home": {
+    "nav": [
+      {
+        "href": "#about",
+        "label": "About"
+      },
+      {
+        "href": "#services",
+        "label": "Services"
+      },
+      {
+        "href": "#approach",
+        "label": "Approach"
+      },
+      {
+        "href": "#engagements",
+        "label": "Engagements"
+      },
+      {
+        "href": "#contact",
+        "label": "Contact"
+      }
+    ],
+    "bookCall": "BOOK A CALL",
+    "hero": {
+      "eyebrow": "CLIENT SERVICE & ACCOUNT LEADERSHIP",
+      "title": "GREAT WORK ISN'T ENOUGH. THE CLIENT HAS TO FEEL HELD.",
+      "body": "I help small and mid-size agencies run client service properly — account leads who own the relationship, meetings clients look forward to, and no surprises before a renewal. Commercials come after the service is solid.",
+      "cta": "BOOK A 30-MIN CALL",
+      "secondary": "SEE THE SERVICES"
+    },
+    "stats": [
+      {
+        "value": "15 yrs",
+        "caption": "Agency-side, account director to head of client services",
+        "accent": false
+      },
+      {
+        "value": "100+",
+        "caption": "Client service professionals led and nurtured",
+        "accent": true
+      },
+      {
+        "value": "2/qtr",
+        "caption": "New engagements taken on per quarter, to leave room for consulting",
+        "accent": false
+      },
+      {
+        "value": "10–80",
+        "caption": "Headcount range I work best with",
+        "accent": false
+      }
+    ],
+    "about": {
+      "eyebrow": "ABOUT ME",
+      "title": "I'VE BEEN THE PERSON THE CLIENT CALLS AT 7PM",
+      "paragraphs": [
+        "I spent fifteen years inside independent agencies — account manager, account director, then head of client services in a 60-person shop. I ran the QBRs, handled the escalations, and rebuilt more than one relationship that had quietly gone cold.",
+        "What I saw, repeatedly: accounts lost despite strong work. Not because the creative failed — because nobody was clearly running the relationship. Status calls with no point of view, feedback absorbed rather than shaped, and a sponsor who no longer knew what they were getting.",
+        "Client service is a craft, and it can be taught. I help your account leads get good at it — then, once that's steady, we look at the commercials underneath it."
+      ],
+      "rows": [
+        {
+          "label": "Based in",
+          "value": "Munich 🥨, working across EMEA 🌍"
+        },
+        {
+          "label": "Best fit",
+          "value": "Client service challenges, looking under the hood of independent agencies"
+        },
+        {
+          "label": "Not a fit",
+          "value": "\"100 leads in two minutes\" theatre, headcount cuts, rebrands"
+        }
+      ]
+    },
+    "services": {
+      "eyebrow": "SERVICES",
+      "title": "THREE THINGS I GET ASKED FOR",
+      "body": "These are the three areas I am usually asked to help with. Client service first, the commercial side once the relationship is steady. Most engagements start with one and pull in a second.",
+      "items": [
+        {
+          "num": "01",
+          "title": "ACCOUNT LEADERSHIP",
+          "body": "Help for your account leads on what they actually own and how to run it — a rhythm they keep, a point of view in the room, and a clear line between serving a client and being run by one. Usually where we start.",
+          "tags": "ROLE DEFINITION · MEETING CADENCE · OWNERSHIP MAP",
+          "accent": true
+        },
+        {
+          "num": "02",
+          "title": "CLIENT COMMUNICATION",
+          "body": "Practice for the conversations most teams put off — presenting work with conviction, shaping feedback rather than collecting it, bringing bad news early, saying no without losing the relationship. On real clients, not in role-play.",
+          "tags": "SCRIPTS · CALL SHADOWING · FEEDBACK FRAMEWORK",
+          "accent": false
+        },
+        {
+          "num": "03",
+          "title": "FINANCIAL HEALTH",
+          "body": "A plain look at what the work actually earns — which clients pay for themselves, where the team is spread too thin, and whether what you charge still matches what you deliver. No new reporting tools, just numbers you can read and act on.",
+          "tags": "WHAT EACH CLIENT EARNS · HOW THE TEAM IS USED · WHAT YOU CHARGE",
+          "accent": false
+        }
+      ]
+    },
+    "approach": {
+      "eyebrow": "APPROACH",
+      "title": "SIT IN, FIX ONE THING, HAND IT OVER",
+      "steps": [
+        {
+          "range": "WEEKS 1–2",
+          "title": "SIT IN ON THE ACCOUNTS",
+          "body": "I sit in on your status calls and one QBR, read the last six months of client threads, and talk to three account leads and, where you allow it, two clients."
+        },
+        {
+          "range": "WEEKS 3–6",
+          "title": "FIX THE ONE THING",
+          "body": "We pick the single change the accounts will feel first — usually how meetings are run or who owns the relationship — and build it properly rather than reforming everything at once."
+        },
+        {
+          "range": "WEEKS 7–8",
+          "title": "HAND IT OVER",
+          "body": "Playbook, a two-hour session with the account team, and a 90-day check-in. If you need me after that, something didn't land."
+        }
+      ]
+    },
+    "quote": {
+      "text": "OUR CLIENTS STOPPED FEELING LIKE THEY HAD TO CHASE US.",
+      "author": "Managing Director, 45-person independent agency",
+      "note": "Illustrative client comment"
+    },
+    "engagements": {
+      "eyebrow": "ENGAGEMENTS",
+      "title": "THREE WAYS TO WORK TOGETHER",
+      "body": "One problem, the whole picture, or the long haul. Most agencies start small and widen it once they see how I work. Scope and fee are agreed before anything starts — no hourly surprises.",
+      "plans": [
+        {
+          "title": "ONE PROBLEM",
+          "items": [
+            "You have one thing that needs an answer — a client relationship, a team question, or a number that no longer works",
+            "I get properly briefed, then we work it through together with the people involved",
+            "A written recommendation you can act on straight away",
+            "Ends there unless you want more"
+          ],
+          "highlight": false
+        },
+        {
+          "title": "THE FULL LOOK",
+          "items": [
+            "A structured look at the whole agency, from the client side inward",
+            "Client relationships, how the team is set up to run them, and the financial health underneath: what you earn per client, how well the team is used, what you charge, and which clients are quietly on their way out",
+            "The one or two systems that matter rebuilt with your team, not handed to them",
+            "Playbook, a session with the team, and a check-in once it has had time to settle"
+          ],
+          "highlight": true
+        },
+        {
+          "title": "STANDING PARTNER",
+          "items": [
+            "An ongoing arrangement, reviewed as we go",
+            "A regular working session with you and your leads",
+            "On call when something needs a second opinion before it is said out loud",
+            "A recurring read on where each client stands, who might be drifting, and what the work actually earns"
+          ],
+          "highlight": false
+        }
+      ]
+    },
+    "contact": {
+      "eyebrow": "CONTACT",
+      "title": "LET US GET IN TOUCH",
+      "body": "Thirty minutes, no deck. We'll talk about what keeps you awake at night and discuss how we can figure it out. :)",
+      "rows": [
+        {
+          "label": "EMAIL",
+          "value": "hello@shruggie.consulting",
+          "href": "mailto:hello@shruggie.consulting"
+        },
+        {
+          "label": "CALLS",
+          "value": "Book a 30-min slot",
+          "href": "mailto:hello@shruggie.consulting?subject=30-min%20call"
+        },
+        {
+          "label": "AVAILABILITY",
+          "value": "Two new engagements per quarter",
+          "href": null
+        }
+      ]
+    },
+    "footer": {
+      "note": "© 2026 Shruggie Consulting · Client service & account leadership · Figures on this site are illustrative",
+      "imprint": "IMPRINT",
+      "privacy": "PRIVACY POLICY",
+      "cookieSettings": "COOKIE SETTINGS"
+    }
+  },
+  "imprint": {
+    "back": "BACK TO SITE",
+    "eyebrow": "LEGAL NOTICE UNDER § 5 DDG",
+    "title": "IMPRINT",
+    "intro": null,
+    "consent": null,
+    "sections": [
+      {
+        "heading": "SERVICE PROVIDER",
+        "lines": [
+          "Benjamin Birkelbach",
+          "Shruggie Consulting",
+          "Savitsstraße 43",
+          "81929 Munich",
+          "Germany"
+        ]
+      },
+      {
+        "heading": "CONTACT",
+        "lines": [
+          "Phone: +49 175 4060 545",
+          "Email: hello@shruggie.consulting"
+        ]
+      },
+      {
+        "heading": "VAT ID",
+        "lines": [
+          "VAT identification number under § 27a of the German VAT Act:",
+          "DE359065817"
+        ]
+      },
+      {
+        "heading": "RESPONSIBLE FOR CONTENT",
+        "lines": [
+          "Benjamin Birkelbach, address as above."
+        ]
+      },
+      {
+        "heading": "PROFESSIONAL ACTIVITY",
+        "lines": [
+          "Management consulting / advisory on client service and client relationships.",
+          "Registered in: Germany"
+        ]
+      },
+      {
+        "heading": "EU DISPUTE RESOLUTION",
+        "lines": [
+          "The European Commission provides a platform for online dispute resolution: https://ec.europa.eu/consumers/odr",
+          "I am neither willing nor obliged to participate in dispute resolution proceedings before a consumer arbitration board."
+        ]
+      },
+      {
+        "heading": "LIABILITY FOR CONTENT AND LINKS",
+        "lines": [
+          "As a service provider I am responsible for my own content on these pages under general law, per § 7 (1) DDG. Under §§ 8 to 10 DDG, however, I am not obliged to monitor transmitted or stored third-party information.",
+          "This site contains links to external websites over whose content I have no influence. The respective provider or operator of the linked pages is always responsible for their content. Such links will be removed promptly if any legal violation becomes known."
+        ]
+      },
+      {
+        "heading": "COPYRIGHT",
+        "lines": [
+          "Content and works created by the site operator on these pages are subject to German copyright law. Third-party contributions are marked as such."
+        ]
+      }
+    ],
+    "disclaimer": "This text follows a template and has not been reviewed by a lawyer. The German version is the legally operative one.",
+    "copyright": "© 2026 Shruggie Consulting",
+    "otherLegal": "PRIVACY"
+  },
+  "privacy": {
+    "back": "BACK TO SITE",
+    "eyebrow": "PRIVACY INFORMATION UNDER ART. 13 GDPR",
+    "title": "PRIVACY POLICY",
+    "intro": "This site is deliberately lean. There is no contact form, no cross-site tracking and no advertising. Below is what data is nonetheless processed, and why.",
+    "consent": {
+      "label": "YOUR CONSENT",
+      "text": "Google Analytics only loads after your explicit consent. You can withdraw that consent at any time with effect for the future — withdrawing is as easy as giving it.",
+      "button": "WITHDRAW CONSENT"
+    },
+    "sections": [
+      {
+        "heading": "CONTROLLER",
+        "lines": [
+          "Benjamin Birkelbach, Shruggie Consulting, Savitsstraße 43, 81929 Munich, Germany.",
+          "Email: hello@shruggie.consulting — Phone: +49 175 4060 545",
+          "No data protection officer is appointed, as none is legally required."
+        ]
+      },
+      {
+        "heading": "HOSTING AND SERVER LOG FILES",
+        "lines": [
+          "This site is served via GitHub Pages (GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA). When you access it, technically necessary connection data is processed: IP address, date and time, the file requested, browser type and operating system.",
+          "The legal basis is Art. 6 (1) (f) GDPR — my legitimate interest in operating the site securely and reliably. Transfer to the USA is based on the EU Standard Contractual Clauses and the EU-US Data Privacy Framework."
+        ]
+      },
+      {
+        "heading": "GOOGLE ANALYTICS 4",
+        "lines": [
+          "With your consent I use Google Analytics 4, a service of Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland. It sets cookies and collects pseudonymised usage data: pages viewed, time on page, approximate location, device type, referrer, and individual interactions (clicks on email links, social links, navigation links and the EN/DE language toggle).",
+          "IP anonymisation is enabled; your IP address is truncated before storage. No merging with other data and no advertising personalisation takes place.",
+          "The legal basis is your consent under Art. 6 (1) (a) GDPR together with § 25 (1) TDDDG. Without consent no analytics cookie is set and no event is transmitted.",
+          "Transfer to Google LLC in the USA cannot be ruled out. Google LLC is certified under the EU-US Data Privacy Framework, supplemented by the EU Standard Contractual Clauses. There remains a risk that US authorities access the data without effective legal remedies being available.",
+          "Retention period: 14 months. Further information: https://policies.google.com/privacy"
+        ]
+      },
+      {
+        "heading": "COOKIES AND LOCAL STORAGE",
+        "lines": [
+          "Your choice in the cookie banner is stored locally in your browser (local storage, key \"shruggie-consent\") so the banner is not shown on every visit. This entry contains no personal data and is not transmitted to me.",
+          "Google analytics cookies are set only after consent."
+        ]
+      },
+      {
+        "heading": "CONTACT BY EMAIL",
+        "lines": [
+          "If you contact me by email, I process your details in order to handle your enquiry. The legal basis is Art. 6 (1) (b) GDPR for contract-related enquiries, otherwise Art. 6 (1) (f) GDPR.",
+          "Your enquiry is deleted once it has been dealt with and no statutory retention periods apply."
+        ]
+      },
+      {
+        "heading": "FONTS",
+        "lines": [
+          "The typefaces used are served locally from this server. There is no connection to Google Fonts and no data is transferred to third parties in the process."
+        ]
+      },
+      {
+        "heading": "YOUR RIGHTS",
+        "lines": [
+          "You have the right to access (Art. 15), rectification (Art. 16), erasure (Art. 17), restriction of processing (Art. 18), data portability (Art. 20) and to object to processing (Art. 21 GDPR). Any consent given can be withdrawn at any time.",
+          "An informal email to hello@shruggie.consulting is sufficient to exercise these rights.",
+          "You also have the right to lodge a complaint with a supervisory authority — in Bavaria, the Bayerisches Landesamt für Datenschutzaufsicht (BayLDA), Promenade 27, 91522 Ansbach."
+        ]
+      },
+      {
+        "heading": "LAST UPDATED",
+        "lines": [
+          "This privacy policy is dated August 2026 and will be updated if the site or the legal position changes."
+        ]
+      }
+    ],
+    "disclaimer": "This text follows a template and has not been reviewed by a lawyer. The German version is the legally operative one.",
+    "copyright": "© 2026 Shruggie Consulting",
+    "otherLegal": "IMPRINT"
+  },
+  "cookie": {
+    "text": "I use Google Analytics to see which parts of this site are actually read. No ads, no profiling, no cross-site tracking. Decline and nothing is stored.",
+    "legal": "Accepting sets analytics cookies and may transfer data to Google LLC in the USA. You can withdraw at any time via \"Cookie settings\" in the footer.",
+    "accept": "ACCEPT",
+    "decline": "DECLINE"
+  }
+}

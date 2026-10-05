@@ -1,0 +1,173 @@
+---
+import Base from "../layouts/Base.astro";
+import HomeHeader from "./HomeHeader.astro";
+import { content, routes, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const h = content[lang].home;
+---
+
+<Base lang={lang} page="home">
+  <HomeHeader lang={lang} />
+
+  <main id="main">
+    <section class="on-dark">
+      <div class="wrap hero">
+        <div>
+          <div class="eyebrow eyebrow--on-dark">{h.hero.eyebrow}</div>
+          <h1 class="display">{h.hero.title}</h1>
+          <p class="hero__body">{h.hero.body}</p>
+          <div class="hero__ctas">
+            <a class="btn btn--lg" href="#contact">{h.hero.cta}</a>
+            <a class="btn btn--lg btn--ghost" href="#services">{h.hero.secondary}</a>
+          </div>
+        </div>
+        <div class="hero__aside" aria-hidden="true">
+          <span class="hero__mark">¯\_(ツ)_/¯</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="on-alt">
+      <div class="wrap stats">
+        {
+          h.stats.map((s) => (
+            <div>
+              <div class:list={["stat__value", { "stat__value--accent": s.accent }]}>{s.value}</div>
+              <div class="stat__caption">{s.caption}</div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section id="about" class="on-alt">
+      <div class="wrap about">
+        <div class="eyebrow eyebrow--on-light">{h.about.eyebrow}</div>
+        <h2 class="display">{h.about.title}</h2>
+        {h.about.paragraphs.map((p) => <p>{p}</p>)}
+        <dl class="facts">
+          {
+            h.about.rows.map((r) => (
+              <div class="fact">
+                <dt>{r.label}</dt>
+                <dd>{r.value}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </section>
+
+    <section id="services" class="on-dark services">
+      <div class="wrap section-head">
+        <div class="eyebrow eyebrow--on-dark">{h.services.eyebrow}</div>
+        <h2 class="display">{h.services.title}</h2>
+        <p class="section-intro">{h.services.body}</p>
+      </div>
+      <div class="wrap services__grid">
+        {
+          h.services.items.map((s) => (
+            <article class:list={["service", { "service--accent": s.accent }]}>
+              <div class="service__num" aria-hidden="true">{s.num}</div>
+              <h3 class="display">{s.title}</h3>
+              <p>{s.body}</p>
+              <div class="service__tags">{s.tags}</div>
+            </article>
+          ))
+        }
+      </div>
+      <div class="services__spacer"></div>
+    </section>
+
+    <section id="approach" class="on-alt approach">
+      <div class="wrap section-head">
+        <div class="eyebrow eyebrow--on-light">{h.approach.eyebrow}</div>
+        <h2 class="display">{h.approach.title}</h2>
+      </div>
+      <ol class="wrap steps" role="list">
+        {
+          h.approach.steps.map((s) => (
+            <li class="step">
+              <div class="step__range">{s.range}</div>
+              <h3 class="display">{s.title}</h3>
+              <p>{s.body}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <section class="quote">
+      <figure class="wrap">
+        <blockquote>
+          <p class="display">{h.quote.text}</p>
+        </blockquote>
+        <figcaption>
+          <p class="quote__author">{h.quote.author}</p>
+          <p class="quote__note">{h.quote.note}</p>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section id="engagements" class="on-alt engagements">
+      <div class="wrap section-head">
+        <div class="eyebrow eyebrow--on-light">{h.engagements.eyebrow}</div>
+        <h2 class="display">{h.engagements.title}</h2>
+        <p class="section-intro">{h.engagements.body}</p>
+      </div>
+      <div class="wrap plans">
+        {
+          h.engagements.plans.map((p) => (
+            <article class:list={["plan", { "plan--highlight": p.highlight }]}>
+              <h3 class="display">{p.title}</h3>
+              <ul>
+                {p.items.map((item) => <li>{item}</li>)}
+              </ul>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section id="contact" class="on-dark">
+      <div class="wrap contact">
+        <div>
+          <div class="eyebrow eyebrow--on-dark">{h.contact.eyebrow}</div>
+          <h2 class="display">{h.contact.title}</h2>
+          <p class="contact__body">{h.contact.body}</p>
+        </div>
+        <dl class="contact-list">
+          {
+            h.contact.rows.map((r) => (
+              <div class="contact-row">
+                <dt>{r.label}</dt>
+                <dd>{r.href ? <a href={r.href}>{r.value}</a> : r.value}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer class="home-footer">
+    <div class="wrap">
+      <div class="home-footer__brand">
+        <span class="brand__name">Shruggie<span class="brand__dot">.</span></span>
+        <span class="brand__rule" aria-hidden="true"></span>
+        <span class="brand__tag">CONSULTING</span>
+      </div>
+      <p class="home-footer__note">{h.footer.note}</p>
+      <div class="footer-links">
+        <a href={routes.imprint[lang]}>{h.footer.imprint}</a>
+        <a href={routes.privacy[lang]}>{h.footer.privacy}</a>
+        <button type="button" data-consent-open>{h.footer.cookieSettings}</button>
+      </div>
+    </div>
+  </footer>
+</Base>

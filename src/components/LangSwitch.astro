@@ -1,0 +1,27 @@
+---
+import { routes, ui, type Lang, type PageKey } from "../i18n";
+
+interface Props {
+  lang: Lang;
+  page: PageKey;
+}
+
+const { lang, page } = Astro.props;
+const langs: Lang[] = ["en", "de"];
+---
+
+<div class="lang-switch" role="group" aria-label={ui[lang].langSwitch}>
+  {
+    langs.map((l) => (
+      <a
+        href={routes[page][l]}
+        lang={l}
+        hreflang={l}
+        aria-current={l === lang ? "page" : undefined}
+        data-lang-switch
+      >
+        {l.toUpperCase()}
+      </a>
+    ))
+  }
+</div>

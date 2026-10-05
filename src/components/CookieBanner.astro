@@ -1,0 +1,27 @@
+---
+import { content, routes, ui, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const c = content[lang].cookie;
+const footer = content[lang].home.footer;
+---
+
+<!-- Early in the DOM so keyboard users reach it first; shown by consent.ts only when no decision is stored. -->
+<div class="cookie-banner" role="region" aria-label={ui[lang].cookieRegion} data-cookie-banner hidden>
+  <div class="wrap">
+    <div class="cookie-banner__text">
+      <p>{c.text}</p>
+      <p>
+        {c.legal} <a href={routes.privacy[lang]}>{footer.privacy}</a> · <a href={routes.imprint[lang]}>{footer.imprint}</a>
+      </p>
+    </div>
+    <div class="cookie-banner__actions">
+      <button type="button" class="action action--decline" data-consent="denied">{c.decline}</button>
+      <button type="button" class="action" data-consent="granted">{c.accept}</button>
+    </div>
+  </div>
+</div>
