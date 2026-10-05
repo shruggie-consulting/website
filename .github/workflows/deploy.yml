@@ -1,4 +1,4 @@
-name: Build and deploy site
+name: Build and deploy
 
 on:
   push:
@@ -12,34 +12,22 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
-          python-version: "3.12"
-
-      - name: Install Playwright
-        run: |
-          pip install playwright
-          playwright install --with-deps chromium
-
-      - name: Prerender crawlable fallback into dist/
-        run: python3 scripts/prerender.py . dist
-
-      - uses: actions/upload-pages-artifact@v3
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v4
         with:
-          path: dist
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: dist-preview
           path: dist
 
   deploy:

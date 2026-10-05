@@ -1,0 +1,62 @@
+---
+import Base from "../layouts/Base.astro";
+import LegalHeader from "./LegalHeader.astro";
+import { content, routes, ui, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+  page: "imprint" | "privacy";
+}
+
+const { lang, page } = Astro.props;
+const c = content[lang][page];
+const other = page === "imprint" ? "privacy" : "imprint";
+---
+
+<Base lang={lang} page={page}>
+  <div class="legal-page">
+    <LegalHeader lang={lang} page={page} back={c.back} />
+
+    <main id="main" class:list={["legal", { "legal--privacy": page === "privacy" }]}>
+      <div class="eyebrow eyebrow--on-light">{c.eyebrow}</div>
+      <h1 class="display">{c.title}</h1>
+      {c.intro && <p class="legal__intro">{c.intro}</p>}
+
+      {
+        c.consent && (
+          <div class="consent-box">
+            <div class="consent-box__label">{c.consent.label}</div>
+            <p>{c.consent.text}</p>
+            <div class="consent-box__actions">
+              <button type="button" class="action" data-consent-withdraw={ui[lang].consentWithdrawn}>
+                {c.consent.button}
+              </button>
+              <span class="consent-box__status" role="status" data-consent-status></span>
+            </div>
+          </div>
+        )
+      }
+
+      {
+        c.sections.map((s) => (
+          <section>
+            <h2 class="display">{s.heading}</h2>
+            {s.lines.map((line) => <p>{line}</p>)}
+          </section>
+        ))
+      }
+
+      <p class="legal__disclaimer">{c.disclaimer}</p>
+    </main>
+
+    <footer class="legal-footer">
+      <div class="wrap">
+        <span class="legal-footer__copy">{c.copyright}</span>
+        <div class="footer-links">
+          <a href={routes.home[lang]}>{c.back}</a>
+          <a href={routes[other][lang]}>{c.otherLegal}</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</Base>

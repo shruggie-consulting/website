@@ -1,0 +1,64 @@
+---
+import LangSwitch from "./LangSwitch.astro";
+import { content, ui, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const home = content[lang].home;
+---
+
+<header class="site-header site-header--home">
+  <div class="brand">
+    <span class="brand__shrug shrug-logo" aria-hidden="true">
+      <span class="shrug-arm-l">¯\_(</span><span class="shrug-face">ツ</span><span class="shrug-arm-r">)_/¯</span>
+    </span>
+    <span class="brand__name">Shruggie<span class="brand__dot">.</span></span>
+    <span class="brand__rule" aria-hidden="true"></span>
+    <span class="brand__tag">CONSULTING</span>
+  </div>
+
+  <!-- Only shown on small screens, and only when JS runs; without JS the menu stays expanded. -->
+  <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-menu" data-menu-toggle>
+    <svg class="menu-toggle__icon" width="18" height="14" viewBox="0 0 18 14" aria-hidden="true">
+      <path class="menu-toggle__open" d="M0 1h18M0 7h18M0 13h18" />
+      <path class="menu-toggle__close" d="M2 0l14 14M16 0L2 14" />
+    </svg>
+    {ui[lang].menu}
+  </button>
+
+  <!-- display: contents on wide screens, so nav and actions sit in the header row exactly as before. -->
+  <div class="site-menu" id="site-menu" data-menu>
+    <nav class="site-nav" aria-label={ui[lang].nav}>
+      {home.nav.map((item) => <a class="header-link" href={item.href}>{item.label}</a>)}
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn--sm" href="#contact">{home.bookCall}</a>
+      <LangSwitch lang={lang} page="home" />
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
+  const menu = document.querySelector<HTMLElement>("[data-menu]");
+  if (toggle && menu) {
+    const setOpen = (open: boolean) => {
+      toggle.setAttribute("aria-expanded", String(open));
+      menu.classList.toggle("is-open", open);
+    };
+    toggle.addEventListener("click", () => setOpen(toggle.getAttribute("aria-expanded") !== "true"));
+    // In-page links scroll away from the header, so close the menu behind them.
+    menu.addEventListener("click", (e) => {
+      if ((e.target as Element).closest("a[href^='#']")) setOpen(false);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+  }
+</script>

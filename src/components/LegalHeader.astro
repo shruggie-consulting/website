@@ -1,0 +1,25 @@
+---
+import LangSwitch from "./LangSwitch.astro";
+import { routes, ui, type Lang, type PageKey } from "../i18n";
+
+interface Props {
+  lang: Lang;
+  page: PageKey;
+  back: string;
+}
+
+const { lang, page, back } = Astro.props;
+---
+
+<header class="site-header site-header--legal">
+  <a class="brand" href={routes.home[lang]} aria-label={ui[lang].homeLabel}>
+    <span class="brand__shrug" aria-hidden="true">¯\_(ツ)_/¯</span>
+    <span class="brand__name">Shruggie<span class="brand__dot">.</span></span>
+    <span class="brand__rule" aria-hidden="true"></span>
+    <span class="brand__tag">CONSULTING</span>
+  </a>
+  <div class="header-actions">
+    <a class="header-link" href={routes.home[lang]}>{back}</a>
+    <LangSwitch lang={lang} page={page} />
+  </div>
+</header>
