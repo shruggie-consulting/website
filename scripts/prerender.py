@@ -94,15 +94,12 @@ THUMBNAIL_SVG_RE = re.compile(
 TITLE_TAG_RE = re.compile(r"<title>.*?</title>", re.DOTALL)
 NOSCRIPT_RE = re.compile(r"<noscript>.*?</noscript>", re.DOTALL)
 
-GOOGLE_FONTS_HREF = (
-    "https://fonts.googleapis.com/css2?family=Archivo+Black"
-    "&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-)
-# The runtime's own bundler inlines Google Fonts as base64 @font-face blocks
-# (~280KB each, duplicated) so the page works with zero external requests.
-# For the static fallback that's wasted weight for zero benefit (crawlers and
-# no-JS visitors don't need pixel-identical webfonts) — link the real Google
-# Fonts stylesheet instead, and drop any captured style tag over this size.
+# The runtime's own bundler inlines the webfonts as base64 @font-face blocks
+# (~280KB each, duplicated). For the static fallback, drop any captured style
+# tag over this size and link the self-hosted copies in fonts/ instead. Never
+# link fonts.googleapis.com: the privacy policy states fonts are served
+# locally with no connection to Google (and embedding Google Fonts is a known
+# GDPR liability in Germany).
 INLINE_FONT_BYTES_CUTOFF = 20_000
 
 
@@ -137,9 +134,7 @@ def build_head_extra(page: dict, styles_css: str) -> str:
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="{GOOGLE_FONTS_HREF}">
+  <link rel="stylesheet" href="/fonts/fonts.css">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Shruggie Consulting">
   <meta property="og:title" content="{escape_attr(page["title"])}">
