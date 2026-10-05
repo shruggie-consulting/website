@@ -76,6 +76,7 @@ export const ui = {
     cookieRegion: "Cookie-Einstellungen",
     consentWithdrawn: "Ihre Einwilligung wurde widerrufen.",
     nav: "Hauptnavigation",
+    menu: "Menü",
   },
   en: {
     skip: "Skip to content",
@@ -84,5 +85,6 @@ export const ui = {
     cookieRegion: "Cookie settings",
     consentWithdrawn: "Your consent has been withdrawn.",
     nav: "Main navigation",
+    menu: "Menu",
   },
 } as const;
