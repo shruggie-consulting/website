@@ -155,15 +155,9 @@ body {
 }
 .header-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 /* Quiet sign-in link for clients: present, but secondary to "book a call". */
-.client-login { display: inline-flex; align-items: center; gap: 7px; margin-right: 8px; color: var(--ink-soft, #555); }
+.client-login { display: inline-flex; align-items: center; gap: 7px; margin-left: 8px; color: var(--ink-soft, #555); }
 .client-login:hover { color: var(--ink); }
 .client-login svg { fill: none; stroke: currentColor; stroke-width: 1.6; }
-/* Wide screens: just the lock (with tooltip), so the header row keeps its layout.
-   The open phone menu has room for the words. */
-@media (min-width: 861px) {
-  .client-login { margin-right: 4px; padding: 13px 6px; margin-left: -6px; }
-  .client-login__text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-}
 .site-header--legal .header-actions { gap: 16px; }
 
 /* Small-screen menu. On wide screens .site-menu is display: contents, so the nav and
