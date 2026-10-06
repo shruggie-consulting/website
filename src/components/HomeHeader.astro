@@ -1,6 +1,6 @@
 ---
 import LangSwitch from "./LangSwitch.astro";
-import { content, ui, type Lang } from "../i18n";
+import { content, ui, workspaceUrl, type Lang } from "../i18n";
 
 interface Props {
   lang: Lang;
@@ -37,6 +37,10 @@ const home = content[lang].home;
     <div class="header-actions">
       <a class="btn btn--sm" href="#contact">{home.bookCall}</a>
       <LangSwitch lang={lang} page="home" />
+      <a class="header-link client-login" href={workspaceUrl(lang)} aria-label={ui[lang].clientWorkspaceLabel}>
+        <svg width="12" height="14" viewBox="0 0 12 14" aria-hidden="true"><rect x="1" y="6" width="10" height="7.5" rx="1.5" /><path d="M3.5 6V4a2.5 2.5 0 0 1 5 0v2" /></svg>
+        {ui[lang].clientWorkspace}
+      </a>
     </div>
   </div>
 </header>

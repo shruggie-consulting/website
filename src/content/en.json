@@ -185,6 +185,11 @@
           "label": "AVAILABILITY",
           "value": "Two new engagements per quarter",
           "href": null
+        },
+        {
+          "label": "CLIENTS",
+          "value": "Client Workspace",
+          "href": "https://workspace.shruggie.consulting/login?lang=en"
         }
       ]
     },
