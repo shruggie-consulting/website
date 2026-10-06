@@ -68,6 +68,9 @@ export const meta: Record<PageKey, Record<Lang, Meta>> = {
 };
 
 // Interface strings that aren't part of the page copy.
+/** Sign-in page of the client portal, opened in the visitor's language. */
+export const workspaceUrl = (lang: Lang) => `https://workspace.shruggie.consulting/login?lang=${lang}`;
+
 export const ui = {
   de: {
     skip: "Zum Inhalt springen",
@@ -77,6 +80,8 @@ export const ui = {
     consentWithdrawn: "Ihre Einwilligung wurde widerrufen.",
     nav: "Hauptnavigation",
     menu: "Menü",
+    clientWorkspace: "Client Workspace",
+    clientWorkspaceLabel: "Client Workspace: Anmeldung für Kunden",
   },
   en: {
     skip: "Skip to content",
@@ -86,5 +91,7 @@ export const ui = {
     consentWithdrawn: "Your consent has been withdrawn.",
     nav: "Main navigation",
     menu: "Menu",
+    clientWorkspace: "Client Workspace",
+    clientWorkspaceLabel: "Client Workspace: sign-in for clients",
   },
 } as const;

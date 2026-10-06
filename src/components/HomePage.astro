@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import HomeHeader from "./HomeHeader.astro";
-import { content, routes, type Lang } from "../i18n";
+import { content, routes, ui, workspaceUrl, type Lang } from "../i18n";
 
 interface Props {
   lang: Lang;
@@ -166,6 +166,7 @@ const h = content[lang].home;
       <div class="footer-links">
         <a href={routes.imprint[lang]}>{h.footer.imprint}</a>
         <a href={routes.privacy[lang]}>{h.footer.privacy}</a>
+        <a href={workspaceUrl(lang)} aria-label={ui[lang].clientWorkspaceLabel}>{ui[lang].clientWorkspace}</a>
         <button type="button" data-consent-open>{h.footer.cookieSettings}</button>
       </div>
     </div>
