@@ -191,7 +191,29 @@
           "value": "Zum Client Workspace",
           "href": "https://workspace.shruggie.consulting/login?lang=de"
         }
-      ]
+      ],
+      "form": {
+        "title": "ODER SCHREIBEN SIE MIR HIER",
+        "name": "Name",
+        "company": "Unternehmen",
+        "email": "E-Mail",
+        "phone": "Telefon",
+        "message": "Worum geht es?",
+        "optional": "optional",
+        "messagePlaceholder": "Ein, zwei Sätze reichen. Ich melde mich innerhalb eines Werktags.",
+        "consent": "Ich bin einverstanden, dass meine Angaben zur Bearbeitung meiner Anfrage verarbeitet werden. Details in der",
+        "consentLink": "Datenschutzerklärung",
+        "submit": "NACHRICHT SENDEN",
+        "sending": "Wird gesendet …",
+        "sent": "Danke! Ihre Nachricht ist angekommen. Ich melde mich innerhalb eines Werktags.",
+        "errors": {
+          "email": "Bitte prüfen Sie Ihre E-Mail-Adresse.",
+          "consent": "Bitte bestätigen Sie die Einwilligung.",
+          "missing": "Bitte füllen Sie Name, E-Mail und Nachricht aus.",
+          "too many": "Es sind gerade sehr viele Anfragen eingegangen. Bitte schreiben Sie mir direkt an hello@shruggie.consulting.",
+          "generic": "Das hat leider nicht geklappt. Bitte schreiben Sie mir direkt an hello@shruggie.consulting."
+        }
+      }
     },
     "footer": {
       "note": "© 2026 Shruggie Consulting · Client Service & Kundenführung · Zahlen auf dieser Seite sind beispielhaft",
@@ -273,7 +295,7 @@
     "back": "ZUR STARTSEITE",
     "eyebrow": "DATENSCHUTZ-INFORMATION NACH ART. 13 DSGVO",
     "title": "DATENSCHUTZ­ERKLÄRUNG",
-    "intro": "Diese Website ist bewusst schlank gehalten. Es gibt kein Kontaktformular, kein Tracking über Websites hinweg und keine Werbung. Nachfolgend, welche Daten dennoch anfallen und warum.",
+    "intro": "Diese Website ist bewusst schlank gehalten. Es gibt kein Tracking über Websites hinweg und keine Werbung. Nachfolgend, welche Daten anfallen und warum.",
     "consent": {
       "label": "IHRE EINWILLIGUNG",
       "text": "Google Analytics wird erst nach Ihrer ausdrücklichen Einwilligung geladen. Sie können diese Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen — der Widerruf ist so einfach wie die Erteilung.",
@@ -313,10 +335,12 @@
         ]
       },
       {
-        "heading": "KONTAKTAUFNAHME PER E-MAIL",
+        "heading": "KONTAKTFORMULAR UND E-MAIL",
         "lines": [
-          "Wenn Sie mich per E-Mail kontaktieren, verarbeite ich Ihre Angaben zur Bearbeitung der Anfrage. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO bei vertragsbezogenen Anfragen, sonst Art. 6 Abs. 1 lit. f DSGVO.",
-          "Ihre Anfrage wird gelöscht, sobald sie erledigt ist und keine gesetzlichen Aufbewahrungsfristen entgegenstehen."
+          "Wenn Sie mir über das Kontaktformular schreiben, verarbeite ich Ihren Namen, Ihre E-Mail-Adresse, Ihre Nachricht und, falls angegeben, Unternehmen und Telefonnummer. Wenn Sie mich per E-Mail kontaktieren, verarbeite ich die Angaben aus Ihrer E-Mail. Beides dient ausschließlich der Bearbeitung Ihrer Anfrage.",
+          "Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO (Kontaktformular) bzw. Art. 6 Abs. 1 lit. b DSGVO bei vertragsbezogenen Anfragen, sonst Art. 6 Abs. 1 lit. f DSGVO. Die Einwilligung können Sie jederzeit per E-Mail widerrufen.",
+          "Anfragen über das Formular werden in meinem Client Workspace gespeichert (Supabase, Rechenzentrum Frankfurt am Main; Bereitstellung über Cloudflare in der EU). Über neue Anfragen werde ich per E-Mail über Brevo (Sendinblue SAS, Paris) benachrichtigt. Mit allen Dienstleistern bestehen Verträge zur Auftragsverarbeitung nach Art. 28 DSGVO.",
+          "Ihre Anfrage wird gelöscht, sobald sie erledigt ist und keine gesetzlichen Aufbewahrungsfristen entgegenstehen; entsteht daraus kein Auftrag, spätestens zwölf Monate nach der letzten Kommunikation."
         ]
       },
       {
@@ -336,7 +360,7 @@
       {
         "heading": "STAND",
         "lines": [
-          "Diese Datenschutzerklärung hat den Stand August 2026 und wird bei Änderungen der Website oder der Rechtslage angepasst."
+          "Diese Datenschutzerklärung hat den Stand Oktober 2026 und wird bei Änderungen der Website oder der Rechtslage angepasst."
         ]
       }
     ],

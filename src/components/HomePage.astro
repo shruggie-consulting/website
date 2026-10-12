@@ -140,6 +140,42 @@ const h = content[lang].home;
           <div class="eyebrow eyebrow--on-dark">{h.contact.eyebrow}</div>
           <h2 class="display">{h.contact.title}</h2>
           <p class="contact__body">{h.contact.body}</p>
+          <form class="contact-form" data-contact-form data-lang={lang} novalidate>
+            <h3 class="contact-form__title">{h.contact.form.title}</h3>
+            <div class="contact-form__grid">
+              <label class="cf-field">
+                <span>{h.contact.form.name}</span>
+                <input name="name" autocomplete="name" required maxlength="200" />
+              </label>
+              <label class="cf-field">
+                <span>{h.contact.form.company} <em>({h.contact.form.optional})</em></span>
+                <input name="company" autocomplete="organization" maxlength="200" />
+              </label>
+              <label class="cf-field">
+                <span>{h.contact.form.email}</span>
+                <input name="email" type="email" autocomplete="email" required maxlength="254" />
+              </label>
+              <label class="cf-field">
+                <span>{h.contact.form.phone} <em>({h.contact.form.optional})</em></span>
+                <input name="phone" type="tel" autocomplete="tel" maxlength="60" />
+              </label>
+              <label class="cf-field cf-field--wide">
+                <span>{h.contact.form.message}</span>
+                <textarea name="message" rows="4" required maxlength="5000" placeholder={h.contact.form.messagePlaceholder}></textarea>
+              </label>
+            </div>
+            <!-- Left empty by people; bots fill it in. -->
+            <div class="cf-trap" aria-hidden="true">
+              <label>Website <input name="website" tabindex="-1" autocomplete="off" /></label>
+            </div>
+            <label class="cf-consent">
+              <input type="checkbox" name="consent" required />
+              <span>{h.contact.form.consent} <a href={routes.privacy[lang]}>{h.contact.form.consentLink}</a>.</span>
+            </label>
+            <button class="cf-submit" type="submit">{h.contact.form.submit}</button>
+            <p class="cf-status" role="status" aria-live="polite" data-status></p>
+            <script type="application/json" data-messages set:html={JSON.stringify({ sending: h.contact.form.sending, sent: h.contact.form.sent, errors: h.contact.form.errors })} />
+          </form>
         </div>
         <dl class="contact-list">
           {
@@ -172,3 +208,8 @@ const h = content[lang].home;
     </div>
   </footer>
 </Base>
+
+<script>
+  import { initContactForm } from "../scripts/contact-form";
+  initContactForm();
+</script>

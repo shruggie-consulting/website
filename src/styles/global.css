@@ -433,3 +433,32 @@ body {
   .cookie-banner__actions { width: 100%; }
   .cookie-banner .action { flex: 1 1 0; min-width: 0; padding: 14px 12px; }
 }
+
+/* Contact form (on dark) */
+.contact-form { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line-dark); }
+.contact-form__title { font: 700 13px var(--font-sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--rust); margin: 0 0 20px; }
+.contact-form__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px 20px; }
+.cf-field { display: grid; gap: 8px; font: 400 14px var(--font-sans); color: var(--muted-on-dark); }
+.cf-field em { font-style: normal; color: var(--faint-on-dark); }
+.cf-field--wide { grid-column: 1 / -1; }
+.cf-field input, .cf-field textarea {
+  width: 100%; box-sizing: border-box; padding: 12px 14px; border: 1px solid var(--line-dark); border-radius: 0;
+  background: transparent; color: var(--cream); font: 400 16px/1.5 var(--font-sans);
+}
+.cf-field textarea { resize: vertical; min-height: 120px; }
+.cf-field input:focus, .cf-field textarea:focus { outline: 2px solid var(--rust); outline-offset: 0; border-color: var(--rust); }
+.cf-field textarea::placeholder { color: var(--faint-on-dark); }
+.cf-trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.cf-consent { display: flex; gap: 12px; align-items: flex-start; margin: 20px 0; font: 400 14px/1.6 var(--font-sans); color: var(--muted-on-dark); }
+.cf-consent input { width: 18px; height: 18px; margin-top: 3px; accent-color: var(--rust); flex: none; }
+.cf-consent a { color: var(--cream); }
+.cf-submit {
+  min-height: 52px; padding: 0 28px; border: none; background: var(--rust-fill); color: var(--cream);
+  font: 700 14px var(--font-sans); letter-spacing: 0.1em; cursor: pointer;
+}
+.cf-submit:hover { background: var(--rust-dark); }
+.cf-submit:disabled { opacity: 0.6; cursor: default; }
+.cf-status { min-height: 1.6em; margin: 16px 0 0; font: 400 15px/1.6 var(--font-sans); color: var(--muted-on-dark); }
+.cf-status[data-kind="ok"] { color: var(--cream); font-weight: 700; }
+.cf-status[data-kind="error"] { color: oklch(0.8 0.12 25); }
+.contact-form.is-sent .contact-form__grid, .contact-form.is-sent .cf-consent, .contact-form.is-sent .cf-submit { display: none; }

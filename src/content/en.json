@@ -191,7 +191,29 @@
           "value": "Client Workspace",
           "href": "https://workspace.shruggie.consulting/login?lang=en"
         }
-      ]
+      ],
+      "form": {
+        "title": "OR WRITE TO ME HERE",
+        "name": "Name",
+        "company": "Company",
+        "email": "Email",
+        "phone": "Phone",
+        "message": "What is it about?",
+        "optional": "optional",
+        "messagePlaceholder": "A sentence or two is enough. I'll get back to you within one working day.",
+        "consent": "I agree that my details are processed to handle my enquiry. Details in the",
+        "consentLink": "privacy policy",
+        "submit": "SEND MESSAGE",
+        "sending": "Sending …",
+        "sent": "Thank you! Your message has arrived. I'll get back to you within one working day.",
+        "errors": {
+          "email": "Please check your email address.",
+          "consent": "Please confirm your consent.",
+          "missing": "Please fill in name, email and message.",
+          "too many": "There are a lot of enquiries right now. Please email me directly at hello@shruggie.consulting.",
+          "generic": "Sorry, that didn't work. Please email me directly at hello@shruggie.consulting."
+        }
+      }
     },
     "footer": {
       "note": "© 2026 Shruggie Consulting · Client service & account leadership · Figures on this site are illustrative",
@@ -273,7 +295,7 @@
     "back": "BACK TO SITE",
     "eyebrow": "PRIVACY INFORMATION UNDER ART. 13 GDPR",
     "title": "PRIVACY POLICY",
-    "intro": "This site is deliberately lean. There is no contact form, no cross-site tracking and no advertising. Below is what data is nonetheless processed, and why.",
+    "intro": "This site is deliberately lean. There is no cross-site tracking and no advertising. Below is what data is processed, and why.",
     "consent": {
       "label": "YOUR CONSENT",
       "text": "Google Analytics only loads after your explicit consent. You can withdraw that consent at any time with effect for the future — withdrawing is as easy as giving it.",
@@ -313,10 +335,12 @@
         ]
       },
       {
-        "heading": "CONTACT BY EMAIL",
+        "heading": "CONTACT FORM AND EMAIL",
         "lines": [
-          "If you contact me by email, I process your details in order to handle your enquiry. The legal basis is Art. 6 (1) (b) GDPR for contract-related enquiries, otherwise Art. 6 (1) (f) GDPR.",
-          "Your enquiry is deleted once it has been dealt with and no statutory retention periods apply."
+          "If you write to me via the contact form, I process your name, email address, message and, if given, company and phone number. If you contact me by email, I process the details in your email. Both are used only to handle your enquiry.",
+          "The legal basis is your consent under Art. 6 (1) (a) GDPR (contact form), or Art. 6 (1) (b) GDPR for contract-related enquiries, otherwise Art. 6 (1) (f) GDPR. You can withdraw your consent at any time by email.",
+          "Enquiries sent via the form are stored in my Client Workspace (Supabase, data centre in Frankfurt, Germany; delivered via Cloudflare in the EU). I am notified of new enquiries by email via Brevo (Sendinblue SAS, Paris). Data processing agreements under Art. 28 GDPR are in place with all of these providers.",
+          "Your enquiry is deleted once it has been dealt with and no statutory retention periods apply; if it does not lead to an engagement, at the latest twelve months after our last communication."
         ]
       },
       {
@@ -336,7 +360,7 @@
       {
         "heading": "LAST UPDATED",
         "lines": [
-          "This privacy policy is dated August 2026 and will be updated if the site or the legal position changes."
+          "This privacy policy is dated October 2026 and will be updated if the site or the legal position changes."
         ]
       }
     ],
