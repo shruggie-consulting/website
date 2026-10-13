@@ -185,11 +185,6 @@
           "label": "KAPAZITÄT",
           "value": "Zwei neue Mandate pro Quartal",
           "href": null
-        },
-        {
-          "label": "KUNDEN",
-          "value": "Zum Client Workspace",
-          "href": "https://workspace.shruggie.consulting/login?lang=de"
         }
       ],
       "form": {
