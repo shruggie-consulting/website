@@ -176,6 +176,7 @@
       "note": "Beispielhafte Kundenstimme"
     },
     "engagements": {
+      "hidden": true,
       "eyebrow": "ZUSAMMENARBEIT",
       "title": "Drei Wege, zusammen­zuarbeiten",
       "body": "Ein Thema, das ganze Bild oder die lange Strecke. Meist beginnen Agenturen klein und weiten es aus, sobald sie sehen, wie ich arbeite. Umfang und Honorar werden vor dem Start festgelegt — keine Überraschungen nach Stunden.",

@@ -188,6 +188,7 @@ const h = content[lang].home;
       </figure>
     </section>
 
+    {!h.engagements.hidden && (
     <section id="engagements" class="on-alt engagements">
       <div class="wrap section-head">
         <div class="eyebrow eyebrow--on-light">{h.engagements.eyebrow}</div>
@@ -211,6 +212,7 @@ const h = content[lang].home;
         }
       </div>
     </section>
+    )}
 
     <section id="contact" class="on-dark">
       <div class="wrap contact">

@@ -176,6 +176,7 @@
       "note": "Illustrative client comment"
     },
     "engagements": {
+      "hidden": true,
       "eyebrow": "ENGAGEMENTS",
       "title": "Three ways to work together",
       "body": "One problem, the whole picture, or the long haul. Most agencies start small and widen it once they see how I work. Scope and fee are agreed before anything starts — no hourly surprises.",
