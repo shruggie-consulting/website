@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+  <!-- Placeholder until the real portrait (800×1000, saved as /images/portrait.jpg) is in. -->
+  <rect width="800" height="1000" fill="#d8d8d8"/>
+  <circle cx="400" cy="380" r="150" fill="#bdbdbd"/>
+  <path d="M150 1000c0-180 112-300 250-300s250 120 250 300z" fill="#bdbdbd"/>
+  <text x="400" y="940" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="30" letter-spacing="6" fill="#6b6b6b">PORTRAIT FOLGT</text>
+</svg>

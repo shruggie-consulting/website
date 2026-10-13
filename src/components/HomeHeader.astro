@@ -1,6 +1,6 @@
 ---
 import LangSwitch from "./LangSwitch.astro";
-import { content, ui, workspaceUrl, type Lang } from "../i18n";
+import { content, routes, ui, workspaceUrl, type Lang } from "../i18n";
 
 interface Props {
   lang: Lang;
@@ -11,14 +11,14 @@ const home = content[lang].home;
 ---
 
 <header class="site-header site-header--home">
-  <div class="brand">
+  <a class="brand" href={routes.home[lang]} aria-label={lang === "de" ? "Shruggie Consulting – Startseite" : "Shruggie Consulting – home"}>
     <span class="brand__shrug shrug-logo" aria-hidden="true">
       <span class="shrug-arm-l">¯\_(</span><span class="shrug-face">ツ</span><span class="shrug-arm-r">)_/¯</span>
     </span>
     <span class="brand__name">Shruggie<span class="brand__dot">.</span></span>
     <span class="brand__rule" aria-hidden="true"></span>
     <span class="brand__tag">CONSULTING</span>
-  </div>
+  </a>
 
   <!-- Only shown on small screens, and only when JS runs; without JS the menu stays expanded. -->
   <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-menu" data-menu-toggle>
@@ -32,7 +32,7 @@ const home = content[lang].home;
   <!-- display: contents on wide screens, so nav and actions sit in the header row exactly as before. -->
   <div class="site-menu" id="site-menu" data-menu>
     <nav class="site-nav" aria-label={ui[lang].nav}>
-      {home.nav.map((item) => <a class="header-link" href={item.href}>{item.label}</a>)}
+      {home.nav.filter((item) => !(item.href === "#engagements" && home.engagements.hidden)).map((item) => <a class="header-link" href={item.href}>{item.label}</a>)}
     </nav>
     <div class="header-actions">
       <a class="btn btn--sm" href="#contact">{home.bookCall}</a>
