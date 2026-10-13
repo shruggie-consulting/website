@@ -54,7 +54,7 @@
     ],
     "about": {
       "eyebrow": "ÜBER MICH",
-      "title": "ICH WAR DIE PERSON, DIE DER KUNDE UM 19 UHR ANRUFT",
+      "title": "Ich war die Person, die der Kunde um 19 Uhr anruft",
       "paragraphs": [
         "Fünfzehn Jahre in unabhängigen Agenturen — Account Manager, Account Director, dann Head of Client Services in einer Agentur mit 60 Leuten. Ich habe die QBRs geführt, Eskalationen übernommen und mehr als eine Beziehung wieder aufgebaut, die still eingeschlafen war.",
         "Was ich immer wieder gesehen habe: Kunden gehen verloren, obwohl die Arbeit stark ist. Nicht weil die Kreation scheitert — sondern weil niemand die Beziehung sichtbar führt. Status-Calls ohne Haltung, Feedback wird eingesammelt statt eingeordnet, und der Ansprechpartner weiß irgendwann nicht mehr, was er eigentlich bekommt.",
@@ -71,104 +71,160 @@
         },
         {
           "label": "Passt nicht",
-          "value": "„100 Leads in zwei Minuten\"-Theater, Pitches, Rebrandings"
+          "value": "„100 Leads in zwei Minuten“-Theater, Pitches, Rebrandings"
         }
-      ]
+      ],
+      "portrait": {
+        "src": "/images/portrait-placeholder.svg",
+        "alt": "Benjamin Birkelbach, Gründer von Shruggie Consulting",
+        "width": 800,
+        "height": 1000
+      }
     },
     "services": {
       "eyebrow": "LEISTUNGEN",
-      "title": "DREI DINGE, NACH DENEN GEFRAGT WIRD",
+      "title": "Drei Dinge, nach denen gefragt wird",
       "body": "Das sind die drei Bereiche, bei denen ich meist um Hilfe gebeten werde. Client Service zuerst, die kommerzielle Seite, wenn die Beziehung stabil ist. Meist beginnt es mit einem Thema und zieht ein zweites nach.",
       "items": [
         {
           "num": "01",
-          "title": "KUNDENFÜHRUNG",
+          "title": "Kundenführung",
           "body": "Unterstützung für Ihre Account-Leads: was sie wirklich verantworten und wie sie es führen — ein Rhythmus, den sie halten, eine Haltung im Raum und eine klare Grenze zwischen Kunden betreuen und von Kunden gesteuert werden. Meist der Anfang.",
           "tags": "ROLLENBILD · MEETING-TAKT · VERANTWORTUNGSKARTE",
           "accent": true
         },
         {
           "num": "02",
-          "title": "KUNDEN­KOMMUNIKATION",
+          "title": "Kunden­kommunikation",
           "body": "Übung für die Gespräche, die die meisten Teams aufschieben — Arbeit mit Überzeugung präsentieren, Feedback einordnen statt sammeln, schlechte Nachrichten früh liefern, Nein sagen, ohne die Beziehung zu verlieren. An echten Kunden, nicht im Rollenspiel.",
           "tags": "GESPRÄCHSLEITFÄDEN · CALL-BEGLEITUNG · FEEDBACK-MODELL",
           "accent": false
         },
         {
           "num": "03",
-          "title": "FINANZIELLE GESUNDHEIT",
+          "title": "Finanzielle Gesundheit",
           "body": "Ein schlichter Blick darauf, was die Arbeit tatsächlich einbringt — welche Kunden sich selbst tragen, wo das Team zu dünn verteilt ist und ob Ihre Preise noch zu dem passen, was Sie liefern. Keine neuen Reporting-Tools, nur Zahlen, die Sie lesen und nutzen können.",
           "tags": "ERTRAG PRO KUNDE · TEAM-AUSLASTUNG · PREISE",
           "accent": false
         }
-      ]
+      ],
+      "scorecard": {
+        "eyebrow": "WAS SIE BEKOMMEN",
+        "title": "Die Account-Scorecard",
+        "caption": "Beispiel: die Scorecard, die jedes Mandat hinterlässt. Wer jeden Kunden verantwortet, wann Sie zuletzt richtig zusammensaßen, wann die Verlängerung ansteht und wie es sich gerade anfühlt.",
+        "columns": [
+          "Kunde",
+          "Verantwortlich",
+          "Letztes QBR",
+          "Verlängerung",
+          "Stimmung"
+        ],
+        "rows": [
+          [
+            "Kunde A",
+            "Lena",
+            "vor 3 Wochen",
+            "März",
+            "steady"
+          ],
+          [
+            "Kunde B",
+            "Jonas",
+            "überfällig",
+            "Januar",
+            "risk"
+          ],
+          [
+            "Kunde C",
+            "Mia",
+            "nächste Woche",
+            "Juni",
+            "watch"
+          ]
+        ],
+        "status": {
+          "steady": "Stabil",
+          "watch": "Beobachten",
+          "risk": "Gefährdet"
+        }
+      }
     },
     "approach": {
       "eyebrow": "VORGEHEN",
-      "title": "MITLAUFEN, EINE SACHE LÖSEN, ÜBERGEBEN",
+      "title": "Mitlaufen, eine Sache lösen, übergeben",
       "steps": [
         {
           "range": "WOCHE 1–2",
-          "title": "BEI DEN KUNDEN MITLAUFEN",
+          "title": "Bei den Kunden mitlaufen",
           "body": "Ich sitze in Ihren Status-Calls und einem QBR, lese die Kundenkorrespondenz der letzten sechs Monate und spreche mit drei Account-Leads und, wenn Sie es zulassen, zwei Kunden."
         },
         {
           "range": "WOCHE 3–6",
-          "title": "DIE EINE SACHE LÖSEN",
+          "title": "Die eine Sache lösen",
           "body": "Wir wählen die Änderung, die die Kunden zuerst spüren — meist wie Meetings geführt werden oder wer die Beziehung verantwortet — und bauen sie richtig, statt alles gleichzeitig umzustellen."
         },
         {
           "range": "WOCHE 7–8",
-          "title": "ÜBERGEBEN",
+          "title": "Übergeben",
           "body": "Playbook, eine zweistündige Session mit dem Account-Team und ein Check-in nach 90 Tagen. Wenn Sie mich danach brauchen, hat etwas nicht gehalten."
         }
       ]
     },
     "quote": {
-      "text": "UNSERE KUNDEN HABEN AUFGEHÖRT, UNS HINTERHERLAUFEN ZU MÜSSEN.",
+      "text": "Unsere Kunden haben aufgehört, uns hinterherlaufen zu müssen.",
       "author": "Geschäftsführer, unabhängige Agentur mit 45 Personen",
       "note": "Beispielhafte Kundenstimme"
     },
     "engagements": {
       "eyebrow": "ZUSAMMENARBEIT",
-      "title": "DREI WEGE, ZUSAMMEN­ZUARBEITEN",
+      "title": "Drei Wege, zusammen­zuarbeiten",
       "body": "Ein Thema, das ganze Bild oder die lange Strecke. Meist beginnen Agenturen klein und weiten es aus, sobald sie sehen, wie ich arbeite. Umfang und Honorar werden vor dem Start festgelegt — keine Überraschungen nach Stunden.",
       "plans": [
         {
-          "title": "EIN THEMA",
+          "title": "Ein Thema",
           "items": [
             "Sie haben eine Sache, die eine Antwort braucht — eine Kundenbeziehung, eine Frage im Team oder eine Zahl, die nicht mehr aufgeht",
             "Ich lasse mich sauber briefen, dann arbeiten wir es gemeinsam mit den Beteiligten durch",
             "Eine schriftliche Empfehlung, die Sie direkt umsetzen können",
             "Danach ist Schluss, wenn Sie nicht mehr wollen"
           ],
-          "highlight": false
+          "highlight": false,
+          "duration": "[2–4 Wochen]",
+          "price": "[ab X €]"
         },
         {
-          "title": "DER GANZE BLICK",
+          "title": "Der ganze Blick",
           "items": [
             "Ein strukturierter Blick auf die ganze Agentur, von der Kundenseite nach innen",
             "Kundenbeziehungen, die Aufstellung des Teams dahinter und die finanzielle Gesundheit darunter: was pro Kunde übrig bleibt, wie gut das Team ausgelastet ist, was Sie verlangen und welche Kunden sich leise verabschieden",
             "Die ein bis zwei Systeme, die zählen, mit Ihrem Team aufgebaut — nicht übergeben",
             "Playbook, eine Session mit dem Team und ein Check-in, wenn es sich gesetzt hat"
           ],
-          "highlight": true
+          "highlight": true,
+          "duration": "8 Wochen",
+          "price": "[ab X €]"
         },
         {
-          "title": "LANGFRISTIGE BEGLEITUNG",
+          "title": "Langfristige Begleitung",
           "items": [
             "Eine laufende Zusammenarbeit, fortlaufend überprüft",
             "Eine regelmäßige Arbeitssession mit Ihnen und Ihren Leads",
             "Erreichbar, wenn etwas eine zweite Meinung braucht, bevor es ausgesprochen wird",
             "Ein wiederkehrender Blick darauf, wo jeder Kunde steht, wer abzudriften droht und was die Arbeit tatsächlich einbringt"
           ],
-          "highlight": false
+          "highlight": false,
+          "duration": "[ab 3 Monaten]",
+          "price": "[X € pro Monat]"
         }
-      ]
+      ],
+      "meta": {
+        "duration": "Dauer",
+        "price": "Honorar"
+      }
     },
     "contact": {
       "eyebrow": "KONTAKT",
-      "title": "LASSEN SIE UNS IN KONTAKT TRETEN",
+      "title": "Lassen Sie uns in Kontakt treten",
       "body": "Dreißig Minuten, ohne Deck. Wir sprechen darüber, was Sie nachts wachhält, und schauen gemeinsam, wie wir es lösen können. :)",
       "rows": [
         {
@@ -215,6 +271,38 @@
       "imprint": "IMPRESSUM",
       "privacy": "DATENSCHUTZ",
       "cookieSettings": "COOKIE-EINSTELLUNGEN"
+    },
+    "heroAside": {
+      "eyebrow": "KAPAZITÄT",
+      "value": "2",
+      "unit": "neue Mandate pro Quartal",
+      "text": "Bewusst klein gehalten: Sie arbeiten mit mir, nicht mit einem Junior-Team.",
+      "link": "Nach dem nächsten Termin fragen"
+    },
+    "problems": {
+      "eyebrow": "WO ES MEISTENS ANFÄNGT",
+      "title": "Kommt Ihnen das bekannt vor?",
+      "items": [
+        {
+          "eyebrow": "VERLÄNGERUNG",
+          "title": "Aus der Verlängerung wird ein Pitch.",
+          "body": "Die Arbeit war stark, die Reports gingen raus, und trotzdem „prüft der Kunde Optionen“. Niemand hat es kommen sehen, weil niemand die Beziehung klar geführt hat."
+        },
+        {
+          "eyebrow": "ACCOUNT-TEAMS",
+          "title": "Account-Leads sammeln Feedback, statt zu führen.",
+          "body": "Status-Calls ohne eigene Haltung, Freigaben werden hinterhergetragen statt gestaltet. Das Team arbeitet hart, aber der Kunde fühlt sich nicht geführt."
+        },
+        {
+          "eyebrow": "GESCHÄFTSFÜHRUNG",
+          "title": "Jede Eskalation landet am Ende bei Ihnen.",
+          "body": "Kunden rufen die Geschäftsführung an, weil sie ihr vertrauen. Das skaliert nicht und hält Sie von der Arbeit fern, die nur Sie machen können."
+        }
+      ]
+    },
+    "proof": {
+      "eyebrow": "IN ZAHLEN",
+      "cases": []
     }
   },
   "imprint": {

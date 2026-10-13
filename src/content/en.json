@@ -54,7 +54,7 @@
     ],
     "about": {
       "eyebrow": "ABOUT ME",
-      "title": "I'VE BEEN THE PERSON THE CLIENT CALLS AT 7PM",
+      "title": "I've been the person the client calls at 7pm",
       "paragraphs": [
         "I spent fifteen years inside independent agencies — account manager, account director, then head of client services in a 60-person shop. I ran the QBRs, handled the escalations, and rebuilt more than one relationship that had quietly gone cold.",
         "What I saw, repeatedly: accounts lost despite strong work. Not because the creative failed — because nobody was clearly running the relationship. Status calls with no point of view, feedback absorbed rather than shaped, and a sponsor who no longer knew what they were getting.",
@@ -71,104 +71,160 @@
         },
         {
           "label": "Not a fit",
-          "value": "\"100 leads in two minutes\" theatre, headcount cuts, rebrands"
+          "value": "“100 leads in two minutes” theatre, headcount cuts, rebrands"
         }
-      ]
+      ],
+      "portrait": {
+        "src": "/images/portrait-placeholder.svg",
+        "alt": "Benjamin Birkelbach, founder of Shruggie Consulting",
+        "width": 800,
+        "height": 1000
+      }
     },
     "services": {
       "eyebrow": "SERVICES",
-      "title": "THREE THINGS I GET ASKED FOR",
+      "title": "Three things I get asked for",
       "body": "These are the three areas I am usually asked to help with. Client service first, the commercial side once the relationship is steady. Most engagements start with one and pull in a second.",
       "items": [
         {
           "num": "01",
-          "title": "ACCOUNT LEADERSHIP",
+          "title": "Account leadership",
           "body": "Help for your account leads on what they actually own and how to run it — a rhythm they keep, a point of view in the room, and a clear line between serving a client and being run by one. Usually where we start.",
           "tags": "ROLE DEFINITION · MEETING CADENCE · OWNERSHIP MAP",
           "accent": true
         },
         {
           "num": "02",
-          "title": "CLIENT COMMUNICATION",
+          "title": "Client communication",
           "body": "Practice for the conversations most teams put off — presenting work with conviction, shaping feedback rather than collecting it, bringing bad news early, saying no without losing the relationship. On real clients, not in role-play.",
           "tags": "SCRIPTS · CALL SHADOWING · FEEDBACK FRAMEWORK",
           "accent": false
         },
         {
           "num": "03",
-          "title": "FINANCIAL HEALTH",
+          "title": "Financial health",
           "body": "A plain look at what the work actually earns — which clients pay for themselves, where the team is spread too thin, and whether what you charge still matches what you deliver. No new reporting tools, just numbers you can read and act on.",
           "tags": "WHAT EACH CLIENT EARNS · HOW THE TEAM IS USED · WHAT YOU CHARGE",
           "accent": false
         }
-      ]
+      ],
+      "scorecard": {
+        "eyebrow": "WHAT YOU GET",
+        "title": "The account scorecard",
+        "caption": "Example: the scorecard every engagement leaves behind. Who owns each client, when you last sat down properly, when the renewal comes, and how it feels right now.",
+        "columns": [
+          "Client",
+          "Owner",
+          "Last QBR",
+          "Renewal",
+          "Health"
+        ],
+        "rows": [
+          [
+            "Client A",
+            "Lena",
+            "3 weeks ago",
+            "March",
+            "steady"
+          ],
+          [
+            "Client B",
+            "Jonas",
+            "Overdue",
+            "January",
+            "risk"
+          ],
+          [
+            "Client C",
+            "Mia",
+            "Next week",
+            "June",
+            "watch"
+          ]
+        ],
+        "status": {
+          "steady": "Steady",
+          "watch": "Watch",
+          "risk": "At risk"
+        }
+      }
     },
     "approach": {
       "eyebrow": "APPROACH",
-      "title": "SIT IN, FIX ONE THING, HAND IT OVER",
+      "title": "Sit in, fix one thing, hand it over",
       "steps": [
         {
           "range": "WEEKS 1–2",
-          "title": "SIT IN ON THE ACCOUNTS",
+          "title": "Sit in on the accounts",
           "body": "I sit in on your status calls and one QBR, read the last six months of client threads, and talk to three account leads and, where you allow it, two clients."
         },
         {
           "range": "WEEKS 3–6",
-          "title": "FIX THE ONE THING",
+          "title": "Fix the one thing",
           "body": "We pick the single change the accounts will feel first — usually how meetings are run or who owns the relationship — and build it properly rather than reforming everything at once."
         },
         {
           "range": "WEEKS 7–8",
-          "title": "HAND IT OVER",
+          "title": "Hand it over",
           "body": "Playbook, a two-hour session with the account team, and a 90-day check-in. If you need me after that, something didn't land."
         }
       ]
     },
     "quote": {
-      "text": "OUR CLIENTS STOPPED FEELING LIKE THEY HAD TO CHASE US.",
+      "text": "Our clients stopped feeling like they had to chase us.",
       "author": "Managing Director, 45-person independent agency",
       "note": "Illustrative client comment"
     },
     "engagements": {
       "eyebrow": "ENGAGEMENTS",
-      "title": "THREE WAYS TO WORK TOGETHER",
+      "title": "Three ways to work together",
       "body": "One problem, the whole picture, or the long haul. Most agencies start small and widen it once they see how I work. Scope and fee are agreed before anything starts — no hourly surprises.",
       "plans": [
         {
-          "title": "ONE PROBLEM",
+          "title": "One problem",
           "items": [
             "You have one thing that needs an answer — a client relationship, a team question, or a number that no longer works",
             "I get properly briefed, then we work it through together with the people involved",
             "A written recommendation you can act on straight away",
             "Ends there unless you want more"
           ],
-          "highlight": false
+          "highlight": false,
+          "duration": "[2–4 weeks]",
+          "price": "[from €X]"
         },
         {
-          "title": "THE FULL LOOK",
+          "title": "The full look",
           "items": [
             "A structured look at the whole agency, from the client side inward",
             "Client relationships, how the team is set up to run them, and the financial health underneath: what you earn per client, how well the team is used, what you charge, and which clients are quietly on their way out",
             "The one or two systems that matter rebuilt with your team, not handed to them",
             "Playbook, a session with the team, and a check-in once it has had time to settle"
           ],
-          "highlight": true
+          "highlight": true,
+          "duration": "8 weeks",
+          "price": "[from €X]"
         },
         {
-          "title": "STANDING PARTNER",
+          "title": "Standing partner",
           "items": [
             "An ongoing arrangement, reviewed as we go",
             "A regular working session with you and your leads",
             "On call when something needs a second opinion before it is said out loud",
             "A recurring read on where each client stands, who might be drifting, and what the work actually earns"
           ],
-          "highlight": false
+          "highlight": false,
+          "duration": "[from 3 months]",
+          "price": "[€X per month]"
         }
-      ]
+      ],
+      "meta": {
+        "duration": "Duration",
+        "price": "Fee"
+      }
     },
     "contact": {
       "eyebrow": "CONTACT",
-      "title": "LET US GET IN TOUCH",
+      "title": "Let us get in touch",
       "body": "Thirty minutes, no deck. We'll talk about what keeps you awake at night and discuss how we can figure it out. :)",
       "rows": [
         {
@@ -215,6 +271,38 @@
       "imprint": "IMPRINT",
       "privacy": "PRIVACY POLICY",
       "cookieSettings": "COOKIE SETTINGS"
+    },
+    "heroAside": {
+      "eyebrow": "CAPACITY",
+      "value": "2",
+      "unit": "new engagements per quarter",
+      "text": "Kept small on purpose: you work with me, not with a junior team.",
+      "link": "Ask about the next slot"
+    },
+    "problems": {
+      "eyebrow": "WHERE IT USUALLY STARTS",
+      "title": "Sound familiar?",
+      "items": [
+        {
+          "eyebrow": "RENEWAL RISK",
+          "title": "The renewal turns into a pitch.",
+          "body": "The work was strong, the reports went out, and still the client is “reviewing options”. Nobody saw it coming, because nobody was clearly running the relationship."
+        },
+        {
+          "eyebrow": "ACCOUNT TEAMS",
+          "title": "Account leads collect feedback instead of leading.",
+          "body": "Status calls without a point of view, approvals chased rather than shaped. The team works hard, but the client doesn't feel led."
+        },
+        {
+          "eyebrow": "FOUNDER TIME",
+          "title": "Every escalation still lands on your desk.",
+          "body": "Clients call the founder because that's who they trust. It doesn't scale, and it keeps you away from the work only you can do."
+        }
+      ]
+    },
+    "proof": {
+      "eyebrow": "IN NUMBERS",
+      "cases": []
     }
   },
   "imprint": {
