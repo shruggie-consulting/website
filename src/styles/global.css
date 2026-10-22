@@ -279,9 +279,11 @@ body {
 .services__grid {
   padding: clamp(40px, 8vw, 72px) var(--gutter) 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
-.service { background: var(--cream); color: var(--ink); padding: clamp(28px, 5vw, 48px); border-top: 5px solid var(--line); display: flex; flex-direction: column; }
+@media (max-width: 1100px) { .services__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .services__grid { grid-template-columns: 1fr; } }
+.service { background: var(--cream); color: var(--ink); padding: clamp(24px, 2.6vw, 36px); border-top: 5px solid var(--line); display: grid; grid-row: span 3; grid-template-rows: subgrid; row-gap: 0; }
 .service--accent { border-top-color: var(--rust); }
 .service__num { font: 400 36px var(--font-display); color: var(--rust); margin-bottom: 24px; }
 .service h3 { font-size: 26px; line-height: 1.2; margin: 0 0 16px; }
@@ -582,20 +584,44 @@ body {
 
 /* ---------- Offers: label line, Keep/Fix/Next points, the line below ---------- */
 .service .service__label { font: 700 14px/1.5 var(--font-sans); letter-spacing: 0.02em; color: var(--ink); margin: -6px 0 16px; }
-.service__points { margin: -8px 0 20px; }
-.service__points > div { display: grid; grid-template-columns: 56px 1fr; gap: 12px; padding: 8px 0; border-top: 1px solid var(--line); }
-.service__points dt { font: 700 13px/1.6 var(--font-sans); letter-spacing: 0.08em; color: var(--rust); }
+.service__points { margin: 0 0 20px; align-self: start; }
+.service__points > div { padding: 10px 0; border-top: 1px solid var(--line); }
+.service__points dt { font: 700 13px/1.6 var(--font-sans); letter-spacing: 0.08em; color: var(--rust); margin-bottom: 2px; }
 .service__points dd { font: 400 15px/1.6 var(--font-sans); color: var(--ink-soft); margin: 0; }
 .service .service__after { color: var(--ink); font-weight: 700; }
-.services__more { margin: 0 auto; padding: 32px var(--gutter) 0; font: 400 17px/1.6 var(--font-sans); color: var(--muted-on-dark); }
-.services__more a { color: var(--cream); font-weight: 700; }
-.services__more a:hover { color: var(--rust); }
-.service__gets { margin-top: auto; padding-top: 16px; border-top: 2px solid var(--ink); }
+.service__foot { padding-top: 8px; }
+.service__gets { padding-top: 16px; border-top: 2px solid var(--ink); }
 .service__gets-label { font: 700 13px var(--font-sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--rust); margin-bottom: 8px; }
 .service__gets ul { list-style: none; margin: 0; padding: 0; }
 .service__gets li { font: 400 15px/1.5 var(--font-sans); color: var(--ink); padding: 3px 0 3px 16px; position: relative; }
 .service__gets li::before { content: "–"; position: absolute; left: 0; color: var(--ink-soft); }
+.service .service__note { font: 400 13px/1.5 var(--font-sans); color: var(--ink-soft); margin: 16px 0 0; padding-top: 12px; border-top: 1px solid var(--line); }
+
+
+.service--other { background: transparent; color: var(--cream); border: 1px solid oklch(1 0 0 / 0.25); border-top: 5px solid oklch(1 0 0 / 0.25); }
+.service--other h3 { color: var(--cream); }
+.service--other p { color: var(--muted-on-dark); }
+.service--other .service__foot { align-self: start; }
 mark.todo { background: oklch(0.9 0.18 100); color: var(--ink); padding: 0 4px; font-weight: 700; }
 
-/* About without the portrait (for now): the text takes the full width. */
-.about--solo { grid-template-columns: minmax(0, 860px); }
+/* About: the story on the left, the track record on the right (where the portrait was). */
+.about--stats { grid-template-columns: minmax(0, 1fr) minmax(220px, 300px); }
+.about__stats { margin: 0; padding-top: 8px; position: sticky; top: 24px; }
+.about__stat { padding: 24px 0; border-top: 2px solid var(--ink); }
+.about__stat:last-child { border-bottom: 1px solid var(--line); }
+.about__stat dd { margin: 0; }
+@media (max-width: 860px) {
+  .about--stats { grid-template-columns: 1fr; }
+  .about__stats { position: static; }
+  .about__stat { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 20px; align-items: center; padding: 18px 0; }
+  .about__stat .stat__value { margin: 0; white-space: nowrap; font-size: 34px; }
+}
+
+/* ---------- "Prefer English?" hint on German pages (non-German browsers only) ---------- */
+.lang-hint { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 6px var(--gutter); background: var(--ink); color: var(--muted-on-dark); border-bottom: 1px solid oklch(1 0 0 / 0.12); font: 400 14px/1.4 var(--font-sans); }
+.lang-hint[hidden] { display: none; }
+.lang-hint__text { margin: 0; }
+.lang-hint__text a { color: var(--cream); font-weight: 700; }
+.lang-hint__text a:hover { color: var(--rust); }
+.lang-hint__close { min-width: 44px; min-height: 36px; border: 0; background: none; color: var(--muted-on-dark); font: 400 22px/1 var(--font-sans); cursor: pointer; }
+.lang-hint__close:hover { color: var(--cream); }

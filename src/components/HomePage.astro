@@ -86,34 +86,8 @@ const priceShown = (price?: string) => !!price && (DEV || !TOKEN.test(price));
       </div>
     </section>
 
-    <section class="proof" aria-label={h.proof.eyebrow}>
-      <div class="wrap stats">
-        {
-          h.stats.map((s) => (
-            <div>
-              <div class:list={["stat__value", { "stat__value--accent": s.accent }]}>{s.value}</div>
-              <div class="stat__caption">{s.caption}</div>
-            </div>
-          ))
-        }
-      </div>
-      {
-        h.proof.cases.length > 0 && (
-          <div class="wrap cases">
-            {h.proof.cases.map((c: { client: string; before: string; after: string; text: string }) => (
-              <article class="case">
-                <div class="eyebrow eyebrow--on-light">{c.client}</div>
-                <p class="case__numbers"><span>{c.before}</span> → <strong>{c.after}</strong></p>
-                <p>{c.text}</p>
-              </article>
-            ))}
-          </div>
-        )
-      }
-    </section>
-
     <section id="about" class="on-alt">
-      <div class="wrap about about--solo">
+      <div class="wrap about about--stats">
         <div class="about__text">
           <div class="eyebrow eyebrow--on-light">{h.about.eyebrow}</div>
           <h2 class="display">{h.about.title}</h2>
@@ -130,7 +104,18 @@ const priceShown = (price?: string) => !!price && (DEV || !TOKEN.test(price));
             }
           </dl>
         </div>
-        {/* Portrait slot, off for now. To restore: put the figure back and drop "about--solo" above.
+        {/* The track record, next to the story. */}
+        <dl class="about__stats" aria-label={h.proof.eyebrow}>
+          {
+            h.stats.map((st) => (
+              <div class="about__stat">
+                <dt class:list={["stat__value", { "stat__value--accent": st.accent }]}>{st.value}</dt>
+                <dd class="stat__caption">{st.caption}</dd>
+              </div>
+            ))
+          }
+        </dl>
+        {/* Portrait slot, off for now. To restore: put the figure back in place of (or above) the stats.
         <figure class="portrait">
           <img src={h.about.portrait.src} alt={h.about.portrait.alt} width={h.about.portrait.width} height={h.about.portrait.height} loading="lazy" decoding="async" />
         </figure>
@@ -144,44 +129,55 @@ const priceShown = (price?: string) => !!price && (DEV || !TOKEN.test(price));
         <h2 class="display">{h.services.title}</h2>
         <p class="section-intro">{h.services.body}</p>
       </div>
+      {/* Each card: intro, list, "what you get"; the three parts line up across a row (subgrid). */}
       <div class="wrap services__grid">
         {
           h.services.items.map((s) => (
             <article class:list={["service", { "service--accent": s.accent }]}>
-              <div class="service__num" aria-hidden="true">{s.num}</div>
-              <h3 class="display">{s.title}</h3>
-              <p class="service__label">
-                {s.label.join(" · ")}
-                {priceShown(s.price) && (
-                  <>
-                    {" · "}
-                    {s.price.split(TOKEN).map((part) => (TOKEN.test(part) ? <mark class="todo">{part}</mark> : part))}
-                  </>
-                )}
-              </p>
-              <p>{s.body}</p>
-              {"points" in s && s.points && (
-                <dl class="service__points">
-                  {s.points.map(([k, v]) => (
-                    <div>
-                      <dt>{k}</dt>
-                      <dd>{v}</dd>
-                    </div>
-                  ))}
-                </dl>
-              )}
-              {"after" in s && s.after && <p class="service__after">{s.after}</p>}
-              <div class="service__gets">
-                <div class="service__gets-label">{h.services.getsLabel}</div>
-                <ul role="list">{s.gets.map((g) => <li>{g}</li>)}</ul>
+              <div class="service__main">
+                <div class="service__num" aria-hidden="true">{s.num}</div>
+                <h3 class="display">{s.title}</h3>
+                <p class="service__label">
+                  {s.label.join(" · ")}
+                  {priceShown(s.price) && (
+                    <>
+                      {" · "}
+                      {s.price.split(TOKEN).map((part) => (TOKEN.test(part) ? <mark class="todo">{part}</mark> : part))}
+                    </>
+                  )}
+                </p>
+                <p>{s.body}</p>
+              </div>
+              <dl class="service__points">
+                {s.points.map(([k, v]) => (
+                  <div>
+                    <dt>{k}</dt>
+                    <dd>{v}</dd>
+                  </div>
+                ))}
+              </dl>
+              <div class="service__foot">
+                <div class="service__gets">
+                  <div class="service__gets-label">{h.services.getsLabel}</div>
+                  <ul role="list">{s.gets.map((g) => <li>{g}</li>)}</ul>
+                </div>
+                {"note" in s && s.note && <p class="service__note">{s.note}</p>}
               </div>
             </article>
           ))
         }
+        <article class="service service--other">
+          <div class="service__main">
+            <div class="service__num" aria-hidden="true">{h.services.more.num}</div>
+            <h3 class="display">{h.services.more.title}</h3>
+            <p>{h.services.more.body}</p>
+          </div>
+          <div aria-hidden="true"></div>
+          <div class="service__foot">
+            <a class="btn btn--sm" href="#contact">{h.services.more.cta}</a>
+          </div>
+        </article>
       </div>
-      <p class="wrap services__more">
-        {h.services.more.text} <a href="#contact">{h.services.more.link}</a>
-      </p>
       <div class="services__spacer"></div>
     </section>
 

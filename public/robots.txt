@@ -24,3 +24,5 @@ Disallow: /
 
 User-agent: Bytespider
 Disallow: /
+
+Sitemap: https://shruggie.consulting/sitemap.xml

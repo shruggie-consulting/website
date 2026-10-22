@@ -1,0 +1,46 @@
+---
+// On German pages only: a small, dismissible hint for visitors whose browser isn't set to
+// German. Hidden in the HTML (crawlers never see it); never redirects. The choice or the
+// dismissal is remembered in this browser.
+import { routes, type PageKey } from "../i18n";
+
+interface Props {
+  page: PageKey;
+}
+const { page } = Astro.props;
+---
+
+<div class="lang-hint" data-lang-hint hidden lang="en">
+  <p class="lang-hint__text">
+    Prefer English? <a href={routes[page].en} hreflang="en" lang="en" data-lang-switch data-lang-hint-choose>Switch to EN →</a>
+  </p>
+  <button type="button" class="lang-hint__close" aria-label="Dismiss" data-lang-hint-close>×</button>
+</div>
+
+<script>
+  const KEY = "shruggie-lang-hint";
+  const bar = document.querySelector<HTMLElement>("[data-lang-hint]");
+  const store = (v: string) => {
+    try {
+      localStorage.setItem(KEY, v);
+    } catch {
+      /* storage blocked: the hint just shows again next time */
+    }
+  };
+  let decided = false;
+  try {
+    decided = !!localStorage.getItem(KEY);
+  } catch {
+    decided = false;
+  }
+  const bot = navigator.webdriver || /bot|crawl|spider|slurp|preview|lighthouse|headless/i.test(navigator.userAgent);
+  const german = [navigator.language, ...(navigator.languages ?? [])].some((l) => l?.toLowerCase().startsWith("de"));
+  if (bar && !decided && !bot && !german) {
+    bar.hidden = false;
+    bar.querySelector("[data-lang-hint-close]")?.addEventListener("click", () => {
+      store("dismissed");
+      bar.hidden = true;
+    });
+    bar.querySelector("[data-lang-hint-choose]")?.addEventListener("click", () => store("en"));
+  }
+</script>
