@@ -28,7 +28,7 @@
     },
     "stats": [
       {
-        "value": "15 J.",
+        "value": "15 Jahre",
         "caption": "Agenturseite, Account Management bis Client-Service-Leitung",
         "accent": false
       },
@@ -43,14 +43,14 @@
         "accent": false
       },
       {
-        "value": "10–80",
-        "caption": "Teamgröße, mit der ich am besten arbeite",
+        "value": "Indie",
+        "caption": "Kleine und mittelgroße unabhängige Agenturen — damit arbeite ich am besten",
         "accent": false
       }
     ],
     "about": {
       "eyebrow": "ÜBER MICH",
-      "title": "Ich war die Person, die der Kunde um 19 Uhr anruft",
+      "title": "Ich kenne Agenturen von innen. Mit und ohne Netzwerk.",
       "paragraphs": [
         "Fünfzehn Jahre auf Agenturseite, in Netzwerk und unabhängigen Agenturen — vom Account Management bis zur Leitung von Client-Service-Teams. Ich habe QBRs geführt, Eskalationen übernommen, Budgets verteidigt und mehr als eine Beziehung wieder aufgebaut, die still eingeschlafen war.",
         "Was ich dabei gelernt habe: Netzwerke wissen, wie man Geld und Kunden im Griff behält, und verlieren es in ihrer eigenen Bürokratie. Unabhängige Agenturen machen oft die bessere Arbeit und verlieren das Geld zwischen Kunden, Stunden und Bauchgefühl. Ich kenne beide Seiten, und weiß, welche 20 % der Netzwerkpraxis sich lohnen."
@@ -62,7 +62,7 @@
         },
         {
           "label": "Passt gut",
-          "value": "Unabhängige Agenturen mit 10–80 Leuten, die wachsen wollen, ohne netzwerkig zu werden."
+          "value": "Kleine und mittelgroße unabhängige Agenturen, die wachsen wollen, ohne netzwerkig zu werden."
         },
         {
           "label": "Passt nicht",
@@ -104,37 +104,52 @@
             ]
           ],
           "after": "Wenn der Check dir nichts bringt, zahlst du nichts.",
-          "tags": "ERTRAG PRO KUNDE · KUNDENPORTFOLIO · 90-TAGE-PLAN",
-          "accent": true
+          "accent": true,
+          "gets": [
+            "Ertrag pro Kunde, schwarz auf weiß",
+            "eine Einordnung deines Kundenportfolios",
+            "Keep, Fix, Next und einen 90-Tage-Plan"
+          ]
         },
         {
           "num": "02",
           "title": "Workshops für Teams",
           "label": [
-            "Halber Tag",
+            "Nach dem Check",
+            "halber Tag",
             "vor Ort oder remote"
           ],
           "price": "ab {{PREIS_WORKSHOP}}",
           "body": "Client Service als Handwerk, für dein Account-Team: Beziehungen kartieren, über die eine Kontaktperson hinaus, schwierige Gespräche früh führen, Arbeit im Raum verkaufen. An euren echten Kunden, nicht im Rollenspiel.",
-          "tags": "MAP YOUR ORBIT · SCHWIERIGE GESPRÄCHE · ARBEIT VERKAUFEN",
-          "accent": false
+          "accent": false,
+          "gets": [
+            "eine Beziehungskarte für eure wichtigsten Kunden (Map Your Orbit)",
+            "Leitfäden für schwierige Gespräche",
+            "eine klare Linie, wie ihr Arbeit präsentiert und verkauft"
+          ]
         },
         {
           "num": "03",
           "title": "Quarterly Reviews",
           "label": [
+            "Nach dem Check",
             "laufend"
           ],
           "price": "{{PREIS_QBR}} pro Quartal",
           "body": "Der Agentur-Check als Rhythmus: alle drei Monate Zahlen, Ziele und die nächsten Entscheidungen — vom nächsten Kunden bis zur ersten Festanstellung.",
-          "tags": "ZIELE · ZAHLEN · ENTSCHEIDUNGEN",
-          "accent": false
+          "accent": false,
+          "gets": [
+            "Zahlen und Ziele, jedes Quartal aktualisiert",
+            "die nächsten Entscheidungen, klar priorisiert"
+          ]
         }
       ],
       "more": {
         "text": "Konkretes Problem, das in keine Schublade passt?",
         "link": "Dann sprechen wir direkt darüber."
-      }
+      },
+      "body": "Jede Zusammenarbeit beginnt mit dem Agentur-Check. Danach entscheidest du, ob und wie es weitergeht: mit Workshops für dein Team, mit Quarterly Reviews oder mit beidem.",
+      "getsLabel": "Was du bekommst"
     },
     "approach": {
       "eyebrow": "VORGEHEN",

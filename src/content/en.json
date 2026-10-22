@@ -28,7 +28,7 @@
     },
     "stats": [
       {
-        "value": "15 yrs",
+        "value": "15 years",
         "caption": "Agency-side, from account management to leading client service",
         "accent": false
       },
@@ -43,14 +43,14 @@
         "accent": false
       },
       {
-        "value": "10–80",
-        "caption": "Headcount range I work best with",
+        "value": "Indie",
+        "caption": "Small and mid-sized independent agencies — who I work best with",
         "accent": false
       }
     ],
     "about": {
       "eyebrow": "ABOUT ME",
-      "title": "I've been the person the client calls at 7pm",
+      "title": "I know agencies from the inside. With and without a network.",
       "paragraphs": [
         "Fifteen years agency-side, in network and independent agencies — from account management to leading client service teams. I've run QBRs, taken over escalations, defended budgets and rebuilt more than one relationship that had quietly gone cold.",
         "What I learned along the way: networks know how to keep money and clients under control, and lose it in their own bureaucracy. Independent agencies often do the better work and lose the money somewhere between clients, hours and gut feeling. I know both sides, and which 20 % of network practice is worth it."
@@ -62,7 +62,7 @@
         },
         {
           "label": "Best fit",
-          "value": "Independent agencies of 10–80 people that want to grow without turning into a network."
+          "value": "Small and mid-sized independent agencies that want to grow without turning into a network."
         },
         {
           "label": "Not a fit",
@@ -104,37 +104,52 @@
             ]
           ],
           "after": "If the check doesn't help you, you don't pay.",
-          "tags": "PROFIT PER CLIENT · CLIENT PORTFOLIO · 90-DAY PLAN",
-          "accent": true
+          "accent": true,
+          "gets": [
+            "profit per client, in black and white",
+            "a clear view of your client portfolio",
+            "Keep, Fix, Next and a 90-day plan"
+          ]
         },
         {
           "num": "02",
           "title": "Workshops for teams",
           "label": [
-            "Half a day",
+            "After the check",
+            "half a day",
             "on site or remote"
           ],
           "price": "from {{PREIS_WORKSHOP}}",
           "body": "Client service as a craft, for your account team: mapping relationships beyond the one contact, having difficult conversations early, selling the work in the room. On your real clients, not in role play.",
-          "tags": "MAP YOUR ORBIT · DIFFICULT CONVERSATIONS · SELLING THE WORK",
-          "accent": false
+          "accent": false,
+          "gets": [
+            "a relationship map for your key clients (Map Your Orbit)",
+            "guides for difficult conversations",
+            "a clear line on how you present and sell the work"
+          ]
         },
         {
           "num": "03",
           "title": "Quarterly Reviews",
           "label": [
+            "After the check",
             "ongoing"
           ],
           "price": "{{PREIS_QBR}} per quarter",
           "body": "The agency check as a rhythm: every three months, the numbers, the goals and the next decisions — from the next client to the first permanent hire.",
-          "tags": "GOALS · NUMBERS · DECISIONS",
-          "accent": false
+          "accent": false,
+          "gets": [
+            "numbers and goals, updated every quarter",
+            "the next decisions, clearly prioritised"
+          ]
         }
       ],
       "more": {
         "text": "A specific problem that doesn't fit any of these?",
         "link": "Then let's talk about it directly."
-      }
+      },
+      "body": "Every engagement starts with the agency check. After that, you decide whether and how to carry on: with workshops for your team, quarterly reviews, or both.",
+      "getsLabel": "What you get"
     },
     "approach": {
       "eyebrow": "APPROACH",
