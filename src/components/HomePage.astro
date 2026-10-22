@@ -144,7 +144,7 @@ const priceShown = (price?: string) => !!price && (DEV || !TOKEN.test(price));
         <h2 class="display">{h.services.title}</h2>
         <p class="section-intro">{h.services.body}</p>
       </div>
-      {/* Each card: the offer on top, "what you get" below; the two parts line up across a row (subgrid). */}
+      {/* Each card: intro, list, "what you get"; the three parts line up across a row (subgrid). */}
       <div class="wrap services__grid">
         {
           h.services.items.map((s) => (
@@ -162,18 +162,15 @@ const priceShown = (price?: string) => !!price && (DEV || !TOKEN.test(price));
                   )}
                 </p>
                 <p>{s.body}</p>
-                {"points" in s && s.points && (
-                  <dl class="service__points">
-                    {s.points.map(([k, v]) => (
-                      <div>
-                        <dt>{k}</dt>
-                        <dd>{v}</dd>
-                      </div>
-                    ))}
-                  </dl>
-                )}
-                {"after" in s && s.after && <p class="service__after">{s.after}</p>}
               </div>
+              <dl class="service__points">
+                {s.points.map(([k, v]) => (
+                  <div>
+                    <dt>{k}</dt>
+                    <dd>{v}</dd>
+                  </div>
+                ))}
+              </dl>
               <div class="service__foot">
                 <div class="service__gets">
                   <div class="service__gets-label">{h.services.getsLabel}</div>
@@ -190,6 +187,7 @@ const priceShown = (price?: string) => !!price && (DEV || !TOKEN.test(price));
             <h3 class="display">{h.services.more.title}</h3>
             <p>{h.services.more.body}</p>
           </div>
+          <div aria-hidden="true"></div>
           <div class="service__foot">
             <a class="btn btn--sm" href="#contact">{h.services.more.cta}</a>
           </div>

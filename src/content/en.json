@@ -111,12 +111,25 @@
             "on site or remote"
           ],
           "price": "from {{PREIS_WORKSHOP}}",
-          "body": "Client service as a craft, for your account team: mapping relationships beyond the one contact, having difficult conversations early, selling the work in the room. Using your real clients, not role play.",
+          "body": "Half-day sessions for your team, using your real clients and numbers, not role play. Three topics to choose from:",
           "accent": false,
           "gets": [
-            "a relationship map for your key clients (Map Your Orbit)",
-            "guides for difficult conversations",
-            "a clear line on how you present and sell the work"
+            "tools that stay with the team — from the relationship map (Map Your Orbit) to the client P&L",
+            "concrete next steps, worked out on your real cases"
+          ],
+          "points": [
+            [
+              "CLIENT CRAFT",
+              "Client service as a craft: mapping relationships beyond the one contact, having difficult conversations early, selling the work in the room."
+            ],
+            [
+              "AGENCY MATHS",
+              "Agency finances without the jargon: margin per client, where the hours go and whether your prices still hold up."
+            ],
+            [
+              "AI-READY AGENCY",
+              "What AI means for your proposals, pricing, roles and workflows — and what it doesn't."
+            ]
           ]
         },
         {
@@ -127,11 +140,25 @@
             "ongoing"
           ],
           "price": "{{PREIS_QBR}} per quarter",
-          "body": "The agency check as a rhythm: every three months, the numbers, the goals and the next decisions — from the next client to the first permanent hire.",
+          "body": "The agency check as a rhythm: every three months, a look at three areas — and the decisions that follow.",
           "accent": false,
           "gets": [
             "numbers and goals, updated every quarter",
             "the next decisions, clearly prioritised"
+          ],
+          "points": [
+            [
+              "FINANCIAL HEALTH",
+              "Margin, profit per client, cash flow and dependencies."
+            ],
+            [
+              "OPERATIONAL PERFORMANCE",
+              "Utilisation, workflows and where unpaid time disappears."
+            ],
+            [
+              "STRATEGIC GROWTH",
+              "Which clients, services and people come next — up to the first permanent hire."
+            ]
           ]
         }
       ],

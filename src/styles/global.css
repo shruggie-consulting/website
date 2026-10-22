@@ -283,7 +283,7 @@ body {
 }
 @media (max-width: 1100px) { .services__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 640px) { .services__grid { grid-template-columns: 1fr; } }
-.service { background: var(--cream); color: var(--ink); padding: clamp(24px, 2.6vw, 36px); border-top: 5px solid var(--line); display: grid; grid-row: span 2; grid-template-rows: subgrid; row-gap: 0; }
+.service { background: var(--cream); color: var(--ink); padding: clamp(24px, 2.6vw, 36px); border-top: 5px solid var(--line); display: grid; grid-row: span 3; grid-template-rows: subgrid; row-gap: 0; }
 .service--accent { border-top-color: var(--rust); }
 .service__num { font: 400 36px var(--font-display); color: var(--rust); margin-bottom: 24px; }
 .service h3 { font-size: 26px; line-height: 1.2; margin: 0 0 16px; }
@@ -584,9 +584,9 @@ body {
 
 /* ---------- Offers: label line, Keep/Fix/Next points, the line below ---------- */
 .service .service__label { font: 700 14px/1.5 var(--font-sans); letter-spacing: 0.02em; color: var(--ink); margin: -6px 0 16px; }
-.service__points { margin: -8px 0 20px; }
-.service__points > div { display: grid; grid-template-columns: 56px 1fr; gap: 12px; padding: 8px 0; border-top: 1px solid var(--line); }
-.service__points dt { font: 700 13px/1.6 var(--font-sans); letter-spacing: 0.08em; color: var(--rust); }
+.service__points { margin: 0 0 20px; align-self: start; }
+.service__points > div { padding: 10px 0; border-top: 1px solid var(--line); }
+.service__points dt { font: 700 13px/1.6 var(--font-sans); letter-spacing: 0.08em; color: var(--rust); margin-bottom: 2px; }
 .service__points dd { font: 400 15px/1.6 var(--font-sans); color: var(--ink-soft); margin: 0; }
 .service .service__after { color: var(--ink); font-weight: 700; }
 .service__foot { padding-top: 8px; }

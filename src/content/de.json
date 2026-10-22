@@ -111,12 +111,25 @@
             "vor Ort oder online"
           ],
           "price": "ab {{PREIS_WORKSHOP}}",
-          "body": "Client Service als Handwerk, für dein Account-Team: Beziehungen kartieren, über die eine Kontaktperson hinaus, schwierige Gespräche früh führen, Arbeit im Raum verkaufen. An euren echten Kunden, nicht im Rollenspiel.",
+          "body": "Halbe Tage für dein Team, an euren echten Kunden und Zahlen, nicht im Rollenspiel. Drei Themen zur Auswahl:",
           "accent": false,
           "gets": [
-            "eine Beziehungskarte für eure wichtigsten Kunden (Map Your Orbit)",
-            "Leitfäden für schwierige Gespräche",
-            "eine klare Linie, wie ihr Arbeit präsentiert und verkauft"
+            "Werkzeuge, die im Team bleiben — von der Beziehungskarte (Map Your Orbit) bis zur Kundenrechnung",
+            "konkrete nächste Schritte, an euren echten Fällen erarbeitet"
+          ],
+          "points": [
+            [
+              "CLIENT CRAFT",
+              "Client Service als Handwerk: Beziehungen über die eine Kontaktperson hinaus kartieren, schwierige Gespräche früh führen, Arbeit im Raum verkaufen."
+            ],
+            [
+              "AGENCY MATHS",
+              "Agentur-Finanzen ohne Fachchinesisch: Marge pro Kunde, wohin die Stunden gehen und ob die Preise noch passen."
+            ],
+            [
+              "AI-READY AGENCY",
+              "Was KI für Angebote, Preise, Rollen und Abläufe in deiner Agentur bedeutet — und was nicht."
+            ]
           ]
         },
         {
@@ -127,11 +140,25 @@
             "laufend"
           ],
           "price": "{{PREIS_QBR}} pro Quartal",
-          "body": "Der Agentur-Check als Rhythmus: alle drei Monate Zahlen, Ziele und die nächsten Entscheidungen — vom nächsten Kunden bis zur ersten Festanstellung.",
+          "body": "Der Agentur-Check als Rhythmus: alle drei Monate ein Blick auf drei Felder — und die Entscheidungen, die daraus folgen.",
           "accent": false,
           "gets": [
             "Zahlen und Ziele, jedes Quartal aktualisiert",
             "die nächsten Entscheidungen, klar priorisiert"
+          ],
+          "points": [
+            [
+              "FINANZIELLE GESUNDHEIT",
+              "Marge, Ertrag pro Kunde, Liquidität und Abhängigkeiten."
+            ],
+            [
+              "OPERATIVE LEISTUNG",
+              "Auslastung, Abläufe und wo Zeit verschwindet, die niemand bezahlt."
+            ],
+            [
+              "STRATEGISCHES WACHSTUM",
+              "Welche Kunden, Angebote und Leute als Nächstes kommen — bis zur ersten Festanstellung."
+            ]
           ]
         }
       ],
