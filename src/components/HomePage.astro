@@ -144,45 +144,57 @@ const priceShown = (price?: string) => !!price && (DEV || !TOKEN.test(price));
         <h2 class="display">{h.services.title}</h2>
         <p class="section-intro">{h.services.body}</p>
       </div>
+      {/* Each card: the offer on top, "what you get" below; the two parts line up across a row (subgrid). */}
       <div class="wrap services__grid">
         {
           h.services.items.map((s) => (
             <article class:list={["service", { "service--accent": s.accent }]}>
-              <div class="service__num" aria-hidden="true">{s.num}</div>
-              <h3 class="display">{s.title}</h3>
-              <p class="service__label">
-                {s.label.join(" · ")}
-                {priceShown(s.price) && (
-                  <>
-                    {" · "}
-                    {s.price.split(TOKEN).map((part) => (TOKEN.test(part) ? <mark class="todo">{part}</mark> : part))}
-                  </>
+              <div class="service__main">
+                <div class="service__num" aria-hidden="true">{s.num}</div>
+                <h3 class="display">{s.title}</h3>
+                <p class="service__label">
+                  {s.label.join(" · ")}
+                  {priceShown(s.price) && (
+                    <>
+                      {" · "}
+                      {s.price.split(TOKEN).map((part) => (TOKEN.test(part) ? <mark class="todo">{part}</mark> : part))}
+                    </>
+                  )}
+                </p>
+                <p>{s.body}</p>
+                {"points" in s && s.points && (
+                  <dl class="service__points">
+                    {s.points.map(([k, v]) => (
+                      <div>
+                        <dt>{k}</dt>
+                        <dd>{v}</dd>
+                      </div>
+                    ))}
+                  </dl>
                 )}
-              </p>
-              <p>{s.body}</p>
-              {"points" in s && s.points && (
-                <dl class="service__points">
-                  {s.points.map(([k, v]) => (
-                    <div>
-                      <dt>{k}</dt>
-                      <dd>{v}</dd>
-                    </div>
-                  ))}
-                </dl>
-              )}
-              {"after" in s && s.after && <p class="service__after">{s.after}</p>}
-              <div class="service__gets">
-                <div class="service__gets-label">{h.services.getsLabel}</div>
-                <ul role="list">{s.gets.map((g) => <li>{g}</li>)}</ul>
+                {"after" in s && s.after && <p class="service__after">{s.after}</p>}
               </div>
-              {"note" in s && s.note && <p class="service__note">{s.note}</p>}
+              <div class="service__foot">
+                <div class="service__gets">
+                  <div class="service__gets-label">{h.services.getsLabel}</div>
+                  <ul role="list">{s.gets.map((g) => <li>{g}</li>)}</ul>
+                </div>
+                {"note" in s && s.note && <p class="service__note">{s.note}</p>}
+              </div>
             </article>
           ))
         }
+        <article class="service service--other">
+          <div class="service__main">
+            <div class="service__num" aria-hidden="true">{h.services.more.num}</div>
+            <h3 class="display">{h.services.more.title}</h3>
+            <p>{h.services.more.body}</p>
+          </div>
+          <div class="service__foot">
+            <a class="btn btn--sm" href="#contact">{h.services.more.cta}</a>
+          </div>
+        </article>
       </div>
-      <p class="wrap services__more">
-        {h.services.more.text} <a href="#contact">{h.services.more.link}</a>
-      </p>
       <div class="services__spacer"></div>
     </section>
 

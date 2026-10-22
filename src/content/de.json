@@ -137,8 +137,10 @@
         }
       ],
       "more": {
-        "text": "Konkretes Problem, das in keine Schublade passt?",
-        "link": "Dann sprechen wir direkt darüber."
+        "num": "04",
+        "title": "Passt in keine Schublade?",
+        "body": "Ein konkretes Problem, das keins der drei Angebote trifft? Dann sprechen wir direkt darüber — dreißig Minuten, ohne Folien.",
+        "cta": "30-MIN-GESPRÄCH BUCHEN"
       },
       "body": "Gründer:innen starten meist mit dem Agentur-Check, Teams oft mit einem Workshop. Die Quarterly Reviews halten es danach am Laufen.",
       "getsLabel": "Was du bekommst"

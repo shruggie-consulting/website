@@ -137,8 +137,10 @@
         }
       ],
       "more": {
-        "text": "A specific problem that doesn't fit any of these?",
-        "link": "Then let's just talk about it."
+        "num": "04",
+        "title": "Doesn't fit a box?",
+        "body": "A specific problem none of the three covers? Then let's just talk about it — thirty minutes, no deck.",
+        "cta": "BOOK A 30-MIN CALL"
       },
       "body": "Most founders start with the agency check. Teams often start with a workshop. Either way, the quarterly reviews keep it going.",
       "getsLabel": "What you get"
