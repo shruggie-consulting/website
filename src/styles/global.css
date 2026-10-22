@@ -578,3 +578,35 @@ body {
   .site-header .brand__rule,
   .site-header .brand__tag { display: none; }
 }
+
+/* ---------- Keep / bin: what comes along from the network world, what stays outside ---------- */
+.keepbin-section .section-head h2 { font-size: clamp(30px, 5.5vw, 48px); line-height: 1.08; margin: 0; }
+.keepbin {
+  padding: clamp(32px, 6vw, 56px) var(--gutter) clamp(56px, 10vw, 96px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.keepbin__col { background: var(--cream); padding: clamp(24px, 4vw, 36px); border-top: 4px solid var(--rust); }
+.keepbin__col--bin { background: transparent; border: 1px solid var(--line); border-top-width: 4px; border-top-color: var(--ink-soft); }
+.keepbin__col h3 { margin: 0 0 16px; }
+.keepbin__col ul { list-style: none; margin: 0; padding: 0; }
+.keepbin__col li { font: 400 17px/1.6 var(--font-sans); color: var(--ink-soft); padding: 14px 0; border-top: 1px solid var(--line); text-wrap: pretty; }
+.keepbin__col li:first-child { border-top: 0; padding-top: 0; }
+.keepbin__col li strong { color: var(--ink); }
+.keepbin__col--bin li { text-decoration: line-through; text-decoration-color: var(--rust); text-decoration-thickness: 1px; }
+
+/* ---------- Offers: label line, Keep/Fix/Next points, the line below ---------- */
+.service .service__label { font: 700 14px/1.5 var(--font-sans); letter-spacing: 0.02em; color: var(--ink); margin: -6px 0 16px; }
+.service__points { margin: -8px 0 20px; }
+.service__points > div { display: grid; grid-template-columns: 56px 1fr; gap: 12px; padding: 8px 0; border-top: 1px solid var(--line); }
+.service__points dt { font: 700 13px/1.6 var(--font-sans); letter-spacing: 0.08em; color: var(--rust); }
+.service__points dd { font: 400 15px/1.6 var(--font-sans); color: var(--ink-soft); margin: 0; }
+.service .service__after { color: var(--ink); font-weight: 700; }
+.services__more { margin: 0 auto; padding: 32px var(--gutter) 0; font: 400 17px/1.6 var(--font-sans); color: var(--muted-on-dark); }
+.services__more a { color: var(--cream); font-weight: 700; }
+.services__more a:hover { color: var(--rust); }
+mark.todo { background: oklch(0.9 0.18 100); color: var(--ink); padding: 0 4px; font-weight: 700; }
+
+/* About without the portrait (for now): the text takes the full width. */
+.about--solo { grid-template-columns: minmax(0, 860px); }
