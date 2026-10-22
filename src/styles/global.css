@@ -598,7 +598,7 @@ body {
 .service .service__note { font: 400 13px/1.5 var(--font-sans); color: var(--ink-soft); margin: 16px 0 0; padding-top: 12px; border-top: 1px solid var(--line); }
 
 
-.service--other { background: transparent; color: var(--cream); border: 1px solid oklch(1 0 0 / 0.25); border-top: 5px solid var(--rust); }
+.service--other { background: transparent; color: var(--cream); border: 1px solid oklch(1 0 0 / 0.25); border-top: 5px solid oklch(1 0 0 / 0.25); }
 .service--other h3 { color: var(--cream); }
 .service--other p { color: var(--muted-on-dark); }
 .service--other .service__foot { align-self: start; }
