@@ -88,7 +88,7 @@
             "2–3 Wochen"
           ],
           "price": "Festpreis {{PREIS_CHECK}}",
-          "body": "Ich schaue mir deine Zahlen, dein Kundenportfolio und euren Arbeitsrhythmus an — inklusive der Frage, welche Kunden sich wirklich lohnen. Am Ende steht ein Termin und eine Seite:",
+          "body": "Ich schaue mir deine Zahlen, dein Kundenportfolio und euren Arbeitsrhythmus an — inklusive der Frage, welche Kunden sich wirklich lohnen. Am Ende steht ein gemeinsamer Termin und ein klarer Plan, wie es weitergeht:",
           "points": [
             [
               "KEEP",
@@ -167,7 +167,7 @@
         },
         {
           "range": "WOCHE 3",
-          "title": "Termin und eine Seite",
+          "title": "Ein Termin, ein Plan",
           "body": "Zwei Stunden, ohne Deck-Theater. Keep, Fix, Next. Danach weißt du, was zu tun ist — mit oder ohne mich."
         }
       ]

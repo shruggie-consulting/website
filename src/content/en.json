@@ -88,7 +88,7 @@
             "2–3 weeks"
           ],
           "price": "Fixed price {{PREIS_CHECK}}",
-          "body": "I look at your numbers, your client portfolio and the way you work — including the question of which clients actually pay off. It ends with one meeting and one page:",
+          "body": "I look at your numbers, your client portfolio and the way you work — including the question of which clients actually pay off. It ends with one meeting and a clear plan forward:",
           "points": [
             [
               "KEEP",
@@ -167,7 +167,7 @@
         },
         {
           "range": "WEEK 3",
-          "title": "One meeting, one page",
+          "title": "One meeting, one plan",
           "body": "Two hours, no deck theatre. Keep, Fix, Next. Afterwards you know what to do — with or without me."
         }
       ]
