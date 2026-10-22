@@ -235,8 +235,7 @@
     "footer": {
       "note": "© 2026 Shruggie Consulting · Numbers, clients, rhythm. No theatre.",
       "imprint": "IMPRINT",
-      "privacy": "PRIVACY POLICY",
-      "cookieSettings": "COOKIE SETTINGS"
+      "privacy": "PRIVACY POLICY"
     },
     "heroAside": {
       "eyebrow": "CAPACITY",
@@ -373,12 +372,7 @@
     "back": "BACK TO SITE",
     "eyebrow": "PRIVACY INFORMATION UNDER ART. 13 GDPR",
     "title": "PRIVACY POLICY",
-    "intro": "This site is deliberately lean. There is no cross-site tracking and no advertising. Below is what data is processed, and why.",
-    "consent": {
-      "label": "YOUR CONSENT",
-      "text": "Google Analytics only loads after your explicit consent. You can withdraw that consent at any time with effect for the future — withdrawing is as easy as giving it.",
-      "button": "WITHDRAW CONSENT"
-    },
+    "intro": "This site is deliberately lean: no cookies, no cross-site tracking, no advertising. Below is what data is processed, and why.",
     "sections": [
       {
         "heading": "CONTROLLER",
@@ -396,20 +390,19 @@
         ]
       },
       {
-        "heading": "GOOGLE ANALYTICS 4",
+        "heading": "VISITOR STATISTICS (CLOUDFLARE WEB ANALYTICS)",
         "lines": [
-          "With your consent I use Google Analytics 4, a service of Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland. It sets cookies and collects pseudonymised usage data: pages viewed, time on page, approximate location, device type, referrer, and individual interactions (clicks on email links, social links, navigation links and the EN/DE language toggle).",
-          "IP anonymisation is enabled; your IP address is truncated before storage. No merging with other data and no advertising personalisation takes place.",
-          "The legal basis is your consent under Art. 6 (1) (a) GDPR together with § 25 (1) TDDDG. Without consent no analytics cookie is set and no event is transmitted.",
-          "Transfer to Google LLC in the USA cannot be ruled out. Google LLC is certified under the EU-US Data Privacy Framework, supplemented by the EU Standard Contractual Clauses. There remains a risk that US authorities access the data without effective legal remedies being available.",
-          "Retention period: 14 months. Further information: https://policies.google.com/privacy"
+          "To see how many visits this site gets and which pages are read, I use Cloudflare Web Analytics, a service of Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA.",
+          "When you open a page, your browser loads a small script from Cloudflare. It sends the page you opened, the page you came from (referrer), browser and device type, your approximate country and loading times. No cookies are set, nothing is stored in your browser and no profiles are built across visits. According to Cloudflare, your IP address is only used to determine the country and is not stored. I only see aggregated numbers.",
+          "The legal basis is Art. 6 (1) (f) GDPR. My legitimate interest is measuring the reach of this site in a data-minimising way, without cookies. You can object at any time (Art. 21 GDPR), for example by email or by blocking scripts from static.cloudflareinsights.com in your browser.",
+          "A transfer to Cloudflare in the USA cannot be ruled out. Cloudflare, Inc. is certified under the EU-US Data Privacy Framework, supplemented by the EU Standard Contractual Clauses. Further information: https://www.cloudflare.com/privacypolicy/"
         ]
       },
       {
         "heading": "COOKIES AND LOCAL STORAGE",
         "lines": [
-          "Your choice in the cookie banner is stored locally in your browser (local storage, key \"shruggie-consent\") so the banner is not shown on every visit. This entry contains no personal data and is not transmitted to me.",
-          "Google analytics cookies are set only after consent."
+          "This site sets no cookies.",
+          "If you close the \"Prefer English?\" note or use it to switch to the English site, that choice is stored locally in your browser (local storage, key \"shruggie-lang-hint\") so the note doesn't come back on every visit. The entry contains no personal data, is not transmitted to me and can be deleted at any time in your browser settings."
         ]
       },
       {
@@ -445,11 +438,5 @@
     "disclaimer": "This text follows a template and has not been reviewed by a lawyer. The German version is the legally operative one.",
     "copyright": "© 2026 Shruggie Consulting",
     "otherLegal": "IMPRINT"
-  },
-  "cookie": {
-    "text": "I use Google Analytics to see which parts of this site are actually read. No ads, no profiling, no cross-site tracking. Decline and nothing is stored.",
-    "legal": "Accepting sets analytics cookies and may transfer data to Google LLC in the USA. You can withdraw at any time via \"Cookie settings\" in the footer.",
-    "accept": "ACCEPT",
-    "decline": "DECLINE"
   }
 }

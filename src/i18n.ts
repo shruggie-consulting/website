@@ -54,13 +54,13 @@ export const meta: Record<PageKey, Record<Lang, Meta>> = {
   privacy: {
     de: {
       title: "Datenschutz — Shruggie Consulting",
-      description: "Datenschutzerklärung von Shruggie Consulting: welche Daten anfallen, Google Analytics nur mit Einwilligung, und Ihre Rechte.",
+      description: "Datenschutzerklärung von Shruggie Consulting: welche Daten anfallen, Reichweitenmessung ohne Cookies, und Ihre Rechte.",
       ogImage: "/og/datenschutz.png",
       noindex: true,
     },
     en: {
       title: "Privacy — Shruggie Consulting",
-      description: "Privacy policy of Shruggie Consulting: what data is processed, Google Analytics only with consent, and your rights.",
+      description: "Privacy policy of Shruggie Consulting: what data is processed, cookieless visitor statistics, and your rights.",
       ogImage: "/og/privacy.png",
       noindex: true,
     },
@@ -76,8 +76,6 @@ export const ui = {
     skip: "Zum Inhalt springen",
     homeLabel: "Shruggie Consulting – Startseite",
     langSwitch: "Sprache",
-    cookieRegion: "Cookie-Einstellungen",
-    consentWithdrawn: "Deine Einwilligung wurde widerrufen.",
     nav: "Hauptnavigation",
     menu: "Menü",
     clientWorkspace: "Client Workspace",
@@ -87,8 +85,6 @@ export const ui = {
     skip: "Skip to content",
     homeLabel: "Shruggie Consulting – home",
     langSwitch: "Language",
-    cookieRegion: "Cookie settings",
-    consentWithdrawn: "Your consent has been withdrawn.",
     nav: "Main navigation",
     menu: "Menu",
     clientWorkspace: "Client Workspace",

@@ -388,11 +388,6 @@ body {
   border-left: 4px solid var(--rust);
 }
 
-.consent-box { background: var(--ink); color: var(--cream); padding: clamp(24px, 4vw, 36px); margin-bottom: 48px; border-top: 5px solid var(--rust); }
-.consent-box__label { font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rust); margin-bottom: 16px; }
-.consent-box p { font: 400 16px/1.7 var(--font-sans); color: var(--muted-on-dark); margin: 0 0 24px; text-wrap: pretty; }
-.consent-box__actions { display: flex; gap: 12px; flex-wrap: wrap; }
-.consent-box__status { font: 400 14px/2.8 var(--font-sans); color: var(--sage); }
 
 .legal-footer { background: var(--ink); color: var(--cream); padding: 32px var(--gutter); }
 .legal-footer .wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
@@ -406,80 +401,6 @@ body {
   padding: 13px 0;
   margin: -13px 0;
 }
-
-/* ---------- Buttons shared by banner + consent box ---------- */
-.action {
-  border: none;
-  background: var(--rust-dark);
-  color: var(--cream);
-  cursor: pointer;
-  font: 700 14px var(--font-sans);
-  letter-spacing: 0.04em;
-  padding: 12px 24px;
-  min-height: 44px;
-  border-radius: 4px;
-}
-
-/* ---------- Cookie banner ---------- */
-.cookie-banner {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 50;
-  background: var(--ink);
-  color: var(--cream);
-  border-top: 4px solid var(--rust);
-  padding: 20px var(--gutter);
-}
-.cookie-banner[hidden] { display: none; }
-.cookie-banner .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; }
-.cookie-banner__text { max-width: 74ch; }
-.cookie-banner__text p:first-child { font: 400 14px/1.6 var(--font-sans); color: var(--muted-on-dark); margin: 0 0 10px; text-wrap: pretty; }
-.cookie-banner__text p:last-child { font: 400 13px/1.6 var(--font-sans); color: var(--faint-on-dark); margin: 0; }
-.cookie-banner__text a { color: var(--sage); }
-.cookie-banner__actions { display: flex; gap: 12px; flex-wrap: wrap; }
-.cookie-banner .action { padding: 14px 26px; white-space: nowrap; min-width: 150px; }
-.cookie-banner .action--decline { background: oklch(0.32 0 0); }
-
-@media (max-width: 600px) {
-  /* Same text, tighter setting, so the banner leaves room for the page on phones. */
-  .cookie-banner { padding-block: 16px; }
-  .cookie-banner .wrap { gap: 14px; }
-  .cookie-banner__text p:first-child { font-size: 13px; line-height: 1.5; margin-bottom: 8px; }
-  .cookie-banner__text p:last-child { font-size: 12px; line-height: 1.5; }
-  .cookie-banner__actions { width: 100%; }
-  .cookie-banner .action { flex: 1 1 0; min-width: 0; padding: 14px 12px; }
-}
-
-/* Contact form (on dark) */
-.contact-form { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line-dark); }
-.contact-form__title { font: 700 14px var(--font-sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--rust); margin: 0 0 20px; }
-.contact-form__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px 20px; }
-.cf-field { display: grid; gap: 8px; font: 400 14px var(--font-sans); color: var(--muted-on-dark); }
-.cf-field em { font-style: normal; color: var(--faint-on-dark); }
-.cf-field--wide { grid-column: 1 / -1; }
-.cf-field input, .cf-field textarea {
-  width: 100%; box-sizing: border-box; padding: 12px 14px; border: 1px solid var(--line-dark); border-radius: 0;
-  background: transparent; color: var(--cream); font: 400 16px/1.5 var(--font-sans);
-}
-.cf-field textarea { resize: vertical; min-height: 120px; }
-.cf-field input:focus, .cf-field textarea:focus { outline: 2px solid var(--rust); outline-offset: 0; border-color: var(--rust); }
-.cf-field textarea::placeholder { color: var(--faint-on-dark); }
-.cf-trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-.cf-consent { display: flex; gap: 12px; align-items: flex-start; margin: 20px 0; font: 400 14px/1.6 var(--font-sans); color: var(--muted-on-dark); }
-.cf-consent input { width: 18px; height: 18px; margin-top: 3px; accent-color: var(--rust); flex: none; }
-.cf-consent a { color: var(--cream); }
-.cf-submit {
-  min-height: 52px; padding: 0 28px; border: none; background: var(--rust-dark); color: var(--cream);
-  font: 700 14px var(--font-sans); letter-spacing: 0.1em; cursor: pointer;
-}
-.cf-submit:hover { background: var(--rust-dark); }
-.cf-submit:disabled { opacity: 0.6; cursor: default; }
-.cf-status { min-height: 1.6em; margin: 16px 0 0; font: 400 15px/1.6 var(--font-sans); color: var(--muted-on-dark); }
-.cf-status[data-kind="ok"] { color: var(--cream); font-weight: 700; }
-.cf-status[data-kind="error"] { color: oklch(0.8 0.12 25); }
-.contact-form.is-sent .contact-form__grid, .contact-form.is-sent .cf-consent, .contact-form.is-sent .cf-submit { display: none; }
 
 /* ---------- Problem cards ("Sound familiar?") ---------- */
 .problems .section-head h2 { font-size: clamp(30px, 5.5vw, 48px); line-height: 1.08; margin: 0; }
@@ -519,31 +440,14 @@ body {
 .plan--highlight .plan__meta { border-color: oklch(1 0 0 / 0.35); }
 .plan--highlight .plan__meta dt { color: var(--cream); }
 
-/* ---------- Slim cookie bar (overrides the larger banner above) ---------- */
-.cookie-banner { padding: 12px var(--gutter); border-top-width: 3px; }
-.cookie-banner .wrap { flex-wrap: nowrap; gap: 24px; }
-.cookie-banner__text { max-width: none; flex: 1; }
-.cookie-banner__text p { font: 400 14px/1.45 var(--font-sans) !important; margin: 0 !important; color: var(--muted-on-dark); }
-.cookie-banner__text p + p { color: var(--faint-on-dark); }
-.cookie-banner__actions { display: flex; gap: 8px; flex: none; }
-@media (max-width: 760px) {
-  .cookie-banner .wrap { flex-wrap: wrap; gap: 12px; }
-  .cookie-banner__actions { width: 100%; }
-  .cookie-banner__actions .action { flex: 1; }
-}
-
 /* ---------- Reduced motion: no wiggle, no transitions, no smooth scroll ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
-.cookie-banner .action { padding: 10px 20px; min-width: 0; }
 /* 44px tap targets without changing the look. */
 .site-header .brand { padding: 9px 0; margin: -9px 0; }
 .skip-link { min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; }
 .capacity__link { padding: 13px 0; margin: -13px 0; }
-/* Cookie bar: both sentences flow as one text, so it stays slim. */
-.cookie-banner__text p { display: inline; }
-.cookie-banner__text p + p::before { content: " "; }
 /* Hero: the headline keeps most of the width; the capacity note sits beside it. */
 @media (min-width: 900px) {
   .hero { grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr); gap: clamp(40px, 6vw, 80px); }
