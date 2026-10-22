@@ -134,50 +134,6 @@
       "more": {
         "text": "A specific problem that doesn't fit any of these?",
         "link": "Then let's talk about it directly."
-      },
-      "scorecard": {
-        "eyebrow": "WHAT YOU GET",
-        "title": "The account scorecard",
-        "caption": "Example: part of what the agency check leaves behind. Who owns each client, when you last sat down properly, what the client really brings in, and how it feels right now.",
-        "columns": [
-          "Client",
-          "Owner",
-          "Last QBR",
-          "Renewal",
-          "Margin",
-          "Health"
-        ],
-        "rows": [
-          [
-            "Client A",
-            "Lena",
-            "3 weeks ago",
-            "March",
-            "good",
-            "steady"
-          ],
-          [
-            "Client B",
-            "Jonas",
-            "Overdue",
-            "January",
-            "negative",
-            "risk"
-          ],
-          [
-            "Client C",
-            "Mia",
-            "Next week",
-            "June",
-            "thin",
-            "watch"
-          ]
-        ],
-        "status": {
-          "steady": "Steady",
-          "watch": "Watch",
-          "risk": "At risk"
-        }
       }
     },
     "approach": {

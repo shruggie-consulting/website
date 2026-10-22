@@ -134,50 +134,6 @@
       "more": {
         "text": "Konkretes Problem, das in keine Schublade passt?",
         "link": "Dann sprechen wir direkt darüber."
-      },
-      "scorecard": {
-        "eyebrow": "WAS DU BEKOMMST",
-        "title": "Die Account-Scorecard",
-        "caption": "Beispiel: ein Teil dessen, was der Agentur-Check hinterlässt. Wer jeden Kunden verantwortet, wann ihr zuletzt richtig zusammensaßt, was der Kunde wirklich einbringt und wie es sich gerade anfühlt.",
-        "columns": [
-          "Kunde",
-          "Verantwortlich",
-          "Letztes QBR",
-          "Verlängerung",
-          "Marge",
-          "Stimmung"
-        ],
-        "rows": [
-          [
-            "Kunde A",
-            "Lena",
-            "vor 3 Wochen",
-            "März",
-            "gut",
-            "steady"
-          ],
-          [
-            "Kunde B",
-            "Jonas",
-            "überfällig",
-            "Januar",
-            "negativ",
-            "risk"
-          ],
-          [
-            "Kunde C",
-            "Mia",
-            "nächste Woche",
-            "Juni",
-            "dünn",
-            "watch"
-          ]
-        ],
-        "status": {
-          "steady": "Stabil",
-          "watch": "Beobachten",
-          "risk": "Gefährdet"
-        }
       }
     },
     "approach": {

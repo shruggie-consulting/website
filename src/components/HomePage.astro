@@ -178,38 +178,6 @@ const priceShown = (price?: string) => !!price && (DEV || !TOKEN.test(price));
       <p class="wrap services__more">
         {h.services.more.text} <a href="#contact">{h.services.more.link}</a>
       </p>
-      <!-- "What you get": an example scorecard in brand style (illustrative data). -->
-      <figure class="wrap scorecard">
-        <div class="eyebrow eyebrow--on-dark">{h.services.scorecard.eyebrow}</div>
-        <h3 class="display scorecard__title">{h.services.scorecard.title}</h3>
-        <div class="scorecard__table-wrap">
-          <table class="scorecard__table">
-            <thead>
-              <tr>{h.services.scorecard.columns.map((c) => <th scope="col">{c}</th>)}</tr>
-            </thead>
-            <tbody>
-              {
-                h.services.scorecard.rows.map((r) => (
-                  <tr>
-                    <th scope="row">{r[0]}</th>
-                    <td>{r[1]}</td>
-                    <td>{r[2]}</td>
-                    <td>{r[3]}</td>
-                    <td>{r[4]}</td>
-                    <td>
-                      <span class:list={["health", `health--${r[5]}`]}>
-                        <span class="health__dot" aria-hidden="true" />
-                        {h.services.scorecard.status[r[5] as "steady" | "watch" | "risk"]}
-                      </span>
-                    </td>
-                  </tr>
-                ))
-              }
-            </tbody>
-          </table>
-        </div>
-        <figcaption>{h.services.scorecard.caption}</figcaption>
-      </figure>
       <div class="services__spacer"></div>
     </section>
 
