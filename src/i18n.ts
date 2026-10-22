@@ -25,15 +25,15 @@ interface Meta {
 export const meta: Record<PageKey, Record<Lang, Meta>> = {
   home: {
     de: {
-      title: "Shruggie Consulting — Client Service & Kundenführung für Agenturen",
+      title: "Shruggie Consulting — Klarheit für unabhängige Agenturen",
       description:
-        "Ich helfe kleinen und mittelgroßen Agenturen, Client Service sauber aufzustellen: Account-Leads, die die Beziehung führen, Meetings, auf die Kunden sich freuen, und keine Überraschungen vor der Verlängerung.",
+        "Für unabhängige Agenturen, die gute Arbeit machen und im Chaos laufen: saubere Zahlen, echtes Account Management, ein Rhythmus, der hält. Ohne Bürokratie, ohne 10x-Versprechen.",
       ogImage: "/og/home.png",
     },
     en: {
-      title: "Shruggie Consulting — Client Service & Account Leadership for Agencies",
+      title: "Shruggie Consulting — Clarity for independent agencies",
       description:
-        "I help small and mid-size agencies run client service properly: account leads who own the relationship, meetings clients look forward to, and no surprises before a renewal.",
+        "For independent agencies that do good work and run on chaos: clean numbers, proper account management, a rhythm that holds. No bureaucracy, no 10x promises.",
       ogImage: "/og/home.png",
     },
   },
@@ -77,7 +77,7 @@ export const ui = {
     homeLabel: "Shruggie Consulting – Startseite",
     langSwitch: "Sprache",
     cookieRegion: "Cookie-Einstellungen",
-    consentWithdrawn: "Ihre Einwilligung wurde widerrufen.",
+    consentWithdrawn: "Deine Einwilligung wurde widerrufen.",
     nav: "Hauptnavigation",
     menu: "Menü",
     clientWorkspace: "Client Workspace",

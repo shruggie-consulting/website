@@ -9,6 +9,13 @@ interface Props {
 
 const { lang } = Astro.props;
 const h = content[lang].home;
+
+// Prices still to be set are written as {{PREIS_…}} in the content. While developing they
+// show highlighted; the published site leaves the price out until it is filled in.
+const DEV = import.meta.env.DEV;
+const TOKEN = /(\{\{[A-Z_]+\}\})/;
+const quote = h.quote as { text: string; author: string } | null;
+const priceShown = (price?: string) => !!price && (DEV || !TOKEN.test(price));
 ---
 
 <Base lang={lang} page="home">
@@ -57,6 +64,28 @@ const h = content[lang].home;
       </div>
     </section>
 
+    <!-- What comes along from the network world, and what stays outside. -->
+    <section class="keepbin-section" aria-labelledby="keepbin-title">
+      <div class="wrap section-head">
+        <div class="eyebrow eyebrow--on-light">{h.keepBin.eyebrow}</div>
+        <h2 id="keepbin-title" class="display">{h.keepBin.title}</h2>
+      </div>
+      <div class="wrap keepbin">
+        <article class="keepbin__col keepbin__col--keep">
+          <h3 class="eyebrow eyebrow--on-light">{h.keepBin.keep.title}</h3>
+          <ul role="list">
+            {h.keepBin.keep.items.map((i) => <li><strong>{i.title}</strong> — {i.text}</li>)}
+          </ul>
+        </article>
+        <article class="keepbin__col keepbin__col--bin">
+          <h3 class="eyebrow eyebrow--on-light">{h.keepBin.bin.title}</h3>
+          <ul role="list">
+            {h.keepBin.bin.items.map((i) => <li>{i}</li>)}
+          </ul>
+        </article>
+      </div>
+    </section>
+
     <section class="proof" aria-label={h.proof.eyebrow}>
       <div class="wrap stats">
         {
@@ -84,10 +113,11 @@ const h = content[lang].home;
     </section>
 
     <section id="about" class="on-alt">
-      <div class="wrap about">
+      <div class="wrap about about--solo">
         <div class="about__text">
           <div class="eyebrow eyebrow--on-light">{h.about.eyebrow}</div>
           <h2 class="display">{h.about.title}</h2>
+          {/* BENNI: verify every factual claim before publishing */}
           {h.about.paragraphs.map((p) => <p>{p}</p>)}
           <dl class="facts">
             {
@@ -100,9 +130,11 @@ const h = content[lang].home;
             }
           </dl>
         </div>
+        {/* Portrait slot, off for now. To restore: put the figure back and drop "about--solo" above.
         <figure class="portrait">
           <img src={h.about.portrait.src} alt={h.about.portrait.alt} width={h.about.portrait.width} height={h.about.portrait.height} loading="lazy" decoding="async" />
         </figure>
+        */}
       </div>
     </section>
 
@@ -118,43 +150,38 @@ const h = content[lang].home;
             <article class:list={["service", { "service--accent": s.accent }]}>
               <div class="service__num" aria-hidden="true">{s.num}</div>
               <h3 class="display">{s.title}</h3>
+              <p class="service__label">
+                {s.label.join(" · ")}
+                {priceShown(s.price) && (
+                  <>
+                    {" · "}
+                    {s.price.split(TOKEN).map((part) => (TOKEN.test(part) ? <mark class="todo">{part}</mark> : part))}
+                  </>
+                )}
+              </p>
               <p>{s.body}</p>
-              <div class="service__tags">{s.tags}</div>
+              {"points" in s && s.points && (
+                <dl class="service__points">
+                  {s.points.map(([k, v]) => (
+                    <div>
+                      <dt>{k}</dt>
+                      <dd>{v}</dd>
+                    </div>
+                  ))}
+                </dl>
+              )}
+              {"after" in s && s.after && <p class="service__after">{s.after}</p>}
+              <div class="service__gets">
+                <div class="service__gets-label">{h.services.getsLabel}</div>
+                <ul role="list">{s.gets.map((g) => <li>{g}</li>)}</ul>
+              </div>
             </article>
           ))
         }
       </div>
-      <!-- "What you get": an example scorecard in brand style (illustrative data). -->
-      <figure class="wrap scorecard">
-        <div class="eyebrow eyebrow--on-dark">{h.services.scorecard.eyebrow}</div>
-        <h3 class="display scorecard__title">{h.services.scorecard.title}</h3>
-        <div class="scorecard__table-wrap">
-          <table class="scorecard__table">
-            <thead>
-              <tr>{h.services.scorecard.columns.map((c) => <th scope="col">{c}</th>)}</tr>
-            </thead>
-            <tbody>
-              {
-                h.services.scorecard.rows.map((r) => (
-                  <tr>
-                    <th scope="row">{r[0]}</th>
-                    <td>{r[1]}</td>
-                    <td>{r[2]}</td>
-                    <td>{r[3]}</td>
-                    <td>
-                      <span class:list={["health", `health--${r[4]}`]}>
-                        <span class="health__dot" aria-hidden="true" />
-                        {h.services.scorecard.status[r[4] as "steady" | "watch" | "risk"]}
-                      </span>
-                    </td>
-                  </tr>
-                ))
-              }
-            </tbody>
-          </table>
-        </div>
-        <figcaption>{h.services.scorecard.caption}</figcaption>
-      </figure>
+      <p class="wrap services__more">
+        {h.services.more.text} <a href="#contact">{h.services.more.link}</a>
+      </p>
       <div class="services__spacer"></div>
     </section>
 
@@ -176,42 +203,20 @@ const h = content[lang].home;
       </ol>
     </section>
 
-    <section class="quote">
-      <figure class="wrap">
-        <blockquote>
-          <p class="display">{h.quote.text}</p>
-        </blockquote>
-        <figcaption>
-          <p class="quote__author">{h.quote.author}</p>
-          <p class="quote__note">{h.quote.note}</p>
-        </figcaption>
-      </figure>
-    </section>
-
-    {!h.engagements.hidden && (
-    <section id="engagements" class="on-alt engagements">
-      <div class="wrap section-head">
-        <div class="eyebrow eyebrow--on-light">{h.engagements.eyebrow}</div>
-        <h2 class="display">{h.engagements.title}</h2>
-        <p class="section-intro">{h.engagements.body}</p>
-      </div>
-      <div class="wrap plans">
-        {
-          h.engagements.plans.map((p) => (
-            <article class:list={["plan", { "plan--highlight": p.highlight }]}>
-              <h3 class="display">{p.title}</h3>
-              <dl class="plan__meta">
-                <div><dt>{h.engagements.meta.duration}</dt><dd>{p.duration}</dd></div>
-                <div><dt>{h.engagements.meta.price}</dt><dd>{p.price}</dd></div>
-              </dl>
-              <ul>
-                {p.items.map((item) => <li>{item}</li>)}
-              </ul>
-            </article>
-          ))
-        }
-      </div>
-    </section>
+    {/* Client quote: only real ones, and only when there is one. In the content file, replace
+         "quote": null with e.g.
+         "quote": { "text": "…", "author": "Gründer, Agentur, München" }  (EN: "Founder, agency, Munich") */}
+    {quote && (
+      <section class="quote">
+        <figure class="wrap">
+          <blockquote>
+            <p class="display">{quote.text}</p>
+          </blockquote>
+          <figcaption>
+            <p class="quote__author">{quote.author}</p>
+          </figcaption>
+        </figure>
+      </section>
     )}
 
     <section id="contact" class="on-dark">
