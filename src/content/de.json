@@ -40,7 +40,7 @@
     ],
     "about": {
       "eyebrow": "ÜBER MICH",
-      "title": "Ich war die Person, die der Kunde um 19 Uhr anruft.",
+      "title": "Ich kenne Agenturen von innen. Mit und ohne Netzwerk.",
       "paragraphs": [
         "Fünfzehn Jahre auf Agenturseite, in Netzwerk und unabhängigen Agenturen — vom Account Management bis zur Leitung von Client-Service-Teams. Ich habe Quartalsgespräche geführt, Eskalationen übernommen, Budgets verteidigt und mehr als eine Beziehung wieder aufgebaut, die still eingeschlafen war.",
         "Was ich dabei gelernt habe: Netzwerke wissen, wie man Geld und Kunden im Griff behält — und verlieren beides in ihrer eigenen Bürokratie. Unabhängige Agenturen machen oft die bessere Arbeit und verlieren das Geld zwischen Kunden, Stunden und Bauchgefühl. Ich kenne beide Seiten und weiß, welche 20 % der Netzwerkpraxis sich lohnen."
@@ -141,51 +141,7 @@
         "link": "Dann sprechen wir direkt darüber."
       },
       "body": "Gründer:innen starten meist mit dem Agentur-Check, Teams oft mit einem Workshop. Die Quarterly Reviews halten es danach am Laufen.",
-      "getsLabel": "Was du bekommst",
-      "scorecard": {
-        "eyebrow": "BEISPIEL AUS DEM AGENTUR-CHECK",
-        "title": "Die Account-Scorecard",
-        "caption": "Beispiel: ein Teil dessen, was der Agentur-Check hinterlässt. Wer jeden Kunden verantwortet, wann ihr zuletzt wirklich miteinander gesprochen habt, was der Kunde tatsächlich einbringt und wie es sich gerade anfühlt. Alle Namen sind erfunden.",
-        "columns": [
-          "Kunde",
-          "Verantwortlich",
-          "Letztes echtes Gespräch",
-          "Verlängerung",
-          "Marge",
-          "Stimmung"
-        ],
-        "rows": [
-          [
-            "Kunde A",
-            "Lena",
-            "vor 3 Wochen",
-            "März",
-            "gesund",
-            "steady"
-          ],
-          [
-            "Kunde B",
-            "Jonas",
-            "überfällig",
-            "Januar",
-            "negativ",
-            "risk"
-          ],
-          [
-            "Kunde C",
-            "Mia",
-            "nächste Woche",
-            "Juni",
-            "dünn",
-            "watch"
-          ]
-        ],
-        "status": {
-          "steady": "Stabil",
-          "watch": "Beobachten",
-          "risk": "Gefährdet"
-        }
-      }
+      "getsLabel": "Was du bekommst"
     },
     "approach": {
       "eyebrow": "VORGEHEN",

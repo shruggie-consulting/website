@@ -40,7 +40,7 @@
     ],
     "about": {
       "eyebrow": "ABOUT ME",
-      "title": "I was the one the client called at 7pm.",
+      "title": "I know agencies from the inside. With and without a network.",
       "paragraphs": [
         "Fifteen years agency-side, in both network and independent agencies — from account management to leading client service teams. I've run QBRs, handled escalations, defended budgets and rebuilt more than one relationship that had quietly gone cold.",
         "What I learned along the way: networks know how to keep money and clients under control — then lose both to their own bureaucracy. Independent agencies often do the better work and lose the money somewhere between clients, hours and gut feeling. I know both sides, and which 20% of network practice is worth keeping."
@@ -141,51 +141,7 @@
         "link": "Then let's just talk about it."
       },
       "body": "Most founders start with the agency check. Teams often start with a workshop. Either way, the quarterly reviews keep it going.",
-      "getsLabel": "What you get",
-      "scorecard": {
-        "eyebrow": "EXAMPLE FROM THE AGENCY CHECK",
-        "title": "The account scorecard",
-        "caption": "Example: part of what the agency check leaves behind. Who owns each client, when you last really talked, what the client actually earns you, and how it feels right now. All names are invented.",
-        "columns": [
-          "Client",
-          "Owner",
-          "Last real conversation",
-          "Renewal",
-          "Margin",
-          "Temperature"
-        ],
-        "rows": [
-          [
-            "Client A",
-            "Lena",
-            "3 weeks ago",
-            "March",
-            "healthy",
-            "steady"
-          ],
-          [
-            "Client B",
-            "Jonas",
-            "overdue",
-            "January",
-            "negative",
-            "risk"
-          ],
-          [
-            "Client C",
-            "Mia",
-            "next week",
-            "June",
-            "thin",
-            "watch"
-          ]
-        ],
-        "status": {
-          "steady": "Stable",
-          "watch": "Watch",
-          "risk": "At risk"
-        }
-      }
+      "getsLabel": "What you get"
     },
     "approach": {
       "eyebrow": "APPROACH",
