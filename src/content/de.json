@@ -22,7 +22,7 @@
     "hero": {
       "eyebrow": "AGENTUREN · ZAHLEN · KUNDEN",
       "title": "KEIN 10X. KEIN ERFOLG ÜBER NACHT. NUR EINE EHRLICHE ANTWORT.",
-      "body": "Für unabhängige Agenturen, die bessere Arbeit machen als die Netzwerke — und trotzdem zu oft im Chaos laufen. Ich bringe die drei Dinge aus der Netzwerkwelt mit, die sich selbst bezahlen: saubere Zahlen, echtes Account Management und einen Rhythmus, der hält. Die Bürokratie bleibt draußen.",
+      "body": "Für unabhängige Agenturen, die oft bessere Arbeit machen als die großen Netzwerke, intern aber zu viel improvisieren. Ich bringe drei Dinge aus der Netzwerkwelt mit, die sich schnell bezahlt machen: saubere Zahlen, richtiges Account Management und einen festen Rhythmus. Den Rest der Bürokratie lassen wir weg.",
       "cta": "30-MIN-GESPRÄCH BUCHEN",
       "secondary": "DEN AGENTUR-CHECK ANSEHEN"
     },
@@ -42,8 +42,8 @@
       "eyebrow": "ÜBER MICH",
       "title": "Ich kenne Agenturen von innen. Mit und ohne Netzwerk.",
       "paragraphs": [
-        "Fünfzehn Jahre auf Agenturseite, in Netzwerk und unabhängigen Agenturen — vom Account Management bis zur Leitung von Client-Service-Teams. Ich habe Quartalsgespräche geführt, Eskalationen übernommen, Budgets verteidigt und mehr als eine Beziehung wieder aufgebaut, die still eingeschlafen war.",
-        "Was ich dabei gelernt habe: Netzwerke wissen, wie man Geld und Kunden im Griff behält — und verlieren beides in ihrer eigenen Bürokratie. Unabhängige Agenturen machen oft die bessere Arbeit und verlieren das Geld zwischen Kunden, Stunden und Bauchgefühl. Ich kenne beide Seiten und weiß, welche 20 % der Netzwerkpraxis sich lohnen."
+        "Ich habe fünfzehn Jahre auf Agenturseite gearbeitet, in Netzwerkagenturen und in unabhängigen Häusern, vom Account Management bis zur Leitung von Client-Service-Teams. Ich habe Quartalsgespräche geführt, Eskalationen aufgefangen, Budgets verteidigt und mehr als eine Kundenbeziehung gerettet, die schon fast eingeschlafen war.",
+        "Dabei habe ich vor allem eins gelernt: Netzwerke haben Geld und Kunden gut im Griff, verlieren dafür aber viel in ihrer eigenen Bürokratie. Unabhängige Agenturen machen oft die bessere Arbeit, lassen aber Geld liegen, irgendwo zwischen Kunden, Stunden und Bauchgefühl. Ich kenne beide Seiten und weiß ziemlich genau, welcher Teil der Netzwerkpraxis sich auch für kleinere Agenturen lohnt."
       ],
       "rows": [
         {
@@ -52,7 +52,7 @@
         },
         {
           "label": "Passt gut",
-          "value": "Kleine und mittelgroße unabhängige Agenturen, die wachsen wollen, ohne netzwerkig zu werden."
+          "value": "Kleine und mittelgroße unabhängige Agenturen, die wachsen wollen, ohne dabei wie ein Netzwerk zu werden."
         },
         {
           "label": "Passt nicht",
@@ -79,19 +79,19 @@
             "Festpreis"
           ],
           "price": "{{PREIS_CHECK}}",
-          "body": "Ich schaue mir deine Zahlen, dein Kundenportfolio und euren Arbeitsrhythmus an — inklusive der Frage, welche Kunden sich wirklich lohnen. Am Ende stehen ein gemeinsamer Termin und ein klarer Plan, wie es weitergeht:",
+          "body": "Ich sehe mir deine Zahlen, deine Kunden und eure Abläufe an, vor allem die Frage, welche Kunden sich wirklich lohnen. Zum Schluss setzen wir uns zusammen und gehen einen klaren Plan durch:",
           "points": [
             [
               "KEEP",
-              "was gut läuft und weitergehen sollte — welche Kunden, Abläufe und Gewohnheiten sich lohnen und bleiben dürfen, auch wenn sie unspektakulär sind."
+              "Was gut funktioniert und so bleiben sollte. Kunden und Abläufe, die sich lohnen, auch wenn sie unspektakulär sind."
             ],
             [
               "FIX",
-              "wo Geld verloren geht, und warum — Kunden, die mehr kosten, als sie bringen, Stunden, die niemand abrechnet, Preise, die nicht mehr passen."
+              "Wo Geld verloren geht und warum. Kunden, die mehr kosten, als sie bringen, nie abgerechnete Stunden oder Preise, die nicht mehr passen."
             ],
             [
               "NEXT",
-              "was in den nächsten 90 Tagen und 12 Monaten passiert — mit klaren Prioritäten, wer was verantwortet und woran ihr merkt, dass es wirkt."
+              "Was in den nächsten 90 Tagen und 12 Monaten passiert, mit klaren Prioritäten und festen Zuständigkeiten."
             ]
           ],
           "accent": true,
@@ -100,7 +100,7 @@
             "welche Kunden dich tragen und welche du trägst",
             "Keep, Fix, Next und einen 90-Tage-Plan"
           ],
-          "note": "Deine Zahlen bleiben bei mir. NDA vorab, wenn du magst."
+          "note": "Deine Zahlen bleiben bei mir. Wenn du willst, unterschreibe ich vorab ein NDA."
         },
         {
           "num": "02",
@@ -111,24 +111,24 @@
             "vor Ort oder online"
           ],
           "price": "ab {{PREIS_WORKSHOP}}",
-          "body": "Halbe Tage für dein Team, an euren echten Kunden und Zahlen, nicht im Rollenspiel. Drei Themen zur Auswahl:",
+          "body": "Ein halber Tag mit deinem Team. Wir arbeiten an euren echten Kunden und Zahlen statt an Fallbeispielen. Zur Auswahl stehen drei Themen:",
           "accent": false,
           "gets": [
-            "Werkzeuge, die im Team bleiben — von der Beziehungskarte (Map Your Orbit) bis zur Kundenrechnung",
-            "konkrete nächste Schritte, an euren echten Fällen erarbeitet"
+            "Werkzeuge, mit denen das Team danach weiterarbeitet, etwa die Beziehungskarte (Map Your Orbit) oder eine Rechnung pro Kunde",
+            "konkrete nächste Schritte, erarbeitet an euren eigenen Fällen"
           ],
           "points": [
             [
               "CLIENT CRAFT",
-              "Client Service als Handwerk: Beziehungen über die eine Kontaktperson hinaus kartieren, schwierige Gespräche früh führen, Arbeit im Raum verkaufen."
+              "Client Service als Handwerk. Wer beim Kunden wirklich mitredet, wie ihr schwierige Gespräche führt und eure Arbeit überzeugend präsentiert."
             ],
             [
               "AGENCY MATHS",
-              "Agentur-Finanzen ohne Fachchinesisch: Marge pro Kunde, wohin die Stunden gehen und ob die Preise noch passen."
+              "Agentur-Finanzen verständlich erklärt. Was ein Kunde wirklich einbringt, wo die Stunden hingehen und ob eure Preise noch stimmen."
             ],
             [
               "AI-READY AGENCY",
-              "Was KI für Angebote, Preise, Rollen und Abläufe in deiner Agentur bedeutet — und was nicht."
+              "Was KI für eure Angebote, Preise, Rollen und Abläufe bedeutet. Und wo sie euch gar nicht weiterhilft."
             ]
           ]
         },
@@ -140,7 +140,7 @@
             "laufend"
           ],
           "price": "{{PREIS_QBR}} pro Quartal",
-          "body": "Der Agentur-Check als Rhythmus: alle drei Monate ein Blick auf drei Felder — und die Entscheidungen, die daraus folgen.",
+          "body": "Der Agentur-Check als fester Termin: Alle drei Monate schauen wir gemeinsam auf drei Bereiche und entscheiden, was als Nächstes kommt.",
           "accent": false,
           "gets": [
             "Zahlen und Ziele, jedes Quartal aktualisiert",
@@ -149,15 +149,15 @@
           "points": [
             [
               "FINANZIELLE GESUNDHEIT",
-              "Marge, Ertrag pro Kunde, Liquidität und Abhängigkeiten — und wie sie sich seit dem letzten Quartal entwickelt haben."
+              "Marge, Ertrag pro Kunde, Liquidität und Abhängigkeiten, und wie sich das seit dem letzten Quartal verändert hat."
             ],
             [
               "OPERATIVE LEISTUNG",
-              "Auslastung, Abläufe und wo Zeit verschwindet, die niemand bezahlt — und was sich davon bis zum nächsten Quartal ändern soll."
+              "Auslastung, Abläufe und die Zeit, die niemand bezahlt. Und was sich davon bis zum nächsten Quartal ändern soll."
             ],
             [
               "STRATEGISCHES WACHSTUM",
-              "Welche Kunden, Angebote und Leute als Nächstes kommen — vom nächsten Kunden bis zur ersten Festanstellung."
+              "Welche Kunden, Angebote und Leute als Nächstes dazukommen sollen, vom nächsten Neukunden bis zur ersten Festanstellung."
             ]
           ]
         }
@@ -165,10 +165,10 @@
       "more": {
         "num": "04",
         "title": "Passt in keine Schublade?",
-        "body": "Ein konkretes Problem, das keins der drei Angebote trifft? Dann sprechen wir direkt darüber — dreißig Minuten, ohne Folien.",
+        "body": "Ein konkretes Problem, das zu keinem der drei Angebote passt? Dann reden wir einfach direkt darüber. Dreißig Minuten, ganz ohne Präsentation.",
         "cta": "30-MIN-GESPRÄCH BUCHEN"
       },
-      "body": "Gründer:innen starten meist mit dem Agentur-Check, Teams oft mit einem Workshop. Die Quarterly Reviews halten es danach am Laufen.",
+      "body": "Gründer:innen fangen meistens mit dem Agentur-Check an, Teams oft mit einem Workshop. Mit den Quarterly Reviews bleibt es danach in Bewegung.",
       "getsLabel": "Was du bekommst"
     },
     "approach": {
@@ -178,17 +178,17 @@
         {
           "range": "WOCHE 1",
           "title": "Zahlen und Gespräche",
-          "body": "Du gibst mir Einblick in Umsatz, Kosten und Stunden der letzten zwölf Monate. Ich spreche mit dir und, wenn du magst, mit zwei, drei Leuten aus dem Team. Deine Zahlen bleiben bei mir. NDA vorab, wenn du magst."
+          "body": "Du gibst mir Einblick in Umsatz, Kosten und Stunden der letzten zwölf Monate. Ich spreche mit dir und, wenn du möchtest, mit zwei oder drei Leuten aus dem Team. Deine Zahlen bleiben bei mir, ein NDA unterschreibe ich gern vorab."
         },
         {
           "range": "WOCHE 2",
           "title": "Analyse",
-          "body": "Ich gehe den Dingen nach, die in Woche 1 aufgefallen sind — an deinen Zahlen und eurem Alltag, nicht an einer Standard-Checkliste. Jede Agentur hat ihre eigenen zwei, drei Stellen, an denen es hakt."
+          "body": "Ich schaue mir genauer an, was in der ersten Woche aufgefallen ist, anhand deiner Zahlen und eures Alltags. Meistens sind es zwei oder drei Stellen, an denen es wirklich hakt, und die sind bei jeder Agentur andere."
         },
         {
           "range": "WOCHE 3",
           "title": "Ein Termin, ein Plan",
-          "body": "Zwei Stunden, ohne Folienschlacht. Keep, Fix, Next. Danach weißt du, was zu tun ist — mit oder ohne mich."
+          "body": "Wir setzen uns zwei Stunden zusammen, ohne große Präsentation, und gehen Keep, Fix und Next durch. Danach weißt du, was zu tun ist, ob mit mir oder ohne mich."
         }
       ]
     },
@@ -196,7 +196,7 @@
     "contact": {
       "eyebrow": "KONTAKT",
       "title": "Lass uns reden.",
-      "body": "Dreißig Minuten, ohne Folien. Du erzählst, was dich nachts wachhält, ich sage dir ehrlich, ob ich helfen kann.",
+      "body": "Dreißig Minuten, ohne Präsentation. Du erzählst mir, was dich gerade beschäftigt, und ich sage dir ehrlich, ob ich helfen kann.",
       "rows": [
         {
           "label": "E-MAIL",
@@ -242,7 +242,7 @@
       "eyebrow": "KAPAZITÄT",
       "value": "2",
       "unit": "neue Mandate pro Quartal",
-      "text": "Bewusst klein gehalten: Du arbeitest mit mir, nicht mit einem Junior-Team.",
+      "text": "Ich nehme bewusst nur wenige Mandate an. Du arbeitest direkt mit mir, nicht mit einem Junior-Team.",
       "link": "Nach dem nächsten Termin fragen"
     },
     "problems": {
@@ -252,17 +252,17 @@
         {
           "eyebrow": "MARGE",
           "title": "Der größte Kunde ist auch der teuerste.",
-          "body": "Umsatz top, Marge mau. Niemand weiß genau, wie viele Stunden wirklich reingehen — oder ob sich das noch lohnt."
+          "body": "Der Umsatz stimmt, die Marge nicht. Wie viele Stunden wirklich in den Kunden fließen, weiß keiner so genau. Ob er sich noch rechnet, auch nicht."
         },
         {
           "eyebrow": "VERLÄNGERUNG",
           "title": "Aus der Verlängerung wird ein Pitch.",
-          "body": "Die Arbeit war stark, die Berichte gingen raus, und trotzdem „prüft der Kunde Optionen“. Niemand hat es kommen sehen, weil niemand die Beziehung klar geführt hat."
+          "body": "Die Arbeit war gut, die Berichte kamen pünktlich, und plötzlich „schaut sich der Kunde um“. Überrascht waren alle, weil sich niemand richtig um die Beziehung gekümmert hat."
         },
         {
           "eyebrow": "ORGANISATION",
           "title": "Die Arbeit ist gut. Der Rest ist Chaos.",
-          "body": "Prioritäten wechseln täglich, Budgets werden geschätzt statt gesetzt, und alles Wichtige landet am Ende bei dir."
+          "body": "Die Prioritäten ändern sich jeden Tag, Budgets werden eher geschätzt als festgelegt, und am Ende landet alles Wichtige doch wieder bei dir."
         }
       ]
     },
@@ -278,24 +278,24 @@
         "items": [
           {
             "title": "Finanzielle Hygiene",
-            "text": "Budgets, die vorher feststehen, und Zahlen, die du jeden Monat lesen kannst."
+            "text": "Budgets, die vor Projektstart feststehen, und Zahlen, die du jeden Monat verstehst."
           },
           {
             "title": "Account Management",
-            "text": "auch wenn dein größter Kunde die Zahnarztpraxis nebenan ist. Da liegt das Geld."
+            "text": "auch wenn dein größter Kunde die Zahnarztpraxis um die Ecke ist. Genau da liegt meistens das Geld."
           },
           {
             "title": "Ein Rhythmus, der hält",
-            "text": "so viel Struktur, dass Prioritäten sichtbar bleiben. Nicht mehr."
+            "text": "gerade so viel Struktur, dass alle wissen, was gerade wichtig ist."
           }
         ]
       },
       "bin": {
         "title": "Draußen lassen",
         "items": [
-          "Endlose Meetings.",
-          "Prozesse um der Prozesse willen.",
-          "Bürokratie, die deine Leute von der Arbeit abhält, für die Kunden eigentlich bezahlen."
+          "Meetings, die niemand braucht.",
+          "Prozesse, die nur sich selbst dienen.",
+          "Bürokratie, die dein Team von der Arbeit abhält, für die Kunden eigentlich bezahlen."
         ]
       }
     }
