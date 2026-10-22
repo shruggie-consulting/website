@@ -1,8 +1,8 @@
 ---
 import "../styles/global.css";
-import CookieBanner from "../components/CookieBanner.astro";
 import LangHint from "../components/LangHint.astro";
 import { meta, routes, ui, type Lang, type PageKey } from "../i18n";
+import { CF_BEACON_TOKEN } from "../analytics";
 
 interface Props {
   lang: Lang;
@@ -55,10 +55,23 @@ const ogImage = new URL(m.ogImage, site).href;
   <body>
     <a class="skip-link" href="#main">{ui[lang].skip}</a>
     {lang === "de" && <LangHint page={page} />}
-    <CookieBanner lang={lang} />
     <slot />
-    <script>
-      import "../scripts/consent";
+    {/* Visitors who accepted Google Analytics earlier still carry its cookies and the old
+         consent flag: removed once, quietly. */}
+    <script is:inline>
+      try {
+        if (localStorage.getItem("shruggie-consent")) {
+          localStorage.removeItem("shruggie-consent");
+          var h = location.hostname, ds = ["", h, "." + h, "." + h.split(".").slice(-2).join(".")];
+          document.cookie.split(";").forEach(function (c) {
+            var n = c.split("=")[0].trim();
+            if (n.indexOf("_ga") === 0) ds.forEach(function (d) { document.cookie = n + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/" + (d ? "; domain=" + d : ""); });
+          });
+        }
+      } catch (e) {}
     </script>
+    {CF_BEACON_TOKEN && (
+      <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: CF_BEACON_TOKEN })}></script>
+    )}
   </body>
 </html>

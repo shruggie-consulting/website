@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import LegalHeader from "./LegalHeader.astro";
-import { content, routes, ui, type Lang } from "../i18n";
+import { content, routes, type Lang } from "../i18n";
 
 interface Props {
   lang: Lang;
@@ -21,21 +21,6 @@ const other = page === "imprint" ? "privacy" : "imprint";
       <div class="eyebrow eyebrow--on-light">{c.eyebrow}</div>
       <h1 class="display">{c.title}</h1>
       {c.intro && <p class="legal__intro">{c.intro}</p>}
-
-      {
-        c.consent && (
-          <div class="consent-box">
-            <div class="consent-box__label">{c.consent.label}</div>
-            <p>{c.consent.text}</p>
-            <div class="consent-box__actions">
-              <button type="button" class="action" data-consent-withdraw={ui[lang].consentWithdrawn}>
-                {c.consent.button}
-              </button>
-              <span class="consent-box__status" role="status" data-consent-status></span>
-            </div>
-          </div>
-        )
-      }
 
       {
         c.sections.map((s) => (
