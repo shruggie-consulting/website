@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import CookieBanner from "../components/CookieBanner.astro";
+import LangHint from "../components/LangHint.astro";
 import { meta, routes, ui, type Lang, type PageKey } from "../i18n";
 
 interface Props {
@@ -53,6 +54,7 @@ const ogImage = new URL(m.ogImage, site).href;
   </head>
   <body>
     <a class="skip-link" href="#main">{ui[lang].skip}</a>
+    {lang === "de" && <LangHint page={page} />}
     <CookieBanner lang={lang} />
     <slot />
     <script>

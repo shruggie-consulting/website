@@ -595,7 +595,34 @@ body {
 .service__gets ul { list-style: none; margin: 0; padding: 0; }
 .service__gets li { font: 400 15px/1.5 var(--font-sans); color: var(--ink); padding: 3px 0 3px 16px; position: relative; }
 .service__gets li::before { content: "–"; position: absolute; left: 0; color: var(--ink-soft); }
+.service .service__note { font: 400 13px/1.5 var(--font-sans); color: var(--ink-soft); margin: 16px 0 0; padding-top: 12px; border-top: 1px solid var(--line); }
+
+/* ---------- The sample deliverable: the account scorecard ---------- */
+.scorecard { margin: 0 auto; padding: clamp(48px, 8vw, 72px) var(--gutter) 0; }
+.scorecard__title { font-size: clamp(24px, 4vw, 32px); line-height: 1.15; margin: 0 0 24px; }
+.scorecard__table-wrap { background: var(--cream); color: var(--ink); overflow-x: auto; border-top: 5px solid var(--rust); }
+.scorecard__table { width: 100%; border-collapse: collapse; font: 400 16px/1.4 var(--font-sans); min-width: 560px; }
+.scorecard__table th, .scorecard__table td { text-align: left; padding: 16px 20px; border-bottom: 1px solid var(--line); }
+.scorecard__table thead th { font: 700 14px var(--font-sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); }
+.scorecard__table tbody th { font-weight: 700; }
+.scorecard__table tbody tr:last-child > * { border-bottom: 0; }
+.health { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; }
+.health__dot { width: 10px; height: 10px; border-radius: 50%; background: var(--ink-soft); }
+.health--steady .health__dot { background: var(--sage); box-shadow: 0 0 0 1px var(--ink-soft); }
+.health--risk { color: var(--rust-dark); }
+.health--risk .health__dot { background: var(--rust-dark); }
+.scorecard figcaption { font: 400 15px/1.6 var(--font-sans); color: var(--muted-on-dark); margin: 16px 0 0; max-width: 70ch; }
+
 mark.todo { background: oklch(0.9 0.18 100); color: var(--ink); padding: 0 4px; font-weight: 700; }
 
 /* About without the portrait (for now): the text takes the full width. */
 .about--solo { grid-template-columns: minmax(0, 860px); }
+
+/* ---------- "Prefer English?" hint on German pages (non-German browsers only) ---------- */
+.lang-hint { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 6px var(--gutter); background: var(--ink); color: var(--muted-on-dark); border-bottom: 1px solid oklch(1 0 0 / 0.12); font: 400 14px/1.4 var(--font-sans); }
+.lang-hint[hidden] { display: none; }
+.lang-hint__text { margin: 0; }
+.lang-hint__text a { color: var(--cream); font-weight: 700; }
+.lang-hint__text a:hover { color: var(--rust); }
+.lang-hint__close { min-width: 44px; min-height: 36px; border: 0; background: none; color: var(--muted-on-dark); font: 400 22px/1 var(--font-sans); cursor: pointer; }
+.lang-hint__close:hover { color: var(--cream); }
