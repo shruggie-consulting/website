@@ -235,8 +235,7 @@
     "footer": {
       "note": "© 2026 Shruggie Consulting · Zahlen, Kunden, Rhythmus. Ohne Theater.",
       "imprint": "IMPRESSUM",
-      "privacy": "DATENSCHUTZ",
-      "cookieSettings": "COOKIE-EINSTELLUNGEN"
+      "privacy": "DATENSCHUTZ"
     },
     "heroAside": {
       "eyebrow": "KAPAZITÄT",
@@ -373,12 +372,7 @@
     "back": "ZUR STARTSEITE",
     "eyebrow": "DATENSCHUTZ-INFORMATION NACH ART. 13 DSGVO",
     "title": "DATENSCHUTZ­ERKLÄRUNG",
-    "intro": "Diese Website ist bewusst schlank gehalten. Es gibt kein Tracking über Websites hinweg und keine Werbung. Nachfolgend, welche Daten anfallen und warum.",
-    "consent": {
-      "label": "IHRE EINWILLIGUNG",
-      "text": "Google Analytics wird erst nach Ihrer ausdrücklichen Einwilligung geladen. Sie können diese Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen — der Widerruf ist so einfach wie die Erteilung.",
-      "button": "EINWILLIGUNG WIDERRUFEN"
-    },
+    "intro": "Diese Website ist bewusst schlank gehalten: keine Cookies, kein Tracking über Websites hinweg, keine Werbung. Nachfolgend, welche Daten anfallen und warum.",
     "sections": [
       {
         "heading": "VERANTWORTLICHER",
@@ -396,20 +390,19 @@
         ]
       },
       {
-        "heading": "GOOGLE ANALYTICS 4",
+        "heading": "REICHWEITENMESSUNG (CLOUDFLARE WEB ANALYTICS)",
         "lines": [
-          "Mit Ihrer Einwilligung nutze ich Google Analytics 4, einen Dienst der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Google Analytics setzt Cookies und erfasst pseudonymisierte Nutzungsdaten: aufgerufene Seiten, Verweildauer, ungefährer Standort, Gerätetyp, Referrer sowie einzelne Interaktionen (Klick auf E-Mail-Links, Social-Links, Navigationslinks und den Sprachumschalter EN/DE).",
-          "Die IP-Anonymisierung ist aktiviert; Ihre IP-Adresse wird gekürzt, bevor sie gespeichert wird. Es findet keine Zusammenführung mit anderen Daten und keine Werbepersonalisierung statt.",
-          "Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO in Verbindung mit § 25 Abs. 1 TDDDG. Ohne Einwilligung wird kein Analyse-Cookie gesetzt und kein Ereignis übermittelt.",
-          "Eine Übermittlung an die Google LLC in den USA kann nicht ausgeschlossen werden. Google LLC ist unter dem EU-US Data Privacy Framework zertifiziert; ergänzend gelten die EU-Standardvertragsklauseln. Es besteht das Risiko, dass US-Behörden auf die Daten zugreifen, ohne dass hiergegen wirksame Rechtsbehelfe zur Verfügung stehen.",
-          "Speicherdauer: 14 Monate. Weitere Informationen: https://policies.google.com/privacy"
+          "Um zu sehen, wie viele Besuche diese Website hat und welche Seiten gelesen werden, nutze ich Cloudflare Web Analytics, einen Dienst der Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA.",
+          "Beim Aufruf einer Seite lädt Ihr Browser ein kleines Skript von Cloudflare. Es übermittelt die aufgerufene Seite, die Seite, von der Sie kamen (Referrer), Browser- und Gerätetyp, das ungefähre Herkunftsland sowie Ladezeiten. Dabei werden keine Cookies gesetzt, nichts in Ihrem Browser gespeichert und keine Profile über mehrere Besuche gebildet. Ihre IP-Adresse wird nach Angaben von Cloudflare nur zur Bestimmung des Landes verwendet und nicht gespeichert. Ich sehe ausschließlich zusammengefasste Zahlen.",
+          "Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Mein berechtigtes Interesse ist, die Reichweite dieser Website datensparsam und ohne Cookies zu messen. Sie können dem jederzeit widersprechen (Art. 21 DSGVO), etwa per E-Mail oder indem Sie Skripte von static.cloudflareinsights.com in Ihrem Browser blockieren.",
+          "Eine Übermittlung an Cloudflare in den USA kann nicht ausgeschlossen werden. Cloudflare, Inc. ist unter dem EU-US Data Privacy Framework zertifiziert; ergänzend gelten die EU-Standardvertragsklauseln. Weitere Informationen: https://www.cloudflare.com/privacypolicy/"
         ]
       },
       {
         "heading": "COOKIES UND LOCAL STORAGE",
         "lines": [
-          "Ihre Entscheidung über den Cookie-Banner wird lokal in Ihrem Browser gespeichert (Local Storage, Schlüssel „shruggie-consent\"), damit der Banner Ihnen nicht bei jedem Besuch erneut angezeigt wird. Dieser Eintrag enthält keine personenbezogenen Daten und wird nicht an mich übermittelt.",
-          "Analyse-Cookies von Google werden ausschließlich nach Einwilligung gesetzt."
+          "Diese Website setzt keine Cookies.",
+          "Wenn Sie den Hinweis „Prefer English?“ schließen oder darüber auf die englische Seite wechseln, wird diese Entscheidung lokal in Ihrem Browser gespeichert (Local Storage, Schlüssel „shruggie-lang-hint“), damit der Hinweis nicht bei jedem Besuch wieder erscheint. Der Eintrag enthält keine personenbezogenen Daten, wird nicht an mich übermittelt und lässt sich über die Einstellungen Ihres Browsers jederzeit löschen."
         ]
       },
       {
@@ -445,11 +438,5 @@
     "disclaimer": "Dieser Text folgt einer Vorlage und wurde nicht anwaltlich geprüft.",
     "copyright": "© 2026 Shruggie Consulting",
     "otherLegal": "IMPRESSUM"
-  },
-  "cookie": {
-    "text": "Ich nutze Google Analytics, um zu sehen, welche Teile dieser Seite tatsächlich gelesen werden. Keine Werbung, kein Profiling, kein websiteübergreifendes Tracking. Bei Ablehnung wird nichts gespeichert.",
-    "legal": "Mit „Akzeptieren\" werden Analyse-Cookies gesetzt; dabei können Daten an die Google LLC in den USA übermittelt werden. Widerruf jederzeit über „Cookie-Einstellungen\" im Footer.",
-    "accept": "AKZEPTIEREN",
-    "decline": "ABLEHNEN"
   }
 }
