@@ -4,4 +4,4 @@
  * shruggie.consulting) and is public by design: it ends up in the page source. Empty =
  * no analytics script at all.
  */
-export const CF_BEACON_TOKEN = "";
+export const CF_BEACON_TOKEN = "820fcdb5139741babd54f90907e8fb33";
