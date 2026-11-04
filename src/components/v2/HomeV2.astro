@@ -1,0 +1,334 @@
+---
+// Home page, version 2 (draft at /v2/ and /en/v2/, not indexed): the layout of
+// agenturwerft.com in Shruggie's colours and type, with the same content as the live page.
+// Big colour hero with a typed line, a two-column intro, a grey band with the facts,
+// sections of numbered cards, contact form next to the FAQ, dark three-column footer.
+import Base from "../../layouts/Base.astro";
+import Poly from "./Poly.astro";
+import { content, routes, ui, workspaceUrl, type Lang } from "../../i18n";
+import "../../styles/v2.css";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const h = content[lang].home;
+const v2 = { de: "/v2/", en: "/en/v2/" };
+
+const DEV = import.meta.env.DEV;
+const TOKEN = /(\{\{[A-Z_]+\}\})/;
+const quote = h.quote as { text: string; author: string } | null;
+const priceShown = (price?: string) => !!price && (DEV || !TOKEN.test(price));
+const words = h.hero.eyebrow.split(" · ");
+const num = (i: number) => String(i + 1);
+---
+
+<Base lang={lang} page="home" noindex>
+  <div class="v2">
+    <header class="v2-header" data-v2-header>
+      <a class="v2-brand" href={v2[lang]} aria-label={lang === "de" ? "Shruggie Consulting – Startseite" : "Shruggie Consulting – home"}>
+        <span class="shrug-logo" aria-hidden="true"><span class="shrug-arm-l">¯\_(</span><span class="shrug-face">ツ</span><span class="shrug-arm-r">)_/¯</span></span>
+        <span class="v2-brand__name">Shruggie<span class="v2-dot">.</span></span>
+      </a>
+      <button type="button" class="v2-menu-toggle" aria-expanded="false" aria-controls="v2-menu" data-v2-toggle>
+        <span class="visually-hidden">{ui[lang].menu}</span>
+        <svg width="22" height="14" viewBox="0 0 22 14" aria-hidden="true"><path d="M0 1h22M0 7h22M0 13h22" /></svg>
+      </button>
+      <div class="v2-menu" id="v2-menu" data-v2-menu>
+        <nav class="v2-nav" aria-label={ui[lang].nav}>
+          {h.nav.map((item) => <a href={item.href}>{item.label}</a>)}
+        </nav>
+        <a class="v2-nav__lang" href={v2[lang === "de" ? "en" : "de"]} hreflang={lang === "de" ? "en" : "de"}>{lang === "de" ? "EN" : "DE"}</a>
+        <a class="v2-nav__login" href={workspaceUrl(lang)} aria-label={ui[lang].clientWorkspaceLabel}>{ui[lang].clientWorkspace}</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Hero: colour field, big headline, the three topics typed one after another. -->
+      <section class="v2-hero">
+        <Poly l={0.5} c={0.2} h={25} spread={0.12} seed={11} />
+        <div class="v2-wrap v2-hero__inner">
+          <h1 class="v2-hero__title">{h.hero.title}</h1>
+          <p class="v2-hero__typed" aria-label={words.join(", ")}>
+            <span aria-hidden="true"><span data-typed data-words={JSON.stringify(words)}>{words[0]}</span><span class="v2-cursor">_</span></span>
+          </p>
+        </div>
+      </section>
+
+      <!-- Intro: the promise and two ways in, next to the brand panel. -->
+      <section class="v2-intro">
+        <div class="v2-wrap v2-intro__grid">
+          <div>
+            <h2 class="v2-h2">{h.about.title}</h2>
+            <p class="v2-lead">{h.hero.body}</p>
+            <div class="v2-buttons">
+              <a class="v2-btn" href="#contact">{h.hero.cta}</a>
+              <a class="v2-btn" href="#services">{h.hero.secondary}</a>
+            </div>
+          </div>
+          <div class="v2-panel" aria-hidden="true">
+            <span class="v2-panel__shrug shrug-logo"><span class="shrug-arm-l">¯\_(</span><span class="shrug-face">ツ</span><span class="shrug-arm-r">)_/¯</span></span>
+            <span class="v2-panel__name">Shruggie<span class="v2-cursor v2-cursor--sage">_</span></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Grey band: the story in short and the facts, like a row of references. -->
+      <section id="about" class="v2-band">
+        <div class="v2-wrap">
+          <div class="v2-band__head">
+            <div class="v2-eyebrow">{h.about.eyebrow}</div>
+            {h.about.paragraphs.map((p) => <p>{p}</p>)}
+          </div>
+          <dl class="v2-facts">
+            {h.stats.map((st) => (
+              <div class="v2-fact v2-fact--stat">
+                <dt>{st.value}</dt>
+                <dd>{st.caption}</dd>
+              </div>
+            ))}
+            {h.about.rows.map((r) => (
+              <div class="v2-fact">
+                <dt>{r.label}</dt>
+                <dd>{r.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      {quote && (
+        <section class="v2-quote">
+          <figure class="v2-wrap">
+            <blockquote><p>„{quote.text}“</p></blockquote>
+            <figcaption>{quote.author}</figcaption>
+          </figure>
+        </section>
+      )}
+
+      <!-- Problems: text on the left, numbered cards on the right, on a dark field. -->
+      <section class="v2-cards-section v2-cards-section--dark" aria-labelledby="v2-problems">
+        <Poly l={0.22} c={0.01} h={25} spread={0.08} seed={3} />
+        <div class="v2-wrap v2-split">
+          <div class="v2-split__text">
+            <div class="v2-eyebrow v2-eyebrow--on-dark">{h.problems.eyebrow}</div>
+            <h2 id="v2-problems" class="v2-h2">{h.problems.title}</h2>
+            <a class="v2-btn v2-btn--on-dark" href="#contact">{h.hero.cta}</a>
+          </div>
+          <div class="v2-cardgrid">
+            {h.problems.items.map((p, i) => (
+              <article class:list={["v2-card", { "v2-card--wide": i === h.problems.items.length - 1 && h.problems.items.length % 2 === 1 }]}>
+                <span class="v2-card__num" aria-hidden="true">{num(i)}</span>
+                <div class="v2-card__label">{p.eyebrow}</div>
+                <h3>{p.title}</h3>
+                <p>{p.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Offers: intro on the left, the three offers and "something else" as cards. -->
+      <section id="services" class="v2-cards-section v2-cards-section--light" aria-labelledby="v2-services">
+        <div class="v2-wrap v2-split">
+          <div class="v2-split__text">
+            <div class="v2-eyebrow">{h.services.eyebrow}</div>
+            <h2 id="v2-services" class="v2-h2">{h.services.title}</h2>
+            <p>{h.services.body}</p>
+          </div>
+          <div class="v2-cardgrid">
+            {h.services.items.map((s) => (
+              <article class:list={["v2-card", { "v2-card--accent": s.accent }]}>
+                <span class="v2-card__num" aria-hidden="true">{Number(s.num)}</span>
+                <div class="v2-card__label">
+                  {s.label.join(" · ")}
+                  {priceShown(s.price) && (
+                    <>
+                      {" · "}
+                      {s.price.split(TOKEN).map((part) => (TOKEN.test(part) ? <mark class="todo">{part}</mark> : part))}
+                    </>
+                  )}
+                </div>
+                <h3>{s.title}</h3>
+                <p>{s.body}</p>
+                <details class="v2-more">
+                  <summary>{h.services.getsLabel}</summary>
+                  <dl class="v2-points">
+                    {s.points.map(([k, v]) => (
+                      <div>
+                        <dt>{k}</dt>
+                        <dd>{v}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <ul role="list" class="v2-gets">{s.gets.map((g) => <li>{g}</li>)}</ul>
+                  {"note" in s && s.note && <p class="v2-note">{s.note}</p>}
+                </details>
+              </article>
+            ))}
+            <article class="v2-card v2-card--ink">
+              <span class="v2-card__num" aria-hidden="true">{Number(h.services.more.num)}</span>
+              <h3>{h.services.more.title}</h3>
+              <p>{h.services.more.body}</p>
+              <a class="v2-btn v2-btn--on-dark" href="#contact">{h.services.more.cta}</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Way of working: what comes along, what stays outside. -->
+      <section class="v2-keep" aria-labelledby="v2-keep">
+        <div class="v2-wrap">
+          <div class="v2-eyebrow">{h.keepBin.eyebrow}</div>
+          <h2 id="v2-keep" class="v2-h2">{h.keepBin.title}</h2>
+          <div class="v2-keep__grid">
+            <div>
+              <h3 class="v2-keep__title">{h.keepBin.keep.title}</h3>
+              <ul role="list">{h.keepBin.keep.items.map((i) => <li><strong>{i.title}</strong> {i.text}</li>)}</ul>
+            </div>
+            <div class="v2-keep__bin">
+              <h3 class="v2-keep__title">{h.keepBin.bin.title}</h3>
+              <ul role="list">{h.keepBin.bin.items.map((i) => <li>{i}</li>)}</ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Approach: three weeks as cards, the capacity as the fourth. -->
+      <section id="approach" class="v2-cards-section v2-cards-section--red" aria-labelledby="v2-approach">
+        <Poly l={0.5} c={0.2} h={25} spread={0.12} seed={29} />
+        <div class="v2-wrap v2-split">
+          <div class="v2-split__text">
+            <div class="v2-eyebrow v2-eyebrow--on-red">{h.approach.eyebrow}</div>
+            <h2 id="v2-approach" class="v2-h2">{h.approach.title}</h2>
+            <a class="v2-btn v2-btn--on-dark" href="#contact">{h.hero.cta}</a>
+          </div>
+          <ol class="v2-cardgrid" role="list">
+            {h.approach.steps.map((s, i) => (
+              <li class="v2-card">
+                <span class="v2-card__num" aria-hidden="true">{num(i)}</span>
+                <div class="v2-card__label">{s.range}</div>
+                <h3>{s.title}</h3>
+                <p>{s.body}</p>
+              </li>
+            ))}
+            <li class="v2-card v2-card--ink">
+              <div class="v2-card__label v2-card__label--sage">{h.heroAside.eyebrow}</div>
+              <p class="v2-capacity"><span>{h.heroAside.value}</span> {h.heroAside.unit}</p>
+              <p>{h.heroAside.text}</p>
+              <a class="v2-textlink" href="#contact">{h.heroAside.link} →</a>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Contact: form on the left, questions on the right. -->
+      <section id="contact" class="v2-contact" aria-labelledby="v2-contact">
+        <div class="v2-wrap v2-contact__grid">
+          <div>
+            <h2 id="v2-contact" class="v2-h2">{h.contact.title}</h2>
+            <p class="v2-lead">{h.contact.body}</p>
+            <ul role="list" class="v2-contact__rows">
+              {h.contact.rows.map((r) => <li><span>{r.label}</span> {r.href ? <a href={r.href}>{r.value}</a> : r.value}</li>)}
+            </ul>
+            <form class="v2-form" data-contact-form data-lang={lang} novalidate>
+              <h3 class="v2-form__title">{h.contact.form.title}</h3>
+              <label class="v2-field"><span>{h.contact.form.name} <b aria-hidden="true">*</b></span><input name="name" autocomplete="name" required maxlength="200" /></label>
+              <label class="v2-field"><span>{h.contact.form.company}</span><input name="company" autocomplete="organization" maxlength="200" /></label>
+              <label class="v2-field"><span>{h.contact.form.email} <b aria-hidden="true">*</b></span><input name="email" type="email" autocomplete="email" required maxlength="254" /></label>
+              <label class="v2-field"><span>{h.contact.form.phone}</span><input name="phone" type="tel" autocomplete="tel" maxlength="60" /></label>
+              <label class="v2-field"><span>{h.contact.form.message} <b aria-hidden="true">*</b></span><textarea name="message" rows="5" required maxlength="5000" placeholder={h.contact.form.messagePlaceholder}></textarea></label>
+              <!-- Left empty by people; bots fill it in. -->
+              <div class="cf-trap" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off" /></label></div>
+              <label class="v2-consent">
+                <input type="checkbox" name="consent" required />
+                <span>{h.contact.form.consent} <a href={routes.privacy[lang]}>{h.contact.form.consentLink}</a>.</span>
+              </label>
+              <button class="v2-btn" type="submit">{h.contact.form.submit}</button>
+              <p class="v2-status" role="status" aria-live="polite" data-status></p>
+              <script type="application/json" data-messages set:html={JSON.stringify({ sending: h.contact.form.sending, sent: h.contact.form.sent, errors: h.contact.form.errors })} />
+            </form>
+          </div>
+          <div class="v2-faq">
+            <div class="v2-eyebrow">{h.faq.eyebrow}</div>
+            <h2 class="v2-faq__title">{h.faq.title}</h2>
+            {h.faq.items.map((f) => (
+              <details class="v2-faq__item">
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="v2-footer">
+      <div class="v2-wrap v2-footer__grid">
+        <div>
+          <p>Shruggie Consulting<br />Benjamin Birkelbach<br />{lang === "de" ? "München" : "Munich"}</p>
+          <p class="v2-footer__small">{h.footer.note}</p>
+        </div>
+        <div class="v2-footer__center">
+          <span class="v2-brand__name">Shruggie<span class="v2-dot">.</span></span>
+          <a href="mailto:hello@shruggie.consulting">hello@shruggie.consulting</a>
+        </div>
+        <nav class="v2-footer__links" aria-label={lang === "de" ? "Rechtliches" : "Legal"}>
+          <a href={routes.imprint[lang]}>{h.footer.imprint}</a>
+          <a href={routes.privacy[lang]}>{h.footer.privacy}</a>
+          <a href={workspaceUrl(lang)}>{ui[lang].clientWorkspace}</a>
+        </nav>
+      </div>
+    </footer>
+  </div>
+</Base>
+
+<script>
+  import { initContactForm } from "../../scripts/contact-form";
+  initContactForm();
+
+  // Header: transparent over the hero, solid once the page scrolls.
+  const header = document.querySelector<HTMLElement>("[data-v2-header]");
+  const onScroll = () => header?.classList.toggle("is-solid", window.scrollY > 40);
+  addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // Small screens: the menu opens from the button.
+  const toggle = document.querySelector<HTMLButtonElement>("[data-v2-toggle]");
+  const menu = document.querySelector<HTMLElement>("[data-v2-menu]");
+  toggle?.addEventListener("click", () => {
+    const open = toggle.getAttribute("aria-expanded") !== "true";
+    toggle.setAttribute("aria-expanded", String(open));
+    menu?.classList.toggle("is-open", open);
+    header?.classList.toggle("is-solid", open || window.scrollY > 40);
+  });
+  menu?.addEventListener("click", (e) => {
+    if ((e.target as Element).closest("a[href^='#']")) {
+      toggle?.setAttribute("aria-expanded", "false");
+      menu.classList.remove("is-open");
+    }
+  });
+
+  // The typed line: deletes and types the topics one after another (not with reduced motion).
+  const typed = document.querySelector<HTMLElement>("[data-typed]");
+  if (typed && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const words = JSON.parse(typed.dataset.words ?? "[]") as string[];
+    let w = 0;
+    const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+    (async () => {
+      for (;;) {
+        await sleep(2200);
+        for (let i = typed.textContent!.length; i >= 0; i--) {
+          typed.textContent = words[w].slice(0, i);
+          await sleep(45);
+        }
+        w = (w + 1) % words.length;
+        for (let i = 1; i <= words[w].length; i++) {
+          typed.textContent = words[w].slice(0, i);
+          await sleep(90);
+        }
+      }
+    })();
+  }
+</script>

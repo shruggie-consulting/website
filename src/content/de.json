@@ -297,6 +297,40 @@
           "Bürokratie, die dein Team von der Arbeit abhält, für die Kunden eigentlich bezahlen."
         ]
       }
+    },
+    "faq": {
+      "eyebrow": "FRAGEN",
+      "title": "Was oft gefragt wird",
+      "items": [
+        {
+          "q": "Für welche Agenturen ist das gedacht?",
+          "a": "Für kleine und mittelgroße unabhängige Agenturen, die wachsen wollen und dabei nicht bürokratisch werden möchten. Pitches, Rebrandings und Lead-Versprechen mache ich nicht."
+        },
+        {
+          "q": "Wie läuft der Agentur-Check ab?",
+          "a": "Er dauert zwei bis drei Wochen. Erst schaue ich mir deine Zahlen an und spreche mit dir und, wenn du willst, mit zwei oder drei Leuten aus dem Team. Dann werte ich aus, und am Ende setzen wir uns zwei Stunden zusammen und gehen Keep, Fix und Next durch."
+        },
+        {
+          "q": "Was brauchst du dafür von uns?",
+          "a": "Einblick in Umsatz, Kosten und Stunden der letzten zwölf Monate. Dazu ein paar Gespräche mit dir und, wenn du möchtest, mit Leuten aus dem Team."
+        },
+        {
+          "q": "Was passiert mit unseren Zahlen?",
+          "a": "Die bleiben bei mir. Wenn du möchtest, unterschreibe ich vorab ein NDA."
+        },
+        {
+          "q": "Kommst du zu uns oder läuft alles online?",
+          "a": "Beides geht. Ich sitze in München und arbeite in der ganzen EMEA-Region. Workshops mache ich vor Ort oder online."
+        },
+        {
+          "q": "Wie viele Agenturen betreust du gleichzeitig?",
+          "a": "Pro Quartal nehme ich höchstens zwei neue Mandate an. Du arbeitest direkt mit mir."
+        },
+        {
+          "q": "Und was kommt nach dem Check?",
+          "a": "Danach weißt du, was zu tun ist, und kannst allein weitermachen. Wenn du einen festen Rhythmus willst, schauen wir in den Quarterly Reviews alle drei Monate gemeinsam auf die Zahlen und entscheiden, was als Nächstes kommt."
+        }
+      ]
     }
   },
   "imprint": {
