@@ -297,6 +297,40 @@
           "Bureaucracy that keeps your team from the work clients actually pay for."
         ]
       }
+    },
+    "faq": {
+      "eyebrow": "QUESTIONS",
+      "title": "What people usually ask",
+      "items": [
+        {
+          "q": "Which agencies is this for?",
+          "a": "Small and mid-sized independent agencies that want to grow without getting bureaucratic. Pitches, rebrands and lead promises aren't something I do."
+        },
+        {
+          "q": "How does the Agency Check work?",
+          "a": "It takes two to three weeks. First I look at your numbers and talk to you and, if you like, two or three people on the team. Then I work through it, and at the end we sit down for two hours and go through Keep, Fix and Next."
+        },
+        {
+          "q": "What do you need from us?",
+          "a": "Access to revenue, costs and hours for the last twelve months. Plus a few conversations with you and, if you like, people on the team."
+        },
+        {
+          "q": "What happens to our numbers?",
+          "a": "They stay with me. I'm happy to sign an NDA before we start."
+        },
+        {
+          "q": "Do you come to us or is it all remote?",
+          "a": "Either works. I'm based in Munich and work across EMEA. Workshops happen on site or remote."
+        },
+        {
+          "q": "How many agencies do you work with at once?",
+          "a": "I take on two new engagements a quarter at most, and you work with me directly."
+        },
+        {
+          "q": "And after the Check?",
+          "a": "You know what to do and can carry on by yourself. If you want a steady rhythm, the Quarterly Reviews bring us together every three months to look at the numbers and decide what comes next."
+        }
+      ]
     }
   },
   "imprint": {

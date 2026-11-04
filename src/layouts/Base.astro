@@ -7,9 +7,11 @@ import { CF_BEACON_TOKEN } from "../analytics";
 interface Props {
   lang: Lang;
   page: PageKey;
+  /** Drafts (e.g. the v2 home page): kept out of search engines. */
+  noindex?: boolean;
 }
 
-const { lang, page } = Astro.props;
+const { lang, page, noindex = false } = Astro.props;
 const m = meta[page][lang];
 const site = Astro.site!;
 const canonical = new URL(routes[page][lang], site).href;
@@ -26,7 +28,7 @@ const ogImage = new URL(m.ogImage, site).href;
     <title>{m.title}</title>
     <meta name="description" content={m.description} />
     <link rel="canonical" href={canonical} />
-    {m.noindex && <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />}
+    {(m.noindex || noindex) && <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />}
     <link rel="alternate" hreflang="de" href={alt("de")} />
     <link rel="alternate" hreflang="en" href={alt("en")} />
     <link rel="alternate" hreflang="x-default" href={alt("de")} />
