@@ -1,6 +1,6 @@
 ---
-// Home page, version 2 (draft at /v2/ and /en/v2/, not indexed): the layout of
-// agenturwerft.com in Shruggie's colours and type, with the same content as the live page.
+// The home page (v2, live since 4 Nov 2026; the previous one is HomePage.astro, no longer
+// routed). Layout inspired by agenturwerft.com, in Shruggie's colours, type and backdrops.
 // Big colour hero with a typed line, a two-column intro, a grey band with the facts,
 // sections of numbered cards, contact form next to the FAQ, dark three-column footer.
 import Base from "../../layouts/Base.astro";
@@ -14,7 +14,6 @@ interface Props {
 
 const { lang } = Astro.props;
 const h = content[lang].home;
-const v2 = { de: "/v2/", en: "/en/v2/" };
 
 const DEV = import.meta.env.DEV;
 const TOKEN = /(\{\{[A-Z_]+\}\})/;
@@ -24,10 +23,10 @@ const words = h.hero.eyebrow.split(" · ");
 const num = (i: number) => String(i + 1);
 ---
 
-<Base lang={lang} page="home" noindex>
+<Base lang={lang} page="home">
   <div class="v2" data-bg="wallpaper">
     <header class="v2-header" data-v2-header>
-      <a class="v2-brand" href={v2[lang]} aria-label={lang === "de" ? "Shruggie Consulting – Startseite" : "Shruggie Consulting – home"}>
+      <a class="v2-brand" href={routes.home[lang]} aria-label={lang === "de" ? "Shruggie Consulting – Startseite" : "Shruggie Consulting – home"}>
         <span class="shrug-logo" aria-hidden="true"><span class="shrug-arm-l">¯\_(</span><span class="shrug-face">ツ</span><span class="shrug-arm-r">)_/¯</span></span>
         <span class="v2-brand__name">Shruggie<span class="v2-dot">.</span></span>
       </a>
@@ -39,7 +38,7 @@ const num = (i: number) => String(i + 1);
         <nav class="v2-nav" aria-label={ui[lang].nav}>
           {h.nav.map((item) => <a href={item.href}>{item.label}</a>)}
         </nav>
-        <a class="v2-nav__lang" href={v2[lang === "de" ? "en" : "de"]} hreflang={lang === "de" ? "en" : "de"}>{lang === "de" ? "EN" : "DE"}</a>
+        <a class="v2-nav__lang" href={routes.home[lang === "de" ? "en" : "de"]} hreflang={lang === "de" ? "en" : "de"}>{lang === "de" ? "EN" : "DE"}</a>
         <a class="v2-nav__login" href={workspaceUrl(lang)} aria-label={ui[lang].clientWorkspaceLabel}>{ui[lang].clientWorkspace}</a>
       </div>
     </header>
@@ -302,10 +301,6 @@ const num = (i: number) => String(i + 1);
 <script>
   import { initContactForm } from "../../scripts/contact-form";
   initContactForm();
-
-  // Draft only: try the backdrops with ?bg=shrug|maths|wallpaper.
-  const bg = new URLSearchParams(location.search).get("bg");
-  if (bg && ["shrug", "maths", "wallpaper"].includes(bg)) document.querySelector<HTMLElement>(".v2")!.dataset.bg = bg;
 
   // Header: transparent over the hero, solid once the page scrolls.
   const header = document.querySelector<HTMLElement>("[data-v2-header]");

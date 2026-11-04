@@ -1,4 +1,4 @@
-/* Home page v2 (draft): everything is scoped to .v2, so the live pages are untouched. */
+/* Home page (v2): everything is scoped to .v2, so the imprint and privacy pages keep their own styles. */
 
 .v2 {
   --v2-red: oklch(0.5 0.2 25);
