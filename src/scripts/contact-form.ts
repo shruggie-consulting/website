@@ -41,6 +41,7 @@ export function initContactForm() {
           website: value("website"),
           consent: true,
           lang: form.dataset.lang,
+          brand: form.dataset.brand ?? "consulting",
           t: startedAt,
         }),
       });

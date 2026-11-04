@@ -1,0 +1,50 @@
+---
+// Contact section for both brands: the invitation and the direct ways on the left, the form
+// as a card on the right. The form tells the workspace which brand the enquiry came from.
+import Backdrop from "./Backdrop.astro";
+import { content, routes, type Lang } from "../../i18n";
+import type { Brand } from "./brand";
+
+interface Props {
+  lang: Lang;
+  brand: Brand;
+}
+
+const { lang, brand } = Astro.props;
+const home = content[lang].home.contact;
+const text = brand === "agency" ? content[lang].agency.contact : home;
+const form = home.form;
+---
+
+<section id="contact" class="v2-contact" aria-labelledby="v2-contact">
+  <Backdrop tone="ink" offset={3} />
+  <div class="v2-wrap v2-contact__grid">
+    <div class="v2-contact__text">
+      <div class="v2-eyebrow v2-eyebrow--on-dark">{text.eyebrow}</div>
+      <h2 id="v2-contact" class="v2-h2">{text.title}</h2>
+      <p class="v2-lead">{text.body}</p>
+      <dl class="v2-contact__rows">
+        {home.rows.slice(0, brand === "agency" ? 1 : undefined).map((r) => <div><dt>{r.label}</dt><dd>{r.href ? <a href={r.href}>{r.value}</a> : r.value}</dd></div>)}
+      </dl>
+    </div>
+    <div class="v2-contact__card">
+      <form class="v2-form" data-contact-form data-lang={lang} data-brand={brand} novalidate>
+        <h3 class="v2-form__title">{form.title}</h3>
+        <label class="v2-field"><span>{form.name} <b aria-hidden="true">*</b></span><input name="name" autocomplete="name" required maxlength="200" /></label>
+        <label class="v2-field"><span>{form.company}</span><input name="company" autocomplete="organization" maxlength="200" /></label>
+        <label class="v2-field"><span>{form.email} <b aria-hidden="true">*</b></span><input name="email" type="email" autocomplete="email" required maxlength="254" /></label>
+        <label class="v2-field"><span>{form.phone}</span><input name="phone" type="tel" autocomplete="tel" maxlength="60" /></label>
+        <label class="v2-field"><span>{form.message} <b aria-hidden="true">*</b></span><textarea name="message" rows="5" required maxlength="5000" placeholder={form.messagePlaceholder}></textarea></label>
+        <!-- Left empty by people; bots fill it in. -->
+        <div class="cf-trap" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off" /></label></div>
+        <label class="v2-consent">
+          <input type="checkbox" name="consent" required />
+          <span>{form.consent} <a href={routes.privacy[lang]}>{form.consentLink}</a>.</span>
+        </label>
+        <button class="v2-btn" type="submit">{form.submit}</button>
+        <p class="v2-status" role="status" aria-live="polite" data-status></p>
+        <script type="application/json" data-messages set:html={JSON.stringify({ sending: form.sending, sent: form.sent, errors: form.errors })} />
+      </form>
+    </div>
+  </div>
+</section>

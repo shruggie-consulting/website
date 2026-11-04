@@ -1,0 +1,126 @@
+---
+// The house page at the root (/, /en/): why we're called Shruggie, how both shops work,
+// and the two doors, Consulting and Agency, side by side. Plain "Shruggie." without a
+// descriptor. Red is the house colour (one big field); yellow only appears where it means
+// Agency: its button, its door and half of the shrugs in the hero.
+import Base from "../../layouts/Base.astro";
+import Backdrop from "./Backdrop.astro";
+import V2Header from "./V2Header.astro";
+import V2Footer from "./V2Footer.astro";
+import { content, routes, type Lang } from "../../i18n";
+import "../../styles/v2.css";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const h = content[lang].house;
+const [whyId, shopsId] = h.nav.map((n) => n.href.slice(1));
+const consultingHref = routes.consulting[lang];
+---
+
+<Base lang={lang} page="home">
+  {/* The Consulting page used to be the home page: old links to its sections (#contact,
+       #services …) go on to the same section there. */}
+  <script is:inline define:vars={{ consultingHref }}>
+    if (/^#(about|services|approach|contact)$/.test(location.hash)) location.replace(consultingHref + location.hash);
+  </script>
+  <div class="v2" data-bg="wallpaper" data-theme="house">
+    <V2Header lang={lang} brand="house" />
+
+    <main id="main">
+      <!-- Hero: ink field, the headline, and both doors right away for people who know where they're going. -->
+      <section class="v2-hero">
+        <Backdrop tone="house" />
+        <div class="v2-wrap v2-hero__inner">
+          <h1 class="v2-hero__title">{h.hero.title}</h1>
+          <p class="v2-hero__sub">{h.hero.body}</p>
+          <div class="v2-buttons">
+            <a class="v2-btn v2-btn--door v2-btn--door-consulting" href={routes.consulting[lang]}>{h.hero.consulting} →</a>
+            <a class="v2-btn v2-btn--door v2-btn--door-agency" href={routes.agency[lang]}>{h.hero.agency} →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Shruggie: the name and the shrug, next to the plain logo. -->
+      <section id={whyId} class="v2-intro">
+        <div class="v2-wrap v2-intro__grid">
+          <div>
+            <div class="v2-eyebrow">{h.why.eyebrow}</div>
+            <h2 class="v2-h2">{h.why.title}</h2>
+            {h.why.paragraphs.map((p) => <p class="v2-lead">{p}</p>)}
+          </div>
+          <div class="v2-panel" aria-hidden="true">
+            <span class="v2-panel__shrug shrug-logo"><span class="shrug-arm-l">¯\_(</span><span class="shrug-face">ツ</span><span class="shrug-arm-r">)_/¯</span></span>
+            <span class="v2-panel__name">Shruggie<span class="v2-cursor v2-cursor--sage">_</span></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- How we work, in both shops: two cards on ink. -->
+      <section class="v2-cards-section v2-cards-section--dark" aria-labelledby="v2-how">
+        <Backdrop tone="ink" offset={1} />
+        <div class="v2-wrap v2-split">
+          <div class="v2-split__text">
+            <div class="v2-eyebrow v2-eyebrow--on-dark">{h.how.eyebrow}</div>
+            <h2 id="v2-how" class="v2-h2">{h.how.title}</h2>
+          </div>
+          <div class="v2-cardgrid">
+            {h.how.cards.map((c, i) => (
+              <article class="v2-card">
+                <span class="v2-card__num" aria-hidden="true">{i + 1}</span>
+                <div class="v2-card__label">{c.label}</div>
+                <h3>{c.title}</h3>
+                <p>{c.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- What we left behind, on Consulting red. -->
+      <section class="v2-cards-section v2-cards-section--red v2-left-section" aria-labelledby="v2-left">
+        <Backdrop tone="red" offset={2} />
+        <div class="v2-wrap v2-left">
+          <div>
+            <div class="v2-eyebrow v2-eyebrow--on-red">{h.left.eyebrow}</div>
+            <h2 id="v2-left" class="v2-h2">{h.left.title}</h2>
+          </div>
+          <div>
+            <ul role="list" class="v2-left__list">{h.left.items.map((i) => <li>{i}</li>)}</ul>
+            <p class="v2-left__closing">{h.left.closing}</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Two shops: why both, and the two doors at equal size. -->
+      <section id={shopsId} class="v2-shops" aria-labelledby="v2-shops">
+        <div class="v2-wrap">
+          <div class="v2-shops__head">
+            <div class="v2-eyebrow">{h.shops.eyebrow}</div>
+            <h2 id="v2-shops" class="v2-h2">{h.shops.title}</h2>
+            <p class="v2-lead">{h.shops.body}</p>
+          </div>
+          <div class="v2-doors">
+            {(["consulting", "agency"] as const).map((b) => (
+              <a class:list={["v2-door", `v2-door--${b}`]} href={routes[b][lang]}>
+                <span class="v2-door__label">{h.shops[b].label}</span>
+                <span class="v2-door__title">{h.shops[b].title}</span>
+                <span class="v2-door__body">{h.shops[b].body}</span>
+                <span class="v2-door__cta">{h.shops[b].cta} →</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <V2Footer lang={lang} brand="house" />
+  </div>
+</Base>
+
+<script>
+  import { initV2 } from "../../scripts/v2";
+  initV2();
+</script>

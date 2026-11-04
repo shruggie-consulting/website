@@ -40,7 +40,7 @@ const ogImage = new URL(m.ogImage, site).href;
     <link rel="preload" href="/fonts/archivo-black-latin-1.woff2" as="font" type="font/woff2" crossorigin />
 
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Shruggie Consulting" />
+    <meta property="og:site_name" content={m.siteName ?? "Shruggie Consulting"} />
     <meta property="og:title" content={m.title} />
     <meta property="og:description" content={m.description} />
     <meta property="og:url" content={canonical} />

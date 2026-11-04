@@ -1,0 +1,49 @@
+---
+// Fixed header for the house page and both brands: transparent over the hero, solid once the
+// page scrolls. The logo always leads to the house page; the brand pages show their descriptor
+// and link the other brand next to their own sections. The language switch carries a flag.
+import Flag from "../Flag.astro";
+import { content, otherLang, routes, ui, workspaceUrl, type Lang } from "../../i18n";
+import { PAGE_OF, type Brand } from "./brand";
+
+interface Props {
+  lang: Lang;
+  brand: Brand;
+}
+
+const { lang, brand } = Astro.props;
+const c = content[lang];
+const page = PAGE_OF[brand];
+const other = otherLang(lang);
+const nav = brand === "house" ? c.house.nav : brand === "agency" ? c.agency.nav : c.home.nav;
+// The doors in the menu: both brands on the house page, the other brand on a brand page.
+const doors =
+  brand === "house"
+    ? [{ href: routes.consulting[lang], label: "Consulting" }, { href: routes.agency[lang], label: c.agency.link.label }]
+    : brand === "agency"
+      ? [{ href: routes.consulting[lang], label: c.agency.link.back }]
+      : [{ href: routes.agency[lang], label: c.agency.link.label }];
+const desc = brand === "house" ? "" : brand === "agency" ? "Agency" : "Consulting";
+---
+
+<header class="v2-header" data-v2-header>
+  <a class="v2-brand" href={routes.home[lang]} aria-label={ui[lang].homeLabel}>
+    <span class="shrug-logo" aria-hidden="true"><span class="shrug-arm-l">¯\_(</span><span class="shrug-face">ツ</span><span class="shrug-arm-r">)_/¯</span></span>
+    <span class="v2-brand__name">Shruggie<span class="v2-dot">.</span></span>
+    {desc && <span class="v2-brand__desc" aria-hidden="true">{desc}</span>}
+  </a>
+  <button type="button" class="v2-menu-toggle" aria-expanded="false" aria-controls="v2-menu" data-v2-toggle>
+    <span class="visually-hidden">{ui[lang].menu}</span>
+    <svg width="22" height="14" viewBox="0 0 22 14" aria-hidden="true"><path d="M0 1h22M0 7h22M0 13h22" /></svg>
+  </button>
+  <div class="v2-menu" id="v2-menu" data-v2-menu>
+    <nav class="v2-nav" aria-label={ui[lang].nav}>
+      {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+      {doors.map((d, i) => <a class:list={[{ "v2-nav__brand": i === 0 }]} href={d.href}>{d.label}</a>)}
+    </nav>
+    <a class="v2-nav__lang" href={routes[page][other]} hreflang={other} lang={other} data-lang-switch aria-label={other === "en" ? "English" : "Deutsch"}>
+      <Flag lang={other} /><span>{other.toUpperCase()}</span>
+    </a>
+    <a class="v2-nav__login" href={workspaceUrl(lang)} aria-label={ui[lang].clientWorkspaceLabel}>{ui[lang].clientWorkspace}</a>
+  </div>
+</header>

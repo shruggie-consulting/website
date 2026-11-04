@@ -1,0 +1,41 @@
+---
+// Dark three-column footer for the house page and both brands. The legal block stays the same
+// (one business); the right column links the house and the brands, then the legal pages.
+import { content, routes, ui, workspaceUrl, type Lang } from "../../i18n";
+import type { Brand } from "./brand";
+
+interface Props {
+  lang: Lang;
+  brand: Brand;
+}
+
+const { lang, brand } = Astro.props;
+const c = content[lang];
+const legal = c.home.footer;
+const note = brand === "house" ? c.house.footer.note : brand === "agency" ? c.agency.footer.note : legal.note;
+const desc = brand === "house" ? "" : brand === "agency" ? "Agency" : "Consulting";
+const links = [
+  brand !== "house" && { href: routes.home[lang], label: c.house.footer.why },
+  brand !== "consulting" && { href: routes.consulting[lang], label: c.agency.link.backFooter },
+  brand !== "agency" && { href: routes.agency[lang], label: c.agency.link.footer },
+].filter((l): l is { href: string; label: string } => !!l);
+---
+
+<footer class="v2-footer">
+  <div class="v2-wrap v2-footer__grid">
+    <div>
+      <p>Shruggie Consulting<br />Benjamin Birkelbach<br />{lang === "de" ? "München" : "Munich"}</p>
+      <p class="v2-footer__small">{note}</p>
+    </div>
+    <div class="v2-footer__center">
+      <span class="v2-brand__name">Shruggie<span class="v2-dot">.</span>{desc && <span class="v2-brand__desc">{desc}</span>}</span>
+      <a href="mailto:hello@shruggie.consulting">hello@shruggie.consulting</a>
+    </div>
+    <nav class="v2-footer__links" aria-label={lang === "de" ? "Weitere Seiten" : "More pages"}>
+      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+      <a href={routes.imprint[lang]}>{legal.imprint}</a>
+      <a href={routes.privacy[lang]}>{legal.privacy}</a>
+      <a href={workspaceUrl(lang)}>{ui[lang].clientWorkspace}</a>
+    </nav>
+  </div>
+</footer>
