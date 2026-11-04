@@ -1,0 +1,57 @@
+---
+// Our own backdrops for the big colour sections, tone on tone, drawn in SVG (no image file).
+//   shrug:     one huge ¯\_(ツ)_/¯, cut off at the edge
+//   maths:     a fine ledger grid with bars and a trend line (agency maths)
+//   wallpaper: small shrugs as a slanted pattern
+// Draft: the variant can be switched on /v2/ with ?bg=shrug|maths|wallpaper.
+interface Props {
+  tone: "red" | "ink";
+  /** Moves the big shrug and the bars, so two sections don't look the same. */
+  offset?: number;
+}
+const { tone, offset = 0 } = Astro.props;
+const ink = tone === "ink";
+// Darker and lighter shades of the section colour.
+const dark = ink ? "oklch(0.13 0 0)" : "oklch(0.44 0.19 25)";
+const light = ink ? "oklch(0.27 0 0)" : "oklch(0.56 0.2 25)";
+const W = 1600, H = 900;
+
+// Agency maths: bars that rise, dip and rise again, plus a trend line over them.
+const heights = [0.22, 0.3, 0.27, 0.38, 0.35, 0.46, 0.41, 0.55, 0.5, 0.62, 0.58, 0.7];
+const shift = offset % 3;
+const bars = heights.map((hgt, i) => {
+  const v = heights[(i + shift) % heights.length];
+  const bw = 54, gap = 26, x = 760 + i * (bw + gap);
+  return { x, y: H - v * H, w: bw, h: v * H };
+});
+const trend = bars.map((b) => `${b.x + b.w / 2},${b.y - 40}`).join(" ");
+const id = `wp-${tone}-${offset}`;
+---
+
+<div class="backdrop" data-backdrop aria-hidden="true">
+  <svg class="backdrop__svg backdrop--shrug" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMaxYMid slice" focusable="false">
+    <text x={W + 60 - offset * 90} y={H * 0.62 + (offset % 2) * 120} text-anchor="end" fill={dark} font-size="250" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-6" transform={`rotate(-10 ${W} ${H / 2})`}>¯\_(ツ)_/¯</text>
+  </svg>
+
+  <svg class="backdrop__svg backdrop--maths" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMaxYMax slice" focusable="false">
+    <defs>
+      <pattern id={`${id}-grid`} width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M40 0H0V40" fill="none" stroke={light} stroke-width="1" opacity="0.55" />
+      </pattern>
+    </defs>
+    <rect width={W} height={H} fill={`url(#${id}-grid)`} />
+    {bars.map((b) => <rect x={b.x} y={b.y} width={b.w} height={b.h} rx="6" fill={dark} />)}
+    <polyline points={trend} fill="none" stroke={light} stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+    {bars.map((b) => <circle cx={b.x + b.w / 2} cy={b.y - 40} r="7" fill={light} />)}
+  </svg>
+
+  <svg class="backdrop__svg backdrop--wallpaper" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid slice" focusable="false">
+    <defs>
+      <pattern id={`${id}-wall`} width="300" height="130" patternUnits="userSpaceOnUse" patternTransform="rotate(-14)">
+        <text x="0" y="60" fill={dark} font-size="44" font-family="Space Grotesk, sans-serif" font-weight="700">¯\_(ツ)_/¯</text>
+        <text x="150" y="125" fill={dark} font-size="44" font-family="Space Grotesk, sans-serif" font-weight="700">¯\_(ツ)_/¯</text>
+      </pattern>
+    </defs>
+    <rect width={W} height={H} fill={`url(#${id}-wall)`} />
+  </svg>
+</div>

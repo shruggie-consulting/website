@@ -4,7 +4,7 @@
 // Big colour hero with a typed line, a two-column intro, a grey band with the facts,
 // sections of numbered cards, contact form next to the FAQ, dark three-column footer.
 import Base from "../../layouts/Base.astro";
-import Poly from "./Poly.astro";
+import Backdrop from "./Backdrop.astro";
 import { content, routes, ui, workspaceUrl, type Lang } from "../../i18n";
 import "../../styles/v2.css";
 
@@ -25,7 +25,7 @@ const num = (i: number) => String(i + 1);
 ---
 
 <Base lang={lang} page="home" noindex>
-  <div class="v2">
+  <div class="v2" data-bg="shrug">
     <header class="v2-header" data-v2-header>
       <a class="v2-brand" href={v2[lang]} aria-label={lang === "de" ? "Shruggie Consulting – Startseite" : "Shruggie Consulting – home"}>
         <span class="shrug-logo" aria-hidden="true"><span class="shrug-arm-l">¯\_(</span><span class="shrug-face">ツ</span><span class="shrug-arm-r">)_/¯</span></span>
@@ -47,7 +47,7 @@ const num = (i: number) => String(i + 1);
     <main id="main">
       <!-- Hero: colour field, big headline, the three topics typed one after another. -->
       <section class="v2-hero">
-        <Poly l={0.5} c={0.2} h={25} spread={0.12} seed={11} />
+        <Backdrop tone="red" />
         <div class="v2-wrap v2-hero__inner">
           <h1 class="v2-hero__title">{h.hero.title}</h1>
           <p class="v2-hero__typed" aria-label={words.join(", ")}>
@@ -109,7 +109,7 @@ const num = (i: number) => String(i + 1);
 
       <!-- Problems: text on the left, numbered cards on the right, on a dark field. -->
       <section class="v2-cards-section v2-cards-section--dark" aria-labelledby="v2-problems">
-        <Poly l={0.22} c={0.01} h={25} spread={0.08} seed={3} />
+        <Backdrop tone="ink" offset={1} />
         <div class="v2-wrap v2-split">
           <div class="v2-split__text">
             <div class="v2-eyebrow v2-eyebrow--on-dark">{h.problems.eyebrow}</div>
@@ -197,7 +197,7 @@ const num = (i: number) => String(i + 1);
 
       <!-- Approach: three weeks as cards, the capacity as the fourth. -->
       <section id="approach" class="v2-cards-section v2-cards-section--red" aria-labelledby="v2-approach">
-        <Poly l={0.5} c={0.2} h={25} spread={0.12} seed={29} />
+        <Backdrop tone="red" offset={2} />
         <div class="v2-wrap v2-split">
           <div class="v2-split__text">
             <div class="v2-eyebrow v2-eyebrow--on-red">{h.approach.eyebrow}</div>
@@ -287,6 +287,10 @@ const num = (i: number) => String(i + 1);
 <script>
   import { initContactForm } from "../../scripts/contact-form";
   initContactForm();
+
+  // Draft only: try the backdrops with ?bg=shrug|maths|wallpaper.
+  const bg = new URLSearchParams(location.search).get("bg");
+  if (bg && ["shrug", "maths", "wallpaper"].includes(bg)) document.querySelector<HTMLElement>(".v2")!.dataset.bg = bg;
 
   // Header: transparent over the hero, solid once the page scrolls.
   const header = document.querySelector<HTMLElement>("[data-v2-header]");

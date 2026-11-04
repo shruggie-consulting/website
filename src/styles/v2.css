@@ -12,7 +12,11 @@
 }
 .v2 .v2-wrap { max-width: var(--v2-max); margin: 0 auto; padding: 0 var(--gutter); position: relative; }
 .v2 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.v2 .poly { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.v2 .backdrop { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.v2 .backdrop__svg { position: absolute; inset: 0; width: 100%; height: 100%; display: none; }
+.v2[data-bg="shrug"] .backdrop--shrug,
+.v2[data-bg="maths"] .backdrop--maths,
+.v2[data-bg="wallpaper"] .backdrop--wallpaper { display: block; }
 .v2 h1, .v2 h2, .v2 h3 { margin: 0; }
 
 .v2-eyebrow { font: 700 13px var(--font-sans); letter-spacing: 0.18em; text-transform: uppercase; color: var(--rust-dark); margin-bottom: 16px; }
