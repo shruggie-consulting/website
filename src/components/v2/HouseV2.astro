@@ -1,8 +1,8 @@
 ---
 // The house page at the root (/, /en/): why we're called Shruggie, how both shops work,
 // and the two doors, Consulting and Agency, side by side. Plain "Shruggie." without a
-// descriptor; both brand colours get one big field each, so neither leads. Yellow and red are
-// kept apart by white sections (stacked with the ink hero they'd read as the German flag).
+// descriptor. Red is the house colour (one big field); yellow only appears where it means
+// Agency: its button, its door and half of the shrugs in the hero.
 import Base from "../../layouts/Base.astro";
 import Backdrop from "./Backdrop.astro";
 import V2Header from "./V2Header.astro";
@@ -58,12 +58,12 @@ const consultingHref = routes.consulting[lang];
         </div>
       </section>
 
-      <!-- How we work, in both shops: two cards on Agency yellow. -->
-      <section class="v2-cards-section v2-cards-section--acid" aria-labelledby="v2-how">
-        <Backdrop tone="acid" offset={1} />
+      <!-- How we work, in both shops: two cards on ink. -->
+      <section class="v2-cards-section v2-cards-section--dark" aria-labelledby="v2-how">
+        <Backdrop tone="ink" offset={1} />
         <div class="v2-wrap v2-split">
           <div class="v2-split__text">
-            <div class="v2-eyebrow v2-eyebrow--on-acid">{h.how.eyebrow}</div>
+            <div class="v2-eyebrow v2-eyebrow--on-dark">{h.how.eyebrow}</div>
             <h2 id="v2-how" class="v2-h2">{h.how.title}</h2>
           </div>
           <div class="v2-cardgrid">
@@ -75,6 +75,21 @@ const consultingHref = routes.consulting[lang];
                 <p>{c.body}</p>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- What we left behind, on Consulting red. -->
+      <section class="v2-cards-section v2-cards-section--red v2-left-section" aria-labelledby="v2-left">
+        <Backdrop tone="red" offset={2} />
+        <div class="v2-wrap v2-left">
+          <div>
+            <div class="v2-eyebrow v2-eyebrow--on-red">{h.left.eyebrow}</div>
+            <h2 id="v2-left" class="v2-h2">{h.left.title}</h2>
+          </div>
+          <div>
+            <ul role="list" class="v2-left__list">{h.left.items.map((i) => <li>{i}</li>)}</ul>
+            <p class="v2-left__closing">{h.left.closing}</p>
           </div>
         </div>
       </section>
@@ -99,21 +114,6 @@ const consultingHref = routes.consulting[lang];
           </div>
         </div>
       </section>
-      <!-- What we left behind, on Consulting red. -->
-      <section class="v2-cards-section v2-cards-section--red v2-left-section" aria-labelledby="v2-left">
-        <Backdrop tone="red" offset={2} />
-        <div class="v2-wrap v2-left">
-          <div>
-            <div class="v2-eyebrow v2-eyebrow--on-red">{h.left.eyebrow}</div>
-            <h2 id="v2-left" class="v2-h2">{h.left.title}</h2>
-          </div>
-          <div>
-            <ul role="list" class="v2-left__list">{h.left.items.map((i) => <li>{i}</li>)}</ul>
-            <p class="v2-left__closing">{h.left.closing}</p>
-          </div>
-        </div>
-      </section>
-
     </main>
 
     <V2Footer lang={lang} brand="house" />
