@@ -209,8 +209,9 @@
 .v2-intro .v2-lead + .v2-lead { margin-top: 16px; }
 .v2-left { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr); gap: clamp(32px, 5vw, 64px); align-items: start; }
 .v2-left__list { margin: 0; padding: 0; list-style: none; border-top: 3px solid var(--ink); }
-.v2-left__list li { position: relative; padding: 18px 0 18px 40px; border-bottom: 1px solid var(--line); font-size: 18px; line-height: 1.55; }
-.v2-left__list li::before { content: "×"; position: absolute; left: 4px; top: 12px; font: 400 28px/1 var(--font-display); color: var(--rust-dark); }
+/* The cross sits centred against its text, however many lines that runs to. */
+.v2-left__list li { display: grid; grid-template-columns: 28px minmax(0, 1fr); column-gap: 12px; align-items: center; padding: 18px 0; border-bottom: 1px solid var(--line); font-size: 18px; line-height: 1.55; }
+.v2-left__list li::before { content: "×"; justify-self: center; font: 400 28px/1 var(--font-display); color: var(--rust-dark); }
 .v2-left__closing { margin: 24px 0 0; font-weight: 700; font-size: 18px; }
 .v2-shops { padding: clamp(64px, 9vw, 112px) 0; }
 .v2-shops__head { max-width: 64ch; margin-bottom: 40px; }
@@ -223,6 +224,13 @@
 .v2-door__body { font-size: 17px; line-height: 1.6; max-width: 40ch; }
 .v2-door__cta { margin-top: auto; padding-top: 16px; font: 700 14px var(--font-sans); letter-spacing: 0.04em; }
 .v2-door:hover .v2-door__cta { text-decoration: underline; text-underline-offset: 4px; }
+
+/* Colour fields on the house page: red (Consulting) and yellow (Agency), one each. */
+.v2-cards-section--acid { background: var(--sage); color: var(--ink); }
+.v2-eyebrow--on-acid { color: var(--ink); opacity: 0.75; }
+.v2-left-section .v2-left__list { border-top-color: var(--cream); }
+.v2-left-section .v2-left__list li { border-bottom-color: oklch(1 0 0 / 0.25); }
+.v2-left-section .v2-left__list li::before { color: var(--sage); }
 
 /* ---------- Agency theme ---------- */
 /* Acid yellow leads as a ground with ink type; rust is the one spark (cursor, wordmark period). */

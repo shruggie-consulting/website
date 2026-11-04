@@ -6,7 +6,7 @@
 // The page picks one with data-bg on .v2 (wallpaper for now; maths kept for subpages later).
 interface Props {
   /** The section colour: red and ink for Consulting, acid (yellow) for the Agency hero. */
-  tone: "red" | "ink" | "acid";
+  tone: "red" | "ink" | "acid" | "house";
   /** Moves the big shrug and the bars, so two sections don't look the same. */
   offset?: number;
 }
@@ -16,8 +16,10 @@ const shades = {
   red: ["oklch(0.44 0.19 25)", "oklch(0.56 0.2 25)"],
   ink: ["oklch(0.13 0 0)", "oklch(0.27 0 0)"],
   acid: ["oklch(0.77 0.18 100)", "oklch(0.88 0.16 100)"],
+  // The house hero: ink, with the shrugs alternating in dark Consulting red and dark Agency yellow.
+  house: ["oklch(0.26 0.07 25)", "oklch(0.27 0 0)", "oklch(0.29 0.05 100)"],
 } as const;
-const [dark, light] = shades[tone];
+const [dark, light, alt = dark] = shades[tone] as readonly string[];
 const W = 1600, H = 900;
 
 // Agency maths: bars that rise, dip and rise again, plus a trend line over them.
@@ -53,7 +55,7 @@ const id = `wp-${tone}-${offset}`;
     <defs>
       <pattern id={`${id}-wall`} width="300" height="130" patternUnits="userSpaceOnUse" patternTransform="rotate(-14)">
         <text x="0" y="60" fill={dark} font-size="44" font-family="Space Grotesk, sans-serif" font-weight="700">¯\_(ツ)_/¯</text>
-        <text x="150" y="125" fill={dark} font-size="44" font-family="Space Grotesk, sans-serif" font-weight="700">¯\_(ツ)_/¯</text>
+        <text x="150" y="125" fill={alt} font-size="44" font-family="Space Grotesk, sans-serif" font-weight="700">¯\_(ツ)_/¯</text>
       </pattern>
     </defs>
     <rect width={W} height={H} fill={`url(#${id}-wall)`} />
