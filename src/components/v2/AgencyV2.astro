@@ -1,0 +1,136 @@
+---
+// The Shruggie Agency page (/agentur, /en/agency): the same layout as the Consulting home,
+// in the Agency theme from the design system. Acid-yellow hero with ink type, ink sections
+// with acid accents, rust only as the single spark (cursor and wordmark period).
+// Services only for now; the work section appears once agency.work.items has entries.
+import Base from "../../layouts/Base.astro";
+import Backdrop from "./Backdrop.astro";
+import V2Header from "./V2Header.astro";
+import V2Contact from "./V2Contact.astro";
+import V2Footer from "./V2Footer.astro";
+import { content, type Lang } from "../../i18n";
+import "../../styles/v2.css";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const a = content[lang].agency;
+const words = a.hero.eyebrow.split(" · ");
+const num = (i: number) => String(i + 1);
+const work = a.work.items as { client: string; title: string; body: string }[];
+---
+
+<Base lang={lang} page="agency">
+  <div class="v2" data-bg="wallpaper" data-theme="agency">
+    <V2Header lang={lang} brand="agency" />
+
+    <main id="main">
+      <!-- Hero: acid-yellow field, ink headline, the disciplines typed one after another. -->
+      <section class="v2-hero">
+        <Backdrop tone="acid" />
+        <div class="v2-wrap v2-hero__inner">
+          <h1 class="v2-hero__title">{a.hero.title}</h1>
+          <p class="v2-hero__typed" aria-label={words.join(", ")}>
+            <span aria-hidden="true"><span data-typed data-words={JSON.stringify(words)}>{words[0]}</span><span class="v2-cursor">_</span></span>
+          </p>
+        </div>
+      </section>
+
+      <!-- Intro: who we are for and two ways in, next to the brand panel. -->
+      <section class="v2-intro">
+        <div class="v2-wrap v2-intro__grid">
+          <div>
+            <h2 class="v2-h2">{a.intro.title}</h2>
+            <p class="v2-lead">{a.intro.body}</p>
+            <div class="v2-buttons">
+              <a class="v2-btn" href="#contact">{a.intro.cta}</a>
+              <a class="v2-btn" href="#services">{a.intro.secondary}</a>
+            </div>
+          </div>
+          <div class="v2-panel" aria-hidden="true">
+            <span class="v2-panel__shrug shrug-logo"><span class="shrug-arm-l">¯\_(</span><span class="shrug-face">ツ</span><span class="shrug-arm-r">)_/¯</span></span>
+            <span class="v2-panel__name">Shruggie<span class="v2-dot">.</span></span>
+            <span class="v2-panel__desc">Agency</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services: intro on the left, the four disciplines and "something else" as cards. -->
+      <section id="services" class="v2-cards-section v2-cards-section--light" aria-labelledby="v2-services">
+        <div class="v2-wrap v2-split">
+          <div class="v2-split__text">
+            <div class="v2-eyebrow">{a.services.eyebrow}</div>
+            <h2 id="v2-services" class="v2-h2">{a.services.title}</h2>
+            <p>{a.services.body}</p>
+          </div>
+          <div class="v2-cardgrid">
+            {a.services.items.map((s, i) => (
+              <article class="v2-card">
+                <span class="v2-card__num" aria-hidden="true">{num(i)}</span>
+                <div class="v2-card__label">{s.label}</div>
+                <h3>{s.title}</h3>
+                <p>{s.body}</p>
+              </article>
+            ))}
+            <article class="v2-card v2-card--ink v2-card--wide">
+              <h3>{a.services.more.title}</h3>
+              <p>{a.services.more.body}</p>
+              <a class="v2-btn v2-btn--on-dark" href="#contact">{a.services.more.cta}</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {work.length > 0 && (
+        <section id="work" class="v2-cards-section" aria-labelledby="v2-work">
+          <div class="v2-wrap">
+            <div class="v2-eyebrow">{a.work.eyebrow}</div>
+            <h2 id="v2-work" class="v2-h2">{a.work.title}</h2>
+            <div class="v2-cardgrid">
+              {work.map((w) => (
+                <article class="v2-card v2-card--line">
+                  <div class="v2-card__label">{w.client}</div>
+                  <h3>{w.title}</h3>
+                  <p>{w.body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <!-- How we work: three steps as cards on ink. -->
+      <section id="approach" class="v2-cards-section v2-cards-section--dark" aria-labelledby="v2-approach">
+        <Backdrop tone="ink" offset={1} />
+        <div class="v2-wrap v2-split">
+          <div class="v2-split__text">
+            <div class="v2-eyebrow v2-eyebrow--on-dark">{a.approach.eyebrow}</div>
+            <h2 id="v2-approach" class="v2-h2">{a.approach.title}</h2>
+            <a class="v2-btn v2-btn--on-dark" href="#contact">{a.intro.cta}</a>
+          </div>
+          <ol class="v2-cardgrid" role="list">
+            {a.approach.steps.map((s, i) => (
+              <li class:list={["v2-card", { "v2-card--wide": i === a.approach.steps.length - 1 && a.approach.steps.length % 2 === 1 }]}>
+                <span class="v2-card__num" aria-hidden="true">{num(i)}</span>
+                <div class="v2-card__label">{s.range}</div>
+                <h3>{s.title}</h3>
+                <p>{s.body}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <V2Contact lang={lang} brand="agency" />
+    </main>
+
+    <V2Footer lang={lang} brand="agency" />
+  </div>
+</Base>
+
+<script>
+  import { initV2 } from "../../scripts/v2";
+  initV2();
+</script>

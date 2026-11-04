@@ -3,7 +3,7 @@
     "nav": [
       {
         "href": "#about",
-        "label": "Über mich"
+        "label": "Über uns"
       },
       {
         "href": "#services",
@@ -22,7 +22,7 @@
     "hero": {
       "eyebrow": "AGENTUREN · ZAHLEN · KUNDEN",
       "title": "KEIN 10X. KEIN ERFOLG ÜBER NACHT. NUR EINE EHRLICHE ANTWORT.",
-      "body": "Für unabhängige Agenturen, die oft bessere Arbeit machen als die großen Netzwerke, intern aber zu viel improvisieren. Ich bringe drei Dinge aus der Netzwerkwelt mit, die sich schnell bezahlt machen: saubere Zahlen, richtiges Account Management und einen festen Rhythmus. Den Rest der Bürokratie lassen wir weg.",
+      "body": "Für unabhängige Agenturen, die oft bessere Arbeit machen als die großen Netzwerke, intern aber zu viel improvisieren. Wir bringen drei Dinge aus der Netzwerkwelt mit, die sich schnell bezahlt machen: saubere Zahlen, richtiges Account Management und einen festen Rhythmus. Den Rest der Bürokratie lassen wir weg.",
       "cta": "30-MIN-GESPRÄCH BUCHEN",
       "secondary": "DEN AGENTUR-CHECK ANSEHEN"
     },
@@ -39,11 +39,11 @@
       }
     ],
     "about": {
-      "eyebrow": "ÜBER MICH",
-      "title": "Ich kenne Agenturen von innen. Mit und ohne Netzwerk.",
+      "eyebrow": "ÜBER UNS",
+      "title": "Wir kennen Agenturen von innen. Mit und ohne Netzwerk.",
       "paragraphs": [
-        "Ich habe fünfzehn Jahre auf Agenturseite gearbeitet, in Netzwerkagenturen und in unabhängigen Häusern, vom Account Management bis zur Leitung von Client-Service-Teams. Ich habe Quartalsgespräche geführt, Eskalationen aufgefangen, Budgets verteidigt und mehr als eine Kundenbeziehung gerettet, die schon fast eingeschlafen war.",
-        "Dabei habe ich vor allem eins gelernt: Netzwerke haben Geld und Kunden gut im Griff, verlieren dafür aber viel in ihrer eigenen Bürokratie. Unabhängige Agenturen machen oft die bessere Arbeit, lassen aber Geld liegen, irgendwo zwischen Kunden, Stunden und Bauchgefühl. Ich kenne beide Seiten und weiß ziemlich genau, welcher Teil der Netzwerkpraxis sich auch für kleinere Agenturen lohnt."
+        "Wir haben fünfzehn Jahre auf Agenturseite gearbeitet, in Netzwerkagenturen und in unabhängigen Häusern, vom Account Management bis zur Leitung von Client-Service-Teams. Wir haben Quartalsgespräche geführt, Eskalationen aufgefangen, Budgets verteidigt und mehr als eine Kundenbeziehung gerettet, die schon fast eingeschlafen war.",
+        "Dabei haben wir vor allem eins gelernt: Netzwerke haben Geld und Kunden gut im Griff, verlieren dafür aber viel in ihrer eigenen Bürokratie. Unabhängige Agenturen machen oft die bessere Arbeit, lassen aber Geld liegen, irgendwo zwischen Kunden, Stunden und Bauchgefühl. Wir kennen beide Seiten und wissen ziemlich genau, welcher Teil der Netzwerkpraxis sich auch für kleinere Agenturen lohnt."
       ],
       "rows": [
         {
@@ -79,7 +79,7 @@
             "Festpreis"
           ],
           "price": "{{PREIS_CHECK}}",
-          "body": "Ich sehe mir deine Zahlen, deine Kunden und eure Abläufe an, vor allem die Frage, welche Kunden sich wirklich lohnen. Zum Schluss setzen wir uns zusammen und gehen einen klaren Plan durch:",
+          "body": "Wir sehen uns deine Zahlen, deine Kunden und eure Abläufe an, vor allem die Frage, welche Kunden sich wirklich lohnen. Zum Schluss setzen wir uns zusammen und gehen einen klaren Plan durch:",
           "points": [
             [
               "KEEP",
@@ -100,7 +100,7 @@
             "welche Kunden dich tragen und welche du trägst",
             "Keep, Fix, Next und einen 90-Tage-Plan"
           ],
-          "note": "Deine Zahlen bleiben bei mir. Wenn du willst, unterschreibe ich vorab ein NDA."
+          "note": "Deine Zahlen bleiben bei uns. Wenn du willst, unterschreiben wir vorab ein NDA."
         },
         {
           "num": "02",
@@ -178,17 +178,17 @@
         {
           "range": "WOCHE 1",
           "title": "Zahlen und Gespräche",
-          "body": "Du gibst mir Einblick in Umsatz, Kosten und Stunden der letzten zwölf Monate. Ich spreche mit dir und, wenn du möchtest, mit zwei oder drei Leuten aus dem Team. Deine Zahlen bleiben bei mir, ein NDA unterschreibe ich gern vorab."
+          "body": "Du gibst uns Einblick in Umsatz, Kosten und Stunden der letzten zwölf Monate. Wir sprechen mit dir und, wenn du möchtest, mit zwei oder drei Leuten aus dem Team. Deine Zahlen bleiben bei uns, ein NDA unterschreiben wir gern vorab."
         },
         {
           "range": "WOCHE 2",
           "title": "Analyse",
-          "body": "Ich schaue mir genauer an, was in der ersten Woche aufgefallen ist, anhand deiner Zahlen und eures Alltags. Meistens sind es zwei oder drei Stellen, an denen es wirklich hakt, und die sind bei jeder Agentur andere."
+          "body": "Wir schauen uns genauer an, was in der ersten Woche aufgefallen ist, anhand deiner Zahlen und eures Alltags. Meistens sind es zwei oder drei Stellen, an denen es wirklich hakt, und die sind bei jeder Agentur andere."
         },
         {
           "range": "WOCHE 3",
           "title": "Ein Termin, ein Plan",
-          "body": "Wir setzen uns zwei Stunden zusammen, ohne große Präsentation, und gehen Keep, Fix und Next durch. Danach weißt du, was zu tun ist, ob mit mir oder ohne mich."
+          "body": "Wir setzen uns zwei Stunden zusammen, ohne große Präsentation, und gehen Keep, Fix und Next durch. Danach weißt du, was zu tun ist, ob mit uns oder ohne uns."
         }
       ]
     },
@@ -196,7 +196,7 @@
     "contact": {
       "eyebrow": "KONTAKT",
       "title": "Lass uns reden.",
-      "body": "Dreißig Minuten, ohne Präsentation. Du erzählst mir, was dich gerade beschäftigt, und ich sage dir ehrlich, ob ich helfen kann.",
+      "body": "Dreißig Minuten, ohne Präsentation. Du erzählst uns, was dich gerade beschäftigt, und wir sagen dir ehrlich, ob wir helfen können.",
       "rows": [
         {
           "label": "E-MAIL",
@@ -210,25 +210,25 @@
         }
       ],
       "form": {
-        "title": "ODER SCHREIB MIR HIER",
+        "title": "ODER SCHREIB UNS HIER",
         "name": "Name",
         "company": "Unternehmen",
         "email": "E-Mail",
         "phone": "Telefon",
         "message": "Worum geht es?",
         "optional": "optional",
-        "messagePlaceholder": "Ein, zwei Sätze reichen. Ich melde mich innerhalb eines Werktags.",
+        "messagePlaceholder": "Ein, zwei Sätze reichen. Wir melden uns innerhalb eines Werktags.",
         "consent": "Ich bin einverstanden, dass meine Angaben zur Bearbeitung meiner Anfrage verarbeitet werden. Details in der",
         "consentLink": "Datenschutzerklärung",
         "submit": "NACHRICHT SENDEN",
         "sending": "Wird gesendet …",
-        "sent": "Danke. Deine Nachricht ist angekommen. Ich melde mich innerhalb eines Werktags.",
+        "sent": "Danke. Deine Nachricht ist angekommen. Wir melden uns innerhalb eines Werktags.",
         "errors": {
           "email": "Bitte prüf deine E-Mail-Adresse.",
           "consent": "Bitte bestätige die Einwilligung.",
           "missing": "Bitte füll Name, E-Mail und Nachricht aus.",
-          "too many": "Gerade sind sehr viele Anfragen eingegangen. Schreib mir bitte direkt an hello@shruggie.consulting.",
-          "generic": "Das hat leider nicht geklappt. Schreib mir bitte direkt an hello@shruggie.consulting."
+          "too many": "Gerade sind sehr viele Anfragen eingegangen. Schreib uns bitte direkt an hello@shruggie.consulting.",
+          "generic": "Das hat leider nicht geklappt. Schreib uns bitte direkt an hello@shruggie.consulting."
         }
       }
     },
@@ -241,7 +241,7 @@
       "eyebrow": "KAPAZITÄT",
       "value": "2",
       "unit": "neue Mandate pro Quartal",
-      "text": "Ich nehme bewusst nur wenige Mandate an. Du arbeitest direkt mit mir, nicht mit einem Junior-Team.",
+      "text": "Wir nehmen bewusst nur wenige Mandate an. Du arbeitest direkt mit uns, nicht mit einem Junior-Team.",
       "link": "Nach dem nächsten Termin fragen"
     },
     "problems": {
@@ -271,7 +271,7 @@
     },
     "keepBin": {
       "eyebrow": "ARBEITSWEISE",
-      "title": "Was ich mitbringe. Was draußen bleibt.",
+      "title": "Was wir mitbringen. Was draußen bleibt.",
       "keep": {
         "title": "Mitbringen",
         "items": [
@@ -304,33 +304,131 @@
       "items": [
         {
           "q": "Für welche Agenturen ist das gedacht?",
-          "a": "Für kleine und mittelgroße unabhängige Agenturen, die wachsen wollen und dabei nicht bürokratisch werden möchten. Pitches, Rebrandings und Lead-Versprechen mache ich nicht."
+          "a": "Für kleine und mittelgroße unabhängige Agenturen, die wachsen wollen und dabei nicht bürokratisch werden möchten. Pitches, Rebrandings und Lead-Versprechen machen wir nicht."
         },
         {
           "q": "Wie läuft der Agentur-Check ab?",
-          "a": "Er dauert zwei bis drei Wochen. Erst schaue ich mir deine Zahlen an und spreche mit dir und, wenn du willst, mit zwei oder drei Leuten aus dem Team. Dann werte ich aus, und am Ende setzen wir uns zwei Stunden zusammen und gehen Keep, Fix und Next durch."
+          "a": "Er dauert zwei bis drei Wochen. Erst schauen wir uns deine Zahlen an und sprechen mit dir und, wenn du willst, mit zwei oder drei Leuten aus dem Team. Dann werten wir aus, und am Ende setzen wir uns zwei Stunden zusammen und gehen Keep, Fix und Next durch."
         },
         {
-          "q": "Was brauchst du dafür von uns?",
+          "q": "Was braucht ihr dafür von uns?",
           "a": "Einblick in Umsatz, Kosten und Stunden der letzten zwölf Monate. Dazu ein paar Gespräche mit dir und, wenn du möchtest, mit Leuten aus dem Team."
         },
         {
           "q": "Was passiert mit unseren Zahlen?",
-          "a": "Die bleiben bei mir. Wenn du möchtest, unterschreibe ich vorab ein NDA."
+          "a": "Die bleiben bei uns. Wenn du möchtest, unterschreiben wir vorab ein NDA."
         },
         {
-          "q": "Kommst du zu uns oder läuft alles online?",
-          "a": "Beides geht. Ich sitze in München und arbeite in der ganzen EMEA-Region. Workshops mache ich vor Ort oder online."
+          "q": "Kommt ihr zu uns oder läuft alles online?",
+          "a": "Beides geht. Wir sitzen in München und arbeiten in der ganzen EMEA-Region. Workshops machen wir vor Ort oder online."
         },
         {
-          "q": "Wie viele Agenturen betreust du gleichzeitig?",
-          "a": "Pro Quartal nehme ich höchstens zwei neue Mandate an. Du arbeitest direkt mit mir."
+          "q": "Wie viele Agenturen betreut ihr gleichzeitig?",
+          "a": "Pro Quartal nehmen wir höchstens zwei neue Mandate an. Du arbeitest direkt mit uns."
         },
         {
           "q": "Und was kommt nach dem Check?",
           "a": "Danach weißt du, was zu tun ist, und kannst allein weitermachen. Wenn du einen festen Rhythmus willst, schauen wir in den Quarterly Reviews alle drei Monate gemeinsam auf die Zahlen und entscheiden, was als Nächstes kommt."
         }
       ]
+    }
+  },
+  "agency": {
+    "nav": [
+      {
+        "href": "#services",
+        "label": "Leistungen"
+      },
+      {
+        "href": "#approach",
+        "label": "Arbeitsweise"
+      },
+      {
+        "href": "#contact",
+        "label": "Kontakt"
+      }
+    ],
+    "hero": {
+      "title": "ARBEIT, DIE MAN BEMERKT.",
+      "eyebrow": "MARKE · KAMPAGNEN · CONTENT · PERFORMANCE"
+    },
+    "intro": {
+      "title": "Eine kleine Agentur für Marken, die gesehen werden wollen.",
+      "body": "Wir entwickeln Marken, planen Kampagnen und machen den Content dazu. Danach schauen wir uns an, was davon wirklich funktioniert hat. Das Team ist klein, die Wege sind kurz, und du sprichst immer mit den Leuten, die auch die Arbeit machen.",
+      "cta": "PROJEKT ANFRAGEN",
+      "secondary": "LEISTUNGEN ANSEHEN"
+    },
+    "services": {
+      "eyebrow": "LEISTUNGEN",
+      "title": "Was wir machen.",
+      "body": "Du kannst einzelne Teile buchen oder alles aus einer Hand. Was davon sinnvoll ist, klären wir im ersten Gespräch.",
+      "items": [
+        {
+          "label": "MARKE",
+          "title": "Marke",
+          "body": "Positionierung, Name, Logo und alles, was eine Marke im Alltag braucht, damit sie überall gleich aussieht und klingt."
+        },
+        {
+          "label": "KAMPAGNEN",
+          "title": "Kampagnen",
+          "body": "Eine Idee, die trägt, und ein Plan, wo sie wann läuft. Online, offline oder beides."
+        },
+        {
+          "label": "CONTENT",
+          "title": "Content",
+          "body": "Laufend neues Material für Social, Website und Newsletter. In deinem Ton und so geplant, dass es nicht jede Woche hektisch wird."
+        },
+        {
+          "label": "PERFORMANCE",
+          "title": "Performance",
+          "body": "Anzeigen, die wir laufend testen und nachjustieren. Jeden Monat siehst du, was sie gebracht haben."
+        }
+      ],
+      "more": {
+        "title": "Etwas anderes im Kopf?",
+        "body": "Ein Launch, ein Relaunch oder eine Idee, die noch keinen Namen hat? Erzähl uns davon.",
+        "cta": "PROJEKT ANFRAGEN"
+      }
+    },
+    "work": {
+      "eyebrow": "ARBEITEN",
+      "title": "Was wir zuletzt gemacht haben.",
+      "items": []
+    },
+    "approach": {
+      "eyebrow": "ARBEITSWEISE",
+      "title": "Kurz reden, dann machen.",
+      "steps": [
+        {
+          "range": "ZUERST",
+          "title": "Das Briefing",
+          "body": "Wir hören zu: was du vorhast, für wen, bis wann und mit welchem Budget. Danach bekommst du ein Angebot, das du auch verstehst."
+        },
+        {
+          "range": "DANN",
+          "title": "Die Arbeit",
+          "body": "Erste Entwürfe zeigen wir früh, damit wir gemeinsam in die richtige Richtung laufen. Dein Feedback geht direkt an die Leute, die daran sitzen."
+        },
+        {
+          "range": "DANACH",
+          "title": "Hinschauen",
+          "body": "Wenn es läuft, schauen wir auf die Zahlen und sagen dir offen, was gut funktioniert hat und was wir beim nächsten Mal anders machen würden."
+        }
+      ]
+    },
+    "contact": {
+      "eyebrow": "KONTAKT",
+      "title": "Erzähl uns von deinem Projekt.",
+      "body": "Ein paar Sätze reichen für den Anfang. Wir melden uns innerhalb eines Werktags und sagen dir ehrlich, ob wir die Richtigen dafür sind."
+    },
+    "footer": {
+      "note": "© 2026 Shruggie Agency · Ein Teil von Shruggie Consulting."
+    },
+    "link": {
+      "label": "Agentur",
+      "footer": "Shruggie Agency",
+      "back": "Consulting",
+      "backFooter": "Shruggie Consulting"
     }
   },
   "imprint": {

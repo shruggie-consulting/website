@@ -2,13 +2,14 @@ import de from "./content/de.json";
 import en from "./content/en.json";
 
 export type Lang = "de" | "en";
-export type PageKey = "home" | "imprint" | "privacy";
+export type PageKey = "home" | "agency" | "imprint" | "privacy";
 
 export const content = { de, en } as const;
 
 // German is the default language and lives at the root.
 export const routes: Record<PageKey, Record<Lang, string>> = {
   home: { de: "/", en: "/en/" },
+  agency: { de: "/agentur/", en: "/en/agency/" },
   imprint: { de: "/impressum/", en: "/en/imprint/" },
   privacy: { de: "/datenschutz/", en: "/en/privacy/" },
 };
@@ -20,6 +21,8 @@ interface Meta {
   description: string;
   ogImage: string;
   noindex?: boolean;
+  /** og:site_name; Shruggie Consulting unless the page belongs to the agency. */
+  siteName?: string;
 }
 
 export const meta: Record<PageKey, Record<Lang, Meta>> = {
@@ -35,6 +38,22 @@ export const meta: Record<PageKey, Record<Lang, Meta>> = {
       description:
         "For independent agencies that do good work and run on chaos: clean numbers, proper account management, a rhythm that holds. No bureaucracy, no 10x promises.",
       ogImage: "/og/home.png",
+    },
+  },
+  agency: {
+    de: {
+      title: "Shruggie Agency — Marke, Kampagnen und Content",
+      description:
+        "Eine kleine Agentur aus München für Marken, die gesehen werden wollen: Marke, Kampagnen, Content und Performance, und du sprichst immer mit den Leuten, die auch die Arbeit machen.",
+      ogImage: "/og/home.png",
+      siteName: "Shruggie Agency",
+    },
+    en: {
+      title: "Shruggie Agency — Brand, campaigns and content",
+      description:
+        "A small Munich agency for brands that want to be seen: brand, campaigns, content and performance, and you always talk to the people doing the work.",
+      ogImage: "/og/home.png",
+      siteName: "Shruggie Agency",
     },
   },
   imprint: {

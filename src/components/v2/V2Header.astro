@@ -1,0 +1,39 @@
+---
+// Fixed header for both brands: transparent over the hero, solid once the page scrolls.
+// The other brand gets one quiet link next to the page's own sections.
+import { content, otherLang, routes, ui, workspaceUrl, type Lang } from "../../i18n";
+import type { Brand } from "./brand";
+
+interface Props {
+  lang: Lang;
+  brand: Brand;
+}
+
+const { lang, brand } = Astro.props;
+const agency = brand === "agency";
+const page = agency ? "agency" : "home";
+const nav = agency ? content[lang].agency.nav : content[lang].home.nav;
+const link = content[lang].agency.link;
+const other = otherLang(lang);
+const brandName = agency ? "Shruggie Agency" : "Shruggie Consulting";
+---
+
+<header class="v2-header" data-v2-header>
+  <a class="v2-brand" href={routes[page][lang]} aria-label={`${brandName} – ${lang === "de" ? "Startseite" : "home"}`}>
+    <span class="shrug-logo" aria-hidden="true"><span class="shrug-arm-l">¯\_(</span><span class="shrug-face">ツ</span><span class="shrug-arm-r">)_/¯</span></span>
+    <span class="v2-brand__name">Shruggie<span class="v2-dot">.</span></span>
+    {agency && <span class="v2-brand__desc" aria-hidden="true">Agency</span>}
+  </a>
+  <button type="button" class="v2-menu-toggle" aria-expanded="false" aria-controls="v2-menu" data-v2-toggle>
+    <span class="visually-hidden">{ui[lang].menu}</span>
+    <svg width="22" height="14" viewBox="0 0 22 14" aria-hidden="true"><path d="M0 1h22M0 7h22M0 13h22" /></svg>
+  </button>
+  <div class="v2-menu" id="v2-menu" data-v2-menu>
+    <nav class="v2-nav" aria-label={ui[lang].nav}>
+      {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+      <a class="v2-nav__brand" href={agency ? routes.home[lang] : routes.agency[lang]}>{agency ? link.back : link.label}</a>
+    </nav>
+    <a class="v2-nav__lang" href={routes[page][other]} hreflang={other} lang={other}>{other.toUpperCase()}</a>
+    <a class="v2-nav__login" href={workspaceUrl(lang)} aria-label={ui[lang].clientWorkspaceLabel}>{ui[lang].clientWorkspace}</a>
+  </div>
+</header>

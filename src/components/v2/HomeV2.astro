@@ -2,10 +2,14 @@
 // The home page (v2, live since 4 Nov 2026; the previous one is HomePage.astro, no longer
 // routed). Layout inspired by agenturwerft.com, in Shruggie's colours, type and backdrops.
 // Big colour hero with a typed line, a two-column intro, a grey band with the facts,
-// sections of numbered cards, contact form next to the FAQ, dark three-column footer.
+// sections of numbered cards, FAQ as a chat, contact form, dark three-column footer.
+// Header, contact and footer are shared with the Agency page (V2Header, V2Contact, V2Footer).
 import Base from "../../layouts/Base.astro";
 import Backdrop from "./Backdrop.astro";
-import { content, routes, ui, workspaceUrl, type Lang } from "../../i18n";
+import V2Header from "./V2Header.astro";
+import V2Contact from "./V2Contact.astro";
+import V2Footer from "./V2Footer.astro";
+import { content, type Lang } from "../../i18n";
 import "../../styles/v2.css";
 
 interface Props {
@@ -24,24 +28,8 @@ const num = (i: number) => String(i + 1);
 ---
 
 <Base lang={lang} page="home">
-  <div class="v2" data-bg="wallpaper">
-    <header class="v2-header" data-v2-header>
-      <a class="v2-brand" href={routes.home[lang]} aria-label={lang === "de" ? "Shruggie Consulting – Startseite" : "Shruggie Consulting – home"}>
-        <span class="shrug-logo" aria-hidden="true"><span class="shrug-arm-l">¯\_(</span><span class="shrug-face">ツ</span><span class="shrug-arm-r">)_/¯</span></span>
-        <span class="v2-brand__name">Shruggie<span class="v2-dot">.</span></span>
-      </a>
-      <button type="button" class="v2-menu-toggle" aria-expanded="false" aria-controls="v2-menu" data-v2-toggle>
-        <span class="visually-hidden">{ui[lang].menu}</span>
-        <svg width="22" height="14" viewBox="0 0 22 14" aria-hidden="true"><path d="M0 1h22M0 7h22M0 13h22" /></svg>
-      </button>
-      <div class="v2-menu" id="v2-menu" data-v2-menu>
-        <nav class="v2-nav" aria-label={ui[lang].nav}>
-          {h.nav.map((item) => <a href={item.href}>{item.label}</a>)}
-        </nav>
-        <a class="v2-nav__lang" href={routes.home[lang === "de" ? "en" : "de"]} hreflang={lang === "de" ? "en" : "de"}>{lang === "de" ? "EN" : "DE"}</a>
-        <a class="v2-nav__login" href={workspaceUrl(lang)} aria-label={ui[lang].clientWorkspaceLabel}>{ui[lang].clientWorkspace}</a>
-      </div>
-    </header>
+  <div class="v2" data-bg="wallpaper" data-theme="consulting">
+    <V2Header lang={lang} brand="consulting" />
 
     <main id="main">
       <!-- Hero: colour field, big headline, the three topics typed one after another. -->
@@ -243,106 +231,14 @@ const num = (i: number) => String(i + 1);
         </div>
       </section>
 
-      <!-- Contact: the invitation and the direct ways on the left, the form as a card on the right. -->
-      <section id="contact" class="v2-contact" aria-labelledby="v2-contact">
-        <Backdrop tone="ink" offset={3} />
-        <div class="v2-wrap v2-contact__grid">
-          <div class="v2-contact__text">
-            <div class="v2-eyebrow v2-eyebrow--on-dark">{h.contact.eyebrow}</div>
-            <h2 id="v2-contact" class="v2-h2">{h.contact.title}</h2>
-            <p class="v2-lead">{h.contact.body}</p>
-            <dl class="v2-contact__rows">
-              {h.contact.rows.map((r) => <div><dt>{r.label}</dt><dd>{r.href ? <a href={r.href}>{r.value}</a> : r.value}</dd></div>)}
-            </dl>
-          </div>
-          <div class="v2-contact__card">
-                <form class="v2-form" data-contact-form data-lang={lang} novalidate>
-                  <h3 class="v2-form__title">{h.contact.form.title}</h3>
-                  <label class="v2-field"><span>{h.contact.form.name} <b aria-hidden="true">*</b></span><input name="name" autocomplete="name" required maxlength="200" /></label>
-                  <label class="v2-field"><span>{h.contact.form.company}</span><input name="company" autocomplete="organization" maxlength="200" /></label>
-                  <label class="v2-field"><span>{h.contact.form.email} <b aria-hidden="true">*</b></span><input name="email" type="email" autocomplete="email" required maxlength="254" /></label>
-                  <label class="v2-field"><span>{h.contact.form.phone}</span><input name="phone" type="tel" autocomplete="tel" maxlength="60" /></label>
-                  <label class="v2-field"><span>{h.contact.form.message} <b aria-hidden="true">*</b></span><textarea name="message" rows="5" required maxlength="5000" placeholder={h.contact.form.messagePlaceholder}></textarea></label>
-                  <!-- Left empty by people; bots fill it in. -->
-                  <div class="cf-trap" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off" /></label></div>
-                  <label class="v2-consent">
-                    <input type="checkbox" name="consent" required />
-                    <span>{h.contact.form.consent} <a href={routes.privacy[lang]}>{h.contact.form.consentLink}</a>.</span>
-                  </label>
-                  <button class="v2-btn" type="submit">{h.contact.form.submit}</button>
-                  <p class="v2-status" role="status" aria-live="polite" data-status></p>
-                  <script type="application/json" data-messages set:html={JSON.stringify({ sending: h.contact.form.sending, sent: h.contact.form.sent, errors: h.contact.form.errors })} />
-                </form>
-          </div>
-        </div>
-      </section>
+      <V2Contact lang={lang} brand="consulting" />
     </main>
 
-    <footer class="v2-footer">
-      <div class="v2-wrap v2-footer__grid">
-        <div>
-          <p>Shruggie Consulting<br />Benjamin Birkelbach<br />{lang === "de" ? "München" : "Munich"}</p>
-          <p class="v2-footer__small">{h.footer.note}</p>
-        </div>
-        <div class="v2-footer__center">
-          <span class="v2-brand__name">Shruggie<span class="v2-dot">.</span></span>
-          <a href="mailto:hello@shruggie.consulting">hello@shruggie.consulting</a>
-        </div>
-        <nav class="v2-footer__links" aria-label={lang === "de" ? "Rechtliches" : "Legal"}>
-          <a href={routes.imprint[lang]}>{h.footer.imprint}</a>
-          <a href={routes.privacy[lang]}>{h.footer.privacy}</a>
-          <a href={workspaceUrl(lang)}>{ui[lang].clientWorkspace}</a>
-        </nav>
-      </div>
-    </footer>
+    <V2Footer lang={lang} brand="consulting" />
   </div>
 </Base>
 
 <script>
-  import { initContactForm } from "../../scripts/contact-form";
-  initContactForm();
-
-  // Header: transparent over the hero, solid once the page scrolls.
-  const header = document.querySelector<HTMLElement>("[data-v2-header]");
-  const onScroll = () => header?.classList.toggle("is-solid", window.scrollY > 40);
-  addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
-
-  // Small screens: the menu opens from the button.
-  const toggle = document.querySelector<HTMLButtonElement>("[data-v2-toggle]");
-  const menu = document.querySelector<HTMLElement>("[data-v2-menu]");
-  toggle?.addEventListener("click", () => {
-    const open = toggle.getAttribute("aria-expanded") !== "true";
-    toggle.setAttribute("aria-expanded", String(open));
-    menu?.classList.toggle("is-open", open);
-    header?.classList.toggle("is-solid", open || window.scrollY > 40);
-  });
-  menu?.addEventListener("click", (e) => {
-    if ((e.target as Element).closest("a[href^='#']")) {
-      toggle?.setAttribute("aria-expanded", "false");
-      menu.classList.remove("is-open");
-    }
-  });
-
-  // The typed line: deletes and types the topics one after another (not with reduced motion).
-  const typed = document.querySelector<HTMLElement>("[data-typed]");
-  if (typed && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    const words = JSON.parse(typed.dataset.words ?? "[]") as string[];
-    let w = 0;
-    const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
-    (async () => {
-      for (;;) {
-        await sleep(2200);
-        for (let i = typed.textContent!.length; i >= 0; i--) {
-          typed.textContent = words[w].slice(0, i);
-          await sleep(45);
-        }
-        w = (w + 1) % words.length;
-        for (let i = 1; i <= words[w].length; i++) {
-          typed.textContent = words[w].slice(0, i);
-          await sleep(90);
-        }
-      }
-    })();
-  }
+  import { initV2 } from "../../scripts/v2";
+  initV2();
 </script>

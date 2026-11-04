@@ -43,6 +43,8 @@
   /* Red for filled surfaces carrying white text: 4.63:1 vs 4.12:1 for --rust (WCAG AA). */
   --rust-fill: oklch(0.59 0.23 25);
   --sage: oklch(0.82 0.19 100);
+  /* Acid yellow for text on light grounds (Agency eyebrows and labels), about 6.8:1 on white. */
+  --sage-dark: oklch(0.46 0.11 100);
 
   --font-display: "Archivo Black", "Space Grotesk", Helvetica, Arial, sans-serif;
   --font-sans: "Space Grotesk", Helvetica, Arial, sans-serif;

@@ -22,7 +22,7 @@
     "hero": {
       "eyebrow": "AGENCIES · NUMBERS · CLIENTS",
       "title": "NO 10X. NO OVERNIGHT. JUST A STRAIGHT ANSWER.",
-      "body": "For independent agencies that often do better work than the big networks but improvise too much behind the scenes. I bring three things from the network world that pay for themselves quickly: clean numbers, proper account management and a steady rhythm. The rest of the bureaucracy we leave out.",
+      "body": "For independent agencies that often do better work than the big networks but improvise too much behind the scenes. We bring three things from the network world that pay for themselves quickly: clean numbers, proper account management and a steady rhythm. The rest of the bureaucracy we leave out.",
       "cta": "BOOK A 30-MIN CALL",
       "secondary": "SEE THE AGENCY CHECK"
     },
@@ -39,11 +39,11 @@
       }
     ],
     "about": {
-      "eyebrow": "ABOUT ME",
-      "title": "I know agencies from the inside. With and without a network.",
+      "eyebrow": "ABOUT US",
+      "title": "We know agencies from the inside. With and without a network.",
       "paragraphs": [
-        "I spent fifteen years agency-side, in network agencies and independents, from account management to running client service teams. I ran quarterly reviews, caught escalations, defended budgets and saved more than one client relationship that was close to fizzling out.",
-        "The main thing I learned: networks keep a tight grip on money and clients, but lose a lot of it to their own bureaucracy. Independent agencies often do the better work but leave money on the table, somewhere between clients, hours and gut feeling. I know both sides, and I have a pretty good idea which parts of the network playbook are worth it for smaller agencies."
+        "We spent fifteen years agency-side, in network agencies and independents, from account management to running client service teams. We ran quarterly reviews, caught escalations, defended budgets and saved more than one client relationship that was close to fizzling out.",
+        "The main thing we learned: networks keep a tight grip on money and clients, but lose a lot of it to their own bureaucracy. Independent agencies often do the better work but leave money on the table, somewhere between clients, hours and gut feeling. We know both sides, and we have a pretty good idea which parts of the network playbook are worth it for smaller agencies."
       ],
       "rows": [
         {
@@ -79,7 +79,7 @@
             "fixed price"
           ],
           "price": "{{PREIS_CHECK}}",
-          "body": "I look at your numbers, your clients and how you work, and above all at which clients actually pay their way. At the end we sit down together and go through a clear plan:",
+          "body": "We look at your numbers, your clients and how you work, and above all at which clients actually pay their way. At the end we sit down together and go through a clear plan:",
           "points": [
             [
               "KEEP",
@@ -100,7 +100,7 @@
             "which clients carry you and which ones you carry",
             "Keep, Fix, Next and a 90-day plan"
           ],
-          "note": "Your numbers stay with me. Happy to sign an NDA before we start."
+          "note": "Your numbers stay with us. Happy to sign an NDA before we start."
         },
         {
           "num": "02",
@@ -178,17 +178,17 @@
         {
           "range": "WEEK 1",
           "title": "Numbers and conversations",
-          "body": "You give me access to revenue, costs and hours for the last twelve months. I talk to you and, if you like, two or three people on the team. Your numbers stay with me, and I'm happy to sign an NDA first."
+          "body": "You give us access to revenue, costs and hours for the last twelve months. We talk to you and, if you like, two or three people on the team. Your numbers stay with us, and we're happy to sign an NDA first."
         },
         {
           "range": "WEEK 2",
           "title": "Analysis",
-          "body": "I take a closer look at whatever came up in the first week, using your numbers and how you actually work. It's usually two or three spots where things really get stuck, and they're different for every agency."
+          "body": "We take a closer look at whatever came up in the first week, using your numbers and how you actually work. It's usually two or three spots where things really get stuck, and they're different for every agency."
         },
         {
           "range": "WEEK 3",
           "title": "One meeting, one plan",
-          "body": "We sit down for two hours, no big presentation, and go through Keep, Fix and Next. After that you know what to do, with or without me."
+          "body": "We sit down for two hours, no big presentation, and go through Keep, Fix and Next. After that you know what to do, with or without us."
         }
       ]
     },
@@ -196,7 +196,7 @@
     "contact": {
       "eyebrow": "CONTACT",
       "title": "Let's talk.",
-      "body": "Thirty minutes, no slides. Tell me what's on your mind and I'll tell you honestly whether I can help.",
+      "body": "Thirty minutes, no slides. Tell us what's on your mind and we'll tell you honestly whether we can help.",
       "rows": [
         {
           "label": "EMAIL",
@@ -210,25 +210,25 @@
         }
       ],
       "form": {
-        "title": "OR WRITE TO ME HERE",
+        "title": "OR WRITE TO US HERE",
         "name": "Name",
         "company": "Company",
         "email": "Email",
         "phone": "Phone",
         "message": "What's it about?",
         "optional": "optional",
-        "messagePlaceholder": "A sentence or two is enough. I'll get back to you within one working day.",
+        "messagePlaceholder": "A sentence or two is enough. We'll get back to you within one working day.",
         "consent": "I agree to my details being used to handle my enquiry. Details in the",
         "consentLink": "privacy policy",
         "submit": "SEND MESSAGE",
         "sending": "Sending …",
-        "sent": "Thanks — your message is in. I'll get back to you within one working day.",
+        "sent": "Thanks, your message is in. We'll get back to you within one working day.",
         "errors": {
           "email": "Please check your email address.",
           "consent": "Please confirm your consent.",
           "missing": "Please fill in name, email and message.",
-          "too many": "There are a lot of enquiries right now. Please email me directly at hello@shruggie.consulting.",
-          "generic": "Sorry, that didn't work. Please email me directly at hello@shruggie.consulting."
+          "too many": "There are a lot of enquiries right now. Please email us directly at hello@shruggie.consulting.",
+          "generic": "Sorry, that didn't work. Please email us directly at hello@shruggie.consulting."
         }
       }
     },
@@ -241,7 +241,7 @@
       "eyebrow": "CAPACITY",
       "value": "2",
       "unit": "new engagements per quarter",
-      "text": "I only take on a few clients at a time, so you work with me directly, not with a junior team.",
+      "text": "We only take on a few clients at a time, so you work with us directly, not with a junior team.",
       "link": "Ask about the next slot"
     },
     "problems": {
@@ -270,8 +270,8 @@
       "cases": []
     },
     "keepBin": {
-      "eyebrow": "HOW I WORK",
-      "title": "What I bring. What stays at the door.",
+      "eyebrow": "HOW WE WORK",
+      "title": "What we bring. What stays at the door.",
       "keep": {
         "title": "Worth keeping",
         "items": [
@@ -304,11 +304,11 @@
       "items": [
         {
           "q": "Which agencies is this for?",
-          "a": "Small and mid-sized independent agencies that want to grow without getting bureaucratic. Pitches, rebrands and lead promises aren't something I do."
+          "a": "Small and mid-sized independent agencies that want to grow without getting bureaucratic. Pitches, rebrands and lead promises aren't something we do."
         },
         {
           "q": "How does the Agency Check work?",
-          "a": "It takes two to three weeks. First I look at your numbers and talk to you and, if you like, two or three people on the team. Then I work through it, and at the end we sit down for two hours and go through Keep, Fix and Next."
+          "a": "It takes two to three weeks. First we look at your numbers and talk to you and, if you like, two or three people on the team. Then we work through it, and at the end we sit down for two hours and go through Keep, Fix and Next."
         },
         {
           "q": "What do you need from us?",
@@ -316,21 +316,119 @@
         },
         {
           "q": "What happens to our numbers?",
-          "a": "They stay with me. I'm happy to sign an NDA before we start."
+          "a": "They stay with us. We're happy to sign an NDA before we start."
         },
         {
           "q": "Do you come to us or is it all remote?",
-          "a": "Either works. I'm based in Munich and work across EMEA. Workshops happen on site or remote."
+          "a": "Either works. We're based in Munich and work across EMEA. Workshops happen on site or remote."
         },
         {
           "q": "How many agencies do you work with at once?",
-          "a": "I take on two new engagements a quarter at most, and you work with me directly."
+          "a": "We take on two new engagements a quarter at most, and you work with us directly."
         },
         {
           "q": "And after the Check?",
           "a": "You know what to do and can carry on by yourself. If you want a steady rhythm, the Quarterly Reviews bring us together every three months to look at the numbers and decide what comes next."
         }
       ]
+    }
+  },
+  "agency": {
+    "nav": [
+      {
+        "href": "#services",
+        "label": "Services"
+      },
+      {
+        "href": "#approach",
+        "label": "How we work"
+      },
+      {
+        "href": "#contact",
+        "label": "Contact"
+      }
+    ],
+    "hero": {
+      "title": "WORK PEOPLE NOTICE.",
+      "eyebrow": "BRAND · CAMPAIGNS · CONTENT · PERFORMANCE"
+    },
+    "intro": {
+      "title": "A small agency for brands that want to be seen.",
+      "body": "We build brands, plan campaigns and make the content that goes with them. Then we look at what actually worked. The team is small, the lines are short, and you always talk to the people doing the work.",
+      "cta": "START A PROJECT",
+      "secondary": "SEE WHAT WE DO"
+    },
+    "services": {
+      "eyebrow": "SERVICES",
+      "title": "What we do.",
+      "body": "Book one part or the whole lot. We'll work out what makes sense in the first conversation.",
+      "items": [
+        {
+          "label": "BRAND",
+          "title": "Brand",
+          "body": "Positioning, naming, logo and everything a brand needs day to day, so it looks and sounds the same wherever it shows up."
+        },
+        {
+          "label": "CAMPAIGNS",
+          "title": "Campaigns",
+          "body": "One idea that carries, and a plan for where and when it runs. Online, offline or both."
+        },
+        {
+          "label": "CONTENT",
+          "title": "Content",
+          "body": "A steady stream of material for social, your website and newsletters. In your voice, and planned so it isn't a scramble every week."
+        },
+        {
+          "label": "PERFORMANCE",
+          "title": "Performance",
+          "body": "Ads we keep testing and adjusting. Every month you see what they brought in."
+        }
+      ],
+      "more": {
+        "title": "Something else in mind?",
+        "body": "A launch, a relaunch, or an idea that doesn't have a name yet? Tell us about it.",
+        "cta": "START A PROJECT"
+      }
+    },
+    "work": {
+      "eyebrow": "WORK",
+      "title": "What we've made lately.",
+      "items": []
+    },
+    "approach": {
+      "eyebrow": "HOW WE WORK",
+      "title": "Talk briefly, then get on with it.",
+      "steps": [
+        {
+          "range": "FIRST",
+          "title": "The brief",
+          "body": "We listen: what you're planning, who it's for, the deadline and the budget. Then you get a proposal you can actually follow."
+        },
+        {
+          "range": "THEN",
+          "title": "The work",
+          "body": "We show early drafts so we head the right way together. Your feedback goes straight to the people working on it."
+        },
+        {
+          "range": "AFTER",
+          "title": "Looking back",
+          "body": "Once it's live we look at the numbers and tell you openly what worked and what we'd do differently next time."
+        }
+      ]
+    },
+    "contact": {
+      "eyebrow": "CONTACT",
+      "title": "Tell us about your project.",
+      "body": "A few lines are enough to start. We'll get back to you within one working day and tell you honestly whether we're the right fit."
+    },
+    "footer": {
+      "note": "© 2026 Shruggie Agency · Part of Shruggie Consulting."
+    },
+    "link": {
+      "label": "Agency",
+      "footer": "Shruggie Agency",
+      "back": "Consulting",
+      "backFooter": "Shruggie Consulting"
     }
   },
   "imprint": {

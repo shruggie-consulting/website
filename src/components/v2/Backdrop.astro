@@ -5,15 +5,19 @@
 //   wallpaper: small shrugs as a slanted pattern
 // The page picks one with data-bg on .v2 (wallpaper for now; maths kept for subpages later).
 interface Props {
-  tone: "red" | "ink";
+  /** The section colour: red and ink for Consulting, acid (yellow) for the Agency hero. */
+  tone: "red" | "ink" | "acid";
   /** Moves the big shrug and the bars, so two sections don't look the same. */
   offset?: number;
 }
 const { tone, offset = 0 } = Astro.props;
-const ink = tone === "ink";
 // Darker and lighter shades of the section colour.
-const dark = ink ? "oklch(0.13 0 0)" : "oklch(0.44 0.19 25)";
-const light = ink ? "oklch(0.27 0 0)" : "oklch(0.56 0.2 25)";
+const shades = {
+  red: ["oklch(0.44 0.19 25)", "oklch(0.56 0.2 25)"],
+  ink: ["oklch(0.13 0 0)", "oklch(0.27 0 0)"],
+  acid: ["oklch(0.77 0.18 100)", "oklch(0.88 0.16 100)"],
+} as const;
+const [dark, light] = shades[tone];
 const W = 1600, H = 900;
 
 // Agency maths: bars that rise, dip and rise again, plus a trend line over them.
