@@ -6,13 +6,13 @@
         "label": "Warum Shruggie"
       },
       {
-        "href": "#zwei-laeden",
-        "label": "Zwei Läden"
+        "href": "#zwei-shops",
+        "label": "Zwei Shops"
       }
     ],
     "hero": {
-      "title": "LASS ES UNS AUSPROBIEREN.",
-      "body": "Shruggie ist ein kleines Haus mit zwei Läden: Consulting für Agenturen und eine Agentur für Marken.",
+      "title": "LET'S JUST TRY IT.",
+      "body": "Shruggie ist ein kleines Haus mit zwei Shops: Consulting für Agenturen und eine Agentur für Marken.",
       "consulting": "CONSULTING",
       "agency": "AGENTUR"
     },
@@ -51,7 +51,7 @@
       ]
     },
     "shops": {
-      "eyebrow": "ZWEI LÄDEN",
+      "eyebrow": "ZWEI SHOPS",
       "title": "Warum zwei?",
       "body": "Wir wollen, dass sowohl das Marketing selbst als auch die Zusammenarbeit mit Agenturen wieder Spaß macht. Manchmal machen wir die Arbeit dafür selbst, als Agentur. Und manchmal geben wir anderen Agenturen das Rezept, damit sie selbst kochen können.",
       "consulting": {

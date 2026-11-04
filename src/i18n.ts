@@ -32,7 +32,7 @@ export const meta: Record<PageKey, Record<Lang, Meta>> = {
     de: {
       title: "Shruggie — Consulting für Agenturen, eine Agentur für Marken",
       description:
-        "Shruggie ist ein kleines Haus mit zwei Läden: Consulting für unabhängige Agenturen und eine Agentur für Marken. Wir probieren lieber aus, als alles zu Tode zu denken.",
+        "Shruggie ist ein kleines Haus mit zwei Shops: Consulting für unabhängige Agenturen und eine Agentur für Marken. Wir probieren lieber aus, als alles zu Tode zu denken.",
       ogImage: "/og/home.png",
       siteName: "Shruggie",
     },
