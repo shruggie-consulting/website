@@ -133,18 +133,34 @@
 .v2-keep li { padding: 12px 0; border-bottom: 1px solid var(--line); }
 .v2-keep__bin li { color: var(--ink-soft); text-decoration: line-through; text-decoration-color: var(--rust); text-decoration-thickness: 2px; }
 
-/* ---------- Contact + FAQ ---------- */
-.v2-contact { background: var(--v2-grey); padding: clamp(64px, 9vw, 112px) 0; }
-.v2-contact__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
-.v2-contact__rows { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 6px; }
-.v2-contact__rows span { display: inline-block; min-width: 90px; font: 700 12px var(--font-sans); letter-spacing: 0.12em; color: var(--ink-soft); }
-.v2-contact__rows a { color: var(--rust-dark); font-weight: 700; }
-.v2-form { margin-top: 36px; display: grid; gap: 16px; }
+/* ---------- FAQ as a conversation ---------- */
+.v2-faq { padding: clamp(64px, 9vw, 112px) 0; }
+.v2-faq__grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr); gap: clamp(32px, 5vw, 64px); align-items: start; }
+.v2-faq__head { position: sticky; top: 110px; }
+.v2-chat { margin: 0; display: grid; gap: 28px; }
+.v2-chat__pair { display: grid; gap: 10px; }
+.v2-chat__q { justify-self: start; max-width: 80%; background: var(--v2-grey); padding: 12px 18px; border-radius: 18px 18px 18px 4px; font-weight: 700; font-size: 17px; line-height: 1.45; }
+.v2-chat__a { justify-self: end; max-width: 88%; margin: 0; display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: end; }
+.v2-chat__a p { margin: 0; background: var(--v2-ink); color: var(--cream); padding: 14px 18px; border-radius: 18px 18px 4px 18px; font-size: 16px; line-height: 1.6; }
+.v2-chat__avatar { order: 2; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--rust-fill); color: var(--cream); font-size: 19px; line-height: 1; }
+
+/* ---------- Contact ---------- */
+.v2-contact { position: relative; overflow: hidden; background: var(--v2-ink); color: var(--cream); padding: clamp(64px, 9vw, 112px) 0; }
+.v2-contact__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(32px, 5vw, 72px); align-items: start; }
+.v2-contact__text .v2-lead { color: var(--muted-on-dark); }
+.v2-contact__rows { margin: 32px 0 0; border-top: 1px solid var(--line-dark); }
+.v2-contact__rows div { padding: 18px 0; border-bottom: 1px solid var(--line-dark); }
+.v2-contact__rows dt { font: 700 12px var(--font-sans); letter-spacing: 0.14em; color: var(--sage); margin-bottom: 6px; }
+.v2-contact__rows dd { margin: 0; font-size: 19px; font-weight: 700; }
+.v2-contact__rows a { color: var(--cream); text-decoration: none; }
+.v2-contact__rows a:hover { color: var(--sage); }
+.v2-contact__card { background: var(--cream); color: var(--ink); padding: clamp(24px, 3vw, 36px); border-radius: 2px; }
+.v2-form { display: grid; gap: 16px; }
 .v2-form__title { font: 700 13px var(--font-sans); letter-spacing: 0.18em; text-transform: uppercase; }
 .v2-field { display: grid; gap: 6px; }
 .v2-field span { font-size: 15px; }
 .v2-field b { color: var(--rust); font-weight: 700; }
-.v2-field input, .v2-field textarea { font: inherit; font-size: 16px; padding: 12px 14px; border: 1px solid transparent; border-radius: 2px; background: var(--cream); color: var(--ink); }
+.v2-field input, .v2-field textarea { font: inherit; font-size: 16px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 2px; background: var(--bg); color: var(--ink); }
 .v2-field input:focus, .v2-field textarea:focus { border-color: var(--ink); outline: none; }
 .v2-consent { display: grid; grid-template-columns: auto 1fr; gap: 10px; font-size: 13px; line-height: 1.6; color: var(--ink-soft); }
 .v2-consent input { margin-top: 4px; accent-color: var(--rust-dark); }
@@ -154,14 +170,6 @@
 .v2-status { margin: 0; font-weight: 600; }
 .v2-status[data-kind="error"] { color: var(--rust-dark); }
 .v2 .cf-trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
-
-.v2-faq__title { font: 400 24px/1.2 var(--font-display); margin-bottom: 20px !important; }
-.v2-faq__item { background: var(--v2-ink); color: var(--cream); margin-bottom: 8px; border-radius: 2px; }
-.v2-faq__item summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px 18px; font-weight: 700; font-size: 16px; }
-.v2-faq__item summary::-webkit-details-marker { display: none; }
-.v2-faq__item summary::after { content: "+"; font-size: 24px; font-weight: 300; color: var(--sage); line-height: 1; }
-.v2-faq__item[open] summary::after { content: "−"; }
-.v2-faq__item p { margin: 0; padding: 0 18px 18px; color: var(--muted-on-dark); font-size: 16px; line-height: 1.65; }
 
 /* ---------- Footer ---------- */
 .v2-footer { background: oklch(0.16 0 0); color: var(--cream); padding: clamp(56px, 7vw, 88px) 0; font-size: 15px; }
@@ -187,7 +195,10 @@
   .v2-nav { flex-direction: column; gap: 0; }
   .v2-menu a { padding: 10px 0; font-size: 17px; }
   .v2-nav__login { margin-top: 8px; }
-  .v2-intro__grid, .v2-contact__grid, .v2-keep__grid { grid-template-columns: minmax(0, 1fr); }
+  .v2-intro__grid, .v2-contact__grid, .v2-keep__grid, .v2-faq__grid { grid-template-columns: minmax(0, 1fr); }
+  .v2-faq__head { position: static; }
+  .v2-chat__q { max-width: 92%; }
+  .v2-chat__a { max-width: 100%; }
   .v2-footer__grid { grid-template-columns: 1fr; justify-items: start; }
   .v2-footer__center, .v2-footer__links { justify-items: start; }
 }

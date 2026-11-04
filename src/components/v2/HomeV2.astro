@@ -25,7 +25,7 @@ const num = (i: number) => String(i + 1);
 ---
 
 <Base lang={lang} page="home" noindex>
-  <div class="v2" data-bg="shrug">
+  <div class="v2" data-bg="wallpaper">
     <header class="v2-header" data-v2-header>
       <a class="v2-brand" href={v2[lang]} aria-label={lang === "de" ? "Shruggie Consulting – Startseite" : "Shruggie Consulting – home"}>
         <span class="shrug-logo" aria-hidden="true"><span class="shrug-arm-l">¯\_(</span><span class="shrug-face">ツ</span><span class="shrug-arm-r">)_/¯</span></span>
@@ -223,42 +223,57 @@ const num = (i: number) => String(i + 1);
         </div>
       </section>
 
-      <!-- Contact: form on the left, questions on the right. -->
+      <!-- Questions as a short conversation: the question as a message, the answer as the reply. -->
+      <section class="v2-faq" aria-labelledby="v2-faq">
+        <div class="v2-wrap v2-faq__grid">
+          <div class="v2-faq__head">
+            <div class="v2-eyebrow">{h.faq.eyebrow}</div>
+            <h2 id="v2-faq" class="v2-h2">{h.faq.title}</h2>
+          </div>
+          <dl class="v2-chat">
+            {h.faq.items.map((f) => (
+              <div class="v2-chat__pair">
+                <dt class="v2-chat__q">{f.q}</dt>
+                <dd class="v2-chat__a">
+                  <span class="v2-chat__avatar" aria-hidden="true">ツ</span>
+                  <p>{f.a}</p>
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <!-- Contact: the invitation and the direct ways on the left, the form as a card on the right. -->
       <section id="contact" class="v2-contact" aria-labelledby="v2-contact">
+        <Backdrop tone="ink" offset={3} />
         <div class="v2-wrap v2-contact__grid">
-          <div>
+          <div class="v2-contact__text">
+            <div class="v2-eyebrow v2-eyebrow--on-dark">{h.contact.eyebrow}</div>
             <h2 id="v2-contact" class="v2-h2">{h.contact.title}</h2>
             <p class="v2-lead">{h.contact.body}</p>
-            <ul role="list" class="v2-contact__rows">
-              {h.contact.rows.map((r) => <li><span>{r.label}</span> {r.href ? <a href={r.href}>{r.value}</a> : r.value}</li>)}
-            </ul>
-            <form class="v2-form" data-contact-form data-lang={lang} novalidate>
-              <h3 class="v2-form__title">{h.contact.form.title}</h3>
-              <label class="v2-field"><span>{h.contact.form.name} <b aria-hidden="true">*</b></span><input name="name" autocomplete="name" required maxlength="200" /></label>
-              <label class="v2-field"><span>{h.contact.form.company}</span><input name="company" autocomplete="organization" maxlength="200" /></label>
-              <label class="v2-field"><span>{h.contact.form.email} <b aria-hidden="true">*</b></span><input name="email" type="email" autocomplete="email" required maxlength="254" /></label>
-              <label class="v2-field"><span>{h.contact.form.phone}</span><input name="phone" type="tel" autocomplete="tel" maxlength="60" /></label>
-              <label class="v2-field"><span>{h.contact.form.message} <b aria-hidden="true">*</b></span><textarea name="message" rows="5" required maxlength="5000" placeholder={h.contact.form.messagePlaceholder}></textarea></label>
-              <!-- Left empty by people; bots fill it in. -->
-              <div class="cf-trap" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off" /></label></div>
-              <label class="v2-consent">
-                <input type="checkbox" name="consent" required />
-                <span>{h.contact.form.consent} <a href={routes.privacy[lang]}>{h.contact.form.consentLink}</a>.</span>
-              </label>
-              <button class="v2-btn" type="submit">{h.contact.form.submit}</button>
-              <p class="v2-status" role="status" aria-live="polite" data-status></p>
-              <script type="application/json" data-messages set:html={JSON.stringify({ sending: h.contact.form.sending, sent: h.contact.form.sent, errors: h.contact.form.errors })} />
-            </form>
+            <dl class="v2-contact__rows">
+              {h.contact.rows.map((r) => <div><dt>{r.label}</dt><dd>{r.href ? <a href={r.href}>{r.value}</a> : r.value}</dd></div>)}
+            </dl>
           </div>
-          <div class="v2-faq">
-            <div class="v2-eyebrow">{h.faq.eyebrow}</div>
-            <h2 class="v2-faq__title">{h.faq.title}</h2>
-            {h.faq.items.map((f) => (
-              <details class="v2-faq__item">
-                <summary>{f.q}</summary>
-                <p>{f.a}</p>
-              </details>
-            ))}
+          <div class="v2-contact__card">
+                <form class="v2-form" data-contact-form data-lang={lang} novalidate>
+                  <h3 class="v2-form__title">{h.contact.form.title}</h3>
+                  <label class="v2-field"><span>{h.contact.form.name} <b aria-hidden="true">*</b></span><input name="name" autocomplete="name" required maxlength="200" /></label>
+                  <label class="v2-field"><span>{h.contact.form.company}</span><input name="company" autocomplete="organization" maxlength="200" /></label>
+                  <label class="v2-field"><span>{h.contact.form.email} <b aria-hidden="true">*</b></span><input name="email" type="email" autocomplete="email" required maxlength="254" /></label>
+                  <label class="v2-field"><span>{h.contact.form.phone}</span><input name="phone" type="tel" autocomplete="tel" maxlength="60" /></label>
+                  <label class="v2-field"><span>{h.contact.form.message} <b aria-hidden="true">*</b></span><textarea name="message" rows="5" required maxlength="5000" placeholder={h.contact.form.messagePlaceholder}></textarea></label>
+                  <!-- Left empty by people; bots fill it in. -->
+                  <div class="cf-trap" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off" /></label></div>
+                  <label class="v2-consent">
+                    <input type="checkbox" name="consent" required />
+                    <span>{h.contact.form.consent} <a href={routes.privacy[lang]}>{h.contact.form.consentLink}</a>.</span>
+                  </label>
+                  <button class="v2-btn" type="submit">{h.contact.form.submit}</button>
+                  <p class="v2-status" role="status" aria-live="polite" data-status></p>
+                  <script type="application/json" data-messages set:html={JSON.stringify({ sending: h.contact.form.sending, sent: h.contact.form.sent, errors: h.contact.form.errors })} />
+                </form>
           </div>
         </div>
       </section>
