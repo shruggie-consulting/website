@@ -228,6 +228,8 @@ body {
   text-decoration: none;
 }
 .lang-switch a[aria-current="page"] { background: var(--rust-dark); color: var(--cream); }
+.lang-switch a { gap: 7px; }
+.flag { display: block; flex: none; border-radius: 1px; }
 
 /* ---------- Home ---------- */
 .on-dark { background: var(--ink); color: var(--cream); }

@@ -1,4 +1,77 @@
 {
+  "house": {
+    "nav": [
+      {
+        "href": "#warum",
+        "label": "Warum Shruggie"
+      },
+      {
+        "href": "#zwei-laeden",
+        "label": "Zwei Läden"
+      }
+    ],
+    "hero": {
+      "title": "LASS ES UNS AUSPROBIEREN.",
+      "body": "Shruggie ist ein kleines Haus mit zwei Läden: Consulting für Agenturen und eine Agentur für Marken.",
+      "consulting": "CONSULTING",
+      "agency": "AGENTUR"
+    },
+    "why": {
+      "eyebrow": "WARUM SHRUGGIE",
+      "title": "Weil nicht alles so ernst sein muss.",
+      "paragraphs": [
+        "Der Name kam uns, als klar wurde, dass sich die Agentur, wie die meisten sie kennen, ändern muss. Mit den Werkzeugen von heute und dem Tempo der Branche schaffen ein paar Leute, die ihr Handwerk wirklich können, was früher ganze Großraumbüros gebraucht hat. Sie arbeiten sauber und schnell, und ihnen ist wichtig, was am Ende dabei herauskommt.",
+        "Der Shrug erinnert uns daran, die Dinge nicht ernster zu nehmen, als sie sind. Wir probieren lieber etwas aus, als es zu Tode zu denken. Und wenn es nicht klappt, wissen wir wenigstens, warum."
+      ]
+    },
+    "left": {
+      "eyebrow": "HINTER UNS GELASSEN",
+      "title": "Was draußen bleibt.",
+      "items": [
+        "Überdenken, und die Strukturen, die daraus wachsen, in denen jede Entscheidung durch fünf Runden muss.",
+        "Abrechnung, die Stunden zählt und das Ergebnis als Nebensache behandelt.",
+        "Arbeit, die man kaum von dem unterscheiden kann, was eine KI in zwei Minuten ausspuckt."
+      ],
+      "closing": "Wenn wir etwas machen, soll man den Unterschied sehen."
+    },
+    "how": {
+      "eyebrow": "SO ARBEITEN WIR",
+      "title": "Lieber einmal mehr ausprobieren.",
+      "cards": [
+        {
+          "label": "AUF AUGENHÖHE",
+          "title": "Den Tisch umkippen",
+          "body": "Wir probieren gern Neues aus und bringen unsere Kunden dazu, das auch zu tun. Manchmal heißt das, den Tisch umzukippen, statt ihn nur neu zu streichen. So oder so reden wir auf Augenhöhe, mit Gründer:innen genauso wie mit ihren Teams."
+        },
+        {
+          "label": "KI",
+          "title": "Ein besserer Ofen",
+          "body": "KI ist ein besserer Ofen. Den Koch ersetzt sie nicht. Mit ihr können wir viele Ideen in Sekunden ausprobieren und wieder verwerfen, statt drei Wochen einem Projektplan zu folgen. Und sie macht kleine Teams möglich, die wir genau so zusammenstellen, wie es der Kunde gerade braucht."
+        }
+      ]
+    },
+    "shops": {
+      "eyebrow": "ZWEI LÄDEN",
+      "title": "Warum zwei?",
+      "body": "Wir wollen, dass die Branche besser wird. Manchmal machen wir die Arbeit dafür selbst, als Agentur. Und manchmal geben wir anderen Agenturen das Rezept, damit sie selbst kochen können.",
+      "consulting": {
+        "label": "SHRUGGIE CONSULTING",
+        "title": "Für Agenturen, die besser laufen wollen.",
+        "body": "Saubere Zahlen, echtes Account Management und ein Rhythmus, der hält. Mit dem Agentur-Check, Workshops und Quarterly Reviews.",
+        "cta": "ZUM CONSULTING"
+      },
+      "agency": {
+        "label": "SHRUGGIE AGENCY",
+        "title": "Für Marken, die gesehen werden wollen.",
+        "body": "Marke, Kampagnen, Content und Performance, gemacht von einem kleinen Team, das selbst an der Arbeit sitzt.",
+        "cta": "ZUR AGENTUR"
+      }
+    },
+    "footer": {
+      "note": "© 2026 Shruggie · Consulting und Agentur aus München.",
+      "why": "Warum Shruggie"
+    }
+  },
   "home": {
     "nav": [
       {

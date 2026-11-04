@@ -1,6 +1,6 @@
 ---
-// The home page (v2, live since 4 Nov 2026; the previous one is HomePage.astro, no longer
-// routed). Layout inspired by agenturwerft.com, in Shruggie's colours, type and backdrops.
+// The Shruggie Consulting page (/consulting, /en/consulting; the home page from 4 Nov 2026
+// until the house page took the root. The older HomePage.astro is no longer routed). Layout inspired by agenturwerft.com, in Shruggie's colours, type and backdrops.
 // Big colour hero with a typed line, a two-column intro, a grey band with the facts,
 // sections of numbered cards, FAQ as a chat, contact form, dark three-column footer.
 // Header, contact and footer are shared with the Agency page (V2Header, V2Contact, V2Footer).
@@ -27,7 +27,7 @@ const words = h.hero.eyebrow.split(" · ");
 const num = (i: number) => String(i + 1);
 ---
 
-<Base lang={lang} page="home">
+<Base lang={lang} page="consulting">
   <div class="v2" data-bg="wallpaper" data-theme="consulting">
     <V2Header lang={lang} brand="consulting" />
 

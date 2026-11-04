@@ -1,6 +1,6 @@
 ---
-// Dark three-column footer for both brands. The legal block stays the same (one business);
-// the right column links to the other brand.
+// Dark three-column footer for the house page and both brands. The legal block stays the same
+// (one business); the right column links the house and the brands, then the legal pages.
 import { content, routes, ui, workspaceUrl, type Lang } from "../../i18n";
 import type { Brand } from "./brand";
 
@@ -10,10 +10,15 @@ interface Props {
 }
 
 const { lang, brand } = Astro.props;
-const agency = brand === "agency";
-const legal = content[lang].home.footer;
-const link = content[lang].agency.link;
-const note = agency ? content[lang].agency.footer.note : legal.note;
+const c = content[lang];
+const legal = c.home.footer;
+const note = brand === "house" ? c.house.footer.note : brand === "agency" ? c.agency.footer.note : legal.note;
+const desc = brand === "house" ? "" : brand === "agency" ? "Agency" : "Consulting";
+const links = [
+  brand !== "house" && { href: routes.home[lang], label: c.house.footer.why },
+  brand !== "consulting" && { href: routes.consulting[lang], label: c.agency.link.backFooter },
+  brand !== "agency" && { href: routes.agency[lang], label: c.agency.link.footer },
+].filter((l): l is { href: string; label: string } => !!l);
 ---
 
 <footer class="v2-footer">
@@ -23,11 +28,11 @@ const note = agency ? content[lang].agency.footer.note : legal.note;
       <p class="v2-footer__small">{note}</p>
     </div>
     <div class="v2-footer__center">
-      <span class="v2-brand__name">Shruggie<span class="v2-dot">.</span>{agency && <span class="v2-brand__desc">Agency</span>}</span>
+      <span class="v2-brand__name">Shruggie<span class="v2-dot">.</span>{desc && <span class="v2-brand__desc">{desc}</span>}</span>
       <a href="mailto:hello@shruggie.consulting">hello@shruggie.consulting</a>
     </div>
     <nav class="v2-footer__links" aria-label={lang === "de" ? "Weitere Seiten" : "More pages"}>
-      <a href={agency ? routes.home[lang] : routes.agency[lang]}>{agency ? link.backFooter : link.footer}</a>
+      {links.map((l) => <a href={l.href}>{l.label}</a>)}
       <a href={routes.imprint[lang]}>{legal.imprint}</a>
       <a href={routes.privacy[lang]}>{legal.privacy}</a>
       <a href={workspaceUrl(lang)}>{ui[lang].clientWorkspace}</a>

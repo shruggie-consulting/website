@@ -2,13 +2,15 @@ import de from "./content/de.json";
 import en from "./content/en.json";
 
 export type Lang = "de" | "en";
-export type PageKey = "home" | "agency" | "imprint" | "privacy";
+export type PageKey = "home" | "consulting" | "agency" | "imprint" | "privacy";
 
 export const content = { de, en } as const;
 
-// German is the default language and lives at the root.
+// German is the default language and lives at the root. The root is the house page
+// ("Warum Shruggie") with the doors to both brands.
 export const routes: Record<PageKey, Record<Lang, string>> = {
   home: { de: "/", en: "/en/" },
+  consulting: { de: "/consulting/", en: "/en/consulting/" },
   agency: { de: "/agentur/", en: "/en/agency/" },
   imprint: { de: "/impressum/", en: "/en/imprint/" },
   privacy: { de: "/datenschutz/", en: "/en/privacy/" },
@@ -27,6 +29,22 @@ interface Meta {
 
 export const meta: Record<PageKey, Record<Lang, Meta>> = {
   home: {
+    de: {
+      title: "Shruggie — Consulting für Agenturen, eine Agentur für Marken",
+      description:
+        "Shruggie ist ein kleines Haus mit zwei Läden: Consulting für unabhängige Agenturen und eine Agentur für Marken. Wir probieren lieber aus, als alles zu Tode zu denken.",
+      ogImage: "/og/home.png",
+      siteName: "Shruggie",
+    },
+    en: {
+      title: "Shruggie — Consulting for agencies, an agency for brands",
+      description:
+        "Shruggie is a small house with two shops: consulting for independent agencies and an agency for brands. We'd rather try something than think it to death.",
+      ogImage: "/og/home.png",
+      siteName: "Shruggie",
+    },
+  },
+  consulting: {
     de: {
       title: "Shruggie Consulting — Klarheit für unabhängige Agenturen",
       description:
@@ -93,7 +111,7 @@ export const workspaceUrl = (lang: Lang) => `https://workspace.shruggie.consulti
 export const ui = {
   de: {
     skip: "Zum Inhalt springen",
-    homeLabel: "Shruggie Consulting – Startseite",
+    homeLabel: "Shruggie – Startseite",
     langSwitch: "Sprache",
     nav: "Hauptnavigation",
     menu: "Menü",
@@ -102,7 +120,7 @@ export const ui = {
   },
   en: {
     skip: "Skip to content",
-    homeLabel: "Shruggie Consulting – home",
+    homeLabel: "Shruggie – home",
     langSwitch: "Language",
     nav: "Main navigation",
     menu: "Menu",

@@ -1,4 +1,77 @@
 {
+  "house": {
+    "nav": [
+      {
+        "href": "#why",
+        "label": "Why Shruggie"
+      },
+      {
+        "href": "#two-shops",
+        "label": "Two shops"
+      }
+    ],
+    "hero": {
+      "title": "LET'S JUST TRY IT.",
+      "body": "Shruggie is a small house with two shops: consulting for agencies, and an agency for brands.",
+      "consulting": "CONSULTING",
+      "agency": "AGENCY"
+    },
+    "why": {
+      "eyebrow": "WHY SHRUGGIE",
+      "title": "Because not everything has to be that serious.",
+      "paragraphs": [
+        "The name came up when we realised the agency as most people know it has to change. With today's tools and the pace of the business, a few people who really know their craft can do what used to take rows of desks. They work properly and quickly, and they care what it achieves.",
+        "The shrug is our reminder not to take things more seriously than they need to be. We'd rather try something than think it to death. If it doesn't work, at least we know why."
+      ]
+    },
+    "left": {
+      "eyebrow": "LEFT BEHIND",
+      "title": "What stays at the door.",
+      "items": [
+        "Overthinking, and the structures that grow out of it, where every decision goes through five rounds.",
+        "Billing that counts hours and treats the result as an afterthought.",
+        "Work you could barely tell apart from what an AI spits out in two minutes."
+      ],
+      "closing": "If we make something, you should see the difference."
+    },
+    "how": {
+      "eyebrow": "HOW WE WORK",
+      "title": "We'd rather try one more thing.",
+      "cards": [
+        {
+          "label": "AS EQUALS",
+          "title": "Flip the table",
+          "body": "We like trying new things, and we'll push our clients to try them too. Sometimes that means flipping the table rather than giving it a fresh coat of paint. Either way, we talk as equals, with founders as much as with their teams."
+        },
+        {
+          "label": "AI",
+          "title": "A better oven",
+          "body": "AI is a better oven. It doesn't replace the chef. It lets us try and break lots of ideas in seconds instead of following a three-week project plan. And it makes small teams possible, put together around whatever the client needs."
+        }
+      ]
+    },
+    "shops": {
+      "eyebrow": "TWO SHOPS",
+      "title": "Why two?",
+      "body": "We want the industry to work better. Sometimes we do the work ourselves, as an agency. And sometimes we hand other agencies the recipe so they can cook it themselves.",
+      "consulting": {
+        "label": "SHRUGGIE CONSULTING",
+        "title": "For agencies that want to run better.",
+        "body": "Clean numbers, proper account management and a rhythm that holds. With the Agency Check, workshops and quarterly reviews.",
+        "cta": "TO CONSULTING"
+      },
+      "agency": {
+        "label": "SHRUGGIE AGENCY",
+        "title": "For brands that want to be seen.",
+        "body": "Brand, campaigns, content and performance, made by a small team that does the work itself.",
+        "cta": "TO THE AGENCY"
+      }
+    },
+    "footer": {
+      "note": "© 2026 Shruggie · Consulting and an agency from Munich.",
+      "why": "Why Shruggie"
+    }
+  },
   "home": {
     "nav": [
       {
