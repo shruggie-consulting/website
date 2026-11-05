@@ -236,6 +236,7 @@
 .v2-price { margin: 4px 0 28px; padding: 20px 0 4px; border-top: 1px solid var(--line-dark); }
 .v2-price__label { font: 700 12px var(--font-sans); letter-spacing: 0.14em; color: var(--sage); margin-bottom: 8px; }
 .v2-price__value { font: 400 clamp(26px, 3vw, 34px)/1.15 var(--font-display); letter-spacing: -0.02em; color: var(--cream); }
+.v2-price__shrug { color: var(--sage); margin: 0 0.15em; }
 .v2-split__text .v2-price__note { margin: 12px 0 24px; font-size: 15px; line-height: 1.6; color: var(--muted-on-dark); }
 
 /* ---------- Agency theme ---------- */

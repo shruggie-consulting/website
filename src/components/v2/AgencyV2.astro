@@ -4,8 +4,8 @@
 // The preferred way of working is the small marketing team (a month in four steps and a "from"
 // price, no fixed packages); the examples show the range without turning it into product lines;
 // "something else" stays open for one-off projects. The work section appears once
-// agency.work.items has entries. The price only shows once {{PREIS_TEAM}} is replaced
-// (in dev it's highlighted).
+// agency.work.items has entries. The price is "ab ¯\_(ツ)_/¯ im Monat" on purpose: offers are
+// individual, and the note under it says so.
 import Base from "../../layouts/Base.astro";
 import Backdrop from "./Backdrop.astro";
 import V2Header from "./V2Header.astro";
@@ -28,7 +28,8 @@ const [teamId, examplesId] = a.nav.map((n) => n.href.slice(1));
 const DEV = import.meta.env.DEV;
 const TOKEN = /(\{\{[A-Z_]+\}\})/;
 const price = a.team.price;
-const priceShown = DEV || !TOKEN.test(price.value);
+// {{SHRUG}} is the price on purpose (no packages); any other {{TOKEN}} hides it on the live site.
+const priceShown = DEV || !TOKEN.test(price.value.replace("{{SHRUG}}", ""));
 ---
 
 <Base lang={lang} page="agency">
@@ -77,7 +78,17 @@ const priceShown = DEV || !TOKEN.test(price.value);
             {priceShown && (
               <div class="v2-price">
                 <div class="v2-price__label">{price.label}</div>
-                <div class="v2-price__value">{price.value.split(TOKEN).map((part) => (TOKEN.test(part) ? <mark class="todo">{part}</mark> : part))}</div>
+                <div class="v2-price__value">
+                  {price.value.split(TOKEN).map((part) =>
+                    part === "{{SHRUG}}" ? (
+                      <span class="v2-price__shrug shrug-logo" role="img" aria-label={price.shrugLabel}><span class="shrug-arm-l" aria-hidden="true">¯\_(</span><span class="shrug-face" aria-hidden="true">ツ</span><span class="shrug-arm-r" aria-hidden="true">)_/¯</span></span>
+                    ) : TOKEN.test(part) ? (
+                      <mark class="todo">{part}</mark>
+                    ) : (
+                      part
+                    ),
+                  )}
+                </div>
                 <p class="v2-price__note">{price.note}</p>
               </div>
             )}

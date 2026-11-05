@@ -459,8 +459,9 @@
       ],
       "price": {
         "label": "PRICE",
-        "value": "from {{PREIS_TEAM}} a month",
-        "note": "We don't do fixed packages, on purpose. Every company needs something different, so after a first conversation you get a proposal that fits yours."
+        "value": "from {{SHRUG}} a month",
+        "note": "We don't do fixed packages, on purpose. Every company needs something different, so after a first conversation you get a proposal that fits yours.",
+        "shrugLabel": "it depends"
       }
     },
     "examples": {
