@@ -460,7 +460,7 @@
       "price": {
         "label": "PREIS",
         "value": "ab {{SHRUG}} im Monat",
-        "note": "Feste Pakete haben wir bewusst nicht. Jedes Unternehmen braucht etwas anderes, deshalb bekommst du nach dem ersten Gespräch ein Angebot, das zu dir passt.",
+        "note": "Feste Pakete haben wir bewusst nicht. Jedes Unternehmen braucht etwas anderes, deshalb bekommst du nach dem ersten Gespräch ein Angebot, das zu dir passt. Wenn du gerade nur Preise vergleichst, passen wir wahrscheinlich nicht zusammen. Das ist okay.",
         "shrugLabel": "kommt drauf an"
       }
     },
