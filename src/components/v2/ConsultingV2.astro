@@ -115,50 +115,52 @@ const num = (i: number) => String(i + 1);
         </div>
       </section>
 
-      <!-- Offers: intro on the left, the three offers and "something else" as cards. -->
+      <!-- Services, same logic as the Agency page: how we like to work and the "from" price on the
+           left; the Check, workshops and reviews on the right as examples (no prices), then the open door. -->
       <section id="services" class="v2-cards-section v2-cards-section--light" aria-labelledby="v2-services">
         <div class="v2-wrap v2-split">
           <div class="v2-split__text">
             <div class="v2-eyebrow">{h.services.eyebrow}</div>
             <h2 id="v2-services" class="v2-h2">{h.services.title}</h2>
             <p>{h.services.body}</p>
+            {priceReady(h.services.price.value) && (
+              <div class="v2-price">
+                <div class="v2-price__label">{h.services.price.label}</div>
+                <div class="v2-price__value"><PriceText text={h.services.price.value} label={h.services.price.shrugLabel} /></div>
+                <p class="v2-price__note">{h.services.price.note}</p>
+              </div>
+            )}
+            <a class="v2-btn" href="#contact">{h.hero.cta}</a>
           </div>
-          <div class="v2-cardgrid">
-            {h.services.items.map((s) => (
-              <article class:list={["v2-card", { "v2-card--accent": s.accent }]}>
-                <span class="v2-card__num" aria-hidden="true">{Number(s.num)}</span>
-                <div class="v2-card__label">
-                  {s.label.join(" · ")}
-                  {priceReady(s.price) && (
-                    <>
-                      {" · "}
-                      <span class="v2-nowrap"><PriceText text={s.price} label={h.services.shrugLabel} /></span>
-                    </>
-                  )}
-                </div>
-                <h3>{s.title}</h3>
-                <p>{s.body}</p>
-                <details class="v2-more">
-                  <summary>{h.services.getsLabel}</summary>
-                  <dl class="v2-points">
-                    {s.points.map(([k, v]) => (
-                      <div>
-                        <dt>{k}</dt>
-                        <dd>{v}</dd>
-                      </div>
-                    ))}
-                  </dl>
-                  <ul role="list" class="v2-gets">{s.gets.map((g) => <li>{g}</li>)}</ul>
-                  {"note" in s && s.note && <p class="v2-note">{s.note}</p>}
-                </details>
+          <div>
+            <div class="v2-eyebrow v2-examples-label">{h.services.examplesLabel}</div>
+            <div class="v2-cardgrid">
+              {h.services.items.map((s) => (
+                <article class="v2-card">
+                  <div class="v2-card__label">{s.label}</div>
+                  <h3>{s.title}</h3>
+                  <p>{s.body}</p>
+                  <details class="v2-more">
+                    <summary>{h.services.getsLabel}</summary>
+                    <dl class="v2-points">
+                      {s.points.map(([k, v]) => (
+                        <div>
+                          <dt>{k}</dt>
+                          <dd>{v}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                    <ul role="list" class="v2-gets">{s.gets.map((g) => <li>{g}</li>)}</ul>
+                    {"note" in s && s.note && <p class="v2-note">{s.note}</p>}
+                  </details>
+                </article>
+              ))}
+              <article class="v2-card v2-card--ink">
+                <h3>{h.services.more.title}</h3>
+                <p>{h.services.more.body}</p>
+                <a class="v2-btn v2-btn--on-dark" href="#contact">{h.services.more.cta}</a>
               </article>
-            ))}
-            <article class="v2-card v2-card--ink">
-              <span class="v2-card__num" aria-hidden="true">{Number(h.services.more.num)}</span>
-              <h3>{h.services.more.title}</h3>
-              <p>{h.services.more.body}</p>
-              <a class="v2-btn v2-btn--on-dark" href="#contact">{h.services.more.cta}</a>
-            </article>
+            </div>
           </div>
         </div>
       </section>

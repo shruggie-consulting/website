@@ -97,7 +97,7 @@
       "title": "NO 10X. NO OVERNIGHT. JUST A STRAIGHT ANSWER.",
       "body": "For independent agencies that often do better work than the big networks but improvise too much behind the scenes. We bring three things from the network world that pay for themselves quickly: clean numbers, proper account management and a steady rhythm. The rest of the bureaucracy we leave out.",
       "cta": "BOOK A 30-MIN CALL",
-      "secondary": "SEE THE AGENCY CHECK"
+      "secondary": "SEE WHAT WE DO"
     },
     "stats": [
       {
@@ -140,18 +140,20 @@
       }
     },
     "services": {
-      "eyebrow": "SERVICES",
-      "title": "Two ways in. One rhythm after.",
+      "eyebrow": "HOW WE LIKE TO WORK",
+      "title": "We start with your agency.",
+      "body": "Every agency gets stuck somewhere different, so we don't do off-the-shelf packages. We listen first, look at the numbers and the clients, and then suggest what will actually help. That might be a one-off check, half a day with the team, or a steady rhythm through the year.",
+      "price": {
+        "label": "PRICE",
+        "value": "from {{SHRUG}}",
+        "shrugLabel": "it depends",
+        "note": "Prices depend on the size of your agency and what you need. After a first conversation you get a fixed quote. And if you're just comparing prices, we're probably not the right fit. That's fine."
+      },
+      "examplesLabel": "FOR EXAMPLE",
       "items": [
         {
-          "num": "01",
+          "label": "NUMBERS AND CLIENTS",
           "title": "The Agency Check",
-          "label": [
-            "Starting point",
-            "2–3 weeks",
-            "fixed price"
-          ],
-          "price": "from {{SHRUG}}",
           "body": "We look at your numbers, your clients and how you work, and above all at which clients actually pay their way. At the end we sit down together and go through a clear plan:",
           "points": [
             [
@@ -167,7 +169,6 @@
               "What happens over the next 90 days and 12 months, with clear priorities and named owners."
             ]
           ],
-          "accent": true,
           "gets": [
             "profit per client, in plain numbers",
             "which clients carry you and which ones you carry",
@@ -176,20 +177,9 @@
           "note": "Your numbers stay with us. Happy to sign an NDA before we start."
         },
         {
-          "num": "02",
+          "label": "FOR THE TEAM",
           "title": "Workshops for teams",
-          "label": [
-            "Standalone",
-            "half a day",
-            "on site or remote"
-          ],
-          "price": "from {{SHRUG}}",
           "body": "Half a day with your team, working on your real clients and numbers rather than made-up cases. There are three topics to choose from:",
-          "accent": false,
-          "gets": [
-            "tools the team keeps using afterwards, like the relationship map (Map Your Orbit) or a profit view per client",
-            "concrete next steps, worked out on your own cases"
-          ],
           "points": [
             [
               "CLIENT CRAFT",
@@ -203,22 +193,16 @@
               "AI-READY AGENCY",
               "What AI means for your proposals, pricing, roles and workflows. And where it won't help you at all."
             ]
+          ],
+          "gets": [
+            "tools the team keeps using afterwards, like the relationship map (Map Your Orbit) or a profit view per client",
+            "concrete next steps, worked out on your own cases"
           ]
         },
         {
-          "num": "03",
+          "label": "ONGOING",
           "title": "Quarterly Reviews",
-          "label": [
-            "After the check",
-            "ongoing"
-          ],
-          "price": "from {{SHRUG}} per quarter",
           "body": "The agency check as a regular date: every three months we look at three areas together and decide what comes next.",
-          "accent": false,
-          "gets": [
-            "numbers and goals, updated every quarter",
-            "the next decisions, clearly prioritised"
-          ],
           "points": [
             [
               "FINANCIAL HEALTH",
@@ -232,18 +216,19 @@
               "STRATEGIC GROWTH",
               "Which clients, services and people should come next, from the next new client to your first permanent hire."
             ]
+          ],
+          "gets": [
+            "numbers and goals, updated every quarter",
+            "the next decisions, clearly prioritised"
           ]
         }
       ],
       "more": {
-        "num": "04",
         "title": "Doesn't fit a box?",
-        "body": "A specific problem that doesn't fit any of the three? Then let's just talk about it. Thirty minutes, no slides.",
+        "body": "A specific problem that doesn't fit any of these examples? Then let's just talk about it. Thirty minutes, no slides.",
         "cta": "BOOK A 30-MIN CALL"
       },
-      "body": "Founders usually start with the agency check, teams often with a workshop. The quarterly reviews keep things moving after that. Prices depend on the size of your agency and what you need. After a first conversation you get a fixed quote.",
-      "getsLabel": "What you get",
-      "shrugLabel": "it depends"
+      "getsLabel": "What you get"
     },
     "approach": {
       "eyebrow": "APPROACH",

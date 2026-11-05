@@ -240,6 +240,13 @@
 /* In a card label on white, yellow would be unreadable: the shrug takes the label's colour. */
 .v2-card__label .v2-price__shrug { color: inherit; margin: 0; }
 .v2 .v2-nowrap { white-space: nowrap; }
+/* The price block on a light section (Consulting services): ink and the page accent instead of cream and yellow. */
+.v2-cards-section--light .v2-price { border-top-color: var(--line); }
+.v2-cards-section--light .v2-price__label { color: var(--v2-accent-text); }
+.v2-cards-section--light .v2-price__value { color: var(--ink); }
+.v2-cards-section--light .v2-price__shrug { color: var(--v2-accent-text); }
+.v2-cards-section--light .v2-split__text .v2-price__note { color: var(--ink-soft); }
+.v2-examples-label { margin-bottom: 14px; }
 .v2-split__text .v2-price__note { margin: 12px 0 24px; font-size: 15px; line-height: 1.6; color: var(--muted-on-dark); }
 
 /* ---------- Agency theme ---------- */
