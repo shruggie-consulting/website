@@ -409,12 +409,12 @@
   "agency": {
     "nav": [
       {
-        "href": "#services",
-        "label": "Services"
+        "href": "#team",
+        "label": "Your marketing team"
       },
       {
-        "href": "#approach",
-        "label": "How we work"
+        "href": "#examples",
+        "label": "Examples"
       },
       {
         "href": "#contact",
@@ -423,43 +423,85 @@
     ],
     "hero": {
       "title": "WORK PEOPLE NOTICE.",
-      "eyebrow": "BRAND · CAMPAIGNS · CONTENT · PERFORMANCE"
+      "eyebrow": "VIDEO · ADS · WEBSITES · RECRUITING · BRAND"
     },
     "intro": {
       "title": "A small agency for brands that want to be seen.",
-      "body": "We build brands, plan campaigns and make the content that goes with them. Then we look at what actually worked. The team is small, the lines are short, and you always talk to the people doing the work.",
-      "cta": "START A PROJECT",
-      "secondary": "SEE WHAT WE DO"
+      "body": "We look after your marketing as a small team, as if we sat in your office. What we work on gets decided fresh every month, depending on what brings the most right now. And you always talk to the people doing the work.",
+      "cta": "BOOK A FIRST CALL",
+      "secondary": "HOW WE WORK"
     },
-    "services": {
-      "eyebrow": "SERVICES",
-      "title": "What we do.",
-      "body": "Book one part or the whole lot. We'll work out what makes sense in the first conversation.",
+    "team": {
+      "eyebrow": "HOW WE LIKE TO WORK",
+      "title": "Your marketing team, without hiring one.",
+      "body": "In most small and mid-sized companies nobody really owns marketing, or someone does it on the side. We take it on: one person you talk to, a plan for every month, and people who do the work themselves.",
+      "steps": [
+        {
+          "range": "TO START",
+          "title": "Getting to know you",
+          "body": "A short kickoff at a fixed price. We get to know your brand and your customers and make a first plan, often with a quick win along the way."
+        },
+        {
+          "range": "EVERY MONTH",
+          "title": "The plan",
+          "body": "At the start of each month we agree what's next. That might be a video in March, and ads plus a new landing page in April."
+        },
+        {
+          "range": "IN BETWEEN",
+          "title": "The work",
+          "body": "The team gets on with it. You have one contact and nothing to coordinate."
+        },
+        {
+          "range": "END OF THE MONTH",
+          "title": "A short report",
+          "body": "What we did, what it brought and what comes next. On one page."
+        }
+      ],
+      "price": {
+        "label": "PRICE",
+        "value": "from {{PREIS_TEAM}} a month",
+        "note": "We don't do fixed packages, on purpose. Every company needs something different, so after a first conversation you get a proposal that fits yours."
+      }
+    },
+    "examples": {
+      "eyebrow": "WHAT THE TEAM DOES, FOR EXAMPLE",
+      "title": "What can be in it.",
+      "body": "This isn't a fixed list. It's what we do often, and every month we pick whatever brings the most right now.",
       "items": [
         {
+          "label": "SHORT VIDEO",
+          "title": "Video for social media",
+          "body": "Short clips for Instagram, LinkedIn or TikTok, planned so it isn't a scramble every week."
+        },
+        {
+          "label": "ADS",
+          "title": "Ads that bring enquiries",
+          "body": "Google and social ads we keep testing and adjusting. The monthly report shows what they brought in."
+        },
+        {
+          "label": "WEBSITE",
+          "title": "A website that sells",
+          "body": "New or reworked, with pages that turn visitors into enquiries."
+        },
+        {
+          "label": "BEING FOUND",
+          "title": "On Google and in AI answers",
+          "body": "SEO, your Google Business Profile and reviews, so people find you, even when they ask ChatGPT."
+        },
+        {
+          "label": "RECRUITING",
+          "title": "Campaigns for open roles",
+          "body": "An employer presence that feels real, and social recruiting campaigns for roles that are hard to fill."
+        },
+        {
           "label": "BRAND",
-          "title": "Brand",
+          "title": "Brand and presence",
           "body": "Positioning, naming, logo and everything a brand needs day to day, so it looks and sounds the same wherever it shows up."
-        },
-        {
-          "label": "CAMPAIGNS",
-          "title": "Campaigns",
-          "body": "One idea that carries, and a plan for where and when it runs. Online, offline or both."
-        },
-        {
-          "label": "CONTENT",
-          "title": "Content",
-          "body": "A steady stream of material for social, your website and newsletters. In your voice, and planned so it isn't a scramble every week."
-        },
-        {
-          "label": "PERFORMANCE",
-          "title": "Performance",
-          "body": "Ads we keep testing and adjusting. Every month you see what they brought in."
         }
       ],
       "more": {
-        "title": "Something else in mind?",
-        "body": "A launch, a relaunch, or an idea that doesn't have a name yet? Tell us about it.",
+        "title": "Something else entirely?",
+        "body": "A launch, a relaunch, or a project that doesn't run every month? We do those too, as a one-off. Tell us about it.",
         "cta": "START A PROJECT"
       }
     },
@@ -467,27 +509,6 @@
       "eyebrow": "WORK",
       "title": "What we've made lately.",
       "items": []
-    },
-    "approach": {
-      "eyebrow": "HOW WE WORK",
-      "title": "Talk briefly, then get on with it.",
-      "steps": [
-        {
-          "range": "FIRST",
-          "title": "The brief",
-          "body": "We listen: what you're planning, who it's for, the deadline and the budget. Then you get a proposal you can actually follow."
-        },
-        {
-          "range": "THEN",
-          "title": "The work",
-          "body": "We show early drafts so we head the right way together. Your feedback goes straight to the people working on it."
-        },
-        {
-          "range": "AFTER",
-          "title": "Looking back",
-          "body": "Once it's live we look at the numbers and tell you openly what worked and what we'd do differently next time."
-        }
-      ]
     },
     "contact": {
       "eyebrow": "CONTACT",

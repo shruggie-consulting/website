@@ -409,12 +409,12 @@
   "agency": {
     "nav": [
       {
-        "href": "#services",
-        "label": "Leistungen"
+        "href": "#team",
+        "label": "Dein Marketing-Team"
       },
       {
-        "href": "#approach",
-        "label": "Arbeitsweise"
+        "href": "#beispiele",
+        "label": "Beispiele"
       },
       {
         "href": "#contact",
@@ -423,43 +423,85 @@
     ],
     "hero": {
       "title": "ARBEIT, DIE MAN BEMERKT.",
-      "eyebrow": "MARKE · KAMPAGNEN · CONTENT · PERFORMANCE"
+      "eyebrow": "VIDEO · ANZEIGEN · WEBSITES · RECRUITING · MARKE"
     },
     "intro": {
       "title": "Eine kleine Agentur für Marken, die gesehen werden wollen.",
-      "body": "Wir entwickeln Marken, planen Kampagnen und machen den Content dazu. Danach schauen wir uns an, was davon wirklich funktioniert hat. Das Team ist klein, die Wege sind kurz, und du sprichst immer mit den Leuten, die auch die Arbeit machen.",
-      "cta": "PROJEKT ANFRAGEN",
-      "secondary": "LEISTUNGEN ANSEHEN"
+      "body": "Wir kümmern uns als kleines Team um dein Marketing, so als säßen wir bei dir im Haus. Was wir machen, entscheiden wir jeden Monat neu, je nachdem, was gerade am meisten bringt. Und du sprichst immer mit den Leuten, die auch die Arbeit machen.",
+      "cta": "ERSTGESPRÄCH ANFRAGEN",
+      "secondary": "SO ARBEITEN WIR"
     },
-    "services": {
-      "eyebrow": "LEISTUNGEN",
-      "title": "Was wir machen.",
-      "body": "Du kannst einzelne Teile buchen oder alles aus einer Hand. Was davon sinnvoll ist, klären wir im ersten Gespräch.",
+    "team": {
+      "eyebrow": "SO ARBEITEN WIR AM LIEBSTEN",
+      "title": "Dein Marketing-Team, ohne eigene Abteilung.",
+      "body": "Bei den meisten kleinen und mittleren Unternehmen kümmert sich niemand richtig ums Marketing, oder es läuft nebenbei. Wir übernehmen das: eine feste Ansprechperson, ein Plan für jeden Monat und Leute, die die Arbeit selbst machen.",
+      "steps": [
+        {
+          "range": "ZUM START",
+          "title": "Kennenlernen",
+          "body": "Ein kurzer Einstieg zum Festpreis. Wir lernen deine Marke und deine Kunden kennen und machen einen ersten Plan. Oft ist schon ein schneller Erfolg dabei."
+        },
+        {
+          "range": "JEDEN MONAT",
+          "title": "Der Plan",
+          "body": "Zu Monatsbeginn legen wir gemeinsam fest, was dran ist. Im März kann das ein Video sein, im April Anzeigen und eine neue Landingpage."
+        },
+        {
+          "range": "DAZWISCHEN",
+          "title": "Die Arbeit",
+          "body": "Das Team setzt um. Du hast eine Ansprechperson und musst nichts koordinieren."
+        },
+        {
+          "range": "ZUM MONATSENDE",
+          "title": "Ein kurzer Bericht",
+          "body": "Was wir gemacht haben, was es gebracht hat und was als Nächstes kommt. Auf einer Seite."
+        }
+      ],
+      "price": {
+        "label": "PREIS",
+        "value": "ab {{PREIS_TEAM}} im Monat",
+        "note": "Feste Pakete haben wir bewusst nicht. Jedes Unternehmen braucht etwas anderes, deshalb bekommst du nach dem ersten Gespräch ein Angebot, das zu dir passt."
+      }
+    },
+    "examples": {
+      "eyebrow": "WAS DAS TEAM ZUM BEISPIEL MACHT",
+      "title": "Was alles drin sein kann.",
+      "body": "Das ist keine feste Liste. Es ist das, was wir oft machen, und jeden Monat suchen wir uns aus, was gerade am meisten bringt.",
       "items": [
         {
+          "label": "KURZVIDEOS",
+          "title": "Videos für Social Media",
+          "body": "Kurze Clips für Instagram, LinkedIn oder TikTok, so geplant, dass es nicht jede Woche hektisch wird."
+        },
+        {
+          "label": "ANZEIGEN",
+          "title": "Anzeigen, die Anfragen bringen",
+          "body": "Google- und Social-Ads, die wir laufend testen und nachjustieren. Im Monatsbericht siehst du, was sie gebracht haben."
+        },
+        {
+          "label": "WEBSITE",
+          "title": "Eine Website, die verkauft",
+          "body": "Neu oder überarbeitet, mit Seiten, auf denen aus Besuchern Anfragen werden."
+        },
+        {
+          "label": "GEFUNDEN WERDEN",
+          "title": "Bei Google und in KI-Antworten",
+          "body": "SEO, dein Google-Unternehmensprofil und Bewertungen, damit man dich findet, auch wenn jemand ChatGPT fragt."
+        },
+        {
+          "label": "RECRUITING",
+          "title": "Kampagnen für offene Stellen",
+          "body": "Ein Arbeitgeberauftritt, der echt wirkt, und Social-Recruiting-Kampagnen für Stellen, die schwer zu besetzen sind."
+        },
+        {
           "label": "MARKE",
-          "title": "Marke",
+          "title": "Marke und Auftritt",
           "body": "Positionierung, Name, Logo und alles, was eine Marke im Alltag braucht, damit sie überall gleich aussieht und klingt."
-        },
-        {
-          "label": "KAMPAGNEN",
-          "title": "Kampagnen",
-          "body": "Eine Idee, die trägt, und ein Plan, wo sie wann läuft. Online, offline oder beides."
-        },
-        {
-          "label": "CONTENT",
-          "title": "Content",
-          "body": "Laufend neues Material für Social, Website und Newsletter. In deinem Ton und so geplant, dass es nicht jede Woche hektisch wird."
-        },
-        {
-          "label": "PERFORMANCE",
-          "title": "Performance",
-          "body": "Anzeigen, die wir laufend testen und nachjustieren. Jeden Monat siehst du, was sie gebracht haben."
         }
       ],
       "more": {
-        "title": "Etwas anderes im Kopf?",
-        "body": "Ein Launch, ein Relaunch oder eine Idee, die noch keinen Namen hat? Erzähl uns davon.",
+        "title": "Oder etwas ganz anderes?",
+        "body": "Ein Launch, ein Relaunch oder ein Projekt, das nicht jeden Monat läuft? Machen wir auch, als einzelnes Projekt. Erzähl uns davon.",
         "cta": "PROJEKT ANFRAGEN"
       }
     },
@@ -467,27 +509,6 @@
       "eyebrow": "ARBEITEN",
       "title": "Was wir zuletzt gemacht haben.",
       "items": []
-    },
-    "approach": {
-      "eyebrow": "ARBEITSWEISE",
-      "title": "Kurz reden, dann machen.",
-      "steps": [
-        {
-          "range": "ZUERST",
-          "title": "Das Briefing",
-          "body": "Wir hören zu: was du vorhast, für wen, bis wann und mit welchem Budget. Danach bekommst du ein Angebot, das du auch verstehst."
-        },
-        {
-          "range": "DANN",
-          "title": "Die Arbeit",
-          "body": "Erste Entwürfe zeigen wir früh, damit wir gemeinsam in die richtige Richtung laufen. Dein Feedback geht direkt an die Leute, die daran sitzen."
-        },
-        {
-          "range": "DANACH",
-          "title": "Hinschauen",
-          "body": "Wenn es läuft, schauen wir auf die Zahlen und sagen dir offen, was gut funktioniert hat und was wir beim nächsten Mal anders machen würden."
-        }
-      ]
     },
     "contact": {
       "eyebrow": "KONTAKT",
