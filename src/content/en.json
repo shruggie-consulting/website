@@ -470,6 +470,16 @@
       "body": "This isn't a fixed list. It's what we do often, and every month we pick whatever brings the most right now.",
       "items": [
         {
+          "label": "BRAND",
+          "title": "Brand and presence",
+          "body": "Positioning, naming, logo and everything a brand needs day to day, so it looks and sounds the same wherever it shows up."
+        },
+        {
+          "label": "RECRUITING",
+          "title": "Campaigns for open roles",
+          "body": "An employer presence that feels real, and social recruiting campaigns for roles that are hard to fill."
+        },
+        {
           "label": "SHORT VIDEO",
           "title": "Video for social media",
           "body": "Short clips for Instagram, LinkedIn or TikTok, planned so it isn't a scramble every week."
@@ -488,16 +498,6 @@
           "label": "BEING FOUND",
           "title": "On Google and in AI answers",
           "body": "SEO, your Google Business Profile and reviews, so people find you, even when they ask ChatGPT."
-        },
-        {
-          "label": "RECRUITING",
-          "title": "Campaigns for open roles",
-          "body": "An employer presence that feels real, and social recruiting campaigns for roles that are hard to fill."
-        },
-        {
-          "label": "BRAND",
-          "title": "Brand and presence",
-          "body": "Positioning, naming, logo and everything a brand needs day to day, so it looks and sounds the same wherever it shows up."
         }
       ],
       "more": {

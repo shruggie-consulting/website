@@ -470,6 +470,16 @@
       "body": "Das ist keine feste Liste. Es ist das, was wir oft machen, und jeden Monat suchen wir uns aus, was gerade am meisten bringt.",
       "items": [
         {
+          "label": "MARKE",
+          "title": "Marke und Auftritt",
+          "body": "Positionierung, Name, Logo und alles, was eine Marke im Alltag braucht, damit sie überall gleich aussieht und klingt."
+        },
+        {
+          "label": "RECRUITING",
+          "title": "Kampagnen für offene Stellen",
+          "body": "Ein Arbeitgeberauftritt, der echt wirkt, und Social-Recruiting-Kampagnen für Stellen, die schwer zu besetzen sind."
+        },
+        {
           "label": "KURZVIDEOS",
           "title": "Videos für Social Media",
           "body": "Kurze Clips für Instagram, LinkedIn oder TikTok, so geplant, dass es nicht jede Woche hektisch wird."
@@ -488,16 +498,6 @@
           "label": "GEFUNDEN WERDEN",
           "title": "Bei Google und in KI-Antworten",
           "body": "SEO, dein Google-Unternehmensprofil und Bewertungen, damit man dich findet, auch wenn jemand ChatGPT fragt."
-        },
-        {
-          "label": "RECRUITING",
-          "title": "Kampagnen für offene Stellen",
-          "body": "Ein Arbeitgeberauftritt, der echt wirkt, und Social-Recruiting-Kampagnen für Stellen, die schwer zu besetzen sind."
-        },
-        {
-          "label": "MARKE",
-          "title": "Marke und Auftritt",
-          "body": "Positionierung, Name, Logo und alles, was eine Marke im Alltag braucht, damit sie überall gleich aussieht und klingt."
         }
       ],
       "more": {
