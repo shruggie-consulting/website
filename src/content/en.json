@@ -145,7 +145,7 @@
       "body": "Every agency gets stuck somewhere different, so we don't do off-the-shelf packages. We listen first, look at the numbers and the clients, and then suggest what will actually help. That might be a one-off check, half a day with the team, or a steady rhythm through the year.",
       "price": {
         "label": "PRICE",
-        "value": "from {{SHRUG}}",
+        "value": "from € {{SHRUG}}",
         "shrugLabel": "it depends",
         "note": "Prices depend on the size of your agency and what you need. After a first conversation you get a fixed quote. And if you're just comparing prices, we're probably not the right fit. That's fine."
       },
@@ -446,7 +446,7 @@
       ],
       "price": {
         "label": "PRICE",
-        "value": "from {{SHRUG}} a month",
+        "value": "from € {{SHRUG}} a month",
         "note": "We don't do fixed packages, on purpose. Every company needs something different, so after a first conversation you get a proposal that fits yours. And if you're just comparing prices, we're probably not the right fit. That's fine.",
         "shrugLabel": "it depends"
       }
