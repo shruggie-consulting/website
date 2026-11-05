@@ -9,6 +9,8 @@ import Backdrop from "./Backdrop.astro";
 import V2Header from "./V2Header.astro";
 import V2Contact from "./V2Contact.astro";
 import V2Footer from "./V2Footer.astro";
+import PriceText from "./PriceText.astro";
+import { priceReady } from "./price";
 import { content, type Lang } from "../../i18n";
 import "../../styles/v2.css";
 
@@ -19,10 +21,7 @@ interface Props {
 const { lang } = Astro.props;
 const h = content[lang].home;
 
-const DEV = import.meta.env.DEV;
-const TOKEN = /(\{\{[A-Z_]+\}\})/;
 const quote = h.quote as { text: string; author: string } | null;
-const priceShown = (price?: string) => !!price && (DEV || !TOKEN.test(price));
 const words = h.hero.eyebrow.split(" · ");
 const num = (i: number) => String(i + 1);
 ---
@@ -130,10 +129,10 @@ const num = (i: number) => String(i + 1);
                 <span class="v2-card__num" aria-hidden="true">{Number(s.num)}</span>
                 <div class="v2-card__label">
                   {s.label.join(" · ")}
-                  {priceShown(s.price) && (
+                  {priceReady(s.price) && (
                     <>
                       {" · "}
-                      {s.price.split(TOKEN).map((part) => (TOKEN.test(part) ? <mark class="todo">{part}</mark> : part))}
+                      <span class="v2-nowrap"><PriceText text={s.price} label={h.services.shrugLabel} /></span>
                     </>
                   )}
                 </div>

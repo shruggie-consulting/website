@@ -151,7 +151,7 @@
             "2–3 Wochen",
             "Festpreis"
           ],
-          "price": "{{PREIS_CHECK}}",
+          "price": "ab {{SHRUG}}",
           "body": "Wir sehen uns deine Zahlen, deine Kunden und eure Abläufe an, vor allem die Frage, welche Kunden sich wirklich lohnen. Zum Schluss setzen wir uns zusammen und gehen einen klaren Plan durch:",
           "points": [
             [
@@ -183,7 +183,7 @@
             "halber Tag",
             "vor Ort oder online"
           ],
-          "price": "ab {{PREIS_WORKSHOP}}",
+          "price": "ab {{SHRUG}}",
           "body": "Ein halber Tag mit deinem Team. Wir arbeiten an euren echten Kunden und Zahlen statt an Fallbeispielen. Zur Auswahl stehen drei Themen:",
           "accent": false,
           "gets": [
@@ -212,7 +212,7 @@
             "Nach dem Check",
             "laufend"
           ],
-          "price": "{{PREIS_QBR}} pro Quartal",
+          "price": "ab {{SHRUG}} pro Quartal",
           "body": "Der Agentur-Check als fester Termin: Alle drei Monate schauen wir gemeinsam auf drei Bereiche und entscheiden, was als Nächstes kommt.",
           "accent": false,
           "gets": [
@@ -241,8 +241,9 @@
         "body": "Ein konkretes Problem, das zu keinem der drei Angebote passt? Dann reden wir einfach direkt darüber. Dreißig Minuten, ganz ohne Präsentation.",
         "cta": "30-MIN-GESPRÄCH BUCHEN"
       },
-      "body": "Gründer:innen fangen meistens mit dem Agentur-Check an, Teams oft mit einem Workshop. Mit den Quarterly Reviews bleibt es danach in Bewegung.",
-      "getsLabel": "Was du bekommst"
+      "body": "Gründer:innen fangen meistens mit dem Agentur-Check an, Teams oft mit einem Workshop. Mit den Quarterly Reviews bleibt es danach in Bewegung. Die Preise hängen davon ab, wie groß deine Agentur ist und was ihr braucht. Nach dem ersten Gespräch bekommst du ein festes Angebot.",
+      "getsLabel": "Was du bekommst",
+      "shrugLabel": "kommt drauf an"
     },
     "approach": {
       "eyebrow": "VORGEHEN",

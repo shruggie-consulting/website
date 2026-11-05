@@ -151,7 +151,7 @@
             "2–3 weeks",
             "fixed price"
           ],
-          "price": "{{PREIS_CHECK}}",
+          "price": "from {{SHRUG}}",
           "body": "We look at your numbers, your clients and how you work, and above all at which clients actually pay their way. At the end we sit down together and go through a clear plan:",
           "points": [
             [
@@ -183,7 +183,7 @@
             "half a day",
             "on site or remote"
           ],
-          "price": "from {{PREIS_WORKSHOP}}",
+          "price": "from {{SHRUG}}",
           "body": "Half a day with your team, working on your real clients and numbers rather than made-up cases. There are three topics to choose from:",
           "accent": false,
           "gets": [
@@ -212,7 +212,7 @@
             "After the check",
             "ongoing"
           ],
-          "price": "{{PREIS_QBR}} per quarter",
+          "price": "from {{SHRUG}} per quarter",
           "body": "The agency check as a regular date: every three months we look at three areas together and decide what comes next.",
           "accent": false,
           "gets": [
@@ -241,8 +241,9 @@
         "body": "A specific problem that doesn't fit any of the three? Then let's just talk about it. Thirty minutes, no slides.",
         "cta": "BOOK A 30-MIN CALL"
       },
-      "body": "Founders usually start with the agency check, teams often with a workshop. The quarterly reviews keep things moving after that.",
-      "getsLabel": "What you get"
+      "body": "Founders usually start with the agency check, teams often with a workshop. The quarterly reviews keep things moving after that. Prices depend on the size of your agency and what you need. After a first conversation you get a fixed quote.",
+      "getsLabel": "What you get",
+      "shrugLabel": "it depends"
     },
     "approach": {
       "eyebrow": "APPROACH",

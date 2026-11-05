@@ -11,6 +11,8 @@ import Backdrop from "./Backdrop.astro";
 import V2Header from "./V2Header.astro";
 import V2Contact from "./V2Contact.astro";
 import V2Footer from "./V2Footer.astro";
+import PriceText from "./PriceText.astro";
+import { priceReady } from "./price";
 import { content, type Lang } from "../../i18n";
 import "../../styles/v2.css";
 
@@ -25,11 +27,8 @@ const num = (i: number) => String(i + 1);
 const work = a.work.items as { client: string; title: string; body: string }[];
 const [teamId, examplesId] = a.nav.map((n) => n.href.slice(1));
 
-const DEV = import.meta.env.DEV;
-const TOKEN = /(\{\{[A-Z_]+\}\})/;
 const price = a.team.price;
-// {{SHRUG}} is the price on purpose (no packages); any other {{TOKEN}} hides it on the live site.
-const priceShown = DEV || !TOKEN.test(price.value.replace("{{SHRUG}}", ""));
+const priceShown = priceReady(price.value);
 ---
 
 <Base lang={lang} page="agency">
@@ -79,17 +78,7 @@ const priceShown = DEV || !TOKEN.test(price.value.replace("{{SHRUG}}", ""));
             {priceShown && (
               <div class="v2-price">
                 <div class="v2-price__label">{price.label}</div>
-                <div class="v2-price__value">
-                  {price.value.split(TOKEN).map((part) =>
-                    part === "{{SHRUG}}" ? (
-                      <span class="v2-price__shrug shrug-logo" role="img" aria-label={price.shrugLabel}><span class="shrug-arm-l" aria-hidden="true">¯\_(</span><span class="shrug-face" aria-hidden="true">ツ</span><span class="shrug-arm-r" aria-hidden="true">)_/¯</span></span>
-                    ) : TOKEN.test(part) ? (
-                      <mark class="todo">{part}</mark>
-                    ) : (
-                      part
-                    ),
-                  )}
-                </div>
+                <div class="v2-price__value"><PriceText text={price.value} label={price.shrugLabel} /></div>
                 <p class="v2-price__note">{price.note}</p>
               </div>
             )}
