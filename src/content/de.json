@@ -435,6 +435,7 @@
       "eyebrow": "SO ARBEITEN WIR AM LIEBSTEN",
       "title": "Dein Marketing-Team, ohne eigene Abteilung.",
       "body": "Bei den meisten kleinen und mittleren Unternehmen kümmert sich niemand richtig ums Marketing, oder es läuft nebenbei. Wir übernehmen das: eine feste Ansprechperson, ein Plan für jeden Monat und Leute, die die Arbeit selbst machen.",
+      "network": "Hinter der festen Ansprechperson steht ein Netzwerk aus erfahrenen Marketing-Leuten. Für jede Aufgabe holen wir genau die dazu, die sie am besten können, und arbeiten mit KI, damit es schneller geht und besser wird.",
       "steps": [
         {
           "range": "ZUM START",
@@ -449,7 +450,7 @@
         {
           "range": "DAZWISCHEN",
           "title": "Die Arbeit",
-          "body": "Das Team setzt um. Du hast eine Ansprechperson und musst nichts koordinieren."
+          "body": "Die passenden Leute aus unserem Netzwerk setzen um, mit KI als Werkzeug. Du hast eine Ansprechperson und musst nichts koordinieren."
         },
         {
           "range": "ZUM MONATSENDE",

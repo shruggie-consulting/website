@@ -435,6 +435,7 @@
       "eyebrow": "HOW WE LIKE TO WORK",
       "title": "Your marketing team, without hiring one.",
       "body": "In most small and mid-sized companies nobody really owns marketing, or someone does it on the side. We take it on: one person you talk to, a plan for every month, and people who do the work themselves.",
+      "network": "Behind that one contact is a network of experienced marketing people. For every task we bring in exactly the ones who do it best, and we work with AI so it gets done faster and better.",
       "steps": [
         {
           "range": "TO START",
@@ -449,7 +450,7 @@
         {
           "range": "IN BETWEEN",
           "title": "The work",
-          "body": "The team gets on with it. You have one contact and nothing to coordinate."
+          "body": "The right people from our network get on with it, with AI as a tool. You have one contact and nothing to coordinate."
         },
         {
           "range": "END OF THE MONTH",

@@ -75,6 +75,7 @@ const priceShown = DEV || !TOKEN.test(price.value.replace("{{SHRUG}}", ""));
             <div class="v2-eyebrow v2-eyebrow--on-dark">{a.team.eyebrow}</div>
             <h2 id="v2-team" class="v2-h2">{a.team.title}</h2>
             <p>{a.team.body}</p>
+            <p>{a.team.network}</p>
             {priceShown && (
               <div class="v2-price">
                 <div class="v2-price__label">{price.label}</div>
