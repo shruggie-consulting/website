@@ -97,7 +97,7 @@
       "title": "KEIN 10X. KEIN ERFOLG ÜBER NACHT. NUR EINE EHRLICHE ANTWORT.",
       "body": "Für unabhängige Agenturen, die oft bessere Arbeit machen als die großen Netzwerke, intern aber zu viel improvisieren. Wir bringen drei Dinge aus der Netzwerkwelt mit, die sich schnell bezahlt machen: saubere Zahlen, richtiges Account Management und einen festen Rhythmus. Den Rest der Bürokratie lassen wir weg.",
       "cta": "30-MIN-GESPRÄCH BUCHEN",
-      "secondary": "DEN AGENTUR-CHECK ANSEHEN"
+      "secondary": "LEISTUNGEN ANSEHEN"
     },
     "stats": [
       {
@@ -140,18 +140,20 @@
       }
     },
     "services": {
-      "eyebrow": "LEISTUNGEN",
-      "title": "Zwei Wege rein. Ein Rhythmus danach.",
+      "eyebrow": "SO ARBEITEN WIR AM LIEBSTEN",
+      "title": "Wir fangen bei deiner Agentur an.",
+      "body": "Jede Agentur hakt woanders, deshalb gibt es bei uns keine Pakete von der Stange. Wir hören zuerst zu, schauen auf Zahlen und Kunden und schlagen dann vor, was wirklich hilft. Das kann ein einmaliger Check sein, ein halber Tag mit dem Team oder ein fester Rhythmus übers Jahr.",
+      "price": {
+        "label": "PREIS",
+        "value": "ab {{SHRUG}} €",
+        "shrugLabel": "kommt drauf an",
+        "note": "Die Preise hängen davon ab, wie groß deine Agentur ist und was ihr braucht. Nach dem ersten Gespräch bekommst du ein festes Angebot. Wenn du gerade nur Preise vergleichst, passen wir wahrscheinlich nicht zusammen. Das ist okay."
+      },
+      "examplesLabel": "ZUM BEISPIEL",
       "items": [
         {
-          "num": "01",
+          "label": "ZAHLEN UND KUNDEN",
           "title": "Der Agentur-Check",
-          "label": [
-            "Einstieg",
-            "2–3 Wochen",
-            "Festpreis"
-          ],
-          "price": "{{PREIS_CHECK}}",
           "body": "Wir sehen uns deine Zahlen, deine Kunden und eure Abläufe an, vor allem die Frage, welche Kunden sich wirklich lohnen. Zum Schluss setzen wir uns zusammen und gehen einen klaren Plan durch:",
           "points": [
             [
@@ -167,7 +169,6 @@
               "Was in den nächsten 90 Tagen und 12 Monaten passiert, mit klaren Prioritäten und festen Zuständigkeiten."
             ]
           ],
-          "accent": true,
           "gets": [
             "Ertrag pro Kunde, schwarz auf weiß",
             "welche Kunden dich tragen und welche du trägst",
@@ -176,20 +177,9 @@
           "note": "Deine Zahlen bleiben bei uns. Wenn du willst, unterschreiben wir vorab ein NDA."
         },
         {
-          "num": "02",
+          "label": "FÜRS TEAM",
           "title": "Workshops für Teams",
-          "label": [
-            "Einzeln buchbar",
-            "halber Tag",
-            "vor Ort oder online"
-          ],
-          "price": "ab {{PREIS_WORKSHOP}}",
           "body": "Ein halber Tag mit deinem Team. Wir arbeiten an euren echten Kunden und Zahlen statt an Fallbeispielen. Zur Auswahl stehen drei Themen:",
-          "accent": false,
-          "gets": [
-            "Werkzeuge, mit denen das Team danach weiterarbeitet, etwa die Beziehungskarte (Map Your Orbit) oder eine Rechnung pro Kunde",
-            "konkrete nächste Schritte, erarbeitet an euren eigenen Fällen"
-          ],
           "points": [
             [
               "CLIENT CRAFT",
@@ -203,22 +193,16 @@
               "AI-READY AGENCY",
               "Was KI für eure Angebote, Preise, Rollen und Abläufe bedeutet. Und wo sie euch gar nicht weiterhilft."
             ]
+          ],
+          "gets": [
+            "Werkzeuge, mit denen das Team danach weiterarbeitet, etwa die Beziehungskarte (Map Your Orbit) oder eine Rechnung pro Kunde",
+            "konkrete nächste Schritte, erarbeitet an euren eigenen Fällen"
           ]
         },
         {
-          "num": "03",
+          "label": "LAUFEND",
           "title": "Quarterly Reviews",
-          "label": [
-            "Nach dem Check",
-            "laufend"
-          ],
-          "price": "{{PREIS_QBR}} pro Quartal",
           "body": "Der Agentur-Check als fester Termin: Alle drei Monate schauen wir gemeinsam auf drei Bereiche und entscheiden, was als Nächstes kommt.",
-          "accent": false,
-          "gets": [
-            "Zahlen und Ziele, jedes Quartal aktualisiert",
-            "die nächsten Entscheidungen, klar priorisiert"
-          ],
           "points": [
             [
               "FINANZIELLE GESUNDHEIT",
@@ -232,16 +216,18 @@
               "STRATEGISCHES WACHSTUM",
               "Welche Kunden, Angebote und Leute als Nächstes dazukommen sollen, vom nächsten Neukunden bis zur ersten Festanstellung."
             ]
+          ],
+          "gets": [
+            "Zahlen und Ziele, jedes Quartal aktualisiert",
+            "die nächsten Entscheidungen, klar priorisiert"
           ]
         }
       ],
       "more": {
-        "num": "04",
         "title": "Passt in keine Schublade?",
-        "body": "Ein konkretes Problem, das zu keinem der drei Angebote passt? Dann reden wir einfach direkt darüber. Dreißig Minuten, ganz ohne Präsentation.",
+        "body": "Ein konkretes Problem, das in keines der Beispiele passt? Dann reden wir einfach direkt darüber. Dreißig Minuten, ganz ohne Präsentation.",
         "cta": "30-MIN-GESPRÄCH BUCHEN"
       },
-      "body": "Gründer:innen fangen meistens mit dem Agentur-Check an, Teams oft mit einem Workshop. Mit den Quarterly Reviews bleibt es danach in Bewegung.",
       "getsLabel": "Was du bekommst"
     },
     "approach": {
@@ -460,7 +446,7 @@
       ],
       "price": {
         "label": "PREIS",
-        "value": "ab {{SHRUG}} im Monat",
+        "value": "ab {{SHRUG}} € im Monat",
         "note": "Feste Pakete haben wir bewusst nicht. Jedes Unternehmen braucht etwas anderes, deshalb bekommst du nach dem ersten Gespräch ein Angebot, das zu dir passt. Wenn du gerade nur Preise vergleichst, passen wir wahrscheinlich nicht zusammen. Das ist okay.",
         "shrugLabel": "kommt drauf an"
       }

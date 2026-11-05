@@ -1,0 +1,23 @@
+---
+// A price line from the content. {{SHRUG}} becomes the shrug (prices are individual on purpose;
+// screen readers hear `label`, e.g. "kommt drauf an"). Any other {{TOKEN}} is a price still to
+// fill in: highlighted in dev, and the caller hides the line on the live site (see `priceReady`).
+interface Props {
+  text: string;
+  label: string;
+}
+const { text, label } = Astro.props;
+const TOKEN = /(\{\{[A-Z_]+\}\})/;
+---
+
+{
+  text.split(TOKEN).map((part) =>
+    part === "{{SHRUG}}" ? (
+      <span class="v2-price__shrug shrug-logo" role="img" aria-label={label}><span class="shrug-arm-l" aria-hidden="true">¯\_(</span><span class="shrug-face" aria-hidden="true">ツ</span><span class="shrug-arm-r" aria-hidden="true">)_/¯</span></span>
+    ) : TOKEN.test(part) ? (
+      <mark class="todo">{part}</mark>
+    ) : (
+      part
+    ),
+  )
+}
