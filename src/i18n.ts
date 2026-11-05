@@ -62,14 +62,14 @@ export const meta: Record<PageKey, Record<Lang, Meta>> = {
     de: {
       title: "Shruggie Agency — dein Marketing-Team",
       description:
-        "Dein Marketing-Team ohne eigene Abteilung: eine kleine Agentur aus München, die sich jeden Monat um das kümmert, was gerade am meisten bringt. Video, Anzeigen, Website, Recruiting und Marke.",
+        "Dein Marketing-Team ohne eigene Abteilung: eine eingespielte Agentur aus München, die sich jeden Monat um das kümmert, was gerade am meisten bringt. Video, Anzeigen, Website, Recruiting und Marke.",
       ogImage: "/og/home.png",
       siteName: "Shruggie Agency",
     },
     en: {
       title: "Shruggie Agency — your marketing team",
       description:
-        "Your marketing team without hiring one: a small Munich agency that works each month on whatever brings the most. Video, ads, websites, recruiting and brand.",
+        "Your marketing team without hiring one: a tight Munich agency that works each month on whatever brings the most. Video, ads, websites, recruiting and brand.",
       ogImage: "/og/home.png",
       siteName: "Shruggie Agency",
     },
