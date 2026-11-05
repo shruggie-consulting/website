@@ -63,7 +63,7 @@
       "agency": {
         "label": "SHRUGGIE AGENCY",
         "title": "Für Marken, die gesehen werden wollen.",
-        "body": "Marke, Kampagnen, Content und Performance, gemacht von einem kleinen Team, das selbst an der Arbeit sitzt.",
+        "body": "Marke, Recruiting, Video, Anzeigen und Websites, von einem eingespielten Team, das die Arbeit selbst macht.",
         "cta": "ZUR AGENTUR"
       }
     },
@@ -409,12 +409,12 @@
   "agency": {
     "nav": [
       {
-        "href": "#services",
-        "label": "Leistungen"
+        "href": "#team",
+        "label": "Dein Marketing-Team"
       },
       {
-        "href": "#approach",
-        "label": "Arbeitsweise"
+        "href": "#beispiele",
+        "label": "Beispiele"
       },
       {
         "href": "#contact",
@@ -423,43 +423,87 @@
     ],
     "hero": {
       "title": "ARBEIT, DIE MAN BEMERKT.",
-      "eyebrow": "MARKE · KAMPAGNEN · CONTENT · PERFORMANCE"
+      "eyebrow": "VIDEO · ANZEIGEN · WEBSITES · RECRUITING · MARKE"
     },
     "intro": {
-      "title": "Eine kleine Agentur für Marken, die gesehen werden wollen.",
-      "body": "Wir entwickeln Marken, planen Kampagnen und machen den Content dazu. Danach schauen wir uns an, was davon wirklich funktioniert hat. Das Team ist klein, die Wege sind kurz, und du sprichst immer mit den Leuten, die auch die Arbeit machen.",
-      "cta": "PROJEKT ANFRAGEN",
-      "secondary": "LEISTUNGEN ANSEHEN"
+      "title": "Ein eingespieltes Team für Marken, die gesehen werden wollen.",
+      "body": "Wir kümmern uns um dein Marketing, so als säßen wir bei dir im Haus. Ohne Abstimmungsschleifen und ohne Übergaben zwischen Abteilungen: Wer mit dir spricht, macht auch die Arbeit. Was wir anpacken, entscheiden wir jeden Monat neu, je nachdem, was gerade am meisten bringt.",
+      "cta": "ERSTGESPRÄCH ANFRAGEN",
+      "secondary": "SO ARBEITEN WIR"
     },
-    "services": {
-      "eyebrow": "LEISTUNGEN",
-      "title": "Was wir machen.",
-      "body": "Du kannst einzelne Teile buchen oder alles aus einer Hand. Was davon sinnvoll ist, klären wir im ersten Gespräch.",
+    "team": {
+      "eyebrow": "SO ARBEITEN WIR AM LIEBSTEN",
+      "title": "Dein Marketing-Team, ohne eigene Abteilung.",
+      "body": "Bei den meisten kleinen und mittleren Unternehmen kümmert sich niemand richtig ums Marketing, oder es läuft nebenbei. Wir übernehmen das: eine feste Ansprechperson, ein Plan für jeden Monat und Leute, die die Arbeit selbst machen.",
+      "network": "Hinter der festen Ansprechperson steht ein Netzwerk aus erfahrenen Marketing-Leuten. Für jede Aufgabe holen wir genau die dazu, die sie am besten können, und arbeiten mit KI, damit es schneller geht und besser wird.",
+      "steps": [
+        {
+          "range": "ZUM START",
+          "title": "Kennenlernen",
+          "body": "Ein kurzer Einstieg zum Festpreis. Wir lernen deine Marke und deine Kunden kennen und machen einen ersten Plan. Oft ist schon ein schneller Erfolg dabei."
+        },
+        {
+          "range": "JEDEN MONAT",
+          "title": "Der Plan",
+          "body": "Zu Monatsbeginn legen wir gemeinsam fest, was dran ist. Im März kann das ein Video sein, im April Anzeigen und eine neue Landingpage."
+        },
+        {
+          "range": "DAZWISCHEN",
+          "title": "Die Arbeit",
+          "body": "Die passenden Leute aus unserem Netzwerk setzen um, mit KI als Werkzeug. Du hast eine Ansprechperson und musst nichts koordinieren."
+        },
+        {
+          "range": "ZUM MONATSENDE",
+          "title": "Ein kurzer Bericht",
+          "body": "Was wir gemacht haben, was es gebracht hat und was als Nächstes kommt. Auf einer Seite."
+        }
+      ],
+      "price": {
+        "label": "PREIS",
+        "value": "ab {{SHRUG}} im Monat",
+        "note": "Feste Pakete haben wir bewusst nicht. Jedes Unternehmen braucht etwas anderes, deshalb bekommst du nach dem ersten Gespräch ein Angebot, das zu dir passt. Wenn du gerade nur Preise vergleichst, passen wir wahrscheinlich nicht zusammen. Das ist okay.",
+        "shrugLabel": "kommt drauf an"
+      }
+    },
+    "examples": {
+      "eyebrow": "WAS DAS TEAM ZUM BEISPIEL MACHT",
+      "title": "Was alles drin sein kann.",
+      "body": "Das ist keine feste Liste. Es ist das, was wir oft machen, und jeden Monat suchen wir uns aus, was gerade am meisten bringt.",
       "items": [
         {
           "label": "MARKE",
-          "title": "Marke",
+          "title": "Marke und Auftritt",
           "body": "Positionierung, Name, Logo und alles, was eine Marke im Alltag braucht, damit sie überall gleich aussieht und klingt."
         },
         {
-          "label": "KAMPAGNEN",
-          "title": "Kampagnen",
-          "body": "Eine Idee, die trägt, und ein Plan, wo sie wann läuft. Online, offline oder beides."
+          "label": "RECRUITING",
+          "title": "Kampagnen für offene Stellen",
+          "body": "Ein Arbeitgeberauftritt, der echt wirkt, und Social-Recruiting-Kampagnen für Stellen, die schwer zu besetzen sind."
         },
         {
-          "label": "CONTENT",
-          "title": "Content",
-          "body": "Laufend neues Material für Social, Website und Newsletter. In deinem Ton und so geplant, dass es nicht jede Woche hektisch wird."
+          "label": "KURZVIDEOS",
+          "title": "Videos für Social Media",
+          "body": "Kurze Clips für Instagram, LinkedIn oder TikTok, so geplant, dass es nicht jede Woche hektisch wird."
         },
         {
-          "label": "PERFORMANCE",
-          "title": "Performance",
-          "body": "Anzeigen, die wir laufend testen und nachjustieren. Jeden Monat siehst du, was sie gebracht haben."
+          "label": "ANZEIGEN",
+          "title": "Anzeigen, die Anfragen bringen",
+          "body": "Google- und Social-Ads, die wir laufend testen und nachjustieren. Im Monatsbericht siehst du, was sie gebracht haben."
+        },
+        {
+          "label": "WEBSITE",
+          "title": "Eine Website, die verkauft",
+          "body": "Neu oder überarbeitet, mit Seiten, auf denen aus Besuchern Anfragen werden."
+        },
+        {
+          "label": "SYSTEME",
+          "title": "Technik hinter deinem Marketing",
+          "body": "Auch größere Systeme bauen wir ohne Zögern: CRM, Automationen, Dashboards oder KI-Workflows, die deinem Team im Alltag Arbeit abnehmen."
         }
       ],
       "more": {
-        "title": "Etwas anderes im Kopf?",
-        "body": "Ein Launch, ein Relaunch oder eine Idee, die noch keinen Namen hat? Erzähl uns davon.",
+        "title": "Oder etwas ganz anderes?",
+        "body": "Ein Launch, ein Relaunch oder ein Projekt, das nicht jeden Monat läuft? Machen wir auch, als einzelnes Projekt. Erzähl uns davon.",
         "cta": "PROJEKT ANFRAGEN"
       }
     },
@@ -467,27 +511,6 @@
       "eyebrow": "ARBEITEN",
       "title": "Was wir zuletzt gemacht haben.",
       "items": []
-    },
-    "approach": {
-      "eyebrow": "ARBEITSWEISE",
-      "title": "Kurz reden, dann machen.",
-      "steps": [
-        {
-          "range": "ZUERST",
-          "title": "Das Briefing",
-          "body": "Wir hören zu: was du vorhast, für wen, bis wann und mit welchem Budget. Danach bekommst du ein Angebot, das du auch verstehst."
-        },
-        {
-          "range": "DANN",
-          "title": "Die Arbeit",
-          "body": "Erste Entwürfe zeigen wir früh, damit wir gemeinsam in die richtige Richtung laufen. Dein Feedback geht direkt an die Leute, die daran sitzen."
-        },
-        {
-          "range": "DANACH",
-          "title": "Hinschauen",
-          "body": "Wenn es läuft, schauen wir auf die Zahlen und sagen dir offen, was gut funktioniert hat und was wir beim nächsten Mal anders machen würden."
-        }
-      ]
     },
     "contact": {
       "eyebrow": "KONTAKT",

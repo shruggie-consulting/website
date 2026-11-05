@@ -60,16 +60,16 @@ export const meta: Record<PageKey, Record<Lang, Meta>> = {
   },
   agency: {
     de: {
-      title: "Shruggie Agency — Marke, Kampagnen und Content",
+      title: "Shruggie Agency — dein Marketing-Team",
       description:
-        "Eine kleine Agentur aus München für Marken, die gesehen werden wollen: Marke, Kampagnen, Content und Performance, und du sprichst immer mit den Leuten, die auch die Arbeit machen.",
+        "Dein Marketing-Team ohne eigene Abteilung: eine eingespielte Agentur aus München, die sich jeden Monat um das kümmert, was gerade am meisten bringt. Video, Anzeigen, Website, Recruiting und Marke.",
       ogImage: "/og/home.png",
       siteName: "Shruggie Agency",
     },
     en: {
-      title: "Shruggie Agency — Brand, campaigns and content",
+      title: "Shruggie Agency — your marketing team",
       description:
-        "A small Munich agency for brands that want to be seen: brand, campaigns, content and performance, and you always talk to the people doing the work.",
+        "Your marketing team without hiring one: a tight Munich agency that works each month on whatever brings the most. Video, ads, websites, recruiting and brand.",
       ogImage: "/og/home.png",
       siteName: "Shruggie Agency",
     },

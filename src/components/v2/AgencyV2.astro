@@ -1,8 +1,11 @@
 ---
-// The Shruggie Agency page (/agentur, /en/agency): the same layout as the Consulting home,
-// in the Agency theme from the design system. Acid-yellow hero with ink type, ink sections
-// with acid accents, rust only as the single spark (cursor and wordmark period).
-// Services only for now; the work section appears once agency.work.items has entries.
+// The Shruggie Agency page (/agentur, /en/agency), in the Agency theme from the design system:
+// acid-yellow hero with ink type, ink sections with acid accents, rust only as the single spark.
+// The preferred way of working is the small marketing team (a month in four steps and a "from"
+// price, no fixed packages); the examples show the range without turning it into product lines;
+// "something else" stays open for one-off projects. The work section appears once
+// agency.work.items has entries. The price is "ab ¯\_(ツ)_/¯ im Monat" on purpose: offers are
+// individual, and the note under it says so.
 import Base from "../../layouts/Base.astro";
 import Backdrop from "./Backdrop.astro";
 import V2Header from "./V2Header.astro";
@@ -20,6 +23,13 @@ const a = content[lang].agency;
 const words = a.hero.eyebrow.split(" · ");
 const num = (i: number) => String(i + 1);
 const work = a.work.items as { client: string; title: string; body: string }[];
+const [teamId, examplesId] = a.nav.map((n) => n.href.slice(1));
+
+const DEV = import.meta.env.DEV;
+const TOKEN = /(\{\{[A-Z_]+\}\})/;
+const price = a.team.price;
+// {{SHRUG}} is the price on purpose (no packages); any other {{TOKEN}} hides it on the live site.
+const priceShown = DEV || !TOKEN.test(price.value.replace("{{SHRUG}}", ""));
 ---
 
 <Base lang={lang} page="agency">
@@ -27,7 +37,7 @@ const work = a.work.items as { client: string; title: string; body: string }[];
     <V2Header lang={lang} brand="agency" />
 
     <main id="main">
-      <!-- Hero: acid-yellow field, ink headline, the disciplines typed one after another. -->
+      <!-- Hero: acid-yellow field, ink headline, what the team does typed one after another. -->
       <section class="v2-hero">
         <Backdrop tone="acid" />
         <div class="v2-wrap v2-hero__inner">
@@ -46,7 +56,7 @@ const work = a.work.items as { client: string; title: string; body: string }[];
             <p class="v2-lead">{a.intro.body}</p>
             <div class="v2-buttons">
               <a class="v2-btn" href="#contact">{a.intro.cta}</a>
-              <a class="v2-btn" href="#services">{a.intro.secondary}</a>
+              <a class="v2-btn" href={`#${teamId}`}>{a.intro.secondary}</a>
             </div>
           </div>
           <div class="v2-panel" aria-hidden="true">
@@ -57,27 +67,68 @@ const work = a.work.items as { client: string; title: string; body: string }[];
         </div>
       </section>
 
-      <!-- Services: intro on the left, the four disciplines and "something else" as cards. -->
-      <section id="services" class="v2-cards-section v2-cards-section--light" aria-labelledby="v2-services">
+      <!-- The preferred way of working: the team, the month in four steps, the "from" price. -->
+      <section id={teamId} class="v2-cards-section v2-cards-section--dark" aria-labelledby="v2-team">
+        <Backdrop tone="ink" offset={1} />
         <div class="v2-wrap v2-split">
           <div class="v2-split__text">
-            <div class="v2-eyebrow">{a.services.eyebrow}</div>
-            <h2 id="v2-services" class="v2-h2">{a.services.title}</h2>
-            <p>{a.services.body}</p>
+            <div class="v2-eyebrow v2-eyebrow--on-dark">{a.team.eyebrow}</div>
+            <h2 id="v2-team" class="v2-h2">{a.team.title}</h2>
+            <p>{a.team.body}</p>
+            <p>{a.team.network}</p>
+            {priceShown && (
+              <div class="v2-price">
+                <div class="v2-price__label">{price.label}</div>
+                <div class="v2-price__value">
+                  {price.value.split(TOKEN).map((part) =>
+                    part === "{{SHRUG}}" ? (
+                      <span class="v2-price__shrug shrug-logo" role="img" aria-label={price.shrugLabel}><span class="shrug-arm-l" aria-hidden="true">¯\_(</span><span class="shrug-face" aria-hidden="true">ツ</span><span class="shrug-arm-r" aria-hidden="true">)_/¯</span></span>
+                    ) : TOKEN.test(part) ? (
+                      <mark class="todo">{part}</mark>
+                    ) : (
+                      part
+                    ),
+                  )}
+                </div>
+                <p class="v2-price__note">{price.note}</p>
+              </div>
+            )}
+            {!priceShown && <p class="v2-price__note">{price.note}</p>}
+            <a class="v2-btn v2-btn--on-dark" href="#contact">{a.intro.cta}</a>
+          </div>
+          <ol class="v2-cardgrid" role="list">
+            {a.team.steps.map((s, i) => (
+              <li class="v2-card">
+                <span class="v2-card__num" aria-hidden="true">{num(i)}</span>
+                <div class="v2-card__label">{s.range}</div>
+                <h3>{s.title}</h3>
+                <p>{s.body}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <!-- What the team does, for example: range without product lines, then the open door. -->
+      <section id={examplesId} class="v2-cards-section v2-cards-section--light" aria-labelledby="v2-examples">
+        <div class="v2-wrap v2-split">
+          <div class="v2-split__text">
+            <div class="v2-eyebrow">{a.examples.eyebrow}</div>
+            <h2 id="v2-examples" class="v2-h2">{a.examples.title}</h2>
+            <p>{a.examples.body}</p>
           </div>
           <div class="v2-cardgrid">
-            {a.services.items.map((s, i) => (
+            {a.examples.items.map((s) => (
               <article class="v2-card">
-                <span class="v2-card__num" aria-hidden="true">{num(i)}</span>
                 <div class="v2-card__label">{s.label}</div>
                 <h3>{s.title}</h3>
                 <p>{s.body}</p>
               </article>
             ))}
             <article class="v2-card v2-card--ink v2-card--wide">
-              <h3>{a.services.more.title}</h3>
-              <p>{a.services.more.body}</p>
-              <a class="v2-btn v2-btn--on-dark" href="#contact">{a.services.more.cta}</a>
+              <h3>{a.examples.more.title}</h3>
+              <p>{a.examples.more.body}</p>
+              <a class="v2-btn v2-btn--on-dark" href="#contact">{a.examples.more.cta}</a>
             </article>
           </div>
         </div>
@@ -100,28 +151,6 @@ const work = a.work.items as { client: string; title: string; body: string }[];
           </div>
         </section>
       )}
-
-      <!-- How we work: three steps as cards on ink. -->
-      <section id="approach" class="v2-cards-section v2-cards-section--dark" aria-labelledby="v2-approach">
-        <Backdrop tone="ink" offset={1} />
-        <div class="v2-wrap v2-split">
-          <div class="v2-split__text">
-            <div class="v2-eyebrow v2-eyebrow--on-dark">{a.approach.eyebrow}</div>
-            <h2 id="v2-approach" class="v2-h2">{a.approach.title}</h2>
-            <a class="v2-btn v2-btn--on-dark" href="#contact">{a.intro.cta}</a>
-          </div>
-          <ol class="v2-cardgrid" role="list">
-            {a.approach.steps.map((s, i) => (
-              <li class:list={["v2-card", { "v2-card--wide": i === a.approach.steps.length - 1 && a.approach.steps.length % 2 === 1 }]}>
-                <span class="v2-card__num" aria-hidden="true">{num(i)}</span>
-                <div class="v2-card__label">{s.range}</div>
-                <h3>{s.title}</h3>
-                <p>{s.body}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
 
       <V2Contact lang={lang} brand="agency" />
     </main>
