@@ -42,7 +42,7 @@ const desc = brand === "house" ? "" : brand === "agency" ? "Agency" : "Consultin
   </button>
   <div class="v2-menu" id="v2-menu" data-v2-menu>
     <nav class="v2-nav" aria-label={ui[lang].nav}>
-      {nav.map((item) => <a href={item.href.startsWith("#") && item.href !== "#contact" ? navBase + item.href : item.href}>{item.label}</a>)}
+      {nav.map((item) => <a href={item.href.startsWith("#") && item.href !== "#contact" ? navBase + item.href : item.href} aria-current={item.href === routes[page][lang] ? "page" : undefined}>{item.label}</a>)}
       {doors.map((d, i) => <a class:list={[{ "v2-nav__brand": i === 0 }]} href={d.href}>{d.label}</a>)}
     </nav>
     <a class="v2-nav__lang" href={routes[page][other]} hreflang={other} lang={other} data-lang-switch aria-label={other === "en" ? "English" : "Deutsch"}>

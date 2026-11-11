@@ -56,6 +56,7 @@
 .v2-brand__name .v2-brand__desc { margin-left: 10px; vertical-align: 4px; }
 .v2-menu { display: flex; align-items: center; gap: 28px; }
 .v2-nav { display: flex; gap: 24px; }
+.v2-nav a[aria-current="page"] { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; }
 .v2-menu a { color: var(--cream); text-decoration: none; font-size: 15px; font-weight: 500; padding: 8px 0; }
 .v2-menu a:hover { color: var(--sage); }
 .v2-nav__lang { display: inline-flex; align-items: center; gap: 8px; font-weight: 700 !important; letter-spacing: 0.06em; border: 1px solid oklch(1 0 0 / 0.5); border-radius: 2px; padding: 6px 10px !important; }
