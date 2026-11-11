@@ -629,9 +629,9 @@
         ]
       },
       {
-        "heading": "LIVE-BÜRO",
+        "heading": "LIVE-OFFICE",
         "lines": [
-          "Die Seite „Live aus dem Büro“ (/agentur/buero) lädt etwa alle zwölf Sekunden einen anonymen Status aus meinem Client Workspace (workspace.shruggie.consulting, bereitgestellt über Cloudflare in der EU). Der Status enthält nur die Rollennamen und Räume unserer KI-Agenten und die Vornamen von Teammitgliedern, die gerade arbeiten.",
+          "Die Seite „Live aus dem Office“ (/agentur/office) lädt etwa alle zwölf Sekunden einen anonymen Status aus meinem Client Workspace (workspace.shruggie.consulting, bereitgestellt über Cloudflare in der EU). Der Status enthält nur die Rollennamen und Räume unserer KI-Agenten und die Vornamen von Teammitgliedern, die gerade arbeiten.",
           "Für diesen Abruf verarbeitet Cloudflare technisch Ihre IP-Adresse und Angaben zu Ihrem Browser. Ich setze dabei keine Cookies und lege keine Daten über Sie an. Technische Protokolle des Workspace löscht Cloudflare nach spätestens sieben Tagen automatisch. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; mein berechtigtes Interesse ist, die Seite live anzuzeigen."
         ]
       },
@@ -661,18 +661,18 @@
     "otherLegal": "IMPRESSUM"
   },
   "office": {
-    "eyebrow": "LIVE AUS DEM BÜRO",
+    "eyebrow": "LIVE AUS DEM OFFICE",
     "title": "Hier arbeiten gerade unsere KI-Agenten.",
-    "intro": "Jede Figur ist ein KI-Agent, der in diesem Moment für uns arbeitet. Wer Code schreibt, sitzt am Schreibtisch. Wer fertig ist, wartet auf dem Sofa, bis wir draufschauen. Wenn jemand von uns im Workspace arbeitet, läuft er auch durchs Büro. Henry ist sowieso immer da.",
-    "note": "Ein paar Statisten laufen immer mit, damit es nachts nicht so leer ist. Kundennamen oder Inhalte zeigt das Büro nie, nur Rollen und Räume.",
+    "intro": "Jede Figur ist ein KI-Agent, der in diesem Moment für uns arbeitet. Wer Code schreibt, sitzt am Schreibtisch. Wer fertig ist, wartet auf dem Sofa, bis wir draufschauen. Wenn jemand von uns gerade arbeitet, läuft er auch durchs Office. Henry ist sowieso immer da.",
+    "note": "Ein paar Statisten laufen immer mit, damit es nachts nicht so leer ist. Kundennamen oder Inhalte zeigt das Office nie, nur Rollen und Räume.",
     "hint": "Fahr mit der Maus über eine Figur, dann siehst du, wer das ist. Henry freut sich über einen Klick.",
-    "canvasLabel": "Pixel-Büro, in dem unsere KI-Agenten live arbeiten",
+    "canvasLabel": "Pixel-Office, in dem unsere KI-Agenten live arbeiten",
     "back": "ZURÜCK ZUR AGENTUR",
     "teaser": {
-      "eyebrow": "LIVE AUS DEM BÜRO",
+      "eyebrow": "LIVE AUS DEM OFFICE",
       "title": "Schau uns beim Arbeiten zu.",
-      "body": "Unsere KI-Agenten haben ein kleines Pixel-Büro. Du siehst live, wer gerade am Schreibtisch sitzt und wer schon auf dem Sofa wartet.",
-      "cta": "ZUM BÜRO"
+      "body": "Unsere KI-Agenten haben ein kleines Pixel-Office. Du siehst live, wer gerade am Schreibtisch sitzt und wer schon auf dem Sofa wartet.",
+      "cta": "ZUM OFFICE"
     }
   }
 }

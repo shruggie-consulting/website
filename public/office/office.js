@@ -32,11 +32,49 @@ const SHRUG = '¯\\_(ツ)_/¯';
 // anonymised snapshot from the workspace (role, room, state, first names); a few extras fill
 // the room so it never looks empty. Locally (node server.js) the full view runs as before.
 const CFG = window.OFFICE || {}, PUBLIC = CFG.mode === 'public', LANG = CFG.lang === 'de' ? 'de' : 'en';
-const PHRASE = {
-  de: { desks: 'schreibt Code', library: 'liest Doku', servers: 'startet ein Skript', window: 'recherchiert im Netz', meeting: 'brieft einen Helfer', mailroom: 'schreibt eine Mail', whiteboard: 'denkt nach', lounge: 'wartet auf Feedback', exit: 'geht heim' },
-  en: { desks: 'writing code', library: 'reading docs', servers: 'running a script', window: 'researching online', meeting: 'briefing a helper', mailroom: 'writing an email', whiteboard: 'thinking it over', lounge: 'waiting for feedback', exit: 'heading home' },
+// What visitors read (bubbles and the list): a few lines per room, rotating every 20 s, so
+// it stays readable for people who don't know what a "tool call" is.
+const PHRASES = {
+  de: {
+    desks: ['schreibt Code', 'baut an einer Seite', 'räumt Code auf', 'tippt konzentriert'],
+    library: ['liest Doku', 'sucht etwas raus', 'blättert durch Notizen'],
+    servers: ['startet ein Skript', 'testet etwas', 'baut die Website neu'],
+    window: ['recherchiert im Netz', 'schaut sich Websites an', 'sammelt Ideen'],
+    meeting: ['brieft einen Helfer', 'verteilt Aufgaben', 'bespricht den Plan'],
+    mailroom: ['schreibt eine Mail', 'sortiert die Post', 'trägt Termine ein'],
+    whiteboard: ['denkt nach', 'skizziert eine Idee', 'überlegt den nächsten Schritt'],
+    lounge: ['wartet auf Feedback', 'ist fertig und wartet', 'macht Pause bis zur Rückmeldung'],
+    exit: ['geht heim'],
+  },
+  en: {
+    desks: ['writing code', 'building a page', 'tidying up code', 'typing away'],
+    library: ['reading docs', 'looking something up', 'going through notes'],
+    servers: ['running a script', 'testing something', 'rebuilding the website'],
+    window: ['researching online', 'looking at websites', 'collecting ideas'],
+    meeting: ['briefing a helper', 'handing out tasks', 'going over the plan'],
+    mailroom: ['writing an email', 'sorting the post', 'adding dates to the calendar'],
+    whiteboard: ['thinking it over', 'sketching an idea', 'working out the next step'],
+    lounge: ['waiting for feedback', 'done and waiting', 'taking a break until we reply'],
+    exit: ['heading home'],
+  },
 }[LANG];
-const T = { de: { dog: 'Henry, Bürohund', extra: 'Statist', agents: 'Agenten', humans: 'Menschen', nobody: 'Gerade arbeitet kein Agent. Die Statisten halten die Stellung.' }, en: { dog: 'Henry, office dog', extra: 'Extra', agents: 'Agents', humans: 'Humans', nobody: 'No agent is working right now. The extras are holding the fort.' } }[LANG];
+const HUMAN_PHRASES = {
+  de: { pingpong: ['spielt Ping-Pong', 'verliert gerade beim Ping-Pong', 'übt den Aufschlag'], coffee: ['holt sich einen Kaffee', 'plaudert an der Kaffeemaschine', 'wartet auf den Espresso'],
+        meeting: ['im Meeting'], desks: ['arbeitet konzentriert', 'sitzt am Schreibtisch'], lounge: ['ist kurz weg', 'macht Pause'] },
+  en: { pingpong: ['playing ping-pong', 'losing at ping-pong', 'practising the serve'], coffee: ['getting a coffee', 'chatting at the coffee machine', 'waiting for the espresso'],
+        meeting: ['in a meeting'], desks: ['heads down at a desk', 'working at a desk'], lounge: ['away for a moment', 'on a break'] },
+}[LANG];
+const rotate = (list, seed) => list[(hash(seed) + Math.floor(Date.now() / 20000)) % list.length];
+const agentPhrase = (p) => rotate(PHRASES[p.zone] || PHRASES.whiteboard, p.id);
+function humanPhrase(p) {
+  if (!p) return '';
+  const z = p.zone === 'humans' ? (p.spot && p.spot.u < 250 ? 'pingpong' : 'coffee') : p.zone;
+  return rotate(HUMAN_PHRASES[z] || HUMAN_PHRASES.coffee, p.id);
+}
+const dogPhrase = () => LANG === 'de'
+  ? (dog.moving ? 'dreht eine Runde' : dog.pose === 'lie' ? 'macht ein Nickerchen' : dog.pose === 'sit' ? 'leistet jemandem Gesellschaft' : 'schaut sich um')
+  : (dog.moving ? 'doing a lap' : dog.pose === 'lie' ? 'taking a nap' : dog.pose === 'sit' ? 'keeping someone company' : 'looking around');
+const T = { de: { dog: 'Henry, Office-Hund', extra: 'Statist', agents: 'Agenten', humans: 'Menschen', nobody: 'Gerade arbeitet kein Agent. Die Statisten halten die Stellung.' }, en: { dog: 'Henry, office dog', extra: 'Extra', agents: 'Agents', humans: 'Humans', nobody: 'No agent is working right now. The extras are holding the fort.' } }[LANG];
 
 // ---------- Projection ----------
 const LW = 800, LH = 520, OX = 400, OY = 118, ROOM = 380, WALL = 96;
@@ -838,7 +876,7 @@ function drawUI(t) {
     const ps = Math.round(7 * k); oR(X - ps / 2 - 1, TOP - ps - 6, ps + 2, ps + 2, a.human ? C.white : C.ink); oR(X - ps / 2, TOP - ps - 5, ps, ps, a.human ? (TEAMS[a.availability] || C.grey) : STATUS[a.state] || C.grey);
     if (a.human && a.availability === 'DoNotDisturb') oR(X - ps / 2 + 1, TOP - ps / 2 - 6, ps - 2, 2, C.white);
     const above = TOP - ps - 9, focus = selected === p.id || hovered === p.id;
-    if (!p.moving && a.state === 'tool' && a.tool && (focus || t < (p.bubbleUntil || 0))) bubble(X, above, PUBLIC ? (PHRASE[p.zone] || '') : `${a.tool}${a.detail ? ': ' + a.detail : ''}`, selected === p.id ? 60 : 30, false, k);
+    if (!p.moving && a.state === 'tool' && a.tool && (focus || t < (p.bubbleUntil || 0))) bubble(X, above, PUBLIC ? agentPhrase(p) : `${a.tool}${a.detail ? ': ' + a.detail : ''}`, selected === p.id ? 60 : 30, false, k);
     else if (shrugging(p, t)) bubble(X, above, SHRUG, 20, true, k);
     else if (!p.moving && a.state === 'thinking') { const n = Math.floor(t / 350) % 4; for (let i = 0; i < n; i++) { oR(X + 6 + i * 6 * k, above - 4 - i * 5 * k, 5 * k, 5 * k, C.ink); oR(X + 7 + i * 6 * k, above - 3 - i * 5 * k, 3 * k, 3 * k, C.acid); } }
     else if (!p.moving && a.state === 'waiting' && Math.floor((t + p.phase) / 1300) % 3 === 0) oText('z', X + 9, above + 4 - ((t / 160) % 9), `700 ${Math.round(12 * k)}px "Space Grotesk"`, C.white);
@@ -1022,12 +1060,13 @@ function renderPublic(snap) {
   if (!el) return;
   const real = snap.agents.filter(a => !a.extra), hum = snap.humans || [];
   const row = (color, name, what) => `<li><span class="office-dot" style="background:${color}"></span><b>${esc(name)}</b> <span>${esc(what)}</span></li>`;
-  let html = `<div class="office-group"><div class="office-label">${T.agents} · ${real.length}</div><ul>`;
-  html += real.length ? real.map(a => { const p = people.get(a.id); return row(p ? p.shirt : C.grey, p ? p.name : a.role, PHRASE[a.zone] || ''); }).join('') : `<li class="office-empty">${esc(T.nobody)}</li>`;
-  html += `</ul></div><div class="office-group"><div class="office-label">${T.humans} · ${hum.length}</div><ul>`;
-  html += hum.map(h => row(TEAMS[h.availability] || C.grey, h.name, humanLabel(h))).join('');
-  html += row('#d8792a', 'Henry', LANG === 'de' ? 'Bürohund, immer da' : 'office dog, always in') + '</ul></div>';
-  el.innerHTML = html;
+  // humans (and Henry) first, then the agents
+  let html = `<div class="office-group"><div class="office-label">${T.humans} · ${hum.length}</div><ul>`;
+  html += hum.map(h => { const p = people.get(h.id); return row(p ? p.shirt : C.grey, h.name, humanPhrase(p)); }).join('');
+  html += row('#d8792a', 'Henry', dogPhrase()) + '</ul></div>';
+  html += `<div class="office-group"><div class="office-label">${T.agents} · ${real.length}</div><ul>`;
+  html += real.length ? real.map(a => { const p = people.get(a.id); return row(p ? p.shirt : C.grey, p ? p.name : a.role, p ? agentPhrase(p) : ''); }).join('') : `<li class="office-empty">${esc(T.nobody)}</li>`;
+  el.innerHTML = html + '</ul></div>';
 }
 function renderList(snap) {
   if (PUBLIC) return renderPublic(snap);

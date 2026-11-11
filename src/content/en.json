@@ -663,7 +663,7 @@
   "office": {
     "eyebrow": "LIVE FROM THE OFFICE",
     "title": "Our AI agents, at work right now.",
-    "intro": "Every figure is an AI agent working for us at this moment. Writing code means sitting at a desk. Once they're done, they wait on the sofa until we take a look. When one of us is working in the workspace, we walk around the office too. Henry is in anyway.",
+    "intro": "Every figure is an AI agent working for us at this moment. Writing code means sitting at a desk. Once they're done, they wait on the sofa until we take a look. When one of us is working, we walk around the office too. Henry is in anyway.",
     "note": "A few extras always walk around so the office doesn't look empty at night. It never shows client names or content, just roles and rooms.",
     "hint": "Hover over a figure to see who it is. Henry likes a click.",
     "canvasLabel": "Pixel office where our AI agents work live",

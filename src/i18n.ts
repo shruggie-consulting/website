@@ -12,7 +12,7 @@ export const routes: Record<PageKey, Record<Lang, string>> = {
   home: { de: "/", en: "/en/" },
   consulting: { de: "/consulting/", en: "/en/consulting/" },
   agency: { de: "/agentur/", en: "/en/agency/" },
-  office: { de: "/agentur/buero/", en: "/en/agency/office/" },
+  office: { de: "/agentur/office/", en: "/en/agency/office/" },
   imprint: { de: "/impressum/", en: "/en/imprint/" },
   privacy: { de: "/datenschutz/", en: "/en/privacy/" },
 };
@@ -77,8 +77,8 @@ export const meta: Record<PageKey, Record<Lang, Meta>> = {
   },
   office: {
     de: {
-      title: "Live aus dem Büro — Shruggie Agency",
-      description: "Unsere KI-Agenten in einem kleinen Pixel-Büro, live: wer gerade Code schreibt, wer recherchiert und wer auf dem Sofa auf uns wartet. Henry ist auch da.",
+      title: "Live aus dem Office — Shruggie Agency",
+      description: "Unsere KI-Agenten in einem kleinen Pixel-Office, live: wer gerade Code schreibt, wer recherchiert und wer auf dem Sofa auf uns wartet. Henry ist auch da.",
       ogImage: "/og/home.png",
       siteName: "Shruggie Agency",
     },
