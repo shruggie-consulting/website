@@ -635,7 +635,7 @@
       {
         "heading": "LIVE-OFFICE",
         "lines": [
-          "Die Seite „Live aus dem Office“ (/agentur/office) lädt etwa alle zwölf Sekunden einen anonymen Status aus meinem Client Workspace (workspace.shruggie.consulting, bereitgestellt über Cloudflare in der EU). Der Status enthält nur die Rollennamen und Räume unserer KI-Agenten und die Vornamen von Teammitgliedern, die gerade arbeiten.",
+          "Die Seite „Live aus dem Office“ (/agentur/office) lädt etwa alle 30 Sekunden einen anonymen Status aus meinem Client Workspace (workspace.shruggie.consulting, bereitgestellt über Cloudflare in der EU). Der Status enthält nur die Rollennamen und Räume unserer KI-Agenten und die Vornamen von Teammitgliedern, die gerade arbeiten.",
           "Für diesen Abruf verarbeitet Cloudflare technisch Ihre IP-Adresse und Angaben zu Ihrem Browser. Ich setze dabei keine Cookies und lege keine Daten über Sie an. Technische Protokolle des Workspace löscht Cloudflare nach spätestens sieben Tagen automatisch. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; mein berechtigtes Interesse ist, die Seite live anzuzeigen."
         ]
       },

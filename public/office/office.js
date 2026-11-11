@@ -1197,7 +1197,7 @@ function startPublic() {
     apply({ agents: real.concat(extras.slice(0, Math.max(0, min - real.length))), humans: hum, teams: true, at: Date.now() });
   };
   const poll = async () => { try { const r = await fetch(CFG.endpoint, { cache: 'no-store' }); if (r.ok) live = await r.json(); } catch { /* keep the last state */ } push(); };
-  roll(); poll(); setInterval(poll, 12000); setInterval(() => { roll(); push(); }, 7000);
+  roll(); poll(); setInterval(poll, 30000); setInterval(() => { roll(); push(); }, 7000);
 }
 
 if (PUBLIC) startPublic();
