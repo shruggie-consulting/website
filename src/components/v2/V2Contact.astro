@@ -31,15 +31,13 @@ const ICONS = [
       <p class="v2-lead">{text.body}</p>
       <dl class="v2-contact__rows">
         {home.rows.slice(0, brand === "agency" ? 1 : undefined).map((r, i) => (
-          <div class="v2-contact__row">
-            <svg class="v2-contact__icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" set:html={ICONS[i] ?? ICONS[0]} />
-            <dt>{r.label}</dt><dd>{r.href ? <a href={r.href}>{r.value}</a> : r.value}</dd>
+          <div>
+            <dt>{r.label}</dt><dd><span class="v2-contact__line"><svg class="v2-contact__icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" set:html={ICONS[i] ?? ICONS[0]} />{r.href ? <a href={r.href}>{r.value}</a> : r.value}</span></dd>
           </div>
         ))}
-        <div class="v2-contact__row">
-          <svg class="v2-contact__icon v2-contact__icon--wa" viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d={WHATSAPP_PATH} /></svg>
+        <div>
           <dt>{home.whatsapp.label}</dt>
-          <dd><a href={whatsappLink(lang, brand)} target="_blank" rel="noopener">{home.whatsapp.number}</a><span class="v2-contact__hint">{home.whatsapp.note}</span></dd>
+          <dd><span class="v2-contact__line"><svg class="v2-contact__icon" viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d={WHATSAPP_PATH} /></svg><a href={whatsappLink(lang, brand)} target="_blank" rel="noopener">{home.whatsapp.number}</a></span><span class="v2-contact__hint">{home.whatsapp.note}</span></dd>
         </div>
       </dl>
     </div>
