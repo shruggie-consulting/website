@@ -13,7 +13,7 @@ import V2Contact from "./V2Contact.astro";
 import V2Footer from "./V2Footer.astro";
 import PriceText from "./PriceText.astro";
 import { priceReady } from "./price";
-import { content, type Lang } from "../../i18n";
+import { content, routes, type Lang } from "../../i18n";
 import "../../styles/v2.css";
 
 interface Props {
@@ -22,6 +22,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const a = content[lang].agency;
+const o = content[lang].office;
 const words = a.hero.eyebrow.split(" · ");
 const num = (i: number) => String(i + 1);
 const work = a.work.items as { client: string; title: string; body: string }[];
@@ -63,6 +64,18 @@ const priceShown = priceReady(price.value);
             <span class="v2-panel__name">Shruggie<span class="v2-dot">.</span></span>
             <span class="v2-panel__desc">Agency</span>
           </div>
+        </div>
+      </section>
+
+      <!-- Teaser for the live pixel office (/agentur/office). -->
+      <section class="v2-cards-section office-teaser" aria-labelledby="v2-office">
+        <div class="v2-wrap">
+          <a class="v2-card v2-card--line office-teaser__card" href={routes.office[lang]}>
+            <div class="v2-eyebrow"><span class="office-teaser__dot" aria-hidden="true"></span>{o.teaser.eyebrow}</div>
+            <h2 id="v2-office" class="v2-h2">{o.teaser.title}</h2>
+            <p>{o.teaser.body}</p>
+            <span class="v2-btn">{o.teaser.cta}</span>
+          </a>
         </div>
       </section>
 
@@ -152,3 +165,12 @@ const priceShown = priceReady(price.value);
   import { initV2 } from "../../scripts/v2";
   initV2();
 </script>
+
+<style is:global>
+  .office-teaser__card { display: block; text-decoration: none; color: inherit; }
+  .office-teaser__card .v2-eyebrow { display: inline-flex; align-items: center; gap: 10px; }
+  .office-teaser__dot { width: 9px; height: 9px; background: var(--rust, #f51d31); animation: office-teaser-blink 1.4s steps(1) infinite; }
+  @keyframes office-teaser-blink { 50% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .office-teaser__dot { animation: none; } }
+  .office-teaser__card:hover .v2-btn { background: var(--ink); color: var(--cream); }
+</style>

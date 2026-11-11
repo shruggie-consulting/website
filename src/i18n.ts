@@ -2,7 +2,7 @@ import de from "./content/de.json";
 import en from "./content/en.json";
 
 export type Lang = "de" | "en";
-export type PageKey = "home" | "consulting" | "agency" | "imprint" | "privacy";
+export type PageKey = "home" | "consulting" | "agency" | "office" | "imprint" | "privacy";
 
 export const content = { de, en } as const;
 
@@ -12,6 +12,7 @@ export const routes: Record<PageKey, Record<Lang, string>> = {
   home: { de: "/", en: "/en/" },
   consulting: { de: "/consulting/", en: "/en/consulting/" },
   agency: { de: "/agentur/", en: "/en/agency/" },
+  office: { de: "/agentur/office/", en: "/en/agency/office/" },
   imprint: { de: "/impressum/", en: "/en/imprint/" },
   privacy: { de: "/datenschutz/", en: "/en/privacy/" },
 };
@@ -70,6 +71,20 @@ export const meta: Record<PageKey, Record<Lang, Meta>> = {
       title: "Shruggie Agency — your marketing team",
       description:
         "Your marketing team without hiring one: a tight Munich agency that works each month on whatever brings the most. Video, ads, websites, recruiting and brand.",
+      ogImage: "/og/home.png",
+      siteName: "Shruggie Agency",
+    },
+  },
+  office: {
+    de: {
+      title: "Live aus dem Office — Shruggie Agency",
+      description: "Unsere KI-Agenten in einem kleinen Pixel-Office, live: wer gerade Code schreibt, wer recherchiert und wer auf dem Sofa auf uns wartet. Henry ist auch da.",
+      ogImage: "/og/home.png",
+      siteName: "Shruggie Agency",
+    },
+    en: {
+      title: "Live from the office — Shruggie Agency",
+      description: "Our AI agents in a little pixel office, live: who's writing code, who's doing research and who's waiting on the sofa for us. Henry is there too.",
       ogImage: "/og/home.png",
       siteName: "Shruggie Agency",
     },

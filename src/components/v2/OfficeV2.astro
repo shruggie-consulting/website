@@ -1,0 +1,91 @@
+---
+// "Live aus dem Office" (/agentur/office, /en/agency/office): the Agent Office in public mode.
+// The pixel office runs from /office/office.js (master copy: ~/Test/agent-office/public/office.js,
+// copied here unchanged). It reads the anonymised snapshot from the workspace: role names,
+// rooms and states of our agents and the first names of the team; never projects, tasks or
+// client data (the Mac and the workspace both drop anything outside fixed lists). A few extras
+// keep the room from looking empty.
+import Base from "../../layouts/Base.astro";
+import Backdrop from "./Backdrop.astro";
+import V2Header from "./V2Header.astro";
+import V2Contact from "./V2Contact.astro";
+import V2Footer from "./V2Footer.astro";
+import { content, routes, type Lang } from "../../i18n";
+import "../../styles/v2.css";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const o = content[lang].office;
+const cfg = { mode: "public", lang, endpoint: "https://workspace.shruggie.consulting/api/public/office", extras: 4 };
+---
+
+<Base lang={lang} page="office">
+  <div class="v2" data-bg="wallpaper" data-theme="agency">
+    <V2Header lang={lang} brand="agency" page="office" />
+
+    <main id="main">
+      <section class="v2-hero office-hero">
+        <Backdrop tone="acid" />
+        <div class="v2-wrap">
+          <div class="v2-eyebrow office-hero__eyebrow"><span class="office-live" aria-hidden="true"></span>{o.eyebrow}</div>
+          <h1 class="v2-h2 office-hero__title">{o.title}</h1>
+          <p class="v2-lead">{o.intro}</p>
+        </div>
+      </section>
+
+      <section class="office-stage">
+        <div class="office-stage__room" id="wrap">
+          <canvas id="c" role="img" aria-label={o.canvasLabel}></canvas>
+        </div>
+        <div class="v2-wrap office-below">
+          <div id="office-people" class="office-people" aria-live="polite"></div>
+          <div class="office-text">
+            <p>{o.hint}</p>
+            <p class="office-note">{o.note}</p>
+            <a class="v2-btn" href={routes.agency[lang]}>{o.back}</a>
+          </div>
+        </div>
+      </section>
+
+      <V2Contact lang={lang} brand="agency" />
+    </main>
+
+    <V2Footer lang={lang} brand="agency" />
+  </div>
+</Base>
+
+<script is:inline define:vars={{ cfg }}>window.OFFICE = cfg;</script>
+<script is:inline src="/office/office.js" defer></script>
+<script>
+  import { initV2 } from "../../scripts/v2";
+  initV2();
+</script>
+
+<style is:global>
+  .office-hero { min-height: auto; padding: 150px 0 56px; align-items: flex-end; }
+  .office-hero__title { max-width: 18ch; }
+  .office-hero__eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); }
+  .office-live { width: 10px; height: 10px; background: var(--rust, #f51d31); animation: office-blink 1.4s steps(1) infinite; }
+  @keyframes office-blink { 50% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .office-live { animation: none; } }
+  .office-stage { background: #fff; padding: 40px 0 72px; }
+  .office-stage__room { display: grid; place-items: center; padding: 0 16px; }
+  .office-stage canvas { display: block; image-rendering: pixelated; filter: drop-shadow(0 26px 34px #0000002e); cursor: pointer; max-width: 100%; }
+  .office-below { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; margin-top: 40px; }
+  .office-people { display: grid; gap: 22px; align-content: start; }
+  .office-label { font: 700 12px var(--font-sans); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 10px; }
+  .office-people ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .office-people li { display: flex; align-items: baseline; gap: 10px; font-size: 15px; }
+  .office-people li span:last-child { color: var(--muted, #5c5c5c); }
+  .office-dot { width: 10px; height: 10px; flex: none; align-self: center; box-shadow: inset 0 0 0 1px #16161640; }
+  .office-empty { color: var(--muted, #5c5c5c); }
+  .office-text p { font-size: 16px; line-height: 1.6; max-width: 52ch; margin: 0 0 14px; }
+  .office-note { color: var(--muted, #5c5c5c); }
+  @media (max-width: 760px) {
+    .office-hero { padding: 120px 0 40px; }
+    .office-below { grid-template-columns: 1fr; gap: 28px; }
+  }
+</style>

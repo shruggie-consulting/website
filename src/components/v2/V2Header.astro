@@ -3,17 +3,21 @@
 // page scrolls. The logo always leads to the house page; the brand pages show their descriptor
 // and link the other brand next to their own sections. The language switch carries a flag.
 import Flag from "../Flag.astro";
-import { content, otherLang, routes, ui, workspaceUrl, type Lang } from "../../i18n";
+import { content, otherLang, routes, ui, workspaceUrl, type Lang, type PageKey } from "../../i18n";
 import { PAGE_OF, type Brand } from "./brand";
 
 interface Props {
   lang: Lang;
   brand: Brand;
+  /** A sub-page of a brand (e.g. the live office): the language switch stays on it and the
+   *  brand's section links point back to the brand page. */
+  page?: PageKey;
 }
 
 const { lang, brand } = Astro.props;
 const c = content[lang];
-const page = PAGE_OF[brand];
+const page = Astro.props.page ?? PAGE_OF[brand];
+const navBase = page === PAGE_OF[brand] ? "" : routes[PAGE_OF[brand]][lang];
 const other = otherLang(lang);
 const nav = brand === "house" ? c.house.nav : brand === "agency" ? c.agency.nav : c.home.nav;
 // The doors in the menu: both brands on the house page, the other brand on a brand page.
@@ -38,7 +42,7 @@ const desc = brand === "house" ? "" : brand === "agency" ? "Agency" : "Consultin
   </button>
   <div class="v2-menu" id="v2-menu" data-v2-menu>
     <nav class="v2-nav" aria-label={ui[lang].nav}>
-      {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+      {nav.map((item) => <a href={item.href.startsWith("#") && item.href !== "#contact" ? navBase + item.href : item.href} aria-current={item.href === routes[page][lang] ? "page" : undefined}>{item.label}</a>)}
       {doors.map((d, i) => <a class:list={[{ "v2-nav__brand": i === 0 }]} href={d.href}>{d.label}</a>)}
     </nav>
     <a class="v2-nav__lang" href={routes[page][other]} hreflang={other} lang={other} data-lang-switch aria-label={other === "en" ? "English" : "Deutsch"}>

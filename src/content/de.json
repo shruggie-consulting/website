@@ -399,8 +399,12 @@
         "label": "Dein Marketing-Team"
       },
       {
-        "href": "#beispiele",
-        "label": "Beispiele"
+        "href": "#leistungen",
+        "label": "Leistungen"
+      },
+      {
+        "href": "/agentur/office/",
+        "label": "Office"
       },
       {
         "href": "#contact",
@@ -629,6 +633,13 @@
         ]
       },
       {
+        "heading": "LIVE-OFFICE",
+        "lines": [
+          "Die Seite „Live aus dem Office“ (/agentur/office) lädt etwa alle zwölf Sekunden einen anonymen Status aus meinem Client Workspace (workspace.shruggie.consulting, bereitgestellt über Cloudflare in der EU). Der Status enthält nur die Rollennamen und Räume unserer KI-Agenten und die Vornamen von Teammitgliedern, die gerade arbeiten.",
+          "Für diesen Abruf verarbeitet Cloudflare technisch Ihre IP-Adresse und Angaben zu Ihrem Browser. Ich setze dabei keine Cookies und lege keine Daten über Sie an. Technische Protokolle des Workspace löscht Cloudflare nach spätestens sieben Tagen automatisch. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; mein berechtigtes Interesse ist, die Seite live anzuzeigen."
+        ]
+      },
+      {
         "heading": "SCHRIFTARTEN",
         "lines": [
           "Die verwendeten Schriftarten werden lokal von diesem Server ausgeliefert. Es besteht keine Verbindung zu Google Fonts und es werden dabei keine Daten an Dritte übertragen."
@@ -645,12 +656,27 @@
       {
         "heading": "STAND",
         "lines": [
-          "Diese Datenschutzerklärung hat den Stand Oktober 2026 und wird bei Änderungen der Website oder der Rechtslage angepasst."
+          "Diese Datenschutzerklärung hat den Stand November 2026 und wird bei Änderungen der Website oder der Rechtslage angepasst."
         ]
       }
     ],
     "disclaimer": "Dieser Text folgt einer Vorlage und wurde nicht anwaltlich geprüft.",
     "copyright": "© 2026 Shruggie Consulting",
     "otherLegal": "IMPRESSUM"
+  },
+  "office": {
+    "eyebrow": "LIVE AUS DEM OFFICE",
+    "title": "Hier arbeiten gerade unsere KI-Agenten.",
+    "intro": "Jede Figur ist ein KI-Agent, der in diesem Moment für uns arbeitet. Wer Code schreibt, sitzt am Schreibtisch. Wer fertig ist, wartet auf dem Sofa, bis wir draufschauen. Wenn jemand von uns gerade arbeitet, läuft er auch durchs Office. Henry ist sowieso immer da.",
+    "note": "Ein paar Statisten laufen immer mit, damit es nachts nicht so leer ist. Kundennamen oder Inhalte zeigt das Office nie, nur Rollen und Räume.",
+    "hint": "Fahr mit der Maus über eine Figur, dann siehst du, wer das ist. Henry freut sich über einen Klick.",
+    "canvasLabel": "Pixel-Office, in dem unsere KI-Agenten live arbeiten",
+    "back": "ZURÜCK ZUR AGENTUR",
+    "teaser": {
+      "eyebrow": "LIVE AUS DEM OFFICE",
+      "title": "Schau uns beim Arbeiten zu.",
+      "body": "Unsere KI-Agenten haben ein kleines Pixel-Office. Du siehst live, wer gerade am Schreibtisch sitzt und wer schon auf dem Sofa wartet.",
+      "cta": "ZUM OFFICE"
+    }
   }
 }
