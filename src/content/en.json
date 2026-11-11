@@ -289,6 +289,18 @@
           "too many": "There are a lot of enquiries right now. Please email us directly at hello@shruggie.consulting.",
           "generic": "Sorry, that didn't work. Please email us directly at hello@shruggie.consulting."
         }
+      },
+      "whatsapp": {
+        "label": "WHATSAPP",
+        "number": "+49 152 04195706",
+        "note": "Monday to Friday, usually the same day",
+        "button": "WhatsApp",
+        "buttonLabel": "Message us on WhatsApp",
+        "messages": {
+          "house": "Hi Shruggie! ",
+          "consulting": "Hi Shruggie, I have a question about your consulting: ",
+          "agency": "Hi Shruggie, I have a project for you: "
+        }
       }
     },
     "footer": {
@@ -630,6 +642,14 @@
           "The legal basis is your consent under Art. 6 (1) (a) GDPR (contact form), or Art. 6 (1) (b) GDPR for contract-related enquiries, otherwise Art. 6 (1) (f) GDPR. You can withdraw your consent at any time by email.",
           "Enquiries sent via the form are stored in my Client Workspace (Supabase, data centre in Frankfurt, Germany; delivered via Cloudflare in the EU). I am notified of new enquiries by email via Brevo (Sendinblue SAS, Paris). Data processing agreements under Art. 28 GDPR are in place with all of these providers.",
           "Your enquiry is deleted once it has been dealt with and no statutory retention periods apply; if it does not lead to an engagement, at the latest twelve months after our last communication."
+        ]
+      },
+      {
+        "heading": "WHATSAPP",
+        "lines": [
+          "This website links to WhatsApp. As long as you don't click the link, no data goes to WhatsApp. Only the click opens WhatsApp, a service of WhatsApp Ireland Limited, 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Ireland, where WhatsApp's privacy policy applies: https://www.whatsapp.com/legal/privacy-policy-eea",
+          "If you message us on WhatsApp, we process your phone number, your profile name and your messages to answer your enquiry. The legal basis is Art. 6(1)(b) GDPR for contract-related enquiries, otherwise Art. 6(1)(f) GDPR; our legitimate interest is answering enquiries the way you chose. Messages are end-to-end encrypted. We use the WhatsApp Business app and delete chats once they're no longer needed for the enquiry.",
+          "WhatsApp is part of the Meta group. A transfer of data to the USA can't be ruled out; Meta Platforms, Inc. is certified under the EU-US Data Privacy Framework. If you'd rather not, please write to us by email or through the contact form."
         ]
       },
       {

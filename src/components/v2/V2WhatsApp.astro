@@ -1,0 +1,44 @@
+---
+// Floating WhatsApp button for the v2 pages: shows up once the visitor has scrolled past the
+// hero, steps aside while the contact section (which has its own WhatsApp row) is on screen.
+// A plain link to wa.me: nothing is loaded from WhatsApp until someone clicks it.
+import { content, type Lang } from "../../i18n";
+import type { Brand } from "./brand";
+import { WHATSAPP_PATH, whatsappLink } from "./whatsapp";
+
+interface Props {
+  lang: Lang;
+  brand: Brand;
+}
+const { lang, brand } = Astro.props;
+const w = content[lang].home.contact.whatsapp;
+---
+
+<a class="v2-wa" href={whatsappLink(lang, brand)} target="_blank" rel="noopener" aria-label={w.buttonLabel} data-wa-float hidden>
+  <svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><path fill="currentColor" d={WHATSAPP_PATH}/></svg>
+  <span>{w.button}</span>
+</a>
+
+<script>
+  const btn = document.querySelector<HTMLAnchorElement>("[data-wa-float]");
+  if (btn) {
+    let past = false, contact = false;
+    const sync = () => { btn.hidden = false; btn.classList.toggle("is-on", past && !contact); };
+    const onScroll = () => { past = scrollY > innerHeight * 0.6; sync(); };
+    addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    const c = document.getElementById("contact");
+    if (c) new IntersectionObserver(([e]) => { contact = e.isIntersecting; sync(); }, { threshold: 0.15 }).observe(c);
+  }
+</script>
+
+<style is:global>
+  .v2-wa { position: fixed; right: 20px; bottom: 20px; z-index: 40; display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 18px 0 14px; border-radius: 999px; border: 1.5px solid var(--ink); background: var(--cream); color: var(--ink); font: 700 14px var(--font-sans); letter-spacing: 0.04em; text-decoration: none; box-shadow: 0 10px 24px oklch(0 0 0 / 0.25); opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity 0.2s, transform 0.2s, background 0.15s; }
+  .v2-wa svg { color: #1a9e4b; }
+  .v2-wa.is-on { opacity: 1; transform: none; pointer-events: auto; }
+  .v2-wa:hover { background: var(--ink); color: var(--cream); }
+  .v2-wa:hover svg { color: #25d366; }
+  .v2-wa:focus-visible { outline: 3px solid #25d366; outline-offset: 3px; }
+  @media (max-width: 760px) { .v2-wa { right: 16px; bottom: 16px; width: 52px; height: 52px; padding: 0; justify-content: center; } .v2-wa span { display: none; } .v2-wa svg { width: 26px; height: 26px; } }
+  @media (prefers-reduced-motion: reduce) { .v2-wa { transition: none; } }
+</style>

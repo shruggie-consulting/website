@@ -3,6 +3,7 @@
 // (one business); the right column links the house and the brands, then the legal pages.
 import { content, routes, ui, workspaceUrl, type Lang } from "../../i18n";
 import type { Brand } from "./brand";
+import V2WhatsApp from "./V2WhatsApp.astro";
 
 interface Props {
   lang: Lang;
@@ -39,3 +40,4 @@ const links = [
     </nav>
   </div>
 </footer>
+<V2WhatsApp lang={lang} brand={brand} />

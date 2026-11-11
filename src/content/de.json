@@ -289,6 +289,18 @@
           "too many": "Gerade sind sehr viele Anfragen eingegangen. Schreib uns bitte direkt an hello@shruggie.consulting.",
           "generic": "Das hat leider nicht geklappt. Schreib uns bitte direkt an hello@shruggie.consulting."
         }
+      },
+      "whatsapp": {
+        "label": "WHATSAPP",
+        "number": "+49 152 04195706",
+        "note": "Montag bis Freitag, meistens am selben Tag",
+        "button": "WhatsApp",
+        "buttonLabel": "Schreib uns auf WhatsApp",
+        "messages": {
+          "house": "Hallo Shruggie! ",
+          "consulting": "Hallo Shruggie, ich habe eine Frage zu eurem Consulting: ",
+          "agency": "Hallo Shruggie, ich habe ein Projekt für euch: "
+        }
       }
     },
     "footer": {
@@ -630,6 +642,14 @@
           "Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO (Kontaktformular) bzw. Art. 6 Abs. 1 lit. b DSGVO bei vertragsbezogenen Anfragen, sonst Art. 6 Abs. 1 lit. f DSGVO. Die Einwilligung können Sie jederzeit per E-Mail widerrufen.",
           "Anfragen über das Formular werden in meinem Client Workspace gespeichert (Supabase, Rechenzentrum Frankfurt am Main; Bereitstellung über Cloudflare in der EU). Über neue Anfragen werde ich per E-Mail über Brevo (Sendinblue SAS, Paris) benachrichtigt. Mit allen Dienstleistern bestehen Verträge zur Auftragsverarbeitung nach Art. 28 DSGVO.",
           "Ihre Anfrage wird gelöscht, sobald sie erledigt ist und keine gesetzlichen Aufbewahrungsfristen entgegenstehen; entsteht daraus kein Auftrag, spätestens zwölf Monate nach der letzten Kommunikation."
+        ]
+      },
+      {
+        "heading": "WHATSAPP",
+        "lines": [
+          "Auf dieser Website verlinken wir auf WhatsApp. Solange Sie den Link nicht anklicken, werden keine Daten an WhatsApp übertragen. Erst mit dem Klick öffnet sich WhatsApp, ein Dienst der WhatsApp Ireland Limited, 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland. Dort gelten die Datenschutzbestimmungen von WhatsApp: https://www.whatsapp.com/legal/privacy-policy-eea",
+          "Wenn Sie uns über WhatsApp schreiben, verarbeiten wir Ihre Telefonnummer, Ihren Profilnamen und Ihre Nachrichten, um Ihre Anfrage zu beantworten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO bei vertragsbezogenen Anfragen, sonst Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse ist, Anfragen auf dem Weg zu beantworten, den Sie selbst wählen. Nachrichten sind Ende-zu-Ende-verschlüsselt. Wir nutzen die WhatsApp Business App und löschen Chats, wenn sie für die Anfrage nicht mehr gebraucht werden.",
+          "WhatsApp ist ein Dienst der Meta-Gruppe. Eine Übermittlung von Daten in die USA kann dabei nicht ausgeschlossen werden; Meta Platforms, Inc. ist unter dem EU-US Data Privacy Framework zertifiziert. Wenn Sie das nicht möchten, schreiben Sie uns gern per E-Mail oder über das Kontaktformular."
         ]
       },
       {
