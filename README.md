@@ -1,6 +1,6 @@
 # shruggie.consulting
 
-Static site built with [Astro](https://astro.build). Every page is plain HTML at build time; the only JavaScript is the cookie banner and Google Analytics, which loads only after a visitor clicks Accept.
+Static site built with [Astro](https://astro.build). Every page is plain HTML at build time; the only JavaScript is the cookie banner and Google Analytics, which loads only after a visitor clicks Accept, plus the pixel office on /agentur/buero.
 
 ## Where things live
 
@@ -12,6 +12,7 @@ Static site built with [Astro](https://astro.build). Every page is plain HTML at
 | Homepage / legal page structure | `src/components/HomePage.astro`, `src/components/LegalPage.astro` |
 | Consent + analytics | `src/scripts/consent.ts` |
 | Fonts, favicons, link-preview images | `public/` |
+| Live office (/agentur/buero) | `src/components/v2/OfficeV2.astro`; the pixel office itself is `public/office/office.js`, a copy of `~/Test/agent-office/public/office.js` (edit there, copy here). Data: `workspace.shruggie.consulting/api/public/office` (anonymised: role names, rooms, first names) |
 
 German lives at `/`, English at `/en/`. Long German words in headings carry soft hyphens (`­`) so they break cleanly on phones.
 

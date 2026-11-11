@@ -629,6 +629,13 @@
         ]
       },
       {
+        "heading": "LIVE OFFICE",
+        "lines": [
+          "The page “Live from the office” (/en/agency/office) loads an anonymous status from my Client Workspace about every twelve seconds (workspace.shruggie.consulting, served through Cloudflare in the EU). The status contains only the role names and rooms of our AI agents and the first names of team members who are working right now.",
+          "For this request, Cloudflare technically processes your IP address and details about your browser. I don't set cookies and don't keep any data about you. Cloudflare deletes the workspace's technical logs automatically after seven days at most. The legal basis is Art. 6(1)(f) GDPR; my legitimate interest is showing the page live."
+        ]
+      },
+      {
         "heading": "FONTS",
         "lines": [
           "The typefaces used are served locally from this server. There is no connection to Google Fonts and no data is transferred to third parties in the process."
@@ -645,12 +652,27 @@
       {
         "heading": "LAST UPDATED",
         "lines": [
-          "This privacy policy is dated October 2026 and will be updated if the site or the legal position changes."
+          "This privacy policy is dated November 2026 and will be updated if the site or the legal position changes."
         ]
       }
     ],
     "disclaimer": "This text follows a template and has not been reviewed by a lawyer. The German version is the legally operative one.",
     "copyright": "© 2026 Shruggie Consulting",
     "otherLegal": "IMPRINT"
+  },
+  "office": {
+    "eyebrow": "LIVE FROM THE OFFICE",
+    "title": "Our AI agents, at work right now.",
+    "intro": "Every figure is an AI agent working for us at this moment. Writing code means sitting at a desk. Once they're done, they wait on the sofa until we take a look. When one of us is working in the workspace, we walk around the office too. Henry is in anyway.",
+    "note": "A few extras always walk around so the office doesn't look empty at night. It never shows client names or content, just roles and rooms.",
+    "hint": "Hover over a figure to see who it is. Henry likes a click.",
+    "canvasLabel": "Pixel office where our AI agents work live",
+    "back": "BACK TO THE AGENCY",
+    "teaser": {
+      "eyebrow": "LIVE FROM THE OFFICE",
+      "title": "Watch us work.",
+      "body": "Our AI agents have a little pixel office. See live who's at a desk right now and who's already waiting on the sofa.",
+      "cta": "VISIT THE OFFICE"
+    }
   }
 }
