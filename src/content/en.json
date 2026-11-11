@@ -635,7 +635,7 @@
       {
         "heading": "LIVE OFFICE",
         "lines": [
-          "The page “Live from the office” (/en/agency/office) loads an anonymous status from my Client Workspace about every twelve seconds (workspace.shruggie.consulting, served through Cloudflare in the EU). The status contains only the role names and rooms of our AI agents and the first names of team members who are working right now.",
+          "The page “Live from the office” (/en/agency/office) loads an anonymous status from my Client Workspace about every 30 seconds (workspace.shruggie.consulting, served through Cloudflare in the EU). The status contains only the role names and rooms of our AI agents and the first names of team members who are working right now.",
           "For this request, Cloudflare technically processes your IP address and details about your browser. I don't set cookies and don't keep any data about you. Cloudflare deletes the workspace's technical logs automatically after seven days at most. The legal basis is Art. 6(1)(f) GDPR; my legitimate interest is showing the page live."
         ]
       },
