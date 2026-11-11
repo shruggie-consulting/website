@@ -4,7 +4,7 @@
 import Backdrop from "./Backdrop.astro";
 import { content, routes, type Lang } from "../../i18n";
 import type { Brand } from "./brand";
-import { whatsappLink } from "./whatsapp";
+import { WHATSAPP_PATH, whatsappLink } from "./whatsapp";
 
 interface Props {
   lang: Lang;
@@ -15,6 +15,11 @@ const { lang, brand } = Astro.props;
 const home = content[lang].home.contact;
 const text = brand === "agency" ? content[lang].agency.contact : home;
 const form = home.form;
+// Small line icons in front of each direct way (row 0 is the email, row 1 the call booking).
+const ICONS = [
+  '<rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m3.5 6 8.5 7 8.5-7"/>',
+  '<rect x="3" y="5" width="18" height="16" rx="1.5"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+];
 ---
 
 <section id="contact" class="v2-contact" aria-labelledby="v2-contact">
@@ -25,8 +30,14 @@ const form = home.form;
       <h2 id="v2-contact" class="v2-h2">{text.title}</h2>
       <p class="v2-lead">{text.body}</p>
       <dl class="v2-contact__rows">
-        {home.rows.slice(0, brand === "agency" ? 1 : undefined).map((r) => <div><dt>{r.label}</dt><dd>{r.href ? <a href={r.href}>{r.value}</a> : r.value}</dd></div>)}
-        <div>
+        {home.rows.slice(0, brand === "agency" ? 1 : undefined).map((r, i) => (
+          <div class="v2-contact__row">
+            <svg class="v2-contact__icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" set:html={ICONS[i] ?? ICONS[0]} />
+            <dt>{r.label}</dt><dd>{r.href ? <a href={r.href}>{r.value}</a> : r.value}</dd>
+          </div>
+        ))}
+        <div class="v2-contact__row">
+          <svg class="v2-contact__icon v2-contact__icon--wa" viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d={WHATSAPP_PATH} /></svg>
           <dt>{home.whatsapp.label}</dt>
           <dd><a href={whatsappLink(lang, brand)} target="_blank" rel="noopener">{home.whatsapp.number}</a><span class="v2-contact__hint">{home.whatsapp.note}</span></dd>
         </div>

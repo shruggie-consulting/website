@@ -172,6 +172,10 @@
 .v2-contact__rows dd { margin: 0; font-size: 19px; font-weight: 700; }
 .v2-contact__rows a { color: var(--cream); text-decoration: none; }
 .v2-contact__rows a:hover { color: var(--sage); }
+.v2-contact__rows .v2-contact__row { display: grid; grid-template-columns: 40px minmax(0, 1fr); column-gap: 14px; align-items: start; }
+.v2-contact__row dt, .v2-contact__row dd { grid-column: 2; }
+.v2-contact__icon { grid-row: 1 / span 2; align-self: center; width: 40px; height: 40px; padding: 9px; border: 1px solid oklch(1 0 0 / 0.22); border-radius: 50%; color: var(--sage); }
+.v2-contact__icon--wa { padding: 8px; color: #25d366; }
 .v2-contact__hint { display: block; margin-top: 4px; font: 400 13px var(--font-sans); color: var(--muted-on-dark); }
 .v2-contact__card { background: var(--cream); color: var(--ink); padding: clamp(24px, 3vw, 36px); border-radius: 2px; }
 .v2-form { display: grid; gap: 16px; }
