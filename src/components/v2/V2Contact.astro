@@ -4,6 +4,7 @@
 import Backdrop from "./Backdrop.astro";
 import { content, routes, type Lang } from "../../i18n";
 import type { Brand } from "./brand";
+import { whatsappLink } from "./whatsapp";
 
 interface Props {
   lang: Lang;
@@ -25,6 +26,10 @@ const form = home.form;
       <p class="v2-lead">{text.body}</p>
       <dl class="v2-contact__rows">
         {home.rows.slice(0, brand === "agency" ? 1 : undefined).map((r) => <div><dt>{r.label}</dt><dd>{r.href ? <a href={r.href}>{r.value}</a> : r.value}</dd></div>)}
+        <div>
+          <dt>{home.whatsapp.label}</dt>
+          <dd><a href={whatsappLink(lang, brand)} target="_blank" rel="noopener">{home.whatsapp.number}</a><span class="v2-contact__hint">{home.whatsapp.note}</span></dd>
+        </div>
       </dl>
     </div>
     <div class="v2-contact__card">
