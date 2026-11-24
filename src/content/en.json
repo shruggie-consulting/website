@@ -652,6 +652,7 @@
         "heading": "CONTACT FORM AND EMAIL",
         "lines": [
           "If you write to me via the contact form, I process your name, email address, message and, if given, company and phone number. If you contact me by email, I process the details in your email. Both are used only to handle your enquiry.",
+          "If you reach this website through a tagged link, for example from an ad, I store the details from that link (source, campaign, ad) with your enquiry, along with the page you arrived on and the website you came from. This shows me which ads lead to enquiries. Nothing is stored on your device for this.",
           "The legal basis is your consent under Art. 6 (1) (a) GDPR (contact form), or Art. 6 (1) (b) GDPR for contract-related enquiries, otherwise Art. 6 (1) (f) GDPR. You can withdraw your consent at any time by email.",
           "Enquiries sent via the form are stored in my Client Workspace (Supabase, data centre in Frankfurt, Germany; delivered via Cloudflare in the EU). I am notified of new enquiries by email via Brevo (Sendinblue SAS, Paris). Data processing agreements under Art. 28 GDPR are in place with all of these providers.",
           "Your enquiry is deleted once it has been dealt with and no statutory retention periods apply; if it does not lead to an engagement, at the latest twelve months after our last communication."
