@@ -3,7 +3,7 @@
 // page scrolls. The logo always leads to the house page; the brand pages show their descriptor
 // and link the other brand next to their own sections. The language switch carries a flag.
 import Flag from "../Flag.astro";
-import { content, otherLang, routes, ui, workspaceUrl, type Lang, type PageKey } from "../../i18n";
+import { content, otherLang, routes, ui, workspaceUrl, TWO_BRANDS, type Lang, type PageKey } from "../../i18n";
 import { PAGE_OF, type Brand } from "./brand";
 
 interface Props {
@@ -26,7 +26,9 @@ const doors =
     ? [{ href: routes.consulting[lang], label: "Consulting" }, { href: routes.agency[lang], label: c.agency.link.label }]
     : brand === "agency"
       ? [{ href: routes.consulting[lang], label: c.agency.link.back }]
-      : [{ href: routes.agency[lang], label: c.agency.link.label }];
+      : TWO_BRANDS
+        ? [{ href: routes.agency[lang], label: c.agency.link.label }]
+        : [];
 const desc = brand === "house" ? "" : brand === "agency" ? "Agency" : "Consulting";
 ---
 
@@ -48,6 +50,10 @@ const desc = brand === "house" ? "" : brand === "agency" ? "Agency" : "Consultin
     <a class="v2-nav__lang" href={routes[page][other]} hreflang={other} lang={other} data-lang-switch aria-label={other === "en" ? "English" : "Deutsch"}>
       <Flag lang={other} /><span>{other.toUpperCase()}</span>
     </a>
-    <a class="v2-nav__login" href={workspaceUrl(lang)} aria-label={ui[lang].clientWorkspaceLabel}>{ui[lang].clientWorkspace}</a>
+    {/* The house page ends on the direct ways to reach us and leads there from the menu; the
+         client sign-in stays in its footer. The brand pages keep the sign-in up here. */}
+    {brand === "house"
+      ? <a class="v2-nav__login" href="#hallo">{c.house.contact.nav}</a>
+      : <a class="v2-nav__login" href={workspaceUrl(lang)} aria-label={ui[lang].clientWorkspaceLabel}>{ui[lang].clientWorkspace}</a>}
   </div>
 </header>

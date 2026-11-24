@@ -1,7 +1,7 @@
 ---
 // Dark three-column footer for the house page and both brands. The legal block stays the same
 // (one business); the right column links the house and the brands, then the legal pages.
-import { content, routes, ui, workspaceUrl, type Lang } from "../../i18n";
+import { content, routes, ui, workspaceUrl, TWO_BRANDS, type Lang } from "../../i18n";
 import type { Brand } from "./brand";
 import V2WhatsApp from "./V2WhatsApp.astro";
 
@@ -16,9 +16,10 @@ const legal = c.home.footer;
 const note = brand === "house" ? c.house.footer.note : brand === "agency" ? c.agency.footer.note : legal.note;
 const desc = brand === "house" ? "" : brand === "agency" ? "Agency" : "Consulting";
 const links = [
-  brand !== "house" && { href: routes.home[lang], label: c.house.footer.why },
+  // On its own, the Consulting page links neither the house page nor the Agency.
+  brand !== "house" && (TWO_BRANDS || brand === "agency") && { href: routes.home[lang], label: c.house.footer.why },
   brand !== "consulting" && { href: routes.consulting[lang], label: c.agency.link.backFooter },
-  brand !== "agency" && { href: routes.agency[lang], label: c.agency.link.footer },
+  brand !== "agency" && (TWO_BRANDS || brand === "house") && { href: routes.agency[lang], label: c.agency.link.footer },
 ].filter((l): l is { href: string; label: string } => !!l);
 ---
 

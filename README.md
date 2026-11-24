@@ -14,7 +14,7 @@ Static site built with [Astro](https://astro.build). Every page is plain HTML at
 | Fonts, favicons, link-preview images | `public/` |
 | Live office (/agentur/office) | `src/components/v2/OfficeV2.astro`; the pixel office itself is `public/office/office.js`, a copy of `~/Test/agent-office/public/office.js` (edit there, copy here). Data: `workspace.shruggie.consulting/api/public/office` (anonymised: role names, rooms, first names) |
 
-German lives at `/`, English at `/en/`. Long German words in headings carry soft hyphens (`­`) so they break cleanly on phones.
+German lives at `/`, English at `/en/`. The root is the Shruggie Consulting page (`src/components/v2/ConsultingV4.astro`, styles in `src/styles/house/`); `/consulting/` redirects to it. The house page and Shruggie Agency are switched off with `TWO_BRANDS` in `src/i18n.ts`: nothing links to them and the Agency pages are noindex. A draft of the new house page sits at `/v4/` (noindex). Long German words in headings carry soft hyphens (`­`) so they break cleanly on phones.
 
 ## Run locally
 

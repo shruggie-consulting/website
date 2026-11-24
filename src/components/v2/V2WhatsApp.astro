@@ -27,7 +27,7 @@ const w = content[lang].home.contact.whatsapp;
     const onScroll = () => { past = scrollY > innerHeight * 0.6; sync(); };
     addEventListener("scroll", onScroll, { passive: true });
     onScroll();
-    const c = document.getElementById("contact");
+    const c = document.getElementById("contact") ?? document.getElementById("hallo");
     if (c) new IntersectionObserver(([e]) => { contact = e.isIntersecting; sync(); }, { threshold: 0.15 }).observe(c);
   }
 </script>

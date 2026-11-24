@@ -1,0 +1,273 @@
+---
+// Version 4 of the Shruggie Consulting page, live at the root (/, /en/), in the system
+// of the v4 house page: white paper, the shrug wallpaper, ink and red, motion tied to scroll.
+// Same copy and the same wiring as ConsultingV2 (section ids, the typed line, the contact
+// form's fields and data attributes); the copy still comes from content.home. The approach
+// ("Zuhören, rechnen, entscheiden.") is one scrolled chapter. Styles: styles/house/v4.css
+// (shared with the house page) and styles/house/consulting-v4.css, scoped to .c4.
+import Base from "../../layouts/Base.astro";
+import Backdrop from "./Backdrop.astro";
+import V2Header from "./V2Header.astro";
+import V2Footer from "./V2Footer.astro";
+import PriceText from "./PriceText.astro";
+import { priceReady } from "./price";
+import { content, routes, type Lang } from "../../i18n";
+import { WHATSAPP_PATH, whatsappLink } from "./whatsapp";
+import "../../styles/v2.css";
+import "../../styles/house/v4.css";
+import "../../styles/house/consulting-v4.css";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const h = content[lang].home;
+const form = h.contact.form;
+const typed = h.hero.eyebrow.split(" · ");
+// The headline, one sentence a line.
+const lines = h.hero.title.match(/[^.]+\./g)?.map((s) => s.trim()) ?? [h.hero.title];
+const statement = h.about.title.split(" ");
+// The content files hold their labels in capitals (the current design sets them that way).
+// This version sets labels in sentence case: turned here, so the copy stays in one place.
+const label = (s: string) =>
+  s.toLowerCase().replace(/(^|[\s-])(\p{L})/gu, (_, a, b) => a + b.toUpperCase()).replace(/ (Und|And|The|For|Of) /g, (m) => m.toLowerCase()).replace(/^Ai-/, "AI-");
+// The approach heading in its three parts, one for each week ("Zuhören," "rechnen," "entscheiden.").
+const parts = h.approach.title.split(", ").map((w, i, all) => (i < all.length - 1 ? `${w},` : w));
+// Button and form labels in sentence case (the content files hold them in capitals).
+const t = {
+  de: { cta: "30-Minuten-Gespräch buchen", secondary: "Leistungen ansehen", more: "30-Minuten-Gespräch buchen", formTitle: "Oder schreib uns hier", submit: "Nachricht senden", whatsapp: "WhatsApp" },
+  en: { cta: "Book a 30-minute call", secondary: "See the services", more: "Book a 30-minute call", formTitle: "Or write to us here", submit: "Send message", whatsapp: "WhatsApp" },
+}[lang];
+const from = [-1, 0.14, 0.48];
+---
+
+<Base lang={lang} page="consulting">
+  <div class="v2 h4 c4" data-bg="wallpaper" data-theme="consulting">
+    <V2Header lang={lang} brand="consulting" />
+
+    <main id="main">
+      <!-- Hero: the headline a sentence a line, the three topics typed one after another,
+           both ways in, and how many mandates we take. -->
+      <section class="c4-hero">
+        <Backdrop tone="paper" />
+        <div class="container h4-grid">
+          <h1 class="c4-hero__title" aria-label={h.hero.title}>
+            {lines.map((l, i) => <span class="h4-word" style={`--i:${i}`} aria-hidden="true">{l}</span>)}
+          </h1>
+          <p class="lead c4-hero__say">{content[lang].house.shops.consulting.title}</p>
+          <p class="c4-hero__typed" aria-label={typed.join(", ")}>
+            <span aria-hidden="true"><span data-typed data-words={JSON.stringify(typed)}>{typed[0]}</span><span class="v2-cursor">_</span></span>
+          </p>
+          <div class="c4-hero__actions">
+            <a class="c4-btn" href="#contact">{t.cta}</a>
+            <a class="c4-btn c4-btn--quiet" href="#services">{t.secondary}</a>
+          </div>
+          <div class="c4-capacity">
+            <p class="c4-capacity__figure"><b>{h.heroAside.value}</b> {h.heroAside.unit}</p>
+            <p>{h.heroAside.text}</p>
+            <a class="h4-link" href="#contact">{h.heroAside.link}</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- About: the promise word by word, the two figures, the story in two columns, then
+           where, for whom and for whom not. -->
+      <section id="about" class="c4-intro">
+        <div class="container h4-grid">
+          <h2 class="c4-intro__statement" data-scrub="view" style={`--count:${statement.length}`} aria-label={h.about.title}>
+            {statement.map((w, n) => <span class="h4-w" style={`--n:${n}`} aria-hidden="true">{w}{" "}</span>)}
+          </h2>
+          <p class="c4-intro__lead" data-reveal>{h.hero.body}</p>
+          <dl class="c4-figures" data-reveal style="--i:1">
+            {h.stats.map((st) => (
+              <div>
+                <dt>{st.value}</dt>
+                <dd>{st.caption}</dd>
+              </div>
+            ))}
+          </dl>
+          <div class="c4-about__story" data-reveal>{h.about.paragraphs.map((p) => <p>{p}</p>)}</div>
+          <dl class="c4-rows" data-reveal style="--i:1">
+            {h.about.rows.map((r) => (
+              <div>
+                <dt>{r.label}</dt>
+                <dd>{r.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <!-- Problems: three rows on the night ink. -->
+      <section class="c4-problems" aria-labelledby="c4-problems">
+        <Backdrop tone="ink" offset={1} />
+        <div class="container">
+          <div class="c4-problems__head">
+            <h2 id="c4-problems" data-reveal>{h.problems.title}</h2>
+            <a class="c4-btn c4-btn--on-night" href="#contact">{t.cta}</a>
+          </div>
+          <ul role="list" class="c4-problems__list">
+            {h.problems.items.map((p, i) => (
+              <li class="h4-grid" data-reveal style={`--i:${i}`}>
+                <span class="c4-problems__label">{label(p.eyebrow)}</span>
+                <h3>{p.title}</h3>
+                <p>{p.body}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <!-- Services: how we like to work and the "from" price, held beside the examples. -->
+      <section id="services" class="c4-services" aria-labelledby="c4-services">
+        <div class="container h4-grid">
+          <div class="c4-services__side">
+            <h2 id="c4-services" data-reveal>{h.services.title}</h2>
+            <p>{h.services.body}</p>
+            {priceReady(h.services.price.value) && (
+              <div class="c4-price">
+                <p class="c4-price__value"><span class="visually-hidden">{label(h.services.price.label)}: </span><PriceText text={h.services.price.value} label={h.services.price.shrugLabel} /></p>
+                <p class="c4-price__note">{h.services.price.note}</p>
+              </div>
+            )}
+            <a class="c4-btn" href="#contact">{t.cta}</a>
+          </div>
+          <div class="c4-services__list">
+            <p class="c4-services__label">{label(h.services.examplesLabel)}</p>
+            {h.services.items.map((s, i) => (
+              <article class="c4-service" data-reveal style={`--i:${i}`}>
+                <header><h3>{s.title}</h3><span>{label(s.label)}</span></header>
+                <p>{s.body}</p>
+                <details class="c4-more">
+                  <summary>{h.services.getsLabel}</summary>
+                  <dl class="c4-points">
+                    {s.points.map(([k, v]) => (
+                      <div>
+                        <dt>{label(k)}</dt>
+                        <dd>{v}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <ul class="c4-gets">{s.gets.map((g) => <li>{g}</li>)}</ul>
+                  {"note" in s && s.note && <p class="c4-note">{s.note}</p>}
+                </details>
+              </article>
+            ))}
+            <article class="c4-service c4-service--open">
+              <h3>{h.services.more.title}</h3>
+              <p>{h.services.more.body}</p>
+              <a class="h4-link" href="#contact">{t.more}</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Way of working: what comes along, and what is struck out as it comes into view. -->
+      <section class="c4-keep" aria-labelledby="c4-keep">
+        <div class="container h4-grid">
+          <h2 id="c4-keep" data-reveal>{h.keepBin.title}</h2>
+          <div class="c4-keep__col">
+            <h3>{h.keepBin.keep.title}</h3>
+            <ul role="list">{h.keepBin.keep.items.map((i) => <li><strong>{i.title}</strong> {i.text}</li>)}</ul>
+          </div>
+          <div class="c4-keep__col c4-keep__col--bin">
+            <h3>{h.keepBin.bin.title}</h3>
+            <ul role="list">{h.keepBin.bin.items.map((i, n) => <li data-strike style={`--i:${n}`}><s>{i}</s></li>)}</ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Approach, as one scrolled chapter: the section holds still while the three weeks
+           light up one after another under the three words of the heading. Without script,
+           on phones and with reduced motion all three simply stand there. -->
+      <section id="approach" class="c4-approach" aria-labelledby="c4-approach" data-scrub="pin">
+        <div class="c4-approach__pin">
+          <Backdrop tone="red" offset={2} />
+          <div class="container">
+            <h2 id="c4-approach" class="visually-hidden">{h.approach.title}</h2>
+            <ol role="list" class="c4-weeks">
+              {h.approach.steps.map((s, i) => (
+                <li style={`--from:${from[i]}`}>
+                  <span class="c4-weeks__word" aria-hidden="true">{parts[i]}</span>
+                  <span class="c4-weeks__range">{label(s.range)}</span>
+                  <h3>{s.title}</h3>
+                  <p>{s.body}</p>
+                </li>
+              ))}
+            </ol>
+            <a class="c4-btn c4-btn--on-night" href="#contact">{t.cta}</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Questions: each one opens its answer. -->
+      <section class="c4-faq" aria-labelledby="c4-faq">
+        <div class="container h4-grid">
+          <h2 id="c4-faq" data-reveal>{h.faq.title}</h2>
+          <div class="c4-faq__list">
+            {h.faq.items.map((f, i) => (
+              <details class="c4-q" open={i === 0}>
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact: the direct ways on the left, the form on the right. The form's attributes
+           are the ones scripts/contact-form.ts reads. -->
+      <section id="contact" class="c4-contact" aria-labelledby="c4-contact">
+        <Backdrop tone="ink" offset={3} />
+        <div class="container h4-grid">
+          <div class="c4-contact__text">
+            <h2 id="c4-contact">{h.contact.title}</h2>
+            <p class="lead">{h.contact.body}</p>
+            <dl class="c4-ways">
+              {h.contact.rows.map((r) => (
+                <div>
+                  <dt>{label(r.label)}</dt>
+                  <dd>{r.href ? <a href={r.href}>{r.value}</a> : r.value}</dd>
+                </div>
+              ))}
+              <div>
+                <dt>{t.whatsapp}</dt>
+                <dd>
+                  <a class="c4-ways__wa" href={whatsappLink(lang, "consulting")} target="_blank" rel="noopener"><svg viewBox="0 0 32 32" width="20" height="20" aria-hidden="true"><path fill="currentColor" d={WHATSAPP_PATH} /></svg>{h.contact.whatsapp.number}</a>
+                  <small>{h.contact.whatsapp.note}</small>
+                </dd>
+              </div>
+            </dl>
+          </div>
+          <form class="c4-form" data-contact-form data-lang={lang} data-brand="consulting" novalidate>
+            <h3>{t.formTitle}</h3>
+            <label class="c4-field"><span>{form.name} <b aria-hidden="true">*</b></span><input name="name" autocomplete="name" required maxlength="200" /></label>
+            <label class="c4-field"><span>{form.company}</span><input name="company" autocomplete="organization" maxlength="200" /></label>
+            <label class="c4-field"><span>{form.email} <b aria-hidden="true">*</b></span><input name="email" type="email" autocomplete="email" required maxlength="254" /></label>
+            <label class="c4-field"><span>{form.phone}</span><input name="phone" type="tel" autocomplete="tel" maxlength="60" /></label>
+            <label class="c4-field"><span>{form.message} <b aria-hidden="true">*</b></span><textarea name="message" rows="5" required maxlength="5000" placeholder={form.messagePlaceholder}></textarea></label>
+            <!-- Left empty by people; bots fill it in. -->
+            <div class="cf-trap" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off" /></label></div>
+            <label class="c4-consent">
+              <input type="checkbox" name="consent" required />
+              <span>{form.consent} <a href={routes.privacy[lang]}>{form.consentLink}</a>.</span>
+            </label>
+            <button class="c4-btn" type="submit">{t.submit}</button>
+            <p class="c4-status" role="status" aria-live="polite" data-status></p>
+            <script type="application/json" data-messages set:html={JSON.stringify({ sending: form.sending, sent: form.sent, errors: form.errors })} />
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <V2Footer lang={lang} brand="consulting" />
+  </div>
+</Base>
+
+<script>
+  import { initV2 } from "../../scripts/v2";
+  import { initMotion } from "../../scripts/v4-motion";
+  initV2();
+  initMotion();
+</script>

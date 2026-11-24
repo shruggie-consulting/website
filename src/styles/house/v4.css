@@ -1,0 +1,188 @@
+/* Hallmark · shape: The Trial (custom; a headline you can re-set, then a pinned pair) · genre: modern-minimal · theme: brand · redesign: full
+ * paper: oklch(100% 0 0) · accent: oklch(50% 0.2 25) · display: Archivo Black · body: Space Grotesk · hero: Counter (the headline and its try button are the visual) · nav: kept bar, ink over paper · footer: kept · signature: the headline sets itself four ways when you press the shrug; the two shops open as doors while you scroll
+ * axes: light/display-heavy/warm · posture: full-palette (paper leads, night ink band, signal yellow close, field red in rules) · contrast: pass · fold: pass · job: hire · imagery: screenshots 1 (capture.mjs) · v2.0.0 */
+/* Hallmark · pre-emit critique: P5 H4 E4 S5 R4 V4 · weakest: E, three kinds of motion on one page; each is tied to one structure (the headline, the struck list, the pinned pair) and every one rests on a finished static state */
+/* Hallmark · waive 47c · the shrug wallpaper is the brand's own pattern from the live site, tone on tone behind four bands · the owner asked for the many shrug faces back exactly as the original page had them */
+/* Hallmark · answered F8 · the user asked for animation; the pinned pair is the one scroll pattern, the strike is the page's reveal applied to a rule */
+@import url("./tokens.css");
+@import url("./base.css");
+
+/* Version 4 of the home page only: everything is scoped to .h4. */
+.h4 { --v2-max: var(--container); --color-focus: var(--color-ink); font: 400 var(--text-md)/1.55 var(--font-body); color: var(--color-ink); background: var(--color-paper); }
+.h4 :focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; box-shadow: none; }
+.h4 .v2-footer { --color-focus: var(--color-signal); }
+/* The shrug wallpaper sits behind each band's content. */
+.h4-hero, .h4-left, .h4-hello { position: relative; overflow: clip; }
+.h4 .backdrop ~ .container { position: relative; z-index: var(--z-base); }
+.h4-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); }
+.h4-link { font-weight: 700; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.2em; transition: color var(--dur-micro) var(--ease-out); }
+.h4-link:hover { color: var(--color-accent-text); }
+.h4-link:active { color: var(--color-ink-2); }
+
+/* ---------- Header: ink over the paper hero, the kept dark bar once the page scrolls ---------- */
+.h4 .v2-menu a { white-space: nowrap; }
+.h4 .v2-nav__lang { letter-spacing: 0; }
+.h4 .v2-header.is-solid { --color-focus: var(--color-signal); }
+.h4 .v2-header:not(.is-solid), .h4 .v2-header:not(.is-solid) .v2-menu a { color: var(--color-ink); }
+.h4 .v2-header:not(.is-solid) .v2-menu a:hover { color: var(--color-accent-text); }
+.h4 .v2-header:not(.is-solid) .v2-nav__lang, .h4 .v2-header:not(.is-solid) .v2-nav__login, .h4 .v2-header:not(.is-solid) .v2-nav__brand { border-color: var(--color-muted); }
+.h4 .v2-header:not(.is-solid) .v2-dot { color: var(--color-accent); }
+@media (max-width: 66rem) {
+  .h4 .v2-menu-toggle { display: block; }
+  .h4 .v2-menu { display: none; position: absolute; inset: 100% 0 auto; flex-direction: column; align-items: flex-start; gap: var(--space-2xs); padding: var(--space-xs) var(--gutter) var(--space-lg); background: var(--color-night); }
+  .h4 .v2-menu.is-open { display: flex; }
+  .h4 .v2-nav { flex-direction: column; gap: 0; }
+}
+
+/* ---------- Hero: a headline in four arrangements ---------- */
+.h4-hero { overflow-anchor: none; display: grid; min-height: min(100svh, 62.5rem); padding-block: calc(var(--space-3xl) + var(--space-md)) var(--space-2xl); border-bottom: 1px solid var(--color-rule); }
+.h4-hero__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-xl); align-content: center; align-items: end; }
+.h4-hero__title { display: grid; justify-items: start; max-width: none; font-size: clamp(3rem, 12vw, 10.5rem); line-height: 1; grid-column: 1 / span 8; grid-row: 1; }
+.h4-word { display: block; white-space: nowrap; animation: h4-rise 640ms var(--ease-out) both; animation-delay: calc(var(--i) * 80ms); }
+.h4-word--1 { view-transition-name: h4-word-1; }
+.h4-word--2 { view-transition-name: h4-word-2; }
+.h4-word--3 { view-transition-name: h4-word-3; }
+.is-tried .h4-word { animation: none; }
+@keyframes h4-rise { from { opacity: 0; transform: translateY(0.25em); } to { opacity: 1; transform: none; } }
+.h4-hero__aside { grid-column: 9 / span 4; grid-row: 1; display: grid; gap: var(--space-xl); view-transition-name: h4-aside; }
+.h4-hero__say { display: grid; gap: var(--space-lg); justify-items: start; }
+.h4-hero .lead { color: var(--color-ink-2); }
+
+/* The second way: everything mirrored. */
+.h4-hero[data-try="1"] .h4-hero__title { grid-column: 5 / span 8; justify-items: end; }
+.h4-hero[data-try="1"] .h4-hero__aside { grid-column: 1 / span 4; }
+/* The third way: one line across, the rest in a row beneath. */
+.h4-hero[data-try="2"] .h4-hero__title, .h4-hero[data-try="3"] .h4-hero__title { grid-column: 1 / -1; }
+.h4-hero[data-try="2"] .h4-hero__title { display: block; font-size: clamp(2.75rem, 8.4vw, 7.6rem); }
+.h4-hero[data-try="2"] .h4-word { display: inline; white-space: normal; }
+.h4-hero[data-try="2"] .h4-word + .h4-word::before { content: " "; }
+.h4-hero[data-try="2"] .h4-hero__aside, .h4-hero[data-try="3"] .h4-hero__aside { grid-column: 1 / -1; grid-row: 2; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--gap-columns); align-items: end; }
+/* The fourth way: a stair, one word a step. */
+.h4-hero[data-try="3"] .h4-hero__title { font-size: clamp(2.75rem, 9.4vw, 8.25rem); }
+.h4-hero[data-try="3"] .h4-word--2 { justify-self: center; }
+.h4-hero[data-try="3"] .h4-word--3 { justify-self: end; }
+
+.h4-try { display: inline-flex; align-items: center; gap: var(--space-sm); min-height: 48px; padding: 0 var(--space-lg); border: 1.5px solid var(--color-ink); border-radius: var(--radius-card); background: transparent; color: var(--color-ink); font: 700 var(--text-md)/1 var(--font-body); white-space: nowrap; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+.h4-try:hover { background: var(--color-ink); color: var(--color-paper); }
+.h4-try:active { transform: translateY(1px); }
+.h4-try:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+.h4-try__shrug { display: inline-flex; }
+.h4-try__shrug span { display: inline-block; }
+.is-shrugging .h4-try__l { animation: h4-shrug-l var(--dur-long) var(--ease-out); }
+.is-shrugging .h4-try__r { animation: h4-shrug-r var(--dur-long) var(--ease-out); }
+@keyframes h4-shrug-l { 40% { transform: translateY(-4px) rotate(-16deg); } }
+@keyframes h4-shrug-r { 40% { transform: translateY(-4px) rotate(16deg); } }
+
+.h4-doors { display: grid; }
+.h4-door { position: relative; display: grid; gap: var(--space-2xs); padding-block: var(--space-md); border-top: 1px solid var(--color-rule); text-decoration: none; }
+.h4-door::before { content: ""; position: absolute; inset: -1px 0 auto; height: 4px; background: var(--color-field); transform: scaleX(0.14); transform-origin: left; transition: transform var(--dur-long) var(--ease-out); }
+.h4-door--agency::before { background: var(--color-signal); }
+.h4-door:hover::before, .h4-door:focus-visible::before { transform: scaleX(1); }
+.h4-door__name { font: 400 var(--text-2xl)/1.05 var(--font-display); letter-spacing: var(--tracking-display); transition: transform var(--dur-micro) var(--ease-out); }
+.h4-door:active .h4-door__name { transform: translateY(1px); }
+.h4-door__line { color: var(--color-ink-2); }
+
+::view-transition-group(h4-word-1), ::view-transition-group(h4-word-2), ::view-transition-group(h4-word-3), ::view-transition-group(h4-aside) { animation-duration: 520ms; animation-timing-function: var(--ease-in-out); }
+::view-transition-group(h4-word-2) { animation-delay: 40ms; }
+::view-transition-group(h4-word-3) { animation-delay: 80ms; }
+
+/* ---------- One reveal, visible without script ---------- */
+.js .h4 [data-reveal] { opacity: 0; transform: translateY(12px); transition: opacity var(--dur-long) var(--ease-out), transform var(--dur-long) var(--ease-out); transition-delay: calc(var(--i, 0) * 70ms); }
+.js .h4 [data-reveal].is-in { opacity: 1; transform: none; }
+
+/* ---------- Why Shruggie ---------- */
+.h4-why { background: var(--color-paper-2); padding-block: var(--section-gap) var(--section-gap-s); }
+.h4-why .h4-grid { row-gap: var(--space-xl); align-items: start; }
+.h4-why h2 { grid-column: 1 / span 4; font-size: var(--text-title); line-height: 1.2; }
+.h4-why__statement { --p: 1; grid-column: 5 / span 8; font: 400 var(--text-display-s)/1.08 var(--font-display); letter-spacing: var(--tracking-display); text-wrap: balance; }
+/* Each word takes its ink as the reader reaches it (--p comes from the script; 1 without it). */
+.h4-w { opacity: clamp(0.16, calc(var(--p) * (var(--count) + 3) - var(--n)), 1); }
+.h4-why__text { grid-column: 5 / span 6; font-size: var(--text-lead); line-height: 1.5; color: var(--color-ink-2); }
+
+/* ---------- How we work ---------- */
+.h4-how { padding-block: var(--section-gap); }
+.h4-how .h4-grid { align-items: center; row-gap: var(--space-2xl); }
+.h4-office { grid-column: 1 / span 7; margin: 0; }
+.h4-office img { width: 100%; }
+.h4-office figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-xs) var(--space-lg); margin-top: var(--space-md); color: var(--color-ink-2); }
+.h4-office figcaption .h4-link { color: var(--color-ink); }
+.h4-office figcaption .h4-link:hover { color: var(--color-accent-text); }
+.h4-how__text { grid-column: 9 / span 4; display: grid; gap: var(--space-xl); }
+
+.h4-how__list { display: grid; gap: var(--space-xl); margin: 0; padding: 0; list-style: none; }
+.h4-how__list li { display: grid; gap: var(--space-xs); padding-top: var(--space-md); border-top: 1px solid var(--color-ink); }
+.h4-how__list p { color: var(--color-ink-2); }
+
+/* ---------- What stays at the door: struck out on the night ink ---------- */
+.h4-left { --color-focus: var(--color-signal); background: var(--color-night); color: var(--color-on-night); padding-block: var(--section-gap-s); }
+.h4-left h2 { margin-bottom: var(--space-2xl); color: var(--color-on-night-2); }
+.h4-left__list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--color-rule-night); }
+.h4-left__list li { align-items: baseline; padding-block: var(--space-lg); border-bottom: 1px solid var(--color-rule-night); }
+.h4-left__list s { grid-column: 1 / span 6; justify-self: start; position: relative; font: 400 var(--text-display)/1.05 var(--font-display); letter-spacing: var(--tracking-display); text-decoration: none; overflow-wrap: break-word; min-width: 0; }
+.h4-left__list s::after { content: ""; position: absolute; inset: 54% -3% auto; height: 0.1em; background: var(--color-signal); transform-origin: left; transition: transform 700ms var(--ease-in-out); transition-delay: calc(var(--i, 0) * 120ms + 150ms); }
+.js .h4-left__list li:not(.is-in) s::after { transform: scaleX(0); }
+.h4-left__list span { grid-column: 7 / span 6; font-size: var(--text-lead); line-height: 1.45; color: var(--color-on-night-2); }
+.h4-left__closing { grid-column: 7 / span 6; margin-top: var(--space-xl); font-size: var(--text-xl); font-weight: 700; line-height: 1.3; color: var(--color-signal); }
+
+/* ---------- Two shops: one scrolled chapter that ends as both doors ---------- */
+/* --p is the chapter's progress; --a and --b are the two fields opening, --ta and --tb their text. */
+.h4-shops { padding-bottom: var(--section-gap-s); --p: 1; --a: clamp(0, calc((var(--p) - 0.06) / 0.3), 1); --b: clamp(0, calc((var(--p) - 0.5) / 0.3), 1); --ta: clamp(0, calc((var(--a) - 0.82) / 0.18), 1); --tb: clamp(0, calc((var(--b) - 0.82) / 0.18), 1); }
+.h4-shops__pin { display: grid; grid-template-rows: auto minmax(0, 1fr); row-gap: var(--space-xl); padding-top: var(--section-gap-s); }
+.h4-shops__head { row-gap: var(--space-lg); align-items: end; }
+.h4-shops__head h2 { grid-column: 1 / span 5; }
+.h4-shops__head p { grid-column: 7 / span 6; font-size: var(--text-lead); line-height: 1.45; }
+.h4-fork { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); min-height: 30rem; }
+.h4-fork__shrug { position: absolute; z-index: var(--z-raised); left: 50%; top: var(--space-lg); height: 42%; max-width: 92%; translate: -50% 0; overflow: visible; pointer-events: none; }
+.h4-fork__shrug text { font: 700 270px var(--font-body); fill: var(--color-ink); transform-box: fill-box; }
+.h4-arm--l { transform-origin: 100% 100%; transform: translateY(calc(var(--a) * -8%)) rotate(calc(var(--a) * -8deg)); fill: color-mix(in oklab, var(--color-on-night) calc(var(--a) * 100%), var(--color-ink)); }
+.h4-arm--r { transform-origin: 0% 100%; transform: translateY(calc(var(--b) * -8%)) rotate(calc(var(--b) * 8deg)); }
+.h4-shop { position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding-block: var(--space-xl); }
+.h4-shop__field { position: absolute; inset: 0; }
+.h4-shop--consulting { --color-focus: var(--color-on-night); color: var(--color-on-night); padding-inline: max(var(--gutter), calc((200% - var(--container)) / 2 + var(--gutter))) var(--space-xl); }
+.h4-shop--consulting .h4-shop__field { background: var(--color-field); clip-path: inset(0 calc((1 - var(--a)) * 100%) 0 0); }
+.h4-shop--agency { color: var(--color-ink); padding-inline: var(--space-xl) max(var(--gutter), calc((200% - var(--container)) / 2 + var(--gutter))); }
+.h4-shop--agency .h4-shop__field { background: var(--color-signal); clip-path: inset(0 0 0 calc((1 - var(--b)) * 100%)); }
+.h4-shop__in { position: relative; z-index: var(--z-raised); display: grid; justify-items: start; gap: var(--space-sm); max-width: 30rem; }
+.h4-shop--consulting .h4-shop__in { opacity: var(--ta); transform: translateY(calc((1 - var(--ta)) * 24px)); }
+.h4-shop--agency .h4-shop__in { opacity: var(--tb); transform: translateY(calc((1 - var(--tb)) * 24px)); }
+.h4-shop h3 { font-size: var(--text-3xl); line-height: 1.08; }
+.h4-shop__title { font-size: var(--text-lead); font-weight: 700; line-height: 1.35; }
+.h4-shop--consulting .h4-link:hover { color: var(--color-on-night-2); }
+.h4-shop--agency .h4-link:hover { color: var(--color-ink-2); }
+/* The chapter: a tall section whose content holds still while it is scrolled through. */
+@media (min-width: 60rem) and (prefers-reduced-motion: no-preference) {
+  .js .h4-shops { min-height: 320svh; }
+  .js .h4-shops__pin { position: sticky; top: 0; height: 100svh; }
+}
+
+/* ---------- The close ---------- */
+.h4-hello { background: var(--color-signal); color: var(--color-ink); padding-block: var(--section-gap-s); }
+.h4-hello .h4-grid { align-items: end; row-gap: var(--space-2xl); }
+.h4-hello h2 { grid-column: 1 / span 6; max-width: 9ch; font-size: var(--text-display); }
+.h4-hello__ways { grid-column: 7 / span 6; margin: 0; border-bottom: 1px solid var(--color-ink); }
+.h4-hello__ways div { display: grid; gap: var(--space-2xs); padding-block: var(--space-md); border-top: 1px solid var(--color-ink); }
+.h4-hello__ways dt { font-size: var(--text-sm); }
+.h4-hello__ways dd { margin: 0; font-size: var(--text-xl); font-weight: 700; line-height: 1.3; overflow-wrap: break-word; min-width: 0; }
+.h4-hello__ways a { text-decoration: none; }
+.h4-hello__ways a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.2em; }
+.h4-hello__ways a:active { color: var(--color-ink-2); }
+.h4-hello__ways small { display: block; font-size: var(--text-sm); font-weight: 400; }
+
+@media (max-width: 60rem) {
+  .h4-hero { min-height: 0; }
+  .h4-hero .h4-hero__title, .h4-hero[data-try] .h4-hero__title, .h4-hero .h4-hero__aside, .h4-hero[data-try] .h4-hero__aside { grid-column: 1 / -1; grid-row: auto; }
+  .h4-hero[data-try] .h4-hero__aside { grid-template-columns: minmax(0, 1fr); }
+  .h4-why h2, .h4-why__statement, .h4-why__text, .h4-office, .h4-how__text, .h4-left__list s, .h4-left__list span, .h4-left__closing, .h4-shops__head h2, .h4-shops__head p, .h4-hello h2, .h4-hello__ways { grid-column: 1 / -1; }
+  .h4-left__list li { row-gap: var(--space-xs); }
+  .h4-left__list s { font-size: var(--text-display-s); }
+  .h4-fork { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .h4-fork__shrug { display: none; }
+  .h4-shop, .h4-shop--consulting, .h4-shop--agency { padding: var(--space-2xl) var(--gutter); }
+  .h4-hello__ways dd { font-size: var(--text-lg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .h4-word, .is-shrugging .h4-try__l, .is-shrugging .h4-try__r { animation: none; }
+  .js .h4 [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .h4-door::before, .h4-left__list s::after, .h4-try, .h4-door__name { transition: none; }
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none; }
+}
