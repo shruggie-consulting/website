@@ -42,11 +42,11 @@
 .c4-intro { padding-block: var(--section-gap) var(--section-gap-s); }
 .c4-intro .h4-grid { row-gap: var(--space-2xl); align-items: start; }
 .c4-intro__statement { --p: 1; grid-column: 1 / span 10; max-width: none; font-size: var(--text-display); }
-.c4-intro__lead { grid-column: 1 / span 6; font-size: var(--text-lead); line-height: 1.5; }
-.c4-figures { grid-column: 8 / span 5; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; }
+.c4-intro__lead { grid-column: 1 / span 5; font-size: var(--text-lead); line-height: 1.5; }
+.c4-figures { grid-column: 7 / span 6; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; }
 .c4-figures div { padding-inline: var(--space-lg); border-left: 1px solid var(--color-rule); }
 .c4-figures div:first-child { padding-left: 0; border-left: 0; }
-.c4-figures dt { font: 400 var(--text-display-s)/1 var(--font-display); letter-spacing: var(--tracking-display); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.c4-figures dt { font: 400 clamp(1.75rem, 3.1vw, 2.9rem)/1 var(--font-display); letter-spacing: var(--tracking-display); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .c4-figures dd { margin: var(--space-sm) 0 0; color: var(--color-ink-2); }
 
 /* ---------- About ---------- */
