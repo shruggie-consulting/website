@@ -6,11 +6,21 @@ export type PageKey = "home" | "consulting" | "agency" | "office" | "imprint" | 
 
 export const content = { de, en } as const;
 
-// German is the default language and lives at the root. The root is the house page
-// ("Warum Shruggie") with the doors to both brands.
+/**
+ * Whether the house page and Shruggie Agency are public. While false, the site is Shruggie
+ * Consulting on its own: the Consulting page is the root, nothing links to the house page or
+ * the Agency, and the Agency pages are noindex and out of the sitemap (still reachable by
+ * their URL). To bring both back: set this to true, route HouseV4 (or HouseV2) at the root
+ * again and move Consulting back to /consulting/ below.
+ */
+export const TWO_BRANDS = false;
+
+// German is the default language and lives at the root. The root is the Consulting page
+// (version 4); /consulting/ redirects to it. The house page ("Warum Shruggie") is a draft
+// at /v4/ for now.
 export const routes: Record<PageKey, Record<Lang, string>> = {
   home: { de: "/", en: "/en/" },
-  consulting: { de: "/consulting/", en: "/en/consulting/" },
+  consulting: { de: "/", en: "/en/" },
   agency: { de: "/agentur/", en: "/en/agency/" },
   office: { de: "/agentur/office/", en: "/en/agency/office/" },
   imprint: { de: "/impressum/", en: "/en/imprint/" },
@@ -36,6 +46,7 @@ export const meta: Record<PageKey, Record<Lang, Meta>> = {
         "Shruggie ist ein kleines Haus mit zwei Shops: Consulting für unabhängige Agenturen und eine Agentur für Marken. Wir probieren lieber aus, als alles zu Tode zu denken.",
       ogImage: "/og/home.png",
       siteName: "Shruggie",
+      noindex: !TWO_BRANDS,
     },
     en: {
       title: "Shruggie — Consulting for agencies, an agency for brands",
@@ -43,6 +54,7 @@ export const meta: Record<PageKey, Record<Lang, Meta>> = {
         "Shruggie is a small house with two shops: consulting for independent agencies and an agency for brands. We'd rather try something than think it to death.",
       ogImage: "/og/home.png",
       siteName: "Shruggie",
+      noindex: !TWO_BRANDS,
     },
   },
   consulting: {
@@ -66,6 +78,7 @@ export const meta: Record<PageKey, Record<Lang, Meta>> = {
         "Dein Marketing-Team ohne eigene Abteilung: eine eingespielte Agentur aus München, die sich jeden Monat um das kümmert, was gerade am meisten bringt. Video, Anzeigen, Website, Recruiting und Marke.",
       ogImage: "/og/home.png",
       siteName: "Shruggie Agency",
+      noindex: !TWO_BRANDS,
     },
     en: {
       title: "Shruggie Agency — your marketing team",
@@ -73,6 +86,7 @@ export const meta: Record<PageKey, Record<Lang, Meta>> = {
         "Your marketing team without hiring one: a tight Munich agency that works each month on whatever brings the most. Video, ads, websites, recruiting and brand.",
       ogImage: "/og/home.png",
       siteName: "Shruggie Agency",
+      noindex: !TWO_BRANDS,
     },
   },
   office: {
@@ -81,12 +95,14 @@ export const meta: Record<PageKey, Record<Lang, Meta>> = {
       description: "Unsere KI-Agenten in einem kleinen Pixel-Office, live: wer gerade Code schreibt, wer recherchiert und wer auf dem Sofa auf uns wartet. Henry ist auch da.",
       ogImage: "/og/home.png",
       siteName: "Shruggie Agency",
+      noindex: !TWO_BRANDS,
     },
     en: {
       title: "Live from the office — Shruggie Agency",
       description: "Our AI agents in a little pixel office, live: who's writing code, who's doing research and who's waiting on the sofa for us. Henry is there too.",
       ogImage: "/og/home.png",
       siteName: "Shruggie Agency",
+      noindex: !TWO_BRANDS,
     },
   },
   imprint: {

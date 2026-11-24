@@ -17,55 +17,68 @@
       "agency": "AGENTUR"
     },
     "why": {
-      "eyebrow": "WARUM SHRUGGIE",
       "title": "Weil nicht alles so ernst sein muss.",
-      "paragraphs": [
-        "Der Name kam uns, als klar wurde, dass sich die „Marketing-Industrie“, wie die meisten sie kennen, ändern muss. Mit den Werkzeugen von heute und dem Tempo der Branche schaffen ein paar Leute, die ihr Handwerk wirklich können, was früher ganze Großraumbüros gebraucht hat. Sie arbeiten sauber und schnell, und ihnen ist wichtig, was am Ende dabei herauskommt.",
-        "Der Shrug erinnert uns daran, die Dinge nicht ernster zu nehmen, als sie sind. Wir probieren lieber etwas aus, als es zu Tode zu denken. Und wenn es nicht klappt, wissen wir wenigstens, warum."
-      ]
-    },
-    "left": {
-      "eyebrow": "HINTER UNS GELASSEN",
-      "title": "Was draußen bleibt.",
-      "items": [
-        "Überdenken, und die Strukturen, die daraus wachsen, in denen jede Entscheidung durch fünf Runden muss.",
-        "Abrechnung, die Stunden zählt und das Ergebnis als Nebensache behandelt.",
-        "Arbeit, die man kaum von dem unterscheiden kann, was eine KI in zwei Minuten ausspuckt."
-      ],
-      "closing": "Wenn wir etwas machen, soll man den Unterschied sehen."
+      "statement": "Der Name kam uns, als klar wurde, dass sich die „Marketing-Industrie“, wie die meisten sie kennen, ändern muss.",
+      "body": "Ein paar Leute, die ihr Handwerk wirklich können, schaffen heute, was früher ganze Großraumbüros gebraucht hat. Der Shrug erinnert uns daran, die Dinge nicht ernster zu nehmen, als sie sind. Wir probieren lieber etwas aus, als es zu Tode zu denken. Und wenn es nicht klappt, wissen wir wenigstens, warum."
     },
     "how": {
-      "eyebrow": "SO ARBEITEN WIR",
       "title": "Lieber einmal mehr ausprobieren.",
       "cards": [
         {
-          "label": "AUF AUGENHÖHE",
           "title": "Den Tisch umkippen",
-          "body": "Wir probieren gern Neues aus und bringen unsere Kunden dazu, das auch zu tun. Manchmal heißt das, den Tisch umzukippen, statt ihn nur neu zu streichen. So oder so reden wir auf Augenhöhe, mit Gründer:innen genauso wie mit ihren Teams."
+          "body": "Wir probieren gern Neues aus und bringen unsere Kunden dazu, das auch zu tun. Manchmal heißt das, den Tisch umzukippen, statt ihn nur neu zu streichen."
         },
         {
-          "label": "KI",
           "title": "Ein besserer Ofen",
-          "body": "KI ist ein besserer Ofen. Den Koch ersetzt sie nicht. Mit ihr können wir viele Ideen in Sekunden ausprobieren und wieder verwerfen, statt drei Wochen einem Projektplan zu folgen. Und sie macht kleine Teams möglich, die wir genau so zusammenstellen, wie es der Kunde gerade braucht."
+          "body": "KI ist ein besserer Ofen. Den Koch ersetzt sie nicht. Mit ihr probieren wir viele Ideen in Sekunden aus, statt drei Wochen einem Projektplan zu folgen."
         }
-      ]
+      ],
+      "office": {
+        "alt": "Standbild aus dem Pixel-Office unserer KI-Agenten",
+        "caption": "Unsere KI-Agenten haben ein kleines Pixel-Office.",
+        "cta": "Live ins Office schauen"
+      }
+    },
+    "left": {
+      "title": "Was draußen bleibt.",
+      "items": [
+        {
+          "word": "Überdenken",
+          "rest": "und die Strukturen, die daraus wachsen, in denen jede Entscheidung durch fünf Runden muss."
+        },
+        {
+          "word": "Abrechnung",
+          "rest": "die Stunden zählt und das Ergebnis als Nebensache behandelt."
+        },
+        {
+          "word": "Arbeit",
+          "rest": "die man kaum von dem unterscheiden kann, was eine KI in zwei Minuten ausspuckt."
+        }
+      ],
+      "closing": "Wenn wir etwas machen, soll man den Unterschied sehen."
     },
     "shops": {
-      "eyebrow": "ZWEI SHOPS",
       "title": "Warum zwei?",
-      "body": "Wir wollen, dass sowohl das Marketing selbst als auch die Zusammenarbeit mit Agenturen wieder Spaß macht. Manchmal machen wir die Arbeit dafür selbst, als Agentur. Und manchmal geben wir anderen Agenturen das Rezept, damit sie selbst kochen können.",
+      "body": "Marketing und die Arbeit mit Agenturen sollen wieder Spaß machen. Manchmal machen wir die Arbeit selbst, als Agentur. Manchmal geben wir anderen Agenturen das Rezept, damit sie selbst kochen können.",
       "consulting": {
-        "label": "SHRUGGIE CONSULTING",
+        "label": "Shruggie Consulting",
         "title": "Für Agenturen, die besser laufen wollen.",
         "body": "Saubere Zahlen, echtes Account Management und ein Rhythmus, der hält. Mit dem Agentur-Check, Workshops und Quarterly Reviews.",
-        "cta": "ZUM CONSULTING"
+        "cta": "Zum Consulting"
       },
       "agency": {
-        "label": "SHRUGGIE AGENCY",
+        "label": "Shruggie Agency",
         "title": "Für Marken, die gesehen werden wollen.",
         "body": "Marke, Recruiting, Video, Anzeigen und Websites, von einem eingespielten Team, das die Arbeit selbst macht.",
-        "cta": "ZUR AGENTUR"
+        "cta": "Zur Agentur"
       }
+    },
+    "contact": {
+      "nav": "Kontakt",
+      "mail": "E-Mail",
+      "whatsapp": "WhatsApp",
+      "placeLabel": "Standort",
+      "place": "München"
     },
     "footer": {
       "note": "© 2026 Shruggie · Consulting und Agentur aus München.",

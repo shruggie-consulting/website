@@ -6,7 +6,7 @@
 // The page picks one with data-bg on .v2 (wallpaper for now; maths kept for subpages later).
 interface Props {
   /** The section colour: red and ink for Consulting, acid (yellow) for the Agency hero. */
-  tone: "red" | "ink" | "acid" | "house";
+  tone: "red" | "ink" | "acid" | "house" | "paper";
   /** Moves the big shrug and the bars, so two sections don't look the same. */
   offset?: number;
 }
@@ -18,6 +18,8 @@ const shades = {
   acid: ["oklch(0.77 0.18 100)", "oklch(0.88 0.16 100)"],
   // The house hero: ink, with the shrugs alternating in dark Consulting red and dark Agency yellow.
   house: ["oklch(0.26 0.07 25)", "oklch(0.27 0 0)", "oklch(0.29 0.05 100)"],
+  // White paper (the v4 hero): the same alternation as the house hero, as pale tints.
+  paper: ["oklch(0.94 0.03 25)", "oklch(0.92 0 0)", "oklch(0.94 0.07 100)"],
 } as const;
 const [dark, light, alt = dark] = shades[tone] as readonly string[];
 const W = 1600, H = 900;

@@ -1,0 +1,208 @@
+---
+// Version 4 of the house page (draft at /v4/, noindex): a calmer take on white paper.
+// The headline can be tried in four arrangements (the button under it), a pinned shrug
+// points at each shop while its text scrolls past, and the three left-behind things are
+// struck out as they come into view. Same copy as the house page. Styles:
+// styles/house/v4.css, scoped to .h4; script at the foot of this file.
+import Base from "../../layouts/Base.astro";
+import Backdrop from "./Backdrop.astro";
+import V2Header from "./V2Header.astro";
+import V2Footer from "./V2Footer.astro";
+import { content, routes, type Lang } from "../../i18n";
+import { whatsappLink } from "./whatsapp";
+import "../../styles/v2.css";
+import "../../styles/house/v4.css";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const h = content[lang].house;
+const wa = content[lang].home.contact.whatsapp;
+const [whyId, shopsId] = h.nav.map((n) => n.href.slice(1));
+const brands = ["consulting", "agency"] as const;
+const door = (b: (typeof brands)[number]) => routes[b][lang];
+// The headline in three lines: the last two words stay together ("TRY IT.").
+const parts = h.hero.title.split(" ");
+const lines = [...parts.slice(0, -2), parts.slice(-2).join(" ")];
+// The statement word by word: each word takes its ink as the reader scrolls to it.
+const words = h.why.statement.split(" ");
+// Interface strings of the draft (they move to the content files if this version is chosen).
+const t = {
+  de: { again: "Anders probieren", status: "Anordnung {n} von 4" },
+  en: { again: "Try another one", status: "Arrangement {n} of 4" },
+}[lang];
+---
+
+<Base lang={lang} page="home" noindex>
+  <div class="v2 h4" data-bg="wallpaper" data-theme="house">
+    <V2Header lang={lang} brand="house" />
+
+    <main id="main">
+      <!-- Hero: the headline, one sentence, both doors, and a button that sets the headline
+           another way (four arrangements; the words glide where view transitions exist). -->
+      <section class="h4-hero" data-try="0">
+        <Backdrop tone="paper" />
+        <div class="container h4-hero__grid">
+          <h1 class="h4-hero__title" aria-label={h.hero.title}>
+            {lines.map((w, i) => <span class={`h4-word h4-word--${i + 1}`} style={`--i:${i}`} aria-hidden="true">{w}</span>)}
+          </h1>
+          <div class="h4-hero__aside">
+            <div class="h4-hero__say">
+              <p class="lead">{h.hero.body}</p>
+              <button type="button" class="h4-try" data-try-button>
+                <span class="h4-try__shrug" aria-hidden="true"><span class="h4-try__l">¯\_(</span><span>ツ</span><span class="h4-try__r">)_/¯</span></span>
+                <span>{t.again}</span>
+              </button>
+              <p class="visually-hidden" role="status" data-try-status data-template={t.status}></p>
+            </div>
+            <div class="h4-doors">
+              {brands.map((b) => (
+                <a class:list={["h4-door", `h4-door--${b}`]} href={door(b)}>
+                  <span class="h4-door__name">{h.hero[b]}</span>
+                  <span class="h4-door__line">{h.shops[b].title}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Shruggie: where the name came from, set large. -->
+      <section id={whyId} class="h4-why">
+        <div class="container h4-grid">
+          <h2 data-reveal>{h.why.title}</h2>
+          <p class="h4-why__statement" data-scrub="view" style={`--count:${words.length}`}>
+            {words.map((w, n) => <span class="h4-w" style={`--n:${n}`}>{w}{" "}</span>)}
+          </p>
+          <p class="h4-why__text" data-reveal style="--i:2">{h.why.body}</p>
+        </div>
+      </section>
+
+      <!-- How we work, beside a still of the agents' pixel office. -->
+      <section class="h4-how" aria-labelledby="h4-how">
+        <div class="container h4-grid">
+          <figure class="h4-office" data-reveal>
+            <img src="/images/office-still.png" width="2077" height="1350" alt={h.how.office.alt} loading="lazy" decoding="async" />
+            <figcaption>
+              <span>{h.how.office.caption}</span>
+              <a class="h4-link" href={routes.office[lang]}>{h.how.office.cta}</a>
+            </figcaption>
+          </figure>
+          <div class="h4-how__text">
+            <h2 id="h4-how" data-reveal>{h.how.title}</h2>
+            <ul role="list" class="h4-how__list">
+              {h.how.cards.map((c, i) => (
+                <li data-reveal style={`--i:${i + 1}`}>
+                  <h3>{c.title}</h3>
+                  <p>{c.body}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- What we left behind: each word is struck out as it comes into view. -->
+      <section class="h4-left" aria-labelledby="h4-left">
+        <Backdrop tone="ink" offset={1} />
+        <div class="container">
+          <h2 id="h4-left" data-reveal>{h.left.title}</h2>
+          <ul role="list" class="h4-left__list">
+            {h.left.items.map((i, n) => <li class="h4-grid" data-strike style={`--i:${n}`}><s>{i.word}</s> <span>{i.rest}</span></li>)}
+          </ul>
+          <div class="h4-grid"><p class="h4-left__closing" data-reveal>{h.left.closing}</p></div>
+        </div>
+      </section>
+
+      <!-- Two shops, as one scrolled chapter: the section holds still while the reader scrolls;
+           the red field opens from the left with Consulting, then the yellow from the right
+           with Agency, and the shrug lifts an arm for each. It ends as both doors side by
+           side, which is also what it shows without script, on phones and with reduced motion. -->
+      <section id={shopsId} class="h4-shops" aria-labelledby="h4-shops" data-scrub="pin">
+        <div class="h4-shops__pin">
+          <div class="container h4-grid h4-shops__head">
+            <h2 id="h4-shops">{h.shops.title}</h2>
+            <p>{h.shops.body}</p>
+          </div>
+          <div class="h4-fork">
+            <svg class="h4-fork__shrug" viewBox="0 0 1300 300" aria-hidden="true" focusable="false">
+              <text class="h4-arm h4-arm--l" x="512" y="236" text-anchor="end">¯\_(</text>
+              <text class="h4-face" x="650" y="236" text-anchor="middle">ツ</text>
+              <text class="h4-arm h4-arm--r" x="788" y="236" text-anchor="start">)_/¯</text>
+            </svg>
+            {brands.map((b) => (
+              <article class:list={["h4-shop", `h4-shop--${b}`]}>
+                <div class="h4-shop__field"><Backdrop tone={b === "consulting" ? "red" : "acid"} offset={b === "consulting" ? 2 : 1} /></div>
+                <div class="h4-shop__in">
+                  <h3>{h.shops[b].label}</h3>
+                  <p class="h4-shop__title">{h.shops[b].title}</p>
+                  <p>{h.shops[b].body}</p>
+                  <a class="h4-link" href={door(b)}>{h.shops[b].cta}</a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- The close: the direct ways to reach us. -->
+      <section id="hallo" class="h4-hello" aria-labelledby="h4-hello">
+        <Backdrop tone="acid" offset={2} />
+        <div class="container h4-grid">
+          <h2 id="h4-hello" data-reveal>{content[lang].home.contact.title}</h2>
+          <dl class="h4-hello__ways" data-reveal style="--i:1">
+            <div>
+              <dt>{h.contact.mail}</dt>
+              <dd><a href="mailto:hello@shruggie.consulting">hello@shruggie.consulting</a></dd>
+            </div>
+            <div>
+              <dt>{h.contact.whatsapp}</dt>
+              <dd><a href={whatsappLink(lang, "house")} target="_blank" rel="noopener">{wa.number}</a><small>{wa.note}</small></dd>
+            </div>
+            <div>
+              <dt>{h.contact.placeLabel}</dt>
+              <dd>{h.contact.place}</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+    </main>
+
+    <V2Footer lang={lang} brand="house" />
+  </div>
+</Base>
+
+<script>
+  import { initV2 } from "../../scripts/v2";
+  import { initMotion } from "../../scripts/v4-motion";
+  initV2();
+
+  const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // The headline, tried another way: four arrangements in turn. Where the browser has view
+  // transitions the words glide to their new places; elsewhere they simply change.
+  const hero = document.querySelector<HTMLElement>(".h4-hero");
+  const button = document.querySelector<HTMLButtonElement>("[data-try-button]");
+  const status = document.querySelector<HTMLElement>("[data-try-status]");
+  if (hero && button) {
+    let current = 0;
+    button.addEventListener("click", () => {
+      const next = (current = (current + 1) % 4);
+      const apply = () => {
+        hero.dataset.try = String(next);
+        hero.classList.add("is-tried");
+      };
+      const doc = document as Document & { startViewTransition?: (cb: () => void) => unknown };
+      if (!calm && doc.startViewTransition) doc.startViewTransition(apply);
+      else apply();
+      if (status) status.textContent = (status.dataset.template ?? "").replace("{n}", String(next + 1));
+      button.classList.remove("is-shrugging");
+      void button.offsetWidth;
+      button.classList.add("is-shrugging");
+    });
+  }
+
+  initMotion();
+</script>
