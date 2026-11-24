@@ -652,6 +652,7 @@
         "heading": "KONTAKTFORMULAR UND E-MAIL",
         "lines": [
           "Wenn Sie mir über das Kontaktformular schreiben, verarbeite ich Ihren Namen, Ihre E-Mail-Adresse, Ihre Nachricht und, falls angegeben, Unternehmen und Telefonnummer. Wenn Sie mich per E-Mail kontaktieren, verarbeite ich die Angaben aus Ihrer E-Mail. Beides dient ausschließlich der Bearbeitung Ihrer Anfrage.",
+          "Kommen Sie über einen gekennzeichneten Link auf diese Website, etwa aus einer Anzeige, speichere ich mit Ihrer Anfrage die Angaben aus diesem Link (Quelle, Kampagne, Anzeige), die Seite, auf der Sie angekommen sind, und die Website, von der Sie kamen. So sehe ich, welche Anzeigen zu Anfragen führen. Auf Ihrem Gerät wird dafür nichts gespeichert.",
           "Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO (Kontaktformular) bzw. Art. 6 Abs. 1 lit. b DSGVO bei vertragsbezogenen Anfragen, sonst Art. 6 Abs. 1 lit. f DSGVO. Die Einwilligung können Sie jederzeit per E-Mail widerrufen.",
           "Anfragen über das Formular werden in meinem Client Workspace gespeichert (Supabase, Rechenzentrum Frankfurt am Main; Bereitstellung über Cloudflare in der EU). Über neue Anfragen werde ich per E-Mail über Brevo (Sendinblue SAS, Paris) benachrichtigt. Mit allen Dienstleistern bestehen Verträge zur Auftragsverarbeitung nach Art. 28 DSGVO.",
           "Ihre Anfrage wird gelöscht, sobald sie erledigt ist und keine gesetzlichen Aufbewahrungsfristen entgegenstehen; entsteht daraus kein Auftrag, spätestens zwölf Monate nach der letzten Kommunikation."

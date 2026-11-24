@@ -3,6 +3,32 @@
 // and the email address next to it still works.
 const ENDPOINT = "https://workspace.shruggie.consulting/api/lead";
 
+/**
+ * How the visitor arrived, read once from the address the page was opened with: the utm
+ * values of a tagged link (ads use utm_campaign = campaign, utm_term = ad set,
+ * utm_content = ad), the landing page and the referring site's host. Kept in memory
+ * only: nothing is stored on the device and click ids (fbclid and the like) are ignored.
+ */
+function readAttribution() {
+  const q = new URLSearchParams(location.search);
+  const get = (k: string, max = 200) => (q.get(k) ?? "").trim().slice(0, max);
+  let referrer = "";
+  try {
+    const host = document.referrer ? new URL(document.referrer).host : "";
+    if (host && host !== location.host) referrer = host;
+  } catch {}
+  return {
+    utm_source: get("utm_source", 120),
+    utm_medium: get("utm_medium", 120),
+    campaign: get("utm_campaign"),
+    ad_set: get("utm_term"),
+    ad: get("utm_content"),
+    landing_page: location.pathname.slice(0, 300),
+    referrer,
+  };
+}
+const attribution = readAttribution();
+
 type Messages = { sending: string; sent: string; errors: Record<string, string> };
 
 export function initContactForm() {
@@ -42,6 +68,7 @@ export function initContactForm() {
           consent: true,
           lang: form.dataset.lang,
           brand: form.dataset.brand ?? "consulting",
+          attribution,
           t: startedAt,
         }),
       });
