@@ -55,3 +55,11 @@
 /* the result bar steps aside while the contact band or the footer is in view */
 .tl.is-end .tool .dock.show { transform: translateY(110%); }
 .tl.is-end .v2-wa.is-on { transform: none; }
+
+/* ---------- The tool's cost items and terms as plain text: only ever shown without JavaScript ---------- */
+.tool-pre { display: grid; gap: var(--space-lg); margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 2px solid var(--color-ink); }
+.tool-pre h2 { font-size: var(--text-xl); }
+.tool-pre dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-md) var(--gap-columns); margin: 0; }
+.tool-pre dt { font-weight: 700; }
+.tool-pre dd { margin: 0; color: var(--color-ink-2); }
+@media (max-width: 60rem) { .tool-pre dl { grid-template-columns: minmax(0, 1fr); } }

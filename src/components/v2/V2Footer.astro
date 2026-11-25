@@ -26,7 +26,8 @@ const links = [
 <footer class="v2-footer">
   <div class="v2-wrap v2-footer__grid">
     <div>
-      <p>Shruggie Consulting<br />Benjamin Birkelbach<br />{lang === "de" ? "München" : "Munich"}</p>
+      {/* The owner's name stays off the indexable pages for now (it is on the legal pages, which are noindex). */}
+      <p>Shruggie Consulting<br />{lang === "de" ? "München" : "Munich"}</p>
       <p class="v2-footer__small">{note}</p>
     </div>
     <div class="v2-footer__center">
