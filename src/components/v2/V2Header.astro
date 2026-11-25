@@ -18,8 +18,8 @@ const { lang, brand } = Astro.props;
 const c = content[lang];
 const page = Astro.props.page ?? PAGE_OF[brand];
 const navBase = page === PAGE_OF[brand] ? "" : routes[PAGE_OF[brand]][lang];
-// The tool pages have no contact section of their own: "Kontakt" leads to the one on the brand page.
-const ownContact = !page.startsWith("tool");
+// The Tools overview has no contact section of its own: "Kontakt" leads to the one on the brand page.
+const ownContact = page !== "tools";
 const navHref = (href: string) => (href.startsWith("#") && (href !== "#contact" || !ownContact) ? navBase + href : href);
 const other = otherLang(lang);
 const nav = brand === "house" ? c.house.nav : brand === "agency" ? c.agency.nav : c.home.nav;

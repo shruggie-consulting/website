@@ -1,0 +1,61 @@
+---
+// The contact band under a tool: the same night band and form as on the Consulting page
+// (same fields, same wiring: scripts/contact-form.ts sends it to the Client Workspace, with
+// the tool's address as the landing page), in the tools' own wording.
+import Backdrop from "./v2/Backdrop.astro";
+import { content, routes, type Lang } from "../i18n";
+import { WHATSAPP_PATH, whatsappLink } from "./v2/whatsapp";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const h = content[lang].home;
+const form = h.contact.form;
+const lead = content[lang].tools.lead;
+// The content files hold their labels in capitals; set here in sentence case, as on the Consulting page.
+const label = (s: string) => s.toLowerCase().replace(/(^|[\s-])(\p{L})/gu, (_, a, b) => a + b.toUpperCase());
+---
+
+<section id="contact" class="c4-contact tl-lead" aria-labelledby="tl-lead-title">
+  <Backdrop tone="ink" offset={3} />
+  <div class="container h4-grid">
+    <div class="c4-contact__text">
+      <h2 id="tl-lead-title">{lead.title}</h2>
+      <p class="lead">{lead.body}</p>
+      <dl class="c4-ways">
+        {h.contact.rows.map((r) => (
+          <div>
+            <dt>{label(r.label)}</dt>
+            <dd>{r.href ? <a href={r.href}>{r.value}</a> : r.value}</dd>
+          </div>
+        ))}
+        <div>
+          <dt>WhatsApp</dt>
+          <dd>
+            <a class="c4-ways__wa" href={whatsappLink(lang, "consulting")} target="_blank" rel="noopener"><svg viewBox="0 0 32 32" width="20" height="20" aria-hidden="true"><path fill="currentColor" d={WHATSAPP_PATH} /></svg>{h.contact.whatsapp.number}</a>
+            <small>{h.contact.whatsapp.note}</small>
+          </dd>
+        </div>
+      </dl>
+    </div>
+    <form class="c4-form" data-contact-form data-lang={lang} data-brand="consulting" novalidate>
+      <h3>{lead.formTitle}</h3>
+      <label class="c4-field"><span>{form.name} <b aria-hidden="true">*</b></span><input name="name" autocomplete="name" required maxlength="200" /></label>
+      <label class="c4-field"><span>{form.company}</span><input name="company" autocomplete="organization" maxlength="200" /></label>
+      <label class="c4-field"><span>{form.email} <b aria-hidden="true">*</b></span><input name="email" type="email" autocomplete="email" required maxlength="254" /></label>
+      <label class="c4-field"><span>{form.phone}</span><input name="phone" type="tel" autocomplete="tel" maxlength="60" /></label>
+      <label class="c4-field"><span>{form.message} <b aria-hidden="true">*</b></span><textarea name="message" rows="5" required maxlength="5000" placeholder={form.messagePlaceholder}></textarea></label>
+      <!-- Left empty by people; bots fill it in. -->
+      <div class="cf-trap" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off" /></label></div>
+      <label class="c4-consent">
+        <input type="checkbox" name="consent" required />
+        <span>{form.consent} <a href={routes.privacy[lang]}>{form.consentLink}</a>.</span>
+      </label>
+      <button class="c4-btn" type="submit">{lead.submit}</button>
+      <p class="c4-status" role="status" aria-live="polite" data-status></p>
+      <script type="application/json" data-messages set:html={JSON.stringify({ sending: lead.sending, sent: lead.sent, errors: lead.errors })} />
+    </form>
+  </div>
+</section>

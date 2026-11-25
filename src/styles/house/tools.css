@@ -49,3 +49,9 @@
 /* the floating WhatsApp button steps up while the result bar is showing */
 .tl:has(.dock.show) .v2-wa.is-on { transform: translateY(-112px); }
 @media (max-width: 40rem) { .tl:has(.dock.show) .v2-wa.is-on { transform: translateY(-168px); } }
+
+/* ---------- The contact band under a tool: the Consulting page's band, with a longer headline ---------- */
+.tl-lead h2 { max-width: 16ch; font-size: var(--text-section); }
+/* the result bar steps aside while the contact band or the footer is in view */
+.tl.is-end .tool .dock.show { transform: translateY(110%); }
+.tl.is-end .v2-wa.is-on { transform: none; }

@@ -2,10 +2,10 @@ import de from "./content/de.json";
 import en from "./content/en.json";
 
 export type Lang = "de" | "en";
-export type PageKey = "home" | "consulting" | "agency" | "office" | "imprint" | "privacy" | "tools" | "toolRate" | "toolHire" | "toolLevers";
+export type PageKey = "home" | "consulting" | "agency" | "office" | "imprint" | "privacy" | "tools" | "toolRate" | "toolHire";
 /** The interactive tools under /tools/. */
-export type ToolKey = "toolRate" | "toolHire" | "toolLevers";
-export const toolKeys: ToolKey[] = ["toolRate", "toolHire", "toolLevers"];
+export type ToolKey = "toolRate" | "toolHire";
+export const toolKeys: ToolKey[] = ["toolRate", "toolHire"];
 
 export const content = { de, en } as const;
 
@@ -31,7 +31,6 @@ export const routes: Record<PageKey, Record<Lang, string>> = {
   tools: { de: "/tools/", en: "/en/tools/" },
   toolRate: { de: "/tools/stundensatz/", en: "/en/tools/hourly-rate/" },
   toolHire: { de: "/tools/neueinstellung/", en: "/en/tools/new-hire/" },
-  toolLevers: { de: "/tools/hebel/", en: "/en/tools/levers/" },
 };
 
 export const otherLang = (lang: Lang): Lang => (lang === "de" ? "en" : "de");
@@ -143,12 +142,12 @@ export const meta: Record<PageKey, Record<Lang, Meta>> = {
   tools: {
     de: {
       title: "Tools — Shruggie Consulting",
-      description: "Kleine Rechner für Agenturen und Dienstleister: was in einem Stundensatz steckt, wann sich eine Neueinstellung rechnet und welcher Hebel das Ergebnis am stärksten bewegt.",
+      description: "Kleine Rechner für Agenturen und Dienstleister: was in einem Stundensatz steckt und wann sich eine Neueinstellung rechnet.",
       ogImage: "/og/home.png",
     },
     en: {
       title: "Tools — Shruggie Consulting",
-      description: "Small calculators for agencies and service firms: what goes into an hourly rate, when a new hire pays off and which lever moves the result the most.",
+      description: "Small calculators for agencies and service firms: what goes into an hourly rate and when a new hire pays off.",
       ogImage: "/og/home.png",
     },
   },
@@ -173,18 +172,6 @@ export const meta: Record<PageKey, Record<Lang, Meta>> = {
     en: {
       title: "When does a new hire pay off? — Shruggie Consulting",
       description: "Interactive calculator: the month from which a new person has brought in more than they cost, and how much you advance until then. With a PDF evaluation.",
-      ogImage: "/og/home.png",
-    },
-  },
-  toolLevers: {
-    de: {
-      title: "Welcher Hebel bewegt das Ergebnis am stärksten? — Shruggie Consulting",
-      description: "Interaktiver Vergleich: wie Auslastung, Stundensatz, Gehalt, Gemeinkosten und Krankheitstage das Jahresergebnis einer Person verändern.",
-      ogImage: "/og/home.png",
-    },
-    en: {
-      title: "Which lever moves the result the most? — Shruggie Consulting",
-      description: "Interactive comparison: how utilisation, hourly rate, salary, overheads and sick days change the annual result of one person.",
       ogImage: "/og/home.png",
     },
   },

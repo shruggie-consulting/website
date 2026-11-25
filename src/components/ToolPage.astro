@@ -14,10 +14,10 @@ import Base from "../layouts/Base.astro";
 import Backdrop from "./v2/Backdrop.astro";
 import V2Header from "./v2/V2Header.astro";
 import V2Footer from "./v2/V2Footer.astro";
+import ToolLead from "./ToolLead.astro";
 import { type Lang, type ToolKey } from "../i18n";
 import rate from "../tools/stundensatz.html?raw";
 import hire from "../tools/neueinstellung.html?raw";
-import levers from "../tools/hebel.html?raw";
 import "../styles/v2.css";
 import "../styles/house/v4.css";
 import "../styles/house/consulting-v4.css";
@@ -29,7 +29,7 @@ interface Props {
 }
 
 const { lang, page } = Astro.props;
-const sources: Record<ToolKey, string> = { toolRate: rate, toolHire: hire, toolLevers: levers };
+const sources: Record<ToolKey, string> = { toolRate: rate, toolHire: hire };
 const fail = (what: string): never => {
   throw new Error(`Tool ${page}: could not ${what}. The file in src/tools/ has changed shape.`);
 };
@@ -138,6 +138,8 @@ script = script.replace(/document\.body\.appendChild\(/g, "(document.getElementB
           <div class="tool" id="tool" set:html={markup} />
         </div>
       </section>
+
+      <ToolLead lang={lang} />
     </main>
 
     <V2Footer lang={lang} brand="consulting" />
@@ -148,4 +150,15 @@ script = script.replace(/document\.body\.appendChild\(/g, "(document.getElementB
 <script>
   import { initV2 } from "../scripts/v2";
   initV2();
+  // The tool's result bar steps aside once the contact form or the footer comes into view.
+  const shell = document.querySelector(".tl");
+  const ends = [document.getElementById("contact"), document.querySelector(".v2-footer")].filter((el): el is HTMLElement => !!el);
+  if (shell && ends.length && "IntersectionObserver" in window) {
+    const seen = new Set<Element>();
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) e.isIntersecting ? seen.add(e.target) : seen.delete(e.target);
+      shell.classList.toggle("is-end", seen.size > 0);
+    });
+    ends.forEach((el) => io.observe(el));
+  }
 </script>

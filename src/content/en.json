@@ -731,15 +731,26 @@
       "toolHire": {
         "title": "When does a new hire pay off?",
         "text": "The month from which a new person has brought in more than they cost, and how much money you advance until then. With a PDF evaluation."
-      },
-      "toolLevers": {
-        "title": "Which lever moves the result the most?",
-        "text": "Utilisation, hourly rate, salary, overheads, sick days: the calculator moves each lever on its own and shows what it means for the annual result of one person."
       }
     },
     "note": "All amounts in the tools are benchmarks for illustration and do not replace a calculation with your own numbers.",
     "copyright": "© 2026 Shruggie Consulting",
     "imprint": "IMPRINT",
-    "privacy": "PRIVACY POLICY"
+    "privacy": "PRIVACY POLICY",
+    "lead": {
+      "title": "Want to go through your numbers with someone?",
+      "body": "Write to us for a 30-minute call. We look at your assumptions together and at what they mean for your agency.",
+      "formTitle": "Write to us",
+      "submit": "Send message",
+      "sending": "Sending …",
+      "sent": "Thanks, your message is in. We'll get back to you within one working day.",
+      "errors": {
+        "email": "Please check your email address.",
+        "consent": "Please confirm your consent.",
+        "missing": "Please fill in name, email and message.",
+        "too many": "There are a lot of enquiries right now. Please email us directly at hello@shruggie.consulting.",
+        "generic": "Sorry, that didn't work. Please email us directly at hello@shruggie.consulting."
+      }
+    }
   }
 }
