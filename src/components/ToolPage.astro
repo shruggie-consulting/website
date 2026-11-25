@@ -1,0 +1,164 @@
+---
+// One interactive tool as a page of the site, in the shell of the Consulting page: the same
+// header and footer, the shrug wallpaper behind the page head. The tools are self-contained
+// files in src/tools/ (style, markup, script; also published as Claude artifacts). At build
+// time this component
+//   - drops the tool's own head lines, third-party loads and top bar (the site has all three),
+//   - scopes the tool's stylesheet to .tool, so it cannot touch the header or the footer,
+//   - renames the few class names the tool shares with the site's stylesheets,
+//   - lifts the tool's opening block into the page head,
+//   - starts the tool in the page's language (the header's switch moves between the two URLs).
+// To update a tool, replace its file in src/tools/. Every step is checked and the build fails
+// with a clear message if the file no longer has the expected shape.
+import Base from "../layouts/Base.astro";
+import Backdrop from "./v2/Backdrop.astro";
+import V2Header from "./v2/V2Header.astro";
+import V2Footer from "./v2/V2Footer.astro";
+import ToolLead from "./ToolLead.astro";
+import { type Lang, type ToolKey } from "../i18n";
+import rate from "../tools/stundensatz.html?raw";
+import hire from "../tools/neueinstellung.html?raw";
+import "../styles/v2.css";
+import "../styles/house/v4.css";
+import "../styles/house/consulting-v4.css";
+import "../styles/house/tools.css";
+
+interface Props {
+  lang: Lang;
+  page: ToolKey;
+}
+
+const { lang, page } = Astro.props;
+const sources: Record<ToolKey, string> = { toolRate: rate, toolHire: hire };
+const fail = (what: string): never => {
+  throw new Error(`Tool ${page}: could not ${what}. The file in src/tools/ has changed shape.`);
+};
+function swap(html: string, find: string | RegExp, put: (m: string) => string, what: string): string {
+  const out = html.replace(find, put);
+  return out === html ? fail(what) : out;
+}
+
+/** Scope one selector list to .tool; page-level selectors are dropped or mapped. */
+function scopeSelectors(list: string): string {
+  return list
+    .split(",")
+    .map((s) => s.trim())
+    .map((s) => {
+      if (s === "html" || s.startsWith("body::") || s.startsWith(":root:not") || s.startsWith(":root[")) return "";
+      if (s === ":root" || s === "body") return ".tool";
+      if (s.startsWith("body.")) return s.replace(/^(body\.[\w-]+)\s+/, "$1 .tool ");
+      return `.tool ${s}`;
+    })
+    .filter(Boolean)
+    .join(", ");
+}
+/** Scope a stylesheet to .tool. The tools only use plain rules, @media and @keyframes. */
+function scopeCss(css: string): string {
+  let out = "";
+  let i = 0;
+  while (i < css.length) {
+    const open = css.indexOf("{", i);
+    if (open < 0) break;
+    const prelude = css.slice(i, open).trim();
+    let depth = 1;
+    let j = open + 1;
+    while (j < css.length && depth) {
+      if (css[j] === "{") depth++;
+      else if (css[j] === "}") depth--;
+      j++;
+    }
+    const body = css.slice(open + 1, j - 1);
+    if (prelude.startsWith("@media")) {
+      // the site is light only: the tools' dark palette is left out
+      if (!/prefers-color-scheme:\s*dark/.test(prelude)) out += `${prelude}{${scopeCss(body)}}`;
+    } else if (prelude.startsWith("@")) {
+      out += `${prelude}{${body}}`;
+    } else if (prelude !== "html, body") {
+      const sel = scopeSelectors(prelude);
+      if (sel) out += `${sel}{${body}}`;
+    }
+    i = j;
+  }
+  return out;
+}
+
+let html = sources[page];
+html = html.replace(/<title>[\s\S]*?<\/title>\s*/, "");
+html = html.replace(/<meta [^>]*>\s*/g, "");
+html = html.replace(/<link rel="stylesheet" href="https:\/\/fonts\.googleapis\.com[^>]*>\s*/, "");
+html = html.replace(/<script src="https:\/\/cdnjs\.cloudflare\.com[^>]*><\/script>\s*/, "");
+
+// class names the tool shares with the site's stylesheets
+const shared = ["btn", "fact", "facts", "steps", "wrap"];
+const renameClasses = (s: string) =>
+  s.replace(/class="([^"]*)"/g, (_, list: string) => `class="${list.split(/\s+/).map((n) => (shared.includes(n) ? `t${n}` : n)).join(" ")}"`);
+const renameSelectors = (s: string) => s.replace(new RegExp(`\\.(${shared.join("|")})(?![\\w-])`, "g"), ".t$1");
+
+// the stylesheet, scoped
+const styleMatch = html.match(/<style>([\s\S]*?)<\/style>/) ?? fail("find the stylesheet");
+const css = scopeCss(renameSelectors(styleMatch[1].replace(/\/\*[\s\S]*?\*\//g, "")));
+html = html.replace(styleMatch[0], "");
+
+// markup and script apart: class names are renamed in the markup only
+const firstScript = html.indexOf("<script>");
+if (firstScript < 0) fail("find the script");
+let markup = renameClasses(html.slice(0, firstScript));
+let script = html.slice(firstScript);
+
+// the top bar goes; its language buttons stay in the page, hidden, because the script reads them
+const langGroup = markup.match(/<div class="lang"[\s\S]*?<\/div>/)?.[0] ?? fail("find the language group");
+markup = swap(markup, /<header class="top">[\s\S]*?<\/header>/, () => `<div hidden>${langGroup}</div>`, "replace the top bar");
+
+// the opening block becomes the page head
+const intro = markup.match(/<section class="intro">[\s\S]*?<\/section>\s*(?=<section)/)?.[0] ?? fail("find the opening block");
+markup = markup.replace(intro, "");
+
+// language: start in the page's language; elements the script adds to the page stay inside .tool
+const startLang = /(var st = \{[^\n]*?)lang: 'de'/;
+if (!startLang.test(script)) fail("set the start language");
+script = script.replace(startLang, (m) => m.replace("lang: 'de'", `lang: '${lang}'`));
+script = script.replace(/document\.body\.appendChild\(/g, "(document.getElementById('tool') || document.body).appendChild(");
+---
+
+<Base lang={lang} page={page}>
+  <div class="v2 h4 c4 tl" data-bg="wallpaper" data-theme="consulting">
+    <V2Header lang={lang} brand="consulting" page={page} />
+
+    <main id="main">
+      <style is:inline set:html={css} />
+      <section class="tl-hero">
+        <Backdrop tone="paper" />
+        <div class="container">
+          <div class="tool" set:html={intro} />
+        </div>
+      </section>
+
+      <section class="tl-body">
+        <div class="container">
+          <div class="tool" id="tool" set:html={markup} />
+        </div>
+      </section>
+
+      <ToolLead lang={lang} />
+    </main>
+
+    <V2Footer lang={lang} brand="consulting" />
+  </div>
+  <Fragment set:html={script} />
+</Base>
+
+<script>
+  import { initV2 } from "../scripts/v2";
+  initV2();
+  // The tool's result bar steps aside once the contact form or the footer comes into view.
+  const shell = document.querySelector(".tl");
+  const ends = [document.getElementById("contact"), document.querySelector(".v2-footer")].filter((el): el is HTMLElement => !!el);
+  if (shell && ends.length && "IntersectionObserver" in window) {
+    const seen = new Set<Element>();
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) e.isIntersecting ? seen.add(e.target) : seen.delete(e.target);
+      shell.classList.toggle("is-end", seen.size > 0);
+    });
+    ends.forEach((el) => io.observe(el));
+  }
+</script>

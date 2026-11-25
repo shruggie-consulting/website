@@ -1,0 +1,64 @@
+---
+// Overview of the interactive tools (/tools/, /en/tools/), in the shell of the Consulting
+// page: the same header and footer, the shrug wallpaper behind the page head, one row per tool.
+import Base from "../layouts/Base.astro";
+import Backdrop from "./v2/Backdrop.astro";
+import V2Header from "./v2/V2Header.astro";
+import V2Footer from "./v2/V2Footer.astro";
+import { content, routes, toolKeys, type Lang } from "../i18n";
+import "../styles/v2.css";
+import "../styles/house/v4.css";
+import "../styles/house/consulting-v4.css";
+import "../styles/house/tools.css";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const c = content[lang].tools;
+---
+
+<Base lang={lang} page="tools">
+  <div class="v2 h4 c4 tl" data-bg="wallpaper" data-theme="consulting">
+    <V2Header lang={lang} brand="consulting" page="tools" />
+
+    <main id="main">
+      <section class="tl-hero">
+        <Backdrop tone="paper" />
+        <div class="container">
+          <h1>{c.title}</h1>
+          <p class="lead">{c.intro}</p>
+        </div>
+      </section>
+
+      <section class="tl-body">
+        <div class="container">
+          <ul class="tl-list">
+            {
+              toolKeys.map((key) => (
+                <li>
+                  <a class="tl-item" href={routes[key][lang]}>
+                    <h2>{c.items[key].title}</h2>
+                    <div class="tl-item__text">
+                      <p>{c.items[key].text}</p>
+                      <span class="h4-link">{c.open}</span>
+                    </div>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+          <p class="tl-note">{c.note}</p>
+        </div>
+      </section>
+    </main>
+
+    <V2Footer lang={lang} brand="consulting" />
+  </div>
+</Base>
+
+<script>
+  import { initV2 } from "../scripts/v2";
+  initV2();
+</script>

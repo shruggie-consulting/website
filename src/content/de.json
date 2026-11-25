@@ -100,6 +100,10 @@
         "label": "Vorgehen"
       },
       {
+        "href": "/tools/",
+        "label": "Tools"
+      },
+      {
         "href": "#contact",
         "label": "Kontakt"
       }
@@ -711,6 +715,42 @@
       "title": "Schau uns beim Arbeiten zu.",
       "body": "Unsere KI-Agenten haben ein kleines Pixel-Office. Du siehst live, wer gerade am Schreibtisch sitzt und wer schon auf dem Sofa wartet.",
       "cta": "ZUM OFFICE"
+    }
+  },
+  "tools": {
+    "back": "ZUR STARTSEITE",
+    "all": "Alle Tools",
+    "title": "Tools",
+    "intro": "Kleine Rechner für Fragen, die in jeder Agentur irgendwann auf dem Tisch liegen. Kostenlos und ohne Anmeldung. Gerechnet wird in deinem Browser, deine Zahlen verlassen ihn nicht.",
+    "open": "Tool öffnen",
+    "items": {
+      "toolRate": {
+        "title": "Was steckt in einem Stundensatz?",
+        "text": "Gehalt geteilt durch Arbeitsstunden ist die Rechnung, die fast jeder zuerst macht. Der Rechner zeigt Posten für Posten, was dabei fehlt, und vergleicht deinen heutigen Satz mit dem Break-even."
+      },
+      "toolHire": {
+        "title": "Wann rechnet sich eine Neueinstellung?",
+        "text": "Ab welchem Monat eine neue Person mehr eingebracht hat, als sie gekostet hat, und wie viel Geld bis dahin vorzustrecken ist. Mit Auswertung als PDF."
+      }
+    },
+    "note": "Alle Beträge in den Tools sind Richtwerte zur Veranschaulichung und ersetzen keine Kalkulation mit deinen eigenen Zahlen.",
+    "copyright": "© 2026 Shruggie Consulting",
+    "imprint": "IMPRESSUM",
+    "privacy": "DATENSCHUTZ",
+    "lead": {
+      "title": "Sie möchten Ihre Zahlen mit jemandem durchgehen?",
+      "body": "Schreiben Sie uns für einen 30-Minuten-Termin. Wir schauen gemeinsam auf Ihre Annahmen und darauf, was sie für Ihre Agentur bedeuten.",
+      "formTitle": "Schreiben Sie uns",
+      "submit": "Nachricht senden",
+      "sending": "Wird gesendet …",
+      "sent": "Danke. Ihre Nachricht ist angekommen. Wir melden uns innerhalb eines Werktags.",
+      "errors": {
+        "email": "Bitte prüfen Sie Ihre E-Mail-Adresse.",
+        "consent": "Bitte bestätigen Sie die Einwilligung.",
+        "missing": "Bitte füllen Sie Name, E-Mail und Nachricht aus.",
+        "too many": "Gerade sind sehr viele Anfragen eingegangen. Schreiben Sie uns bitte direkt an hello@shruggie.consulting.",
+        "generic": "Das hat leider nicht geklappt. Schreiben Sie uns bitte direkt an hello@shruggie.consulting."
+      }
     }
   }
 }

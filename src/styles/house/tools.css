@@ -1,0 +1,57 @@
+/* Hallmark · shape: app screen · genre: modern-minimal · theme: brand · redesign: full
+ * paper: oklch(100% 0 0) · accent: oklch(50% 0.2 25) · display: Archivo Black · body: Space Grotesk
+ * nav: kept, the site's bar · signature: kept, each tool's own chart · states: full (no data loads)
+ * axes: light/display-heavy/warm · posture: tool · contrast: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R5 V3 · weakest: V, the tool pages take the site's shell and the Consulting hero on purpose; what differs is the tool itself */
+/* Hallmark · waive 39b · button.info is a 24px inline help icon beside a term in the tools · kept small so it reads as a footnote mark, not as an action */
+/* Hallmark · waive 47c · the shrug wallpaper is the brand's own pattern from the live site, tone on tone behind the page head · the owner asked for the Tools pages to match the main site */
+@import url("./tokens.css");
+@import url("./base.css");
+
+/* The Tools section (/tools/ and the tool pages): scoped to .tl, inside the v4 shell (.h4 .c4). */
+/* The site's own values, kept under second names so the tools (which define the same token names) can be set back to them. */
+.tl { --tl-container: var(--container); --tl-paper-2: var(--color-paper-2); --tl-paper-3: var(--color-paper-3); --tl-ink-2: var(--color-ink-2); --tl-muted: var(--color-muted); --tl-rule: var(--color-rule); }
+.tl-hero { position: relative; overflow: clip; padding-block: calc(var(--space-3xl) + var(--space-lg)) var(--space-2xl); border-bottom: 1px solid var(--color-rule); }
+.tl-hero h1 { max-width: 18ch; font-size: var(--text-display-s); line-height: 1.02; }
+.tl-hero .lead { margin-top: var(--space-lg); color: var(--color-ink-2); }
+.tl-body { padding-block: var(--space-2xl) var(--space-4xl); background: var(--color-paper); }
+
+/* ---------- Overview: one row per tool ---------- */
+.tl-list { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--color-ink); }
+.tl-item { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-md); align-items: start; padding-block: var(--space-xl); border-bottom: 1px solid var(--color-rule); color: var(--color-ink); text-decoration: none; }
+.tl-item h2 { grid-column: 1 / span 6; max-width: 18ch; font-size: var(--text-2xl); line-height: 1.1; transition: color var(--dur-micro) var(--ease-out); }
+.tl-item__text { grid-column: 7 / span 6; display: grid; justify-items: start; gap: var(--space-md); }
+.tl-item__text p { color: var(--color-ink-2); }
+.tl-item:hover h2 { color: var(--color-accent-text); }
+.tl-item:active h2 { color: var(--color-ink-2); }
+.tl-item:hover .h4-link { color: var(--color-accent-text); }
+.tl-note { margin-top: var(--space-xl); font-size: var(--text-sm); color: var(--color-muted); }
+@media (max-width: 60rem) {
+  .tl-item h2, .tl-item__text { grid-column: 1 / -1; }
+}
+
+/* ---------- A tool inside the site: its own styles are scoped to .tool at build time ---------- */
+.tl .tool { padding: 0; background: transparent; --container: 100%; --color-paper-2: var(--tl-paper-2); --color-paper-3: var(--tl-paper-3); --color-ink-2: var(--tl-ink-2); --color-muted: var(--tl-muted); --color-rule: var(--tl-rule); }
+.tl .tool .twrap { max-width: none; margin: 0; }
+.tl .tool #step1 { margin-top: 0; }
+.tl .tool h3 { max-width: none; font-family: var(--font-body); letter-spacing: 0; }
+.tl .tool .step-head h2, .tl .tool .sec-head h2 { max-width: 32ch; }
+/* the tool's opening block is the page head */
+.tl-hero .tool .intro { margin-top: 0; padding-bottom: 0; border-bottom: 0; align-items: end; }
+.tl-hero .tool .intro h1 { max-width: 16ch; font-size: var(--text-display-s); line-height: 1.02; letter-spacing: var(--tracking-display); }
+.tl-hero .tool .intro-text { gap: var(--space-lg); }
+.tl-hero .tool .intro-text p { max-width: 52ch; font-size: var(--text-lead); line-height: 1.45; }
+/* the sticky result bar lines up with the site's container and sits under the header */
+.tl .tool .dock { z-index: var(--z-sticky); padding-inline: var(--gutter); }
+.tl .tool .dock-in { max-width: calc(var(--tl-container) - 2 * var(--gutter)); }
+.tl .tool .tip { z-index: var(--z-tooltip); }
+.tl .tool .fly { z-index: var(--z-toast); }
+/* the floating WhatsApp button steps up while the result bar is showing */
+.tl:has(.dock.show) .v2-wa.is-on { transform: translateY(-112px); }
+@media (max-width: 40rem) { .tl:has(.dock.show) .v2-wa.is-on { transform: translateY(-168px); } }
+
+/* ---------- The contact band under a tool: the Consulting page's band, with a longer headline ---------- */
+.tl-lead h2 { max-width: 16ch; font-size: var(--text-section); }
+/* the result bar steps aside while the contact band or the footer is in view */
+.tl.is-end .tool .dock.show { transform: translateY(110%); }
+.tl.is-end .v2-wa.is-on { transform: none; }
