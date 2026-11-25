@@ -253,6 +253,22 @@ input[type="range"]:active::-webkit-slider-thumb { transform: scale(1.15); backg
 .cat-head h3 { flex: 1; }
 .cat-head span { font-size: var(--text-sm); font-weight: 700; }
 .cards { display: flex; flex-direction: column; }
+.card-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; border-bottom: 1px solid var(--color-rule); }
+.card-row .card { border-bottom: 0; }
+.card-edit { padding-inline: var(--space-3); }
+.card-edit .valbox input { width: 6em; }
+.card-edit .valbox input::placeholder { color: var(--color-muted); font-weight: 400; opacity: 1; }
+.card-unit { font-size: var(--text-xs); font-weight: 400; color: var(--color-muted); white-space: nowrap; min-width: 6.5em; }
+.is-expert .card { grid-template-columns: 36px minmax(0, 1fr) 7.5em; }
+.is-expert .card-basis { grid-column: 2; text-align: left; }
+.is-expert .card-imp { grid-column: 3; grid-row: 1 / span 2; }
+.is-expert .card-row:has(.card[aria-checked="true"]) { background: var(--color-paper-2); }
+.xp-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); margin-top: var(--space-2); }
+.xp { display: inline-flex; align-items: center; gap: var(--space-3); min-height: 40px; padding: 0; border: 0; background: none; font-weight: 700; color: var(--color-ink); }
+.xp[aria-checked="true"] .switch { background: var(--color-ink); border-color: var(--color-ink); }
+.xp[aria-checked="true"] .switch::after { transform: translateX(16px); background: var(--color-paper); }
+#xp-say { font-size: var(--text-sm); color: var(--color-ink-2); max-width: 68ch; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .card { display: grid; grid-template-columns: 36px minmax(0, 1fr) 13em 7.5em; gap: var(--space-1) var(--space-5); align-items: center; width: 100%; min-height: 64px; padding: var(--space-3) var(--space-3); text-align: left; background: none; color: var(--color-ink); border: 0; border-bottom: 1px solid var(--color-rule); border-radius: 0; transition: background-color var(--dur-micro); }
 .card:hover { background: var(--color-paper-2); }
 .card:active .switch::after { transform: scale(0.85); }
@@ -323,6 +339,10 @@ input[type="range"]:active::-webkit-slider-thumb { transform: scale(1.15); backg
   .track { height: 52px; }
   .ylegend { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .card { grid-template-columns: 36px minmax(0, 1fr) auto; align-items: start; padding-inline: 0; }
+  .card-row { grid-template-columns: minmax(0, 1fr); }
+  .card-edit { padding: 0 0 var(--space-3) calc(36px + var(--space-5)); }
+  .is-expert .card { grid-template-columns: 36px minmax(0, 1fr) auto; }
+  .is-expert .card-imp { grid-row: auto; }
   .card .switch { margin-top: 2px; }
   .card-text { grid-column: 2 / -1; }
   .card-basis { grid-column: 2; text-align: left; }
@@ -479,6 +499,11 @@ body.bad .rate { color: var(--color-accent-text); }
           <button type="button" class="btn" id="all-on" data-i18n="all_on"></button>
           <button type="button" class="btn" id="all-off" data-i18n="all_off"></button>
         </div>
+        <div class="xp-row">
+          <button type="button" class="xp" id="xp" role="switch" aria-checked="false"><span class="switch"></span><span data-i18n="xp"></span></button>
+          <button type="button" class="btn" id="xp-reset" data-i18n="xp_reset" hidden></button>
+        </div>
+        <p class="hint" id="xp-say" data-i18n="xp_say" hidden></p>
       </div>
     </div>
     <div id="cats"></div>
@@ -588,6 +613,8 @@ body.bad .rate { color: var(--color-accent-text); }
       be_never: 'nie', be_fmt: 'Monat {n}',
       a_title: 'Kosten einschalten, die bei Ihnen anfallen',
       a_lead: 'Jede Zeile zeigt, wie der Betrag entsteht und um wie viele Monate er den Break-even nach hinten schiebt. Die Beträge sind Richtwerte.',
+      xp: 'Expertenmodus: eigene Beträge eintragen', xp_reset: 'Richtwerte wiederherstellen', xp_say: 'Tragen Sie neben jedem Posten Ihren eigenen Betrag ein. Ein leeres Feld rechnet mit dem Richtwert, der grau im Feld steht. Wer einen Betrag einträgt, schaltet den Posten damit ein.',
+      own: 'eigener Wert', own_label: 'Eigener Betrag für {n}', u_once: '€ einmalig', u_month: '€ pro Monat', u_pct: '% vom Umsatz',
       lvl_count: '{a} von {b} Posten eingeschaltet', all_on: 'Alle einschalten', all_off: 'Alle ausschalten',
       cat_once: 'Einmalig, bevor die Person anfängt', cat_ramp: 'Während der Einarbeitung', cat_run: 'Laufend, jeden Monat', cat_cash: 'Geldfluss und Risiko',
       b_once: '{v} einmalig', b_pct: '{p} vom Jahresbrutto, einmalig', b_ramp: '{v} pro Monat der Einarbeitung', b_run: '{v} pro Monat', b_delay: 'Geld kommt einen Monat später', b_rev: '{p} weniger Umsatz',
@@ -662,6 +689,8 @@ body.bad .rate { color: var(--color-accent-text); }
       be_never: 'never', be_fmt: 'month {n}',
       a_title: 'Switch on the costs that apply to you',
       a_lead: 'Each row shows how the amount is derived and by how many months it pushes break-even back. Amounts are benchmarks.',
+      xp: 'Expert mode: enter your own amounts', xp_reset: 'Restore benchmarks', xp_say: 'Enter your own amount next to each item. An empty field uses the benchmark shown in grey. Entering an amount switches the item on.',
+      own: 'own figure', own_label: 'Own amount for {n}', u_once: '€ one-off', u_month: '€ per month', u_pct: '% of revenue',
       lvl_count: '{a} of {b} items switched on', all_on: 'Switch all on', all_off: 'Switch all off',
       cat_once: 'One-off, before the person starts', cat_ramp: 'During onboarding', cat_run: 'Ongoing, every month', cat_cash: 'Cash flow and risk',
       b_once: '{v} one-off', b_pct: '{p} of annual gross, one-off', b_ramp: '{v} per month of onboarding', b_run: '{v} per month', b_delay: 'Money arrives one month later', b_rev: '{p} less revenue',
@@ -711,7 +740,7 @@ body.bad .rate { color: var(--color-accent-text); }
   };
 
   /* ---------- state ---------- */
-  var st = { view: 'abs', lang: 'de', salary: 65000, rate: 110, util: 0.75, ramp: 4, on: {} };
+  var st = { expert: false, own: {}, view: 'abs', lang: 'de', salary: 65000, rate: 110, util: 0.75, ramp: 4, on: {} };
   function t(k, vars) { var s = T[st.lang][k]; if (vars) for (var key in vars) s = s.split('{' + key + '}').join(vars[key]); return s; }
   function loc() { return st.lang === 'de' ? 'de-DE' : 'en-GB'; }
   function eur0(v) { return new Intl.NumberFormat(loc(), { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(v); }
@@ -721,7 +750,11 @@ body.bad .rate { color: var(--color-accent-text); }
   function clamp(v, a, b) { return Math.min(b, Math.max(a, v)); }
 
   /* ---------- model ---------- */
-  function amount(a, S) { return a.pct && a.kind === 'once' ? a.pct * S : (a.v || 0); }
+  /** The benchmark for an item: euros (once, per month) or a share in percent (rev). */
+  function benchmark(a, S) { return a.kind === 'rev' ? a.pct * 100 : a.pct ? a.pct * S : (a.v || 0); }
+  /** The amount in use: the visitor's own figure in expert mode, otherwise the benchmark. */
+  function amount(a, S) { var own = st.expert ? st.own[a.id] : undefined; return own === undefined ? benchmark(a, S) : own; }
+  function isOwn(a) { return st.expert && st.own[a.id] !== undefined; }
   function sim(on, o) {
     o = o || {};
     var S = st.salary, rate = o.rate || st.rate, u = o.util || st.util, ramp = o.ramp || st.ramp;
@@ -729,10 +762,10 @@ body.bad .rate { color: var(--color-accent-text); }
     A.forEach(function (a) {
       if (!on[a.id]) return;
       if (a.kind === 'once') once += amount(a, S);
-      else if (a.kind === 'run') run += a.v;
-      else if (a.kind === 'ramp') rampC += a.v;
+      else if (a.kind === 'run') run += amount(a, S);
+      else if (a.kind === 'ramp') rampC += amount(a, S);
       else if (a.kind === 'delay') delay = true;
-      else if (a.kind === 'rev') rf *= 1 - a.pct;
+      else if (a.kind === 'rev') rf *= 1 - Math.min(90, amount(a, S)) / 100;
     });
     var cum = [-once], revs = [0], c = -once, trough = c, troughM = 0, cr = 0, mar = [-3];
     for (var m = 1; m <= HORIZON; m++) {
@@ -782,7 +815,18 @@ body.bad .rate { color: var(--color-accent-text); }
       b.setAttribute('role', 'switch'); b.setAttribute('aria-checked', 'false');
       b.innerHTML = '<span class="switch"></span><span class="card-text"><span class="card-name"></span><span class="card-desc"></span></span><span class="card-basis num"></span><span class="card-imp num"></span>';
       b.addEventListener('click', function () { toggle(a); });
-      w.lastChild.appendChild(b); cardEl[a.id] = b;
+      var row = document.createElement('div'); row.className = 'card-row'; row.appendChild(b);
+      if (a.kind !== 'delay') {
+        var ed = document.createElement('div'); ed.className = 'card-edit'; ed.hidden = true;
+        ed.innerHTML = '<label class="visually-hidden" for="own-' + a.id + '"></label><div class="valbox"><input id="own-' + a.id + '" type="number" inputmode="decimal" autocomplete="off" min="0" step="' + (a.kind === 'rev' ? '0.5' : '50') + '"><span class="card-unit"></span></div>';
+        row.appendChild(ed);
+        ed.querySelector('input').addEventListener('input', function (e) {
+          var before = sim(st.on).be, raw = e.target.value.trim(), v = parseFloat(raw);
+          if (raw === '' || !(v >= 0)) delete st.own[a.id]; else { st.own[a.id] = a.kind === 'rev' ? Math.min(90, v) : v; st.on[a.id] = true; }
+          showDelta(sim(st.on).be - before); render();
+        });
+      }
+      w.lastChild.appendChild(row); cardEl[a.id] = b;
     });
   });
 
@@ -904,17 +948,31 @@ body.bad .rate { color: var(--color-accent-text); }
 
     // ledger
     $('lvl-count').textContent = t('lvl_count', { a: n, b: total });
+    $('xp').setAttribute('aria-checked', st.expert); $('xp-say').hidden = !st.expert;
+    $('xp-reset').hidden = !(st.expert && Object.keys(st.own).length);
+    $('cats').classList.toggle('is-expert', st.expert);
     CATS.forEach(function (c) { catEl[c].firstChild.firstChild.textContent = t('cat_' + c); catEl[c].firstChild.lastChild.textContent = ''; });
     var items = [];
     A.forEach(function (a) {
       var el = cardEl[a.id], on = !!st.on[a.id], w = Object.assign({}, st.on), wo = Object.assign({}, st.on), basis;
       w[a.id] = true; delete wo[a.id];
       var d = sim(w).be - sim(wo).be;
-      if (a.kind === 'once') basis = a.pct ? t('b_pct', { p: pct(a.pct) }) + ' (' + eur0(amount(a, st.salary)) + ')' : t('b_once', { v: eur0(a.v) });
-      else if (a.kind === 'ramp') basis = t('b_ramp', { v: eur0(a.v) });
-      else if (a.kind === 'run') basis = t('b_run', { v: eur0(a.v) });
+      var amt = amount(a, st.salary), own = isOwn(a);
+      if (a.kind === 'once') basis = a.pct && !own ? t('b_pct', { p: pct(a.pct) }) + ' (' + eur0(amt) + ')' : t('b_once', { v: eur0(amt) });
+      else if (a.kind === 'ramp') basis = t('b_ramp', { v: eur0(amt) });
+      else if (a.kind === 'run') basis = t('b_run', { v: eur0(amt) });
       else if (a.kind === 'delay') basis = t('b_delay');
-      else basis = t('b_rev', { p: pct(a.pct) });
+      else basis = t('b_rev', { p: pct(amt / 100, 1) });
+      if (own) basis += ', ' + t('own');
+      var ed = el.parentNode.querySelector('.card-edit');
+      if (ed) {
+        ed.hidden = !st.expert;
+        var inp = ed.querySelector('input');
+        inp.placeholder = new Intl.NumberFormat(loc(), { maximumFractionDigits: 1, useGrouping: false }).format(benchmark(a, st.salary));
+        if (document.activeElement !== inp) inp.value = st.own[a.id] === undefined ? '' : st.own[a.id];
+        ed.querySelector('label').textContent = t('own_label', { n: t('a_' + a.id)[0] });
+        ed.querySelector('.card-unit').textContent = t(a.kind === 'rev' ? 'u_pct' : a.kind === 'once' ? 'u_once' : 'u_month');
+      }
       el.setAttribute('aria-checked', on);
       el.querySelector('.card-name').textContent = t('a_' + a.id)[0];
       el.querySelector('.card-desc').textContent = t('a_' + a.id)[1];
@@ -1159,6 +1217,8 @@ body.bad .rate { color: var(--color-accent-text); }
   function setView(v) { st.view = v; $('view-abs').setAttribute('aria-pressed', v === 'abs'); $('view-mar').setAttribute('aria-pressed', v === 'mar'); render(); }
   $('view-abs').addEventListener('click', function () { setView('abs'); });
   $('view-mar').addEventListener('click', function () { setView('mar'); });
+  $('xp').addEventListener('click', function () { var before = sim(st.on).be; st.expert = !st.expert; showDelta(sim(st.on).be - before); render(); });
+  $('xp-reset').addEventListener('click', function () { var before = sim(st.on).be; st.own = {}; showDelta(sim(st.on).be - before); render(); });
   $('all-on').addEventListener('click', function () { setAll(true); });
   $('all-off').addEventListener('click', function () { setAll(false); });
   $('lang-de').addEventListener('click', function () { st.lang = 'de'; applyLang(); });
