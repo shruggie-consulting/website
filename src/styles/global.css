@@ -533,12 +533,3 @@ mark.todo { background: oklch(0.9 0.18 100); color: var(--ink); padding: 0 4px; 
 .lang-hint__text a:hover { color: var(--rust); }
 .lang-hint__close { min-width: 44px; min-height: 36px; border: 0; background: none; color: var(--muted-on-dark); font: 400 22px/1 var(--font-sans); cursor: pointer; }
 .lang-hint__close:hover { color: var(--cream); }
-
-/* Tools overview (/tools/): one row per tool, in the shell of the legal pages. */
-.tools h1 { margin-bottom: 24px; }
-.tools__list { list-style: none; margin: 0 0 40px; padding: 0; border-top: 2px solid var(--ink); }
-.tools__item { display: block; padding: 28px 0; border-bottom: 1px solid var(--line); color: var(--ink); text-decoration: none; }
-.tools__item h2 { font-size: clamp(20px, 3vw, 26px); line-height: 1.15; margin: 0 0 12px; }
-.tools__item p { font: 400 16px/1.7 var(--font-sans); color: var(--ink-soft); margin: 0 0 16px; text-wrap: pretty; }
-.tools__open { display: inline-block; font: 700 14px var(--font-sans); border-bottom: 2px solid var(--rust); padding-bottom: 2px; }
-.tools__item:hover h2, .tools__item:focus-visible h2 { color: var(--rust-dark); }

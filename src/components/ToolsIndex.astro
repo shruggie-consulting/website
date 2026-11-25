@@ -1,9 +1,15 @@
 ---
-// Overview of the interactive tools (/tools/, /en/tools/): the quiet shell of the legal
-// pages (lockup, back link, language switch), then one row per tool.
+// Overview of the interactive tools (/tools/, /en/tools/), in the shell of the Consulting
+// page: the same header and footer, the shrug wallpaper behind the page head, one row per tool.
 import Base from "../layouts/Base.astro";
-import LegalHeader from "./LegalHeader.astro";
+import Backdrop from "./v2/Backdrop.astro";
+import V2Header from "./v2/V2Header.astro";
+import V2Footer from "./v2/V2Footer.astro";
 import { content, routes, toolKeys, type Lang } from "../i18n";
+import "../styles/v2.css";
+import "../styles/house/v4.css";
+import "../styles/house/consulting-v4.css";
+import "../styles/house/tools.css";
 
 interface Props {
   lang: Lang;
@@ -14,39 +20,45 @@ const c = content[lang].tools;
 ---
 
 <Base lang={lang} page="tools">
-  <div class="legal-page">
-    <LegalHeader lang={lang} page="tools" back={c.back} />
+  <div class="v2 h4 c4 tl" data-bg="wallpaper" data-theme="consulting">
+    <V2Header lang={lang} brand="consulting" page="tools" />
 
-    <main id="main" class="legal tools">
-      <h1 class="display">{c.title}</h1>
-      <p class="legal__intro">{c.intro}</p>
+    <main id="main">
+      <section class="tl-hero">
+        <Backdrop tone="paper" />
+        <div class="container">
+          <h1>{c.title}</h1>
+          <p class="lead">{c.intro}</p>
+        </div>
+      </section>
 
-      <ul class="tools__list">
-        {
-          toolKeys.map((key) => (
-            <li>
-              <a class="tools__item" href={routes[key][lang]}>
-                <h2 class="display">{c.items[key].title}</h2>
-                <p>{c.items[key].text}</p>
-                <span class="tools__open">{c.open}</span>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-
-      <p class="legal__disclaimer">{c.note}</p>
+      <section class="tl-body">
+        <div class="container">
+          <ul class="tl-list">
+            {
+              toolKeys.map((key) => (
+                <li>
+                  <a class="tl-item" href={routes[key][lang]}>
+                    <h2>{c.items[key].title}</h2>
+                    <div class="tl-item__text">
+                      <p>{c.items[key].text}</p>
+                      <span class="h4-link">{c.open}</span>
+                    </div>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+          <p class="tl-note">{c.note}</p>
+        </div>
+      </section>
     </main>
 
-    <footer class="legal-footer">
-      <div class="wrap">
-        <span class="legal-footer__copy">{c.copyright}</span>
-        <div class="footer-links">
-          <a href={routes.home[lang]}>{c.back}</a>
-          <a href={routes.imprint[lang]}>{c.imprint}</a>
-          <a href={routes.privacy[lang]}>{c.privacy}</a>
-        </div>
-      </div>
-    </footer>
+    <V2Footer lang={lang} brand="consulting" />
   </div>
 </Base>
+
+<script>
+  import { initV2 } from "../scripts/v2";
+  initV2();
+</script>

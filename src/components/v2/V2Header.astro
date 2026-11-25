@@ -18,6 +18,9 @@ const { lang, brand } = Astro.props;
 const c = content[lang];
 const page = Astro.props.page ?? PAGE_OF[brand];
 const navBase = page === PAGE_OF[brand] ? "" : routes[PAGE_OF[brand]][lang];
+// The tool pages have no contact section of their own: "Kontakt" leads to the one on the brand page.
+const ownContact = !page.startsWith("tool");
+const navHref = (href: string) => (href.startsWith("#") && (href !== "#contact" || !ownContact) ? navBase + href : href);
 const other = otherLang(lang);
 const nav = brand === "house" ? c.house.nav : brand === "agency" ? c.agency.nav : c.home.nav;
 // The doors in the menu: both brands on the house page, the other brand on a brand page.
@@ -44,7 +47,7 @@ const desc = brand === "house" ? "" : brand === "agency" ? "Agency" : "Consultin
   </button>
   <div class="v2-menu" id="v2-menu" data-v2-menu>
     <nav class="v2-nav" aria-label={ui[lang].nav}>
-      {nav.map((item) => <a href={item.href.startsWith("#") && item.href !== "#contact" ? navBase + item.href : item.href} aria-current={item.href === routes[page][lang] ? "page" : undefined}>{item.label}</a>)}
+      {nav.map((item) => <a href={navHref(item.href)} aria-current={item.href === routes[page][lang] || (item.href === routes.tools[lang] && page.startsWith("tool")) ? "page" : undefined}>{item.label}</a>)}
       {doors.map((d, i) => <a class:list={[{ "v2-nav__brand": i === 0 }]} href={d.href}>{d.label}</a>)}
     </nav>
     <a class="v2-nav__lang" href={routes[page][other]} hreflang={other} lang={other} data-lang-switch aria-label={other === "en" ? "English" : "Deutsch"}>
