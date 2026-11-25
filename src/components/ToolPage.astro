@@ -1,0 +1,80 @@
+---
+// One interactive tool as a page of the site. The tools are self-contained files in
+// src/tools/ (style, markup, script; also published as Claude artifacts). Here they get
+// the site's head, the Shruggie Consulting lockup in their top bar, a language switch that
+// moves between the German and the English URL, and the legal links. To update a tool,
+// replace its file in src/tools/: every change below is checked at build time and fails
+// loudly if the file no longer has the expected shape.
+import ToolBase from "../layouts/ToolBase.astro";
+import { content, routes, ui, type Lang, type ToolKey } from "../i18n";
+import rate from "../tools/stundensatz.html?raw";
+import hire from "../tools/neueinstellung.html?raw";
+import levers from "../tools/hebel.html?raw";
+
+interface Props {
+  lang: Lang;
+  page: ToolKey;
+}
+
+const { lang, page } = Astro.props;
+const c = content[lang].tools;
+const sources: Record<ToolKey, string> = { toolRate: rate, toolHire: hire, toolLevers: levers };
+
+function swap(html: string, find: string | RegExp, put: string | ((m: string) => string), what: string): string {
+  const out = html.replace(find, put as never);
+  if (out === html) throw new Error(`Tool ${page}: could not ${what}. The file in src/tools/ has changed shape.`);
+  return out;
+}
+function drop(html: string, find: RegExp): string {
+  return html.replace(find, "");
+}
+
+let html = sources[page];
+// the artifact's own head lines and third-party loads: the layout provides these
+html = drop(html, /<title>[\s\S]*?<\/title>\s*/);
+html = drop(html, /<meta [^>]*>\s*/g);
+html = drop(html, /<link rel="stylesheet" href="https:\/\/fonts\.googleapis\.com[^>]*>\s*/);
+html = drop(html, /<script src="https:\/\/cdnjs\.cloudflare\.com[^>]*><\/script>\s*/);
+
+// top bar: the lockup, the way back to the overview, the tool's own language buttons
+const langGroup = html.match(/<div class="lang"[\s\S]*?<\/div>/)?.[0];
+if (!langGroup) throw new Error(`Tool ${page}: no language group found.`);
+const topBar = [
+  '<header class="top">',
+  `<a class="sb" href="${routes.home[lang]}" aria-label="${ui[lang].homeLabel}">`,
+  '<span class="sb-shrug" aria-hidden="true">¯\\_(ツ)_/¯</span>',
+  '<span class="sb-name">Shruggie<span class="sb-dot">.</span></span>',
+  '<span class="sb-rule" aria-hidden="true"></span><span class="sb-tag">CONSULTING</span></a>',
+  `<nav class="sb-nav" aria-label="${ui[lang].nav}"><a href="${routes.tools[lang]}">${c.all}</a></nav>`,
+  langGroup,
+  "</header>",
+].join("");
+html = swap(html, /<header class="top">[\s\S]*?<\/header>/, () => topBar, "replace the top bar");
+
+// language: start in the page's language, and let the buttons move between the two URLs
+html = swap(html, /(var st = \{[^\n]*?)lang: 'de'/, (m) => m.replace("lang: 'de'", "lang: window.__site.lang"), "set the start language");
+for (const l of ["de", "en"] as const) {
+  html = swap(
+    html,
+    `$('lang-${l}').addEventListener('click', function () { st.lang = '${l}'; applyLang(); });`,
+    () => `$('lang-${l}').addEventListener('click', function () { if (st.lang !== '${l}') location.href = window.__site.alt.${l}; });`,
+    `rewire the ${l} language button`,
+  );
+}
+
+const siteConfig = `window.__site = ${JSON.stringify({ lang, alt: { de: routes[page].de, en: routes[page].en } })};`;
+---
+
+<ToolBase lang={lang} page={page}>
+  <script is:inline set:html={siteConfig} />
+  <Fragment set:html={html} />
+  <footer class="site-foot">
+    <span>{c.copyright}</span>
+    <nav aria-label={lang === "de" ? "Weitere Seiten" : "More pages"}>
+      <a href={routes.tools[lang]}>{c.all}</a>
+      <a href={routes.home[lang]}>Shruggie Consulting</a>
+      <a href={routes.imprint[lang]}>{lang === "de" ? "Impressum" : "Imprint"}</a>
+      <a href={routes.privacy[lang]}>{lang === "de" ? "Datenschutz" : "Privacy"}</a>
+    </nav>
+  </footer>
+</ToolBase>

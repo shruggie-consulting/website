@@ -100,6 +100,10 @@
         "label": "Vorgehen"
       },
       {
+        "href": "/tools/",
+        "label": "Tools"
+      },
+      {
         "href": "#contact",
         "label": "Kontakt"
       }
@@ -712,5 +716,30 @@
       "body": "Unsere KI-Agenten haben ein kleines Pixel-Office. Du siehst live, wer gerade am Schreibtisch sitzt und wer schon auf dem Sofa wartet.",
       "cta": "ZUM OFFICE"
     }
+  },
+  "tools": {
+    "back": "ZUR STARTSEITE",
+    "all": "Alle Tools",
+    "title": "Tools",
+    "intro": "Kleine Rechner für Fragen, die in jeder Agentur irgendwann auf dem Tisch liegen. Kostenlos und ohne Anmeldung. Gerechnet wird in deinem Browser, deine Zahlen verlassen ihn nicht.",
+    "open": "Tool öffnen",
+    "items": {
+      "toolRate": {
+        "title": "Was steckt in einem Stundensatz?",
+        "text": "Gehalt geteilt durch Arbeitsstunden ist die Rechnung, die fast jeder zuerst macht. Der Rechner zeigt Posten für Posten, was dabei fehlt, und vergleicht deinen heutigen Satz mit dem Break-even."
+      },
+      "toolHire": {
+        "title": "Wann rechnet sich eine Neueinstellung?",
+        "text": "Ab welchem Monat eine neue Person mehr eingebracht hat, als sie gekostet hat, und wie viel Geld bis dahin vorzustrecken ist. Mit Auswertung als PDF."
+      },
+      "toolLevers": {
+        "title": "Welcher Hebel bewegt das Ergebnis am stärksten?",
+        "text": "Auslastung, Stundensatz, Gehalt, Gemeinkosten, Krankheitstage: Der Rechner bewegt jeden Hebel einzeln und zeigt, was er für das Jahresergebnis einer Person bedeutet."
+      }
+    },
+    "note": "Alle Beträge in den Tools sind Richtwerte zur Veranschaulichung und ersetzen keine Kalkulation mit deinen eigenen Zahlen.",
+    "copyright": "© 2026 Shruggie Consulting",
+    "imprint": "IMPRESSUM",
+    "privacy": "DATENSCHUTZ"
   }
 }

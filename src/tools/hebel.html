@@ -1,0 +1,924 @@
+<title>Hebel-Vergleich</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Interaktiver Vergleich: Welcher Hebel bewegt das Jahresergebnis einer Person am stärksten, Auslastung, Stundensatz, Gehalt, Gemeinkosten oder Krankheitstage.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap">
+<style>
+/* Hallmark · shape: app screen · genre: modern-minimal · theme: brand · redesign: full
+ * paper: oklch(100% 0 0) · accent: oklch(50% 0.2 25) · display: Archivo Black · body: Space Grotesk
+ * nav: kept, a wordmark and the language switch · signature: five lever bars on one shared scale, the utilisation bar far wider than the rest · states: full (no data loads)
+ * axes: white/grotesque-black/red · posture: tool · contrast: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V3 · weakest: V, shares brand and shell with the Stundensatz tool on purpose; the lever board is its own object */
+/* Hallmark · waive 39b · button.card is a full-width ledger row holding a name, an explanation and two figures · the row is the switch target, so it is as tall as its text, not a 40px button; button.info is a 24px inline help icon beside a term, kept small so it reads as a footnote mark */
+/* Hallmark · answered F4 · the pressed half of the mode toggle is a selected state, the only filled action is the step button */
+:root {
+  --color-paper: oklch(100% 0 0);
+  --color-paper-2: oklch(96.5% 0 0);
+  --color-paper-3: oklch(92% 0 0);
+  --color-ink: oklch(20% 0 0);
+  --color-ink-2: oklch(38% 0 0);
+  --color-muted: oklch(46% 0 0);
+  --color-rule: oklch(87% 0 0);
+  --color-edge: oklch(58% 0 0);
+  --color-accent: oklch(50% 0.2 25);
+  --color-accent-text: oklch(48% 0.2 25);
+  --color-accent-ink: oklch(100% 0 0);
+  --color-signal: oklch(82% 0.19 100);
+  --color-on-signal: oklch(20% 0 0);
+  --color-good: oklch(70% 0.19 150);
+  --color-on-good: oklch(20% 0 0);
+  --color-focus: oklch(20% 0 0);
+  --seg-salary: oklch(20% 0 0);
+  --seg-social: oklch(47% 0 0);
+  --seg-work: oklch(40% 0.16 25);
+  --seg-people: oklch(56% 0.2 25);
+  --seg-org: oklch(72% 0.12 25);
+  --seg-risk: oklch(86% 0.06 25);
+  --seg-margin: oklch(70% 0.19 150);
+  --font-body: "Space Grotesk", Helvetica, Arial, sans-serif;
+  --font-display: "Archivo Black", "Space Grotesk", Helvetica, Arial, sans-serif;
+  --text-xs: 13px; --text-sm: 14px; --text-md: 16px; --text-lg: 20px; --text-xl: 24px; --text-2xl: 32px;
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px; --space-12: 48px; --space-16: 64px; --space-20: 80px;
+  --container: 1080px;
+  --radius: 2px; --radius-pill: 999px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-bar: 700ms;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-paper: oklch(19% 0 0); --color-paper-2: oklch(23.5% 0 0); --color-paper-3: oklch(29% 0 0);
+    --color-ink: oklch(97% 0 0); --color-ink-2: oklch(87% 0 0); --color-muted: oklch(73% 0 0); --color-rule: oklch(34% 0 0); --color-edge: oklch(62% 0 0);
+    --color-accent: oklch(58% 0.2 25); --color-accent-text: oklch(73% 0.16 25); --color-focus: oklch(97% 0 0);
+    --seg-salary: oklch(97% 0 0); --seg-social: oklch(70% 0 0); --seg-work: oklch(46% 0.18 25);
+    --seg-people: oklch(60% 0.2 25); --seg-org: oklch(75% 0.12 25); --seg-risk: oklch(88% 0.06 25);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --color-paper: oklch(19% 0 0); --color-paper-2: oklch(23.5% 0 0); --color-paper-3: oklch(29% 0 0);
+  --color-ink: oklch(97% 0 0); --color-ink-2: oklch(87% 0 0); --color-muted: oklch(73% 0 0); --color-rule: oklch(34% 0 0); --color-edge: oklch(62% 0 0);
+  --color-accent: oklch(58% 0.2 25); --color-accent-text: oklch(73% 0.16 25); --color-focus: oklch(97% 0 0);
+  --seg-salary: oklch(97% 0 0); --seg-social: oklch(70% 0 0); --seg-work: oklch(46% 0.18 25);
+  --seg-people: oklch(60% 0.2 25); --seg-org: oklch(75% 0.12 25); --seg-risk: oklch(88% 0.06 25);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+html { scrollbar-color: var(--color-muted) var(--color-paper); }
+::selection { background: var(--color-signal); color: var(--color-on-signal); }
+body {
+  background: var(--color-paper); color: var(--color-ink);
+  font-family: var(--font-body); font-size: var(--text-md); line-height: 1.5;
+  padding-left: max(var(--space-4), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--space-4), env(safe-area-inset-right, 0px));
+  padding-block: 0 200px;
+  -webkit-font-smoothing: antialiased; caret-color: var(--color-accent);
+}
+.wrap { max-width: var(--container); margin-inline: auto; display: flex; flex-direction: column; gap: var(--space-20); }
+h1, h2, h3, p { margin: 0; }
+h1, h2 { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.015em; line-height: 1.1; text-wrap: balance; overflow-wrap: break-word; min-width: 0; color: var(--color-ink); }
+h1 { font-size: var(--text-2xl); max-width: 22ch; }
+h2 { font-size: var(--text-xl); max-width: 32ch; }
+h3 { font-size: var(--text-md); font-weight: 700; line-height: 1.3; color: var(--color-ink); }
+p { text-wrap: pretty; }
+button, input { font: inherit; color: inherit; }
+button { cursor: pointer; }
+button:disabled, input:disabled { opacity: 0.55; cursor: not-allowed; }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* shell */
+.top { display: flex; justify-content: space-between; align-items: center; gap: var(--space-4); min-height: 64px; border-bottom: 1px solid var(--color-rule); }
+.brand { display: flex; align-items: baseline; gap: var(--space-3); font-family: var(--font-display); font-size: var(--text-lg); letter-spacing: -0.01em; }
+.brand span { font-family: var(--font-body); font-size: var(--text-sm); letter-spacing: 0; color: var(--color-muted); white-space: nowrap; }
+.lang { display: flex; gap: var(--space-1); }
+.lang button { display: flex; align-items: center; gap: var(--space-2); height: 32px; padding: 0 var(--space-3); background: none; border: 1px solid transparent; border-radius: var(--radius-pill); font-size: var(--text-sm); font-weight: 500; color: var(--color-muted); transition: color var(--dur-micro), border-color var(--dur-micro); }
+.lang button:hover { color: var(--color-ink); }
+.lang button[aria-pressed="true"] { border-color: var(--color-ink); color: var(--color-ink); }
+.lang svg { width: 18px; height: 12px; border-radius: 1px; display: block; }
+
+.intro { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--space-8) var(--space-16); align-items: start; margin-top: calc(var(--space-10) * -1); padding-bottom: var(--space-10); border-bottom: 1px solid var(--color-rule); }
+.intro-text { display: flex; flex-direction: column; gap: var(--space-4); }
+.intro-text p { color: var(--color-ink-2); }
+.howto { display: flex; flex-direction: column; gap: var(--space-3); }
+.howto h2 { font-family: var(--font-body); font-size: var(--text-md); font-weight: 700; letter-spacing: 0; line-height: 1.3; }
+.steps { list-style: none; margin: 0; padding: 0; counter-reset: step; display: flex; flex-direction: column; }
+.steps li { counter-increment: step; display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: var(--space-2); padding-block: var(--space-2); border-top: 1px solid var(--color-rule); font-size: var(--text-sm); color: var(--color-ink-2); }
+.steps li::before { content: counter(step); font-weight: 700; color: var(--color-ink); font-variant-numeric: tabular-nums; }
+
+/* calculator */
+.calc { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: var(--space-16); align-items: start; }
+#step1 { margin-top: calc(var(--space-10) * -1); }
+.step-head { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: var(--space-4); align-items: start; }
+.step-no { display: grid; place-items: center; width: 40px; height: 40px; border-radius: var(--radius); background: var(--color-ink); color: var(--color-paper); font-family: var(--font-display); font-size: var(--text-lg); line-height: 1; }
+.notice { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: var(--space-3) var(--space-4); align-items: center; padding: var(--space-3) var(--space-4); background: var(--color-paper-2); color: var(--color-ink); border-radius: var(--radius); }
+.notice p { font-size: var(--text-sm); color: var(--color-ink-2); }
+.notice b { color: var(--color-ink); }
+.btn.primary { background: var(--color-ink); color: var(--color-paper); white-space: nowrap; }
+.btn.primary:hover { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-ink); }
+.ghost { position: absolute; inset: 0; background-image: repeating-linear-gradient(135deg, var(--color-edge) 0 2px, transparent 2px 8px); clip-path: inset(0 100% 0 0); transition: clip-path var(--dur-bar) var(--ease-out), opacity var(--dur-short); }
+.ghost-say, .howto .hint { margin-top: var(--space-2); font-size: var(--text-xs); color: var(--color-muted); line-height: 1.4; }
+.inputs { display: flex; flex-direction: column; gap: var(--space-6); }
+.field { display: flex; flex-direction: column; gap: var(--space-2); }
+.field-head { display: flex; justify-content: space-between; align-items: center; gap: var(--space-3); min-height: 32px; }
+.field label { font-weight: 500; }
+.field .hint { font-size: var(--text-xs); color: var(--color-muted); line-height: 1.4; min-height: 1lh; }
+.valbox { display: flex; align-items: center; gap: var(--space-1); font-weight: 700; }
+.valbox input { width: 5.4em; height: 32px; text-align: right; background: var(--color-paper); color: var(--color-ink); border: 1px solid var(--color-edge); border-radius: var(--radius); padding: 0 var(--space-2); font-weight: 700; font-variant-numeric: tabular-nums; -moz-appearance: textfield; }
+.valbox input::-webkit-outer-spin-button, .valbox input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.valbox input:focus-visible, .guess-row input:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -2px; }
+input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 24px; background: transparent; cursor: pointer; margin: 0; }
+input[type="range"]::-webkit-slider-runnable-track { height: 4px; border-radius: 2px; background: linear-gradient(to right, var(--color-ink) var(--fill, 50%), var(--color-edge) var(--fill, 50%)); }
+input[type="range"]::-moz-range-track { height: 4px; border-radius: 2px; background: var(--color-edge); }
+input[type="range"]::-moz-range-progress { height: 4px; border-radius: 2px; background: var(--color-ink); }
+input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; margin-top: calc(var(--space-2) * -1); border-radius: 50%; background: var(--color-paper); border: 2px solid var(--color-ink); transition: transform var(--dur-micro) var(--ease-out), background-color var(--dur-micro); }
+input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; border-radius: 50%; background: var(--color-paper); border: 2px solid var(--color-ink); }
+input[type="range"]:active::-webkit-slider-thumb { transform: scale(1.15); background: var(--color-signal); }
+
+.result { display: flex; flex-direction: column; gap: var(--space-6); min-width: 0; }
+.rate-row { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--space-4) var(--space-8); }
+.rate-main { display: flex; flex-direction: column; gap: var(--space-1); }
+.rate-label { font-size: var(--text-sm); color: var(--color-muted); }
+.rate-line { display: flex; align-items: baseline; gap: var(--space-3); }
+.rate { font-family: var(--font-display); font-size: 72px; line-height: 1; letter-spacing: -0.03em; }
+.delta { font-weight: 700; font-size: var(--text-sm); padding: var(--space-1) var(--space-3); border-radius: var(--radius-pill); background: var(--color-signal); color: var(--color-on-signal); opacity: 0; white-space: nowrap; }
+.delta.neg { background: var(--color-paper-3); color: var(--color-ink); }
+.delta.show { animation: pop 1.8s var(--ease-out) forwards; }
+@keyframes pop { 0% { opacity: 0; transform: translateY(8px) scale(0.9); } 12% { opacity: 1; transform: none; } 75% { opacity: 1; } 100% { opacity: 0; transform: translateY(-6px); } }
+.facts { display: flex; gap: var(--space-8); margin: 0; padding-bottom: var(--space-2); }
+.fact { display: flex; flex-direction: column-reverse; }
+.fact b { font-size: var(--text-lg); font-weight: 700; line-height: 1.3; }
+.fact > span { font-size: var(--text-xs); color: var(--color-muted); white-space: nowrap; }
+
+.bar-head h2 { font-family: var(--font-body); font-size: var(--text-md); font-weight: 700; letter-spacing: 0; line-height: 1.3; }
+.bar-head { display: flex; justify-content: space-between; align-items: center; gap: var(--space-3); flex-wrap: wrap; }
+.seg-toggle { display: flex; border: 1px solid var(--color-edge); border-radius: var(--radius-pill); padding: 2px; }
+.seg-toggle button { height: 32px; background: none; border: 0; border-radius: var(--radius-pill); padding: 0 var(--space-4); font-size: var(--text-sm); font-weight: 500; color: var(--color-muted); transition: background-color var(--dur-micro), color var(--dur-micro); }
+.seg-toggle button:hover { color: var(--color-ink); }
+.seg-toggle button[aria-pressed="true"] { background: var(--color-ink); color: var(--color-paper); }
+
+.chart { position: relative; padding-top: 56px; }
+.track { position: relative; height: 64px; background-color: var(--color-paper-2); border-radius: var(--radius); background-image: linear-gradient(to right, var(--color-rule) 1px, transparent 1px); background-size: 25% 100%; }
+.bar { position: absolute; inset: 0; display: flex; transform-origin: left center; transform: scaleX(0); transition: transform var(--dur-bar) var(--ease-out); }
+.seg { flex: 0 0 0; min-width: 0; background: var(--c); transition: flex-grow var(--dur-bar) var(--ease-out); box-shadow: inset -2px 0 0 var(--color-paper); }
+.seg:last-child { box-shadow: none; }
+.seg.flash { animation: flash 0.9s var(--ease-out); }
+@keyframes flash { 0% { filter: brightness(1.5) saturate(1.3); } 100% { filter: none; } }
+.marks { position: absolute; inset: -56px 0 -4px 0; overflow: clip; pointer-events: none; }
+.marker { position: absolute; inset: 0; transition: transform var(--dur-bar) var(--ease-out), opacity var(--dur-short); pointer-events: none; }
+.marker i { position: absolute; top: 24px; bottom: 0; right: -1px; border-left: 2px dashed var(--color-ink); }
+.marker span { position: absolute; top: 0; right: 0; font-size: var(--text-xs); font-weight: 500; white-space: nowrap; line-height: 1.4; padding: 2px var(--space-2); border-radius: var(--radius); transform: translateX(50%); }
+.marker.naive span { background: var(--color-paper-3); color: var(--color-ink); right: auto; left: 100%; transform: translateX(-12px); top: 28px; }
+.marker.naive i { top: 52px; border-left-style: solid; border-left-color: var(--color-muted); }
+.marker.guess span { background: var(--color-ink); color: var(--color-paper); }
+.marker.guess.right span { transform: translateX(12px); }
+.axis { display: flex; justify-content: space-between; font-size: var(--text-xs); color: var(--color-muted); margin-top: var(--space-2); }
+
+.legend { display: flex; flex-direction: column; border-top: 1px solid var(--color-ink); }
+.lg { display: grid; grid-template-columns: 12px minmax(0, 1fr) 6em 4em; gap: var(--space-3); align-items: center; min-height: 40px; border-bottom: 1px solid var(--color-rule); font-size: var(--text-sm); transition: opacity var(--dur-short); }
+.lg i { width: 12px; height: 12px; border-radius: 1px; background: var(--c); }
+.lg b { font-weight: 700; text-align: right; }
+.lg em { font-style: normal; color: var(--color-muted); text-align: right; }
+.lg.off { opacity: 0.45; }
+
+/* existing rate */
+.chip { display: inline-flex; align-items: center; min-height: 24px; padding: 0 var(--space-2); border-radius: var(--radius); font-size: var(--text-xs); font-weight: 700; white-space: nowrap; }
+.chip.ok { background: var(--color-good); color: var(--color-on-good); }
+.field.locked label, .field.locked .valbox, .field.locked input[type="range"] { opacity: 0.55; cursor: not-allowed; }
+.lg.neg b { color: var(--color-accent-text); }
+.chip.mid { background: var(--color-signal); color: var(--color-on-signal); }
+.chip.bad { background: var(--color-accent); color: var(--color-accent-ink); }
+.cmp { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); font-size: var(--text-sm); color: var(--color-ink-2); margin-top: calc(var(--space-3) * -1); }
+.cmp b, .verdict b { color: var(--color-ink); }
+.dock-cmp { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1) var(--space-2); margin: 0; font-size: var(--text-xs); font-weight: 700; color: var(--color-ink); }
+.verdict { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); font-size: var(--text-lg); line-height: 1.35; color: var(--color-ink); }
+.eval-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: var(--space-8) var(--space-16); align-items: start; }
+.rows { display: flex; flex-direction: column; border-top: 1px solid var(--color-ink); }
+.row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-4); align-items: center; min-height: 48px; padding-block: var(--space-2); border-bottom: 1px solid var(--color-rule); font-size: var(--text-sm); color: var(--color-ink-2); }
+.row b { font-size: var(--text-md); font-weight: 700; color: var(--color-ink); white-space: nowrap; }
+.row.key { color: var(--color-ink); font-weight: 500; }
+.row.key b { font-family: var(--font-display); font-weight: 400; font-size: var(--text-lg); letter-spacing: -0.01em; }
+.howto h3 { line-height: 1.3; }
+
+/* term help */
+.lgn { display: inline-flex; align-items: center; gap: var(--space-1); min-width: 0; }
+.info { flex: none; display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; background: none; font-size: 0; color: var(--color-muted); cursor: help; }
+.info::before { content: "i"; display: grid; place-items: center; width: 16px; height: 16px; border: 1px solid currentColor; border-radius: 50%; font-family: var(--font-body); font-size: 11px; font-weight: 700; line-height: 1; transition: background-color var(--dur-micro), color var(--dur-micro), border-color var(--dur-micro); }
+.info:hover, .info:focus-visible, .info[aria-expanded="true"] { color: var(--color-ink); }
+.info:hover::before, .info[aria-expanded="true"]::before { background: var(--color-signal); border-color: var(--color-signal); color: var(--color-on-signal); }
+.info:active::before { transform: scale(0.92); }
+.tip { position: fixed; left: 0; top: 0; z-index: 40; max-width: min(300px, calc(100% - 32px)); padding: var(--space-3) var(--space-4); background: var(--color-ink); color: var(--color-paper); font-size: var(--text-sm); font-weight: 400; line-height: 1.45; border-radius: var(--radius); pointer-events: none; opacity: 0; transition: opacity var(--dur-micro); }
+.tip.show { opacity: 1; }
+
+/* sections */
+.sec { display: flex; flex-direction: column; gap: var(--space-8); }
+.sec-head { display: flex; flex-direction: column; gap: var(--space-3); }
+.sec-head p { color: var(--color-ink-2); max-width: 68ch; }
+
+.year { display: flex; height: 40px; border-radius: var(--radius); overflow: hidden; background: var(--color-paper-2); }
+.yseg { flex: 0 0 0; background: var(--c); transition: flex-grow var(--dur-bar) var(--ease-out); box-shadow: inset -2px 0 0 var(--color-paper); min-width: 0; }
+.yseg:last-child { box-shadow: none; }
+.yseg.hatch { background-image: repeating-linear-gradient(135deg, transparent 0 5px, var(--color-paper) 5px 7px); }
+.ylegend { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-4) var(--space-6); margin-top: calc(var(--space-4) * -1); }
+.yl { display: flex; flex-direction: column; gap: 2px; font-size: var(--text-xs); color: var(--color-muted); border-top: 4px solid var(--c); padding-top: var(--space-2); }
+.yl b { font-size: var(--text-lg); color: var(--color-ink); font-weight: 700; }
+
+/* the switchboard */
+.board-top.solo { grid-template-columns: minmax(0, 1fr); }
+.board-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-16); padding-block: var(--space-6); border-block: 1px solid var(--color-ink); }
+.panel { display: flex; flex-direction: column; gap: var(--space-3); min-width: 0; color: var(--color-ink); }
+.panel h3 { font-size: var(--text-sm); font-weight: 500; color: var(--color-muted); display: flex; }
+.level-line { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-3); flex-wrap: wrap; }
+.level-name { font-family: var(--font-display); font-size: var(--text-xl); letter-spacing: -0.01em; line-height: 1.1; }
+.level-count { font-size: var(--text-sm); color: var(--color-muted); }
+.meter { display: flex; gap: 2px; height: 8px; }
+.meter i { flex: 1; background: var(--color-paper-3); border-radius: 1px; transition: background-color var(--dur-short) var(--ease-out); }
+.meter i.on { background: var(--color-accent); color: var(--color-accent-ink); }
+.level-say { font-size: var(--text-sm); color: var(--color-ink-2); }
+.shrug { font-weight: 500; white-space: nowrap; color: var(--color-ink); }
+.guess-row { display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; }
+.guess-row input { width: 6.5em; height: 40px; background: var(--color-paper); color: var(--color-ink); border: 1px solid var(--color-edge); border-radius: var(--radius); padding: 0 var(--space-3); font-weight: 700; font-size: var(--text-md); font-variant-numeric: tabular-nums; }
+.guess-row span { font-size: var(--text-sm); color: var(--color-ink-2); }
+.guess-say { font-size: var(--text-sm); color: var(--color-ink-2); min-height: 3lh; }
+.guess-say b { color: var(--color-ink); }
+.bulk { display: flex; gap: var(--space-2); flex-wrap: wrap; margin-top: var(--space-1); }
+.btn { height: 40px; background: none; border: 1px solid var(--color-ink); border-radius: var(--radius-pill); padding: 0 var(--space-5); font-size: var(--text-sm); font-weight: 500; color: var(--color-ink); transition: background-color var(--dur-micro), color var(--dur-micro); }
+.btn:hover { background: var(--color-ink); color: var(--color-paper); }
+.btn:active { transform: translateY(1px); }
+
+#cats { display: flex; flex-direction: column; gap: var(--space-12); }
+.cat { display: flex; flex-direction: column; }
+.cat-head { display: flex; align-items: center; gap: var(--space-3); padding-bottom: var(--space-3); border-bottom: 1px solid var(--color-ink); }
+.cat-head i { width: 12px; height: 12px; background: var(--c); border-radius: 1px; }
+.cat-head h3 { flex: 1; }
+.cat-head span { font-size: var(--text-sm); font-weight: 700; }
+.cards { display: flex; flex-direction: column; }
+.card { display: grid; grid-template-columns: 36px minmax(0, 1fr) 13em 7.5em; gap: var(--space-1) var(--space-5); align-items: center; width: 100%; min-height: 64px; padding: var(--space-3) var(--space-3); text-align: left; background: none; color: var(--color-ink); border: 0; border-bottom: 1px solid var(--color-rule); border-radius: 0; transition: background-color var(--dur-micro); }
+.card:hover { background: var(--color-paper-2); }
+.card:active .switch::after { transform: scale(0.85); }
+.card[aria-checked="true"]:active .switch::after { transform: translateX(16px) scale(0.85); }
+.card-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.card-name { font-weight: 500; line-height: 1.3; }
+.card[aria-checked="true"] .card-name { font-weight: 700; }
+.card-desc { font-size: var(--text-sm); color: var(--color-ink-2); line-height: 1.45; max-width: 62ch; }
+.card-basis { font-size: var(--text-sm); color: var(--color-muted); text-align: right; }
+.card-imp { font-weight: 700; color: var(--color-muted); text-align: right; white-space: nowrap; }
+.card[aria-checked="true"] .card-imp { color: var(--color-accent-text); }
+.switch { flex: none; width: 36px; height: 20px; border-radius: var(--radius-pill); border: 1px solid var(--color-edge); background: var(--color-paper); position: relative; transition: background-color var(--dur-short), border-color var(--dur-short); }
+.switch::after { content: ""; position: absolute; top: 2px; left: 2px; width: 14px; height: 14px; border-radius: 50%; background: var(--color-edge); transition: transform var(--dur-short) var(--ease-out), background-color var(--dur-short); }
+.card[aria-checked="true"] .switch { background: var(--color-ink); border-color: var(--color-ink); }
+.card[aria-checked="true"] .switch::after { transform: translateX(16px); background: var(--color-paper); }
+
+.fly { position: fixed; left: 0; top: 0; z-index: 30; pointer-events: none; font-weight: 700; font-size: var(--text-sm); padding: var(--space-1) var(--space-3); border-radius: var(--radius-pill); background: var(--color-signal); color: var(--color-on-signal); white-space: nowrap; }
+
+/* insights */
+.insights { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 var(--space-16); border-top: 1px solid var(--color-ink); }
+.ins { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-1) var(--space-4); align-content: start; padding-block: var(--space-5); border-bottom: 1px solid var(--color-rule); color: var(--color-ink); }
+.ins .tag { grid-column: 2; grid-row: 1; font-size: var(--text-xs); color: var(--color-muted); white-space: nowrap; }
+.ins h3 { grid-column: 1; grid-row: 1; }
+.ins p { grid-column: 1 / -1; font-size: var(--text-sm); color: var(--color-ink-2); }
+.ins.locked h3 { color: var(--color-muted); font-weight: 500; }
+.ins.open .tag { color: var(--color-accent-text); font-weight: 700; }
+.ins.fresh { animation: unlock 1.4s var(--ease-out); }
+@keyframes unlock { 0% { background: var(--color-signal); } 100% { background: transparent; } }
+
+.notes { font-size: var(--text-xs); color: var(--color-muted); display: flex; flex-direction: column; gap: var(--space-2); max-width: 84ch; }
+
+/* dock */
+.dock { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: var(--color-paper); color: var(--color-ink); border-top: 1px solid var(--color-ink);
+  padding: var(--space-3) max(var(--space-4), env(safe-area-inset-right, 0px)) calc(var(--space-3) + env(safe-area-inset-bottom, 0px)) max(var(--space-4), env(safe-area-inset-left, 0px));
+  transform: translateY(110%); transition: transform 0.4s var(--ease-out); }
+.dock.show { transform: none; }
+.dock-in { max-width: var(--container); margin-inline: auto; display: flex; flex-direction: column; gap: var(--space-2); position: relative; }
+.dock-row { display: flex; align-items: center; gap: var(--space-5); }
+.dock-rate { font-family: var(--font-display); font-size: 36px; line-height: 1; letter-spacing: -0.025em; white-space: nowrap; }
+.dock-rate small { font-family: var(--font-body); font-size: var(--text-xs); color: var(--color-muted); letter-spacing: 0; margin-left: var(--space-2); }
+.dock-track { flex: 1; height: 32px; background: var(--color-paper-2); border-radius: var(--radius); position: relative; min-width: 0; }
+.dock .delta { position: absolute; right: 0; top: -40px; box-shadow: 0 0 0 1px var(--color-ink); }
+.dock-legend { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-2); }
+.dl { display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-xs); padding: 2px var(--space-2); border-radius: var(--radius-pill); white-space: nowrap; }
+.dl i { width: 10px; height: 10px; border-radius: 1px; background: var(--c); flex: none; box-shadow: 0 0 0 1.5px var(--color-paper); }
+.dl span { color: var(--color-ink-2); }
+.dl b { font-weight: 700; }
+.dl.hit { animation: hit 1.6s var(--ease-out); }
+@keyframes hit { 0%, 35% { background: var(--color-signal); color: var(--color-on-signal); } 100% { background: transparent; } }
+.dl.hit span { color: inherit; }
+
+@media (max-width: 60rem) {
+  .wrap { gap: var(--space-16); }
+  .calc { grid-template-columns: minmax(0, 1fr); gap: var(--space-10); }
+  .intro { grid-template-columns: minmax(0, 1fr); }
+  .notice { grid-template-columns: auto minmax(0, 1fr); }
+  .notice .btn { grid-column: 1 / -1; justify-self: start; }
+  .eval-grid { grid-template-columns: minmax(0, 1fr); }
+  .board-top { grid-template-columns: minmax(0, 1fr); gap: var(--space-8); }
+  .insights { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 40rem) {
+  h1 { font-size: 28px; }
+  h2 { font-size: 22px; }
+  .brand span { display: none; }
+  .rate { font-size: 56px; }
+  .facts { flex-wrap: wrap; gap: var(--space-3) var(--space-6); }
+  .track { height: 52px; }
+  .ylegend { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .card { grid-template-columns: 36px minmax(0, 1fr) auto; align-items: start; padding-inline: 0; }
+  .card .switch { margin-top: 2px; }
+  .card-text { grid-column: 2 / -1; }
+  .card-basis { grid-column: 2; text-align: left; }
+  .card-imp { grid-column: 3; }
+  .card:hover { background: none; }
+  .dock-rate { font-size: 28px; }
+  .dock-track { height: 24px; }
+  .dock-row { gap: var(--space-3); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+}
+
+/* revenue, cost, result */
+.hbs { display: flex; flex-direction: column; gap: var(--space-2); }
+.hb { display: grid; grid-template-columns: 5.5em minmax(0, 1fr) 7em; gap: var(--space-3); align-items: center; font-size: var(--text-sm); color: var(--color-ink-2); }
+.hb b { text-align: right; font-weight: 700; color: var(--color-ink); }
+.hb-track { position: relative; height: 28px; background: var(--color-paper-2); border-radius: var(--radius); overflow: hidden; }
+.hb-bar { position: absolute; inset: 0; transform-origin: left center; transform: scaleX(0); transition: transform var(--dur-short) var(--ease-out); }
+.hb-bar.rev { background: var(--color-ink); }
+.hb-bar.cost { background: var(--color-muted); }
+.hb-bar.res { background: var(--color-good); }
+.hb-bar.res.neg { background: var(--color-accent); }
+.hb.mini { grid-template-columns: 4.5em minmax(0, 1fr); gap: var(--space-2); font-size: var(--text-xs); }
+.hb.mini .hb-track { height: 8px; }
+.dock-bars { flex: 1; display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; }
+.notice.plain { grid-template-columns: minmax(0, 1fr) auto; }
+body.bad .rate { color: var(--color-accent-text); }
+.rate-label { font-size: var(--text-sm); color: var(--color-muted); }
+
+/* utilisation curve */
+.curve { position: relative; margin-top: var(--space-4); min-width: 0; }
+.curve svg { display: block; width: 100%; height: auto; overflow: visible; }
+.c-grid { stroke: var(--color-rule); stroke-width: 1; }
+.c-axis { stroke: var(--color-ink); stroke-width: 1; }
+.c-txt { fill: var(--color-muted); font-family: var(--font-body); font-size: 12px; font-variant-numeric: tabular-nums; }
+.c-step { fill: var(--color-ink); font-family: var(--font-body); font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; paint-order: stroke; stroke: var(--color-paper); stroke-width: 4px; stroke-linejoin: round; }
+.c-lbl { fill: var(--color-ink); font-family: var(--font-body); font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; paint-order: stroke; stroke: var(--color-paper); stroke-width: 4px; stroke-linejoin: round; }
+.c-pos { fill: var(--color-good); stroke: none; opacity: 0.8; }
+.c-neg { fill: var(--color-accent); stroke: none; opacity: 0.8; }
+.c-line { fill: none; stroke: var(--color-ink); stroke-width: 2.5; stroke-linejoin: round; }
+.c-ghost { fill: none; stroke: var(--color-edge); stroke-width: 2; stroke-dasharray: 5 5; }
+.c-rate { stroke: var(--color-ink); stroke-width: 1.5; }
+.c-now { stroke: var(--color-ink); stroke-width: 1.5; stroke-dasharray: 3 3; }
+.c-dot { fill: var(--color-paper); stroke: var(--color-ink); stroke-width: 2; }
+.c-tickdot { fill: var(--color-ink); stroke: none; }
+
+/* lever board */
+.lv-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3); }
+#mode-say { font-size: var(--text-sm); color: var(--color-ink-2); max-width: 76ch; margin-top: calc(var(--space-4) * -1); }
+.levers { display: flex; flex-direction: column; border-top: 1px solid var(--color-ink); }
+.lever { display: grid; grid-template-columns: 12em minmax(0, 1fr) 7em; gap: var(--space-2) var(--space-6); align-items: center; padding-block: var(--space-4); border-bottom: 1px solid var(--color-rule); }
+.lv-name { display: flex; flex-direction: column; min-width: 0; }
+.lv-name label { font-weight: 700; }
+.lv-now { font-size: var(--text-xs); color: var(--color-muted); }
+.lv-ctl { display: grid; grid-template-columns: minmax(0, 1fr) 6.5em; gap: var(--space-3); align-items: center; }
+.lv-val { text-align: right; font-weight: 700; }
+.lv-track { position: relative; height: 32px; background: var(--color-paper-2); border-radius: var(--radius); overflow: hidden; }
+.lv-track::after { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; border-left: 1px solid var(--color-ink); }
+.lv-band, .lv-bar { position: absolute; left: 50%; width: 50%; transform-origin: left center; transform: scaleX(0); transition: transform var(--dur-short) var(--ease-out); }
+.lv-band { top: 8px; bottom: 8px; background: var(--color-edge); opacity: 0.4; }
+.lv-bar { top: 0; bottom: 0; background: var(--color-good); }
+.lv-bar.neg { background: var(--color-accent); }
+.lv-eff { text-align: right; font-weight: 700; color: var(--color-muted); }
+.lv-eff.pos { color: var(--color-ink); }
+.lv-eff.neg { color: var(--color-accent-text); }
+.lv-axis { display: grid; grid-template-columns: 1fr auto 1fr; margin-left: calc(25em + var(--space-6) * 2); margin-right: calc(6.5em + var(--space-6)); margin-top: calc(var(--space-6) * -1); font-size: var(--text-xs); color: var(--color-muted); }
+.lv-axis span:last-child { text-align: right; }
+.steps.plain li { counter-increment: none; grid-template-columns: minmax(0, 1fr); }
+.steps.plain li::before { content: none; }
+@media (max-width: 60rem) {
+  .lever { grid-template-columns: minmax(0, 1fr) 7em; }
+  .lv-name { flex-direction: row; gap: var(--space-3); align-items: baseline; }
+  .lv-ctl { grid-column: 1 / -1; grid-row: 2; }
+}
+@media (max-width: 40rem) {
+  .hb { grid-template-columns: 4.5em minmax(0, 1fr) 6em; gap: var(--space-2); }
+  .notice.plain { grid-template-columns: minmax(0, 1fr); }
+  .dock-row { flex-wrap: wrap; }
+  .dock-bars { flex-basis: 100%; }
+}
+
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">shruggie <span data-i18n="brand_sub"></span></div>
+    <div class="lang" role="group" aria-label="Sprache / Language">
+      <button type="button" id="lang-de" aria-pressed="true">
+        <svg viewBox="0 0 18 12" aria-hidden="true"><rect width="18" height="4" fill="#000"/><rect y="4" width="18" height="4" fill="#d00"/><rect y="8" width="18" height="4" fill="#fc0"/></svg>DE
+      </button>
+      <button type="button" id="lang-en" aria-pressed="false">
+        <svg viewBox="0 0 18 12" aria-hidden="true"><rect width="18" height="12" fill="#012169"/><path d="M0 0l18 12M18 0L0 12" stroke="#fff" stroke-width="2.4"/><path d="M0 0l18 12M18 0L0 12" stroke="#c8102e" stroke-width="1"/><path d="M9 0v12M0 6h18" stroke="#fff" stroke-width="4"/><path d="M9 0v12M0 6h18" stroke="#c8102e" stroke-width="2.2"/></svg>EN
+      </button>
+    </div>
+  </header>
+
+  <section class="intro">
+    <div class="intro-text">
+      <h1 data-i18n="h1"></h1>
+      <p data-i18n="lead"></p>
+    </div>
+    <div class="howto">
+      <h2 data-i18n="how_title"></h2>
+      <ol class="steps">
+        <li data-i18n="s1"></li>
+        <li data-i18n="s2"></li>
+      </ol>
+      <p class="hint" data-i18n="how_note"></p>
+    </div>
+  </section>
+
+  <section class="sec" id="step1">
+    <div class="step-head">
+      <span class="step-no" aria-hidden="true">1</span>
+      <div class="sec-head">
+        <h2 data-i18n="st1_t"></h2>
+        <p data-i18n="st1_p"></p>
+      </div>
+    </div>
+    <div class="calc">
+      <div class="inputs">
+        <div class="field">
+          <div class="field-head"><span class="lgn"><label for="salary-n" data-i18n="f_salary"></label><button type="button" class="info" data-tip="salary">i</button></span><div class="valbox"><input id="salary-n" type="number" inputmode="numeric" autocomplete="off" min="20000" max="250000" step="1000"><span>€</span></div></div>
+          <input id="salary-r" type="range" min="30000" max="160000" step="1000" aria-label="Jahresbrutto">
+        </div>
+        <div class="field">
+          <div class="field-head"><span class="lgn"><label for="rate-n" data-i18n="f_rate"></label><button type="button" class="info" data-tip="rate">i</button></span><div class="valbox"><input id="rate-n" type="number" inputmode="decimal" autocomplete="off" min="20" max="500" step="1" style="width:4.4em"><span>€</span></div></div>
+          <input id="rate-r" type="range" min="50" max="250" step="1" aria-label="Stundensatz">
+        </div>
+        <div class="field">
+          <div class="field-head"><span class="lgn"><label for="util-r" data-i18n="f_util"></label><button type="button" class="info" data-tip="util">i</button></span><div class="valbox num"><span id="util-o"></span></div></div>
+          <input id="util-r" type="range" min="40" max="95" step="1">
+        </div>
+        <div class="field">
+          <div class="field-head"><span class="lgn"><label for="over-n" data-i18n="f_over"></label><button type="button" class="info" data-tip="over">i</button></span><div class="valbox"><input id="over-n" type="number" inputmode="numeric" autocomplete="off" min="0" max="80000" step="500"><span>€</span></div></div>
+          <input id="over-r" type="range" min="0" max="40000" step="500" aria-label="Gemeinkosten">
+          <p class="hint" data-i18n="h_over"></p>
+        </div>
+      </div>
+
+      <div class="result">
+        <div class="rate-row">
+          <div class="rate-main">
+            <span class="rate-label lgn"><span id="head-label"></span><button type="button" class="info" data-tip="result">i</button></span>
+            <div class="rate-line"><span class="rate num" id="head"></span><span class="delta num keep" id="delta" aria-hidden="true"></span></div>
+          </div>
+          <div class="facts">
+            <div class="fact"><b class="num" id="f-margin"></b><span data-i18n="fact_margin"></span></div>
+            <div class="fact"><b class="num" id="f-hours"></b><span data-i18n="fact_hours"></span></div>
+          </div>
+        </div>
+
+        <div class="hbs" id="hbs" role="img">
+          <div class="hb"><span data-i18n="hb_rev"></span><div class="hb-track"><div class="hb-bar rev" id="hb-rev"></div></div><b class="num" id="hb-rev-v"></b></div>
+          <div class="hb"><span data-i18n="hb_cost"></span><div class="hb-track"><div class="hb-bar cost" id="hb-cost"></div></div><b class="num" id="hb-cost-v"></b></div>
+          <div class="hb"><span data-i18n="hb_res"></span><div class="hb-track"><div class="hb-bar res" id="hb-res"></div></div><b class="num" id="hb-res-v"></b></div>
+        </div>
+
+        <div>
+          <div class="bar-head"><h2 data-i18n="y_title"></h2></div>
+          <div class="year" id="year" role="img" style="margin-top:12px"></div>
+          <div class="ylegend" id="ylegend" style="margin-top:12px"></div>
+        </div>
+
+        <div class="notice plain">
+          <p data-i18n="go_say"></p>
+          <button type="button" class="btn primary" id="go-btn" data-i18n="go_btn"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="board">
+    <div class="step-head">
+      <span class="step-no" aria-hidden="true">2</span>
+      <div class="sec-head">
+        <h2 data-i18n="st2_t"></h2>
+        <p data-i18n="st2_p"></p>
+      </div>
+    </div>
+    <div>
+      <div class="bar-head"><h2 data-i18n="chart_title"></h2><button type="button" class="btn" id="reset" data-i18n="reset"></button></div>
+      <div class="curve" id="curve"><svg id="svg" role="img" focusable="false"></svg></div>
+      <p class="hint ghost-say" id="chart-say"></p>
+    </div>
+    <div class="levers" id="levers"></div>
+  </section>
+
+  <section class="sec" id="eval">
+    <div class="sec-head">
+      <h2 data-i18n="e_title"></h2>
+      <p class="verdict"><span id="e-say"></span></p>
+    </div>
+    <div class="eval-grid">
+      <div class="rows" id="e-rows"></div>
+      <div class="howto">
+        <h3 id="e-eq-title"></h3>
+        <ol class="steps plain" id="e-eq"></ol>
+      </div>
+    </div>
+  </section>
+
+  <footer class="notes">
+    <p data-i18n="n1"></p>
+    <p data-i18n="n2"></p>
+    <p data-i18n="n3"></p>
+  </footer>
+</div>
+
+<div class="dock" id="dock" aria-hidden="true">
+  <div class="dock-in">
+    <span class="delta num" id="dock-delta"></span>
+    <div class="dock-row">
+      <div class="dock-rate num"><span id="dock-head"></span><small data-i18n="dock_unit"></small></div>
+      <div class="dock-bars">
+        <div class="hb mini"><span data-i18n="hb_rev"></span><div class="hb-track"><div class="hb-bar rev" id="dk-rev"></div></div></div>
+        <div class="hb mini"><span data-i18n="hb_cost"></span><div class="hb-track"><div class="hb-bar cost" id="dk-cost"></div></div></div>
+        <div class="hb mini"><span data-i18n="hb_res"></span><div class="hb-track"><div class="hb-bar res" id="dk-res"></div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function (id) { return document.getElementById(id); };
+
+  /* ---------- assumptions ---------- */
+  var DAYS = { work: 260, holiday: 10, vacation: 30 };
+  var CAP_RV = 101400, CAP_KV = 69750;
+  function employerShare(S) { return 0.106 * Math.min(S, CAP_RV) + 0.1055 * Math.min(S, CAP_KV) + 0.016 * Math.min(S, CAP_RV); }
+  var LEVERS = ['util', 'rate', 'sick', 'salary', 'over'];
+
+  var T = {
+    de: {
+      brand_sub: 'Hebel-Vergleich',
+      h1: 'Welcher Hebel bewegt das Ergebnis am stärksten?',
+      lead: 'An Stundensatz, Gehalt, Gemeinkosten und Auslastung lässt sich drehen. Dieser Rechner zeigt, wie der Jahresumsatz einer Person mit der Auslastung steigt, während ihre Kosten gleich bleiben, und wie wenig die anderen Hebel daran ändern.',
+      how_title: 'In zwei Schritten zum Vergleich',
+      s1: 'Tragen Sie die Ausgangslage ein, also Gehalt, Stundensatz, heutige Auslastung und Gemeinkosten. Sie sehen Umsatz, Kosten und Ergebnis pro Jahr.',
+      s2: 'Lesen Sie die Grafik und bewegen Sie die Hebel. Die Auslastung schiebt Sie die Umsatzlinie entlang. Gehalt und Gemeinkosten heben oder senken nur die Kostenlinie ein Stück.',
+      how_note: 'Die Leiste am unteren Rand zeigt beim Bewegen, wie sich Umsatz, Kosten und Ergebnis verschieben. Ein i neben einem Begriff erklärt ihn.',
+      st1_t: 'Ausgangslage eintragen', st1_p: 'Vier Angaben zu einer Person, so wie sie heute sind.',
+      f_salary: 'Jahresbrutto', f_rate: 'Stundensatz beim Kunden', f_util: 'Auslastung heute', f_over: 'Gemeinkosten pro Kopf und Jahr',
+      h_over: 'Arbeitsplatz, Software, Verwaltung und alles, was neben Gehalt und Lohnnebenkosten auf diese Person entfällt.',
+      head_base: 'Ergebnis pro Jahr in der Ausgangslage', head_sc: 'Ergebnis pro Jahr mit bewegten Hebeln',
+      fact_margin: 'Marge', fact_hours: 'Abrechenbare Stunden',
+      hb_rev: 'Umsatz', hb_cost: 'Kosten', hb_res: 'Ergebnis',
+      y_title: 'Wohin die 2.080 vertraglichen Arbeitsstunden gehen',
+      y_holiday: 'Feiertage', y_vacation: 'Urlaub', y_sick: 'Krankheit', y_internal: 'Intern, nicht abrechenbar', y_bill: 'Abrechenbar',
+      days: 'Tage', hours: 'Std.',
+      go_say: 'Die Ausgangslage steht. In Schritt 2 sehen Sie, welcher Hebel sie am stärksten verändert.', go_btn: 'Weiter zu Schritt 2',
+      st2_t: 'Die Grafik lesen und Hebel bewegen',
+      st2_p: 'Die steigende Linie ist der Jahresumsatz dieser Person je nach Auslastung, die waagerechte Linie sind ihre Kosten. Der Abstand dazwischen ist das Ergebnis.',
+      mode_real: 'Realistische Spanne', mode_ten: 'Alle um 10 %', reset: 'Hebel zurücksetzen',
+      say_real: 'Jeder Hebel bewegt sich in der Spanne, in der er sich in einem Dienstleistungsunternehmen üblicherweise bewegen lässt. Die Spannen sind Annahmen und stehen in der Tabelle unten.',
+      say_ten: 'Jeder Hebel bewegt sich um zehn Prozent seines heutigen Werts nach oben und unten. So sehen Sie die reine Rechenwirkung, unabhängig davon, wie leicht sich ein Hebel bewegen lässt.',
+      chart_title: 'Umsatz und Kosten pro Jahr je nach Auslastung',
+      chart_say: 'Die Kosten bleiben gleich, egal wie viel abgerechnet wird. Deshalb geht jeder zusätzliche Punkt Auslastung vollständig ins Ergebnis. Die Zahlen an der Umsatzlinie zeigen das Ergebnis bei der jeweiligen Auslastung. Gestrichelte Linien zeigen die Ausgangslage, sobald Sie einen anderen Hebel bewegt haben.',
+      lb_cost: 'Kosten {v}', lb_rev: 'Umsatz, bei voller Auslastung {v}', lb_now: 'Bei {u} Umsatz {v}, Ergebnis {r}', lb_be: 'Unter {u} Auslastung Verlust',
+      l_util: 'Auslastung', l_rate: 'Stundensatz', l_sick: 'Krankheitstage', l_salary: 'Gehalt', l_over: 'Gemeinkosten',
+      now: 'heute {v}', unit_days: '{n} Tage',
+      e_title: 'Auswertung',
+      v_real: '<b>{a}</b> bewegt das Jahresergebnis in der realistischen Spanne um bis zu <b>{x}</b>. Das ist {k}-mal so viel wie beim zweitstärksten Hebel, {b}.',
+      v_ten: 'Bei gleicher Veränderung von 10 % wirken Auslastung und Stundensatz gleich stark, jeweils um <b>{x}</b>. In der Praxis schwankt die Auslastung aber weit mehr als ein Stundensatz, deshalb ist sie der größere Hebel.',
+      v_ten_other: 'Bei gleicher Veränderung von 10 % bewegt <b>{a}</b> das Jahresergebnis am stärksten, um bis zu <b>{x}</b>.',
+      r_head: '{l}, {a} bis {b}', r_none: '{l}, unverändert',
+      eq_title: 'Fünf Punkte mehr Auslastung bringen {e} im Jahr. Dafür bräuchten Sie sonst',
+      eq_rate: '{x} mehr Stundensatz, also {p} Preiserhöhung',
+      eq_salary: '{p} weniger Gehalt',
+      eq_over: '{p} weniger Gemeinkosten', eq_over_all: 'mehr Einsparung, als die gesamten Gemeinkosten hergeben',
+      eq_days: 'Die fünf Punkte entsprechen {d} zusätzlich abgerechneten Tagen im Jahr.',
+      dock_unit: 'Ergebnis pro Jahr',
+      tip_more: 'Begriff erklären',
+      tip_salary: 'Das vertraglich vereinbarte Jahresgehalt vor Steuern und Abgaben. Die Arbeitgeberanteile rechnet die Seite dazu.',
+      tip_rate: 'Der Netto-Stundensatz, den der Kunde für diese Person zahlt. Einen Tagessatz teilen Sie durch acht.',
+      tip_util: 'Abrechenbare Stunden geteilt durch Anwesenheitsstunden. Bei 75 % landen von einer 40-Stunden-Woche 30 Stunden auf einer Rechnung.',
+      tip_over: 'Alle Kosten, die diese Person neben Gehalt und Lohnnebenkosten verursacht oder mitträgt. Der Stundensatz-Rechner schlüsselt sie Posten für Posten auf.',
+      tip_result: 'Umsatz der Person minus Gehalt, Lohnnebenkosten und Gemeinkosten. Vor Steuern.',
+      tip_sick: 'Tage im Jahr, an denen die Person krank ist. Sie werden bezahlt, aber nicht abgerechnet.',
+      n1: 'Annahmen: 40-Stunden-Woche, 260 Werktage, 10 Feiertage auf Werktagen, 30 Urlaubstage. Lohnnebenkosten als Näherung mit den Rechengrößen 2026.',
+      n2: 'Realistische Spannen: Auslastung 55 bis 85 %, Stundensatz 10 % nach oben und unten, Krankheit 5 bis 25 Tage, Gehalt 5 % weniger bis 10 % mehr, Gemeinkosten 20 % nach oben und unten. Das sind Annahmen des Rechners, keine erhobenen Werte.',
+      n3: 'Der Umsatz steigt gleichmäßig mit der Auslastung, die Kosten bleiben gleich. Deshalb verändert sich das Ergebnis prozentual viel stärker als die Auslastung selbst. Rechnerisch wirkt ein Prozent mehr Stundensatz so stark wie ein Prozent mehr Auslastung, die Auslastung schwankt in der Praxis aber weit mehr.'
+    },
+    en: {
+      brand_sub: 'Lever comparison',
+      h1: 'Which lever moves the result the most?',
+      lead: 'Hourly rate, salary, overheads and utilisation can all be adjusted. This calculator shows how the annual revenue of one person rises with utilisation while their costs stay the same, and how little the other levers change that.',
+      how_title: 'Two steps to the comparison',
+      s1: 'Enter the starting point: salary, hourly rate, current utilisation and overheads. You see revenue, cost and result per year.',
+      s2: 'Read the chart and move the levers. Utilisation moves you along the revenue line. Salary and overheads only lift or lower the cost line a little.',
+      how_note: 'The strip at the bottom of the screen shows how revenue, cost and result shift as you move. An i next to a term explains it.',
+      st1_t: 'Enter the starting point', st1_p: 'Four figures for one person, as they are today.',
+      f_salary: 'Annual gross salary', f_rate: 'Hourly rate charged', f_util: 'Utilisation today', f_over: 'Overheads per head and year',
+      h_over: 'Workplace, software, administration and everything else that falls on this person besides salary and employer contributions.',
+      head_base: 'Result per year at the starting point', head_sc: 'Result per year with levers moved',
+      fact_margin: 'Margin', fact_hours: 'Billable hours',
+      hb_rev: 'Revenue', hb_cost: 'Cost', hb_res: 'Result',
+      y_title: 'Where the 2,080 contracted working hours go',
+      y_holiday: 'Public holidays', y_vacation: 'Vacation', y_sick: 'Sick leave', y_internal: 'Internal, not billable', y_bill: 'Billable',
+      days: 'days', hours: 'hrs',
+      go_say: 'The starting point is set. Step 2 shows which lever changes it the most.', go_btn: 'Continue to step 2',
+      st2_t: 'Read the chart and move the levers',
+      st2_p: 'The rising line is the annual revenue of this person depending on utilisation, the level line is their cost. The distance between them is the result.',
+      mode_real: 'Realistic range', mode_ten: 'All by 10%', reset: 'Reset levers',
+      say_real: 'Each lever moves within the range in which it can usually be moved in a service business. The ranges are assumptions and are listed in the table below.',
+      say_ten: 'Each lever moves ten percent of its current value up and down. This shows the pure arithmetic effect, regardless of how easy a lever is to move.',
+      chart_title: 'Revenue and cost per year by utilisation',
+      chart_say: 'Costs stay the same however much is billed. That is why every additional point of utilisation goes straight into the result. The figures along the revenue line show the result at that utilisation. Dashed lines show the starting point once you have moved another lever.',
+      lb_cost: 'Cost {v}', lb_rev: 'Revenue, {v} at full utilisation', lb_now: 'At {u}, revenue {v}, result {r}', lb_be: 'Below {u} utilisation, a loss',
+      l_util: 'Utilisation', l_rate: 'Hourly rate', l_sick: 'Sick days', l_salary: 'Salary', l_over: 'Overheads',
+      now: 'today {v}', unit_days: '{n} days',
+      e_title: 'Evaluation',
+      v_real: '<b>{a}</b> moves the annual result by up to <b>{x}</b> within the realistic range. That is {k} times as much as the second strongest lever, {b}.',
+      v_ten: 'At the same 10% change, utilisation and hourly rate have the same effect, <b>{x}</b> each. In practice utilisation swings far more than an hourly rate, which makes it the bigger lever.',
+      v_ten_other: 'At the same 10% change, <b>{a}</b> moves the annual result the most, by up to <b>{x}</b>.',
+      r_head: '{l}, {a} to {b}', r_none: '{l}, unchanged',
+      eq_title: 'Five points more utilisation bring {e} a year. Otherwise you would need',
+      eq_rate: '{x} more on the hourly rate, a price increase of {p}',
+      eq_salary: '{p} less salary',
+      eq_over: '{p} lower overheads', eq_over_all: 'more savings than the entire overheads amount to',
+      eq_days: 'The five points equal {d} additional billed days a year.',
+      dock_unit: 'Result per year',
+      tip_more: 'Explain this term',
+      tip_salary: 'The contractually agreed annual salary before tax and deductions. The page adds employer contributions.',
+      tip_rate: 'The net hourly rate the client pays for this person. Divide a day rate by eight.',
+      tip_util: 'Billable hours divided by hours at work. At 75%, 30 hours of a 40-hour week end up on an invoice.',
+      tip_over: 'All costs this person causes or carries besides salary and employer contributions. The hourly-rate calculator breaks them down item by item.',
+      tip_result: 'Revenue of the person minus salary, employer contributions and overheads. Before tax.',
+      tip_sick: 'Days a year on which the person is ill. They are paid but not billed.',
+      n1: 'Assumptions: 40-hour week, 260 working days, 10 public holidays on working days, 30 vacation days. Employer contributions approximated with German 2026 figures.',
+      n2: 'Realistic ranges: utilisation 55 to 85%, hourly rate 10% up and down, sick leave 5 to 25 days, salary 5% less to 10% more, overheads 20% up and down. These are the calculator\'s assumptions, not surveyed values.',
+      n3: 'Revenue rises evenly with utilisation while costs stay the same. That is why the result changes far more in percentage terms than utilisation itself. Arithmetically, one percent more on the hourly rate has the same effect as one percent more utilisation, but in practice utilisation swings far more.'
+    }
+  };
+
+  /* ---------- state ---------- */
+  var st = { lang: 'de', mode: 'real', base: { salary: 65000, rate: 110, util: 75, over: 15000, sick: 12 }, sc: {} };
+  st.sc = Object.assign({}, st.base);
+  function t(k, vars) { var s = T[st.lang][k]; if (vars) for (var key in vars) s = s.split('{' + key + '}').join(vars[key]); return s; }
+  function loc() { return st.lang === 'de' ? 'de-DE' : 'en-GB'; }
+  function nf(v, d) { return new Intl.NumberFormat(loc(), { minimumFractionDigits: d || 0, maximumFractionDigits: d || 0 }).format(v); }
+  function eur0(v) { return new Intl.NumberFormat(loc(), { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(v); }
+  function eur2(v) { return new Intl.NumberFormat(loc(), { style: 'currency', currency: 'EUR', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(v); }
+  function sgn0(v) { return (v > 0.5 ? '+' : v < -0.5 ? '−' : '') + eur0(Math.abs(v)); }
+  function pct(v, d) { return new Intl.NumberFormat(loc(), { style: 'percent', minimumFractionDigits: d || 0, maximumFractionDigits: d || 0 }).format(v); }
+  function clamp(v, a, b) { return Math.min(b, Math.max(a, v)); }
+
+  /* ---------- model ---------- */
+  function calc(v) {
+    var present = DAYS.work - DAYS.holiday - DAYS.vacation - v.sick, hours = present * 8 * v.util / 100;
+    var ag = employerShare(v.salary), rev = v.rate * hours, cost = v.salary + ag + v.over;
+    return { present: present, hours: hours, rev: rev, cost: cost, res: rev - cost, ag: ag };
+  }
+  function bounds(k) {
+    var b = st.base[k];
+    if (st.mode === 'ten') {
+      var step = { util: 0.5, rate: 0.5, sick: 0.1, salary: 100, over: 100 }[k];
+      return { min: Math.round(b * 0.9 / step) * step, max: Math.round(b * 1.1 / step) * step, step: step };
+    }
+    if (k === 'util') return { min: Math.min(55, b - 10), max: Math.min(98, Math.max(85, b + 10)), step: 1 };
+    if (k === 'rate') return { min: Math.round(b * 0.9), max: Math.round(b * 1.1), step: 1 };
+    if (k === 'sick') return { min: Math.min(5, b), max: Math.max(25, b), step: 1 };
+    if (k === 'salary') return { min: Math.round(b * 0.95 / 500) * 500, max: Math.round(b * 1.1 / 500) * 500, step: 500 };
+    return { min: Math.round(b * 0.8 / 100) * 100, max: Math.round(b * 1.2 / 100) * 100, step: 100 };
+  }
+  function effect(k, val) { var v = Object.assign({}, st.base); v[k] = val; return calc(v).res - calc(st.base).res; }
+  function fmtVal(k, v) {
+    if (k === 'util') return pct(v / 100, st.mode === 'ten' ? 1 : 0);
+    if (k === 'rate') return st.mode === 'ten' ? eur2(v) : eur0(v);
+    if (k === 'sick') return t('unit_days', { n: nf(v, st.mode === 'ten' ? 1 : 0) });
+    return eur0(v);
+  }
+
+  /* ---------- helpers ---------- */
+  function tween(el, to, f) {
+    var from = el._v; el._v = to; el._f = f;
+    cancelAnimationFrame(el._r);
+    if (reduce || from === undefined || from === to || document.hidden) { el.textContent = f(to); return; }
+    var t0 = performance.now();
+    (function step(now) {
+      var p = Math.min(1, (now - t0) / 400), e = 1 - Math.pow(1 - p, 3);
+      el.textContent = f(from + (to - from) * e);
+      if (p < 1) el._r = requestAnimationFrame(step);
+    })(t0);
+  }
+  function fill(r) { var span = r.max - r.min; r.style.setProperty('--fill', (span > 0 ? (r.value - r.min) / span * 100 : 50) + '%'); }
+
+  /* ---------- build ---------- */
+  var YS = [['holiday', 'var(--color-paper-3)'], ['vacation', 'var(--color-edge)'], ['sick', 'var(--color-muted)'], ['internal', 'var(--seg-org)', true], ['bill', 'var(--color-good)']];
+  var yEl = {}, ylEl = {};
+  YS.forEach(function (y) {
+    var s = document.createElement('div'); s.className = 'yseg' + (y[2] ? ' hatch' : ''); s.style.setProperty('--c', y[1]); $('year').appendChild(s); yEl[y[0]] = s;
+    var l = document.createElement('div'); l.className = 'yl'; l.style.setProperty('--c', y[1]); l.innerHTML = '<b class="num"></b><span></span>'; $('ylegend').appendChild(l); ylEl[y[0]] = l;
+  });
+  var lvEl = {};
+  LEVERS.forEach(function (k) {
+    var row = document.createElement('div'); row.className = 'lever'; row.id = 'lever-' + k;
+    row.innerHTML = '<div class="lv-name"><span class="lgn"><label for="lv-' + k + '"></label>' + (k === 'sick' ? '<button type="button" class="info" data-tip="sick">i</button>' : '') + '</span><span class="lv-now num"></span></div>'
+      + '<div class="lv-ctl"><input type="range" id="lv-' + k + '"><b class="lv-val num"></b></div>'
+      + '<b class="lv-eff num"></b>';
+    $('levers').appendChild(row); lvEl[k] = row;
+    row.querySelector('input').addEventListener('input', function (e) {
+      var before = calc(st.sc).res; st.sc[k] = +e.target.value; showDelta(calc(st.sc).res - before, true); render();
+    });
+  });
+
+  var deltaT;
+  function showDelta(d, live) {
+    [$('delta'), $('dock-delta')].forEach(function (el) {
+      if (Math.abs(d) < 1) return;
+      el._acc = (live && el.classList.contains('show') ? (el._acc || 0) : 0) + d;
+      el.textContent = sgn0(el._acc);
+      el.classList.toggle('neg', el._acc < 0);
+      if (!el.classList.contains('show')) { el.classList.add('show'); }
+    });
+    clearTimeout(deltaT); deltaT = setTimeout(function () { [$('delta'), $('dock-delta')].forEach(function (el) { el.classList.remove('show'); el._acc = 0; }); }, 1600);
+  }
+
+  /* ---------- chart: break-even rate along utilisation ---------- */
+  var svg = $('svg');
+  function drawChart(base, sc) {
+    var W = Math.max(280, $('curve').clientWidth || 640), Hh = W < 480 ? 300 : 360;
+    var padL = 56, padR = 16, padT = 26, padB = 36, U0 = 30, U1 = 100;
+    var revS = function (u) { return st.sc.rate * sc.present * 8 * u / 100; }, revB = function (u) { return st.base.rate * base.present * 8 * u / 100; };
+    var top = Math.max(revS(U1), revB(U1), sc.cost, base.cost) * 1.06, stepY = top > 240000 ? 100000 : top > 120000 ? 50000 : 25000, yMax = Math.ceil(top / stepY) * stepY;
+    var X = function (u) { return padL + (u - U0) / (U1 - U0) * (W - padL - padR); }, Y = function (v) { return padT + (yMax - v) / yMax * (Hh - padT - padB); };
+    var s = '', u, v, yc = Y(sc.cost);
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + Hh); svg.setAttribute('width', W); svg.setAttribute('height', Hh);
+    for (v = 0; v <= yMax; v += stepY) {
+      s += '<line class="' + (v === 0 ? 'c-axis' : 'c-grid') + '" x1="' + padL + '" x2="' + (W - padR) + '" y1="' + Y(v) + '" y2="' + Y(v) + '"/>';
+      s += '<text class="c-txt" x="' + (padL - 8) + '" y="' + (Y(v) + 4) + '" text-anchor="end">' + (v === 0 ? '0' : Math.round(v / 1000) + (st.lang === 'de' ? ' T€' : 'k €')) + '</text>';
+    }
+    for (u = U0; u <= U1; u += 10) s += '<text class="c-txt" x="' + X(u) + '" y="' + (Hh - 12) + '" text-anchor="' + (u === U0 ? 'start' : u === U1 ? 'end' : 'middle') + '">' + pct(u / 100) + '</text>';
+    var line = 'M' + X(U0) + ',' + Y(revS(U0)) + 'L' + X(U1) + ',' + Y(revS(U1));
+    var area = line + 'L' + X(U1) + ',' + yc + 'L' + X(U0) + ',' + yc + 'Z';
+    s += '<defs><clipPath id="cp-gain"><rect x="0" y="0" width="' + W + '" height="' + yc + '"/></clipPath><clipPath id="cp-loss"><rect x="0" y="' + yc + '" width="' + W + '" height="' + (Hh - yc) + '"/></clipPath></defs>';
+    s += '<path class="c-pos" d="' + area + '" clip-path="url(#cp-gain)"/><path class="c-neg" d="' + area + '" clip-path="url(#cp-loss)"/>';
+    if (st.sc.rate !== st.base.rate || sc.present !== base.present) s += '<path class="c-ghost" d="M' + X(U0) + ',' + Y(revB(U0)) + 'L' + X(U1) + ',' + Y(revB(U1)) + '"/>';
+    if (Math.abs(sc.cost - base.cost) > 1) s += '<line class="c-ghost" x1="' + padL + '" x2="' + (W - padR) + '" y1="' + Y(base.cost) + '" y2="' + Y(base.cost) + '"/>';
+    s += '<line class="c-rate" x1="' + padL + '" x2="' + (W - padR) + '" y1="' + yc + '" y2="' + yc + '"/>';
+    s += '<path class="c-line" d="' + line + '"/>';
+    // the result at each step of utilisation
+    var un = clamp(st.sc.util, U0, U1), every = W < 560 ? 20 : 10;
+    for (u = 40; u <= 90; u += every) {
+      if (Math.abs(u - un) < 6) continue;
+      s += '<circle class="c-tickdot" cx="' + X(u) + '" cy="' + Y(revS(u)) + '" r="3"/>';
+      s += '<text class="c-step" x="' + X(u) + '" y="' + (Y(revS(u)) - 10) + '" text-anchor="end">' + sgn0(revS(u) - sc.cost) + '</text>';
+    }
+    s += '<text class="c-lbl" x="' + (padL + 6) + '" y="' + (yc - 8 < padT + 10 ? yc + 18 : yc - 8) + '" text-anchor="start">' + t('lb_cost', { v: eur0(sc.cost) }) + '</text>';
+    s += '<text class="c-lbl" x="' + (W - padR - 4) + '" y="' + (Y(revS(U1)) - 10) + '" text-anchor="end">' + t('lb_rev', { v: eur0(revS(U1)) }) + '</text>';
+    // today
+    var xn = X(un), yn = Y(revS(un)), right = xn > W - 300;
+    s += '<line class="c-now" x1="' + xn + '" x2="' + xn + '" y1="' + Y(0) + '" y2="' + yn + '"/><circle class="c-dot" cx="' + xn + '" cy="' + yn + '" r="5"/>';
+    s += '<text class="c-lbl" x="' + (right ? xn - 10 : xn + 10) + '" y="' + (Y(0) - 10) + '" text-anchor="' + (right ? 'end' : 'start') + '">' + t('lb_now', { u: pct(un / 100), v: eur0(revS(un)), r: sgn0(revS(un) - sc.cost) }) + '</text>';
+    // where revenue stops covering costs
+    var ube = sc.cost / (st.sc.rate * sc.present * 8) * 100;
+    if (ube > U0 + 1 && ube < U1 - 1) {
+      s += '<circle class="c-dot" cx="' + X(ube) + '" cy="' + yc + '" r="5"/>';
+      s += '<text class="c-lbl" x="' + (X(ube) + 10) + '" y="' + (yc + 20) + '" text-anchor="start">' + t('lb_be', { u: pct(ube / 100) }) + '</text>';
+    }
+    svg.innerHTML = s;
+    svg.setAttribute('aria-label', t('chart_title') + '. ' + t('lb_now', { u: pct(un / 100), v: eur0(revS(un)), r: sgn0(revS(un) - sc.cost) }) + '. ' + t('lb_cost', { v: eur0(sc.cost) }) + '.');
+    $('chart-say').textContent = t('chart_say');
+  }
+
+  /* ---------- render ---------- */
+  function render() {
+    var b = st.base, base = calc(b), sc = calc(st.sc), moved = LEVERS.some(function (k) { return st.sc[k] !== b[k]; });
+
+    if (document.activeElement !== $('salary-n')) $('salary-n').value = b.salary;
+    if (document.activeElement !== $('rate-n')) $('rate-n').value = b.rate;
+    if (document.activeElement !== $('over-n')) $('over-n').value = b.over;
+    $('salary-r').value = b.salary; $('rate-r').value = clamp(b.rate, 50, 250); $('util-r').value = b.util; $('over-r').value = clamp(b.over, 0, 40000);
+    $('util-o').textContent = pct(b.util / 100);
+    ['salary-r', 'rate-r', 'util-r', 'over-r'].forEach(function (id) { fill($(id)); });
+
+    // result
+    $('head-label').textContent = t(moved ? 'head_sc' : 'head_base');
+    tween($('head'), sc.res, sgn0); tween($('dock-head'), sc.res, sgn0);
+    tween($('f-margin'), sc.rev > 0 ? sc.res / sc.rev : 0, function (v) { return pct(v, 1); });
+    tween($('f-hours'), sc.hours, function (v) { return nf(v); });
+    document.body.classList.toggle('bad', sc.res < 0);
+
+    // revenue, cost, result on one scale
+    var top = {}; LEVERS.forEach(function (k) { var bo = bounds(k); top[k] = (k === 'sick') ? bo.min : bo.max; });
+    var scale = Math.max(calc(top).rev, calc(top).cost, 1) * 1.02;
+    [['rev', sc.rev], ['cost', sc.cost], ['res', sc.res]].forEach(function (x) {
+      var s = 'scaleX(' + clamp(Math.abs(x[1]) / scale, 0, 1) + ')';
+      $('hb-' + x[0]).style.transform = s; $('dk-' + x[0]).style.transform = s;
+      tween($('hb-' + x[0] + '-v'), x[1], x[0] === 'res' ? sgn0 : eur0);
+    });
+    [$('hb-res'), $('dk-res')].forEach(function (el) { el.classList.toggle('neg', sc.res < 0); });
+    $('hbs').setAttribute('aria-label', t('hb_rev') + ' ' + eur0(sc.rev) + ', ' + t('hb_cost') + ' ' + eur0(sc.cost) + ', ' + t('hb_res') + ' ' + sgn0(sc.res));
+
+    // hours strip
+    var yv = { holiday: DAYS.holiday, vacation: DAYS.vacation, sick: st.sc.sick, internal: sc.present * (1 - st.sc.util / 100), bill: sc.present * st.sc.util / 100 };
+    YS.forEach(function (y) {
+      var k = y[0];
+      yEl[k].style.flexGrow = yv[k]; yEl[k].title = t('y_' + k);
+      tween(ylEl[k].firstChild, yv[k], function (v) { return nf(v) + ' ' + t('days'); });
+      ylEl[k].lastChild.textContent = t('y_' + k) + ', ' + nf(yv[k] * 8) + ' ' + t('hours');
+    });
+    $('year').setAttribute('aria-label', t('y_title'));
+
+    // levers
+    var info = {}, maxAbs = 1;
+    LEVERS.forEach(function (k) {
+      var bo = bounds(k), lo = effect(k, bo.min), hi = effect(k, bo.max);
+      info[k] = { bo: bo, lo: lo, hi: hi, span: Math.abs(hi - lo), cur: effect(k, st.sc[k]) };
+      maxAbs = Math.max(maxAbs, Math.abs(lo), Math.abs(hi));
+    });
+    var order = LEVERS.slice().sort(function (x, y) { return info[y].span - info[x].span; });
+    order.forEach(function (k, i) {
+      var row = lvEl[k], inf = info[k], inp = row.querySelector('input');
+      row.style.order = i;
+      inp.min = inf.bo.min; inp.max = inf.bo.max; inp.step = inf.bo.step; inp.value = st.sc[k]; inp.disabled = inf.bo.max === inf.bo.min; fill(inp);
+      row.querySelector('label').textContent = t('l_' + k);
+      row.querySelector('.lv-now').textContent = t('now', { v: fmtVal(k, b[k]) });
+      row.querySelector('.lv-val').textContent = fmtVal(k, st.sc[k]);
+      var eff = row.querySelector('.lv-eff');
+      tween(eff, inf.cur, sgn0); eff.classList.toggle('neg', inf.cur < -0.5); eff.classList.toggle('pos', inf.cur > 0.5);
+    });
+    drawChart(base, sc);
+    $('reset').disabled = !moved;
+
+    // evaluation
+    var a = order[0], second = order[1], k2 = info[second].span > 0 ? info[a].span / info[second].span : 0;
+    var tie = st.mode === 'ten' && Math.abs(info.util.span - info.rate.span) / Math.max(1, info.util.span) < 0.03 && (a === 'util' || a === 'rate');
+    $('e-say').innerHTML = tie ? t('v_ten', { x: eur0(info.util.span) })
+      : st.mode === 'ten' ? t('v_ten_other', { a: t('l_' + a), x: eur0(info[a].span) })
+      : t('v_real', { a: t('l_' + a), x: eur0(info[a].span), k: nf(k2, 1), b: t('l_' + second) });
+    $('e-rows').innerHTML = order.map(function (k, i) {
+      var inf = info[k], lab = inf.span > 0 ? t('r_head', { l: t('l_' + k), a: fmtVal(k, inf.bo.min), b: fmtVal(k, inf.bo.max) }) : t('r_none', { l: t('l_' + k) });
+      return '<div class="row' + (i === 0 ? ' key' : '') + '"><span>' + lab + '</span><b class="num">' + eur0(inf.span) + '</b></div>';
+    }).join('');
+    var e5 = effect('util', b.util + 5), hoursBase = base.hours, perSal = (calc(Object.assign({}, b, { salary: b.salary * 1.01 })).cost - base.cost) / (b.salary * 0.01);
+    $('e-eq-title').textContent = t('eq_title', { e: eur0(e5) });
+    var eq = [t('eq_rate', { x: eur2(e5 / hoursBase), p: pct(e5 / hoursBase / b.rate, 1) }), t('eq_salary', { p: pct(e5 / perSal / b.salary, 1) }),
+      b.over > 0 && e5 / b.over <= 1 ? t('eq_over', { p: pct(e5 / b.over) }) : t('eq_over_all'), t('eq_days', { d: nf(base.present * 0.05, 1) })];
+    $('e-eq').innerHTML = eq.map(function (x) { return '<li>' + x + '</li>'; }).join('');
+  }
+
+  /* ---------- term help ---------- */
+  var tipEl = document.createElement('div'); tipEl.id = 'tip'; tipEl.className = 'tip'; tipEl.setAttribute('role', 'tooltip'); document.body.appendChild(tipEl);
+  var tipFor = null;
+  function showTip(b) {
+    if (tipFor && tipFor !== b) hideTip();
+    tipFor = b; tipEl.textContent = t('tip_' + b.getAttribute('data-tip'));
+    b.setAttribute('aria-describedby', 'tip'); b.setAttribute('aria-expanded', 'true');
+    var r = b.getBoundingClientRect(), w = tipEl.offsetWidth, h = tipEl.offsetHeight, vw = document.documentElement.clientWidth;
+    var x = Math.max(16, Math.min(vw - w - 16, r.left + r.width / 2 - w / 2)), y = r.top - h - 6; if (y < 8) y = r.bottom + 6;
+    tipEl.style.transform = 'translate(' + Math.round(x) + 'px,' + Math.round(y) + 'px)'; tipEl.classList.add('show');
+  }
+  function hideTip() { if (!tipFor) return; tipFor.removeAttribute('aria-describedby'); tipFor.setAttribute('aria-expanded', 'false'); tipFor = null; tipEl.classList.remove('show'); }
+  function infoOf(e) { return e.target && e.target.closest ? e.target.closest('.info') : null; }
+  document.addEventListener('mouseover', function (e) { var b = infoOf(e); if (b) showTip(b); });
+  document.addEventListener('mouseout', function (e) { if (infoOf(e)) hideTip(); });
+  document.addEventListener('focusin', function (e) { var b = infoOf(e); if (b) showTip(b); });
+  document.addEventListener('focusout', function (e) { if (infoOf(e)) hideTip(); });
+  document.addEventListener('click', function (e) { var b = infoOf(e); if (b) showTip(b); else hideTip(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') hideTip(); });
+  window.addEventListener('scroll', hideTip, { passive: true });
+
+  /* ---------- wiring ---------- */
+  function applyLang() {
+    document.documentElement.lang = st.lang;
+    Array.prototype.forEach.call(document.querySelectorAll('[data-i18n]'), function (el) { el.textContent = t(el.getAttribute('data-i18n')); });
+    $('lang-de').setAttribute('aria-pressed', st.lang === 'de'); $('lang-en').setAttribute('aria-pressed', st.lang === 'en');
+    Array.prototype.forEach.call(document.querySelectorAll('.info'), function (b) { b.setAttribute('aria-label', t('tip_more')); b.setAttribute('aria-expanded', 'false'); });
+    hideTip();
+    Array.prototype.forEach.call(document.querySelectorAll('.num'), function (el) { if (el._f && el._v !== undefined) { var v = el._v; el._v = undefined; tween(el, v, el._f); } });
+    render();
+  }
+  function setBase(k, v) { st.base[k] = v; st.sc = Object.assign({}, st.base); render(); }
+  $('salary-r').addEventListener('input', function (e) { setBase('salary', +e.target.value); });
+  $('salary-n').addEventListener('input', function (e) { var v = +e.target.value; if (v >= 20000) setBase('salary', clamp(v, 20000, 250000)); });
+  $('salary-n').addEventListener('blur', function (e) { e.target.value = st.base.salary; });
+  $('rate-r').addEventListener('input', function (e) { setBase('rate', +e.target.value); });
+  $('rate-n').addEventListener('input', function (e) { var v = parseFloat(e.target.value); if (v >= 20) setBase('rate', clamp(v, 20, 500)); });
+  $('rate-n').addEventListener('blur', function (e) { e.target.value = st.base.rate; });
+  $('util-r').addEventListener('input', function (e) { setBase('util', +e.target.value); });
+  $('over-r').addEventListener('input', function (e) { setBase('over', +e.target.value); });
+  $('over-n').addEventListener('input', function (e) { var v = +e.target.value; if (e.target.value !== '' && v >= 0) setBase('over', clamp(v, 0, 80000)); });
+  $('over-n').addEventListener('blur', function (e) { e.target.value = st.base.over; });
+  $('go-btn').addEventListener('click', function () { $('board').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); });
+  $('reset').addEventListener('click', function () { var before = calc(st.sc).res; st.sc = Object.assign({}, st.base); showDelta(calc(st.sc).res - before); render(); });
+  var rz; window.addEventListener('resize', function () { clearTimeout(rz); rz = setTimeout(render, 80); });
+  $('lang-de').addEventListener('click', function () { st.lang = 'de'; applyLang(); });
+  $('lang-en').addEventListener('click', function () { st.lang = 'en'; applyLang(); });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { var e = es[0]; $('dock').classList.toggle('show', !e.isIntersecting && e.boundingClientRect.top < 0); }, { threshold: 0 }).observe($('hbs'));
+  }
+  applyLang();
+})();
+</script>

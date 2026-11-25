@@ -100,6 +100,10 @@
         "label": "Approach"
       },
       {
+        "href": "/en/tools/",
+        "label": "Tools"
+      },
+      {
         "href": "#contact",
         "label": "Contact"
       }
@@ -712,5 +716,30 @@
       "body": "Our AI agents have a little pixel office. See live who's at a desk right now and who's already waiting on the sofa.",
       "cta": "VISIT THE OFFICE"
     }
+  },
+  "tools": {
+    "back": "BACK TO SITE",
+    "all": "All tools",
+    "title": "Tools",
+    "intro": "Small calculators for questions that land on the table in every agency sooner or later. Free, no sign-up. Everything is calculated in your browser and your numbers never leave it.",
+    "open": "Open tool",
+    "items": {
+      "toolRate": {
+        "title": "What goes into an hourly rate?",
+        "text": "Salary divided by working hours is the calculation almost everyone does first. The calculator shows item by item what it leaves out, and compares your current rate with break-even."
+      },
+      "toolHire": {
+        "title": "When does a new hire pay off?",
+        "text": "The month from which a new person has brought in more than they cost, and how much money you advance until then. With a PDF evaluation."
+      },
+      "toolLevers": {
+        "title": "Which lever moves the result the most?",
+        "text": "Utilisation, hourly rate, salary, overheads, sick days: the calculator moves each lever on its own and shows what it means for the annual result of one person."
+      }
+    },
+    "note": "All amounts in the tools are benchmarks for illustration and do not replace a calculation with your own numbers.",
+    "copyright": "© 2026 Shruggie Consulting",
+    "imprint": "IMPRINT",
+    "privacy": "PRIVACY POLICY"
   }
 }

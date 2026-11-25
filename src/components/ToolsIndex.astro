@@ -1,0 +1,52 @@
+---
+// Overview of the interactive tools (/tools/, /en/tools/): the quiet shell of the legal
+// pages (lockup, back link, language switch), then one row per tool.
+import Base from "../layouts/Base.astro";
+import LegalHeader from "./LegalHeader.astro";
+import { content, routes, toolKeys, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const c = content[lang].tools;
+---
+
+<Base lang={lang} page="tools">
+  <div class="legal-page">
+    <LegalHeader lang={lang} page="tools" back={c.back} />
+
+    <main id="main" class="legal tools">
+      <h1 class="display">{c.title}</h1>
+      <p class="legal__intro">{c.intro}</p>
+
+      <ul class="tools__list">
+        {
+          toolKeys.map((key) => (
+            <li>
+              <a class="tools__item" href={routes[key][lang]}>
+                <h2 class="display">{c.items[key].title}</h2>
+                <p>{c.items[key].text}</p>
+                <span class="tools__open">{c.open}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <p class="legal__disclaimer">{c.note}</p>
+    </main>
+
+    <footer class="legal-footer">
+      <div class="wrap">
+        <span class="legal-footer__copy">{c.copyright}</span>
+        <div class="footer-links">
+          <a href={routes.home[lang]}>{c.back}</a>
+          <a href={routes.imprint[lang]}>{c.imprint}</a>
+          <a href={routes.privacy[lang]}>{c.privacy}</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</Base>
