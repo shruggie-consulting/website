@@ -7,6 +7,8 @@
 //   - scopes the tool's stylesheet to .tool, so it cannot touch the header or the footer,
 //   - renames the few class names the tool shares with the site's stylesheets,
 //   - lifts the tool's opening block into the page head,
+//   - writes the tool's text into the HTML (headings, labels, footnotes, the cost items and the
+//     explanations of terms), so the page reads without JavaScript; the script then takes over,
 //   - starts the tool in the page's language (the header's switch moves between the two URLs).
 // To update a tool, replace its file in src/tools/. Every step is checked and the build fails
 // with a clear message if the file no longer has the expected shape.
@@ -118,6 +120,51 @@ const startLang = /(var st = \{[^\n]*?)lang: 'de'/;
 if (!startLang.test(script)) fail("set the start language");
 script = script.replace(startLang, (m) => m.replace("lang: 'de'", `lang: '${lang}'`));
 script = script.replace(/document\.body\.appendChild\(/g, "(document.getElementById('tool') || document.body).appendChild(");
+
+// ---------- The tool's text in the delivered HTML ----------
+// The tools keep their copy in one object (var T = { de: {...}, en: {...} }) and write it into
+// the page when the script runs. Read that object here and fill the same elements at build
+// time, so the page has its headings and explanations without JavaScript.
+const tStart = script.indexOf("var T = {");
+if (tStart < 0) fail("find the copy");
+let depth = 0;
+let tEnd = script.indexOf("{", tStart);
+for (let k = tEnd; k < script.length; k++) {
+  if (script[k] === "{") depth++;
+  else if (script[k] === "}" && --depth === 0) {
+    tEnd = k + 1;
+    break;
+  }
+}
+type Copy = Record<string, string | string[]>;
+const copy = (new Function(`return (${script.slice(script.indexOf("{", tStart), tEnd)});`)() as Record<Lang, Copy>)[lang] ?? fail("read the copy");
+const esc = (v: string) => v.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const text = (key: string) => (typeof copy[key] === "string" ? (copy[key] as string).replace(/<[^>]+>/g, "") : "");
+/** Fill every empty element that names a copy key, and a few that the script fills by id. */
+const byId: Record<string, string> = { "bar-title": "bar_title", "rate-label": "rate_label", "margin-label": "f_margin", "h-margin": "h_margin", "fact-rev-label": "fact_rev", "head-label": "head_label", "chart-title": "chart_title" };
+const fill = (h: string) =>
+  h
+    .replace(/(<(\w+)\b[^>]*\bdata-i18n="(\w+)"[^>]*>)(<\/\2>)/g, (m, open: string, _tag: string, key: string, close: string) => (text(key) ? open + esc(text(key)) + close : m))
+    .replace(/(<(\w+)\b[^>]*\bid="([\w-]+)"[^>]*>)(<\/\2>)/g, (m, open: string, _tag: string, id: string, close: string) => (byId[id] && text(byId[id]) ? open + esc(text(byId[id])) + close : m));
+const introHtml = fill(intro);
+markup = fill(markup);
+if (!/<h1[^>]*>[^<]+<\/h1>/.test(introHtml)) fail("fill the headline");
+
+// What the script builds on the fly: the cost items with their explanations, and the terms
+// explained behind the "i" buttons. Same wording, as plain lists. The block is removed the
+// moment scripts run, so visitors with JavaScript only ever see the interactive version.
+const items = Object.keys(copy)
+  .filter((k) => k.startsWith("a_") && Array.isArray(copy[k]))
+  .map((k) => copy[k] as string[]);
+const termOf = (k: string) => text(`f_${k}`) || text(k) || text(`fact_${k}`) || text(`mk_${k}`) || text(`m_${k}`) || text(`${k}_title`);
+const terms = Object.keys(copy)
+  .filter((k) => k.startsWith("tip_") && k !== "tip_more" && !k.startsWith("tip_y_"))
+  .map((k) => [termOf(k.slice(4)), text(k)])
+  .filter(([term, body]) => term && body);
+const pre = {
+  de: { items: "Kosten, die der Rechner berücksichtigt", terms: "Begriffe", note: "Der Rechner selbst braucht JavaScript. Die Erklärungen stehen hier als Text." },
+  en: { items: "Costs the calculator takes into account", terms: "Terms", note: "The calculator itself needs JavaScript. The explanations are here as text." },
+}[lang];
 ---
 
 <Base lang={lang} page={page}>
@@ -129,13 +176,39 @@ script = script.replace(/document\.body\.appendChild\(/g, "(document.getElementB
       <section class="tl-hero">
         <Backdrop tone="paper" />
         <div class="container">
-          <div class="tool" set:html={intro} />
+          <div class="tool" set:html={introHtml} />
         </div>
       </section>
 
       <section class="tl-body">
         <div class="container">
           <div class="tool" id="tool" set:html={markup} />
+          <div class="tool-pre" id="tool-pre">
+            {items.length > 0 && (
+              <>
+                <h2>{pre.items}</h2>
+                <dl>
+                  {items.map(([name, desc]) => (
+                    <div>
+                      <dt>{name}</dt>
+                      <dd>{desc}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </>
+            )}
+            <h2>{pre.terms}</h2>
+            <dl>
+              {terms.map(([term, body]) => (
+                <div>
+                  <dt>{term}</dt>
+                  <dd>{body}</dd>
+                </div>
+              ))}
+            </dl>
+            <noscript><p>{pre.note}</p></noscript>
+          </div>
+          <script is:inline>document.getElementById("tool-pre")?.remove();</script>
         </div>
       </section>
 
